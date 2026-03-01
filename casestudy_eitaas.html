@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: EITaaS / Department of the Air Force | Shannon L Coleman, PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --af-blue: #003087;
+    --af-light: #2e6db4;
+    --silver: #8a9bb0;
+    --silver-pale: #f0f3f7;
+    --gold: #d4a017;
+    --gold-pale: #fdf8ed;
+    --white: #ffffff;
+    --ink: #1c2b3a;
+    --ink-light: #3d5068;
+    --rule: #dde3ec;
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Libre Baskerville', Georgia, serif;
+    --sans: 'Mulish', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--silver-pale); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; }
+
+  .masthead { background: var(--af-blue); color: var(--white); padding: 56px 0 0; position: relative; overflow: hidden; }
+  .masthead::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold) 0%, #f0c040 40%, var(--gold) 100%); }
+  .masthead-inner { max-width: 900px; margin: 0 auto; padding: 0 48px; position: relative; }
+  .program-tag { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+  .program-tag::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+  .case-title { font-family: var(--serif); font-size: clamp(28px, 4.5vw, 48px); font-weight: 400; line-height: 1.2; margin-bottom: 20px; }
+  .case-title em { font-style: italic; color: var(--gold); }
+  .deck { font-size: 16px; color: rgba(255,255,255,0.62); max-width: 640px; line-height: 1.72; margin-bottom: 52px; font-weight: 300; }
+  .meta-strip { display: flex; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); }
+  .meta-item { padding: 18px 32px 18px 0; margin-right: 32px; border-right: 1px solid rgba(255,255,255,0.1); }
+  .meta-item:last-child { border-right: none; }
+  .meta-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
+  .meta-value { font-size: 13px; color: rgba(255,255,255,0.78); font-weight: 400; }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 0 48px 100px; }
+  .section { padding: 68px 0 0; }
+  .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--af-light); margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 48px; }
+  .section-heading { font-family: var(--serif); font-size: clamp(22px, 3.5vw, 32px); font-weight: 400; line-height: 1.25; margin-bottom: 28px; color: var(--af-blue); }
+  .section-heading em { font-style: italic; color: var(--af-light); }
+  p { font-size: 15.5px; line-height: 1.85; color: var(--ink-light); margin-bottom: 18px; max-width: 700px; }
+  p strong { color: var(--ink); font-weight: 500; }
+
+  .context-box { background: var(--af-blue); padding: 32px 38px; margin: 32px 0; border-radius: 2px; position: relative; }
+  .context-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
+  .context-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .context-box p { color: rgba(255,255,255,0.7); max-width: 100%; font-size: 14.5px; margin-bottom: 10px; }
+  .context-box p:last-child { margin-bottom: 0; }
+
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 28px 0; border-radius: 2px; overflow: hidden; }
+  .stat { background: var(--white); padding: 20px 16px; text-align: center; }
+  .stat-num { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--af-blue); line-height: 1; margin-bottom: 6px; }
+  .stat-num.gold { color: var(--gold); }
+  .stat-desc { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); line-height: 1.4; }
+
+  .methods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 28px 0; }
+  .method-card { background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--af-light); padding: 20px 22px; }
+  .method-num { font-family: var(--mono); font-size: 9px; color: var(--af-light); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+  .method-name { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .method-detail { font-size: 12px; color: var(--ink-light); line-height: 1.55; }
+
+  .persona-grid { margin: 28px 0; border: 1px solid var(--rule); border-radius: 2px; overflow: hidden; }
+  .persona-row { display: grid; grid-template-columns: 190px 1fr 1fr; background: var(--white); border-bottom: 1px solid var(--rule); }
+  .persona-row:last-child { border-bottom: none; }
+  .persona-row.header { background: var(--af-blue); }
+  .persona-cell { padding: 16px 18px; font-size: 13.5px; color: var(--ink-light); line-height: 1.55; border-right: 1px solid var(--rule); vertical-align: top; }
+  .persona-cell:last-child { border-right: none; }
+  .persona-row.header .persona-cell { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border-right-color: rgba(255,255,255,0.12); }
+  .persona-name { font-weight: 600; color: var(--ink); font-size: 13.5px; margin-bottom: 3px; }
+  .persona-sub { font-family: var(--mono); font-size: 9.5px; color: var(--af-light); letter-spacing: 0.06em; }
+  .xla-metric { font-weight: 600; color: var(--ink); font-size: 13px; margin-bottom: 4px; }
+  .xla-sub { font-size: 12px; color: var(--ink-light); line-height: 1.5; }
+
+  .insight-box { background: var(--gold-pale); border: 1px solid rgba(212,160,23,0.3); border-left: 3px solid var(--gold); padding: 28px 32px; margin: 32px 0; }
+  .insight-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .insight-box p { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--ink); max-width: 100%; margin-bottom: 0; line-height: 1.6; }
+
+  .rec-item { padding: 28px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 160px 1fr; gap: 32px; align-items: start; }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--af-light); line-height: 1.6; padding-top: 3px; }
+  .rec-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .rec-text { font-size: 14.5px; color: var(--ink-light); margin-bottom: 0; max-width: 100%; line-height: 1.75; }
+
+  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0; }
+  .impact-card { background: var(--white); border: 1px solid var(--rule); padding: 22px 24px; border-radius: 2px; position: relative; }
+  .impact-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--af-blue); }
+  .impact-card.gold::before { background: var(--gold); }
+  .impact-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--af-light); margin-bottom: 10px; }
+  .impact-text { font-size: 14px; color: var(--ink); line-height: 1.6; font-weight: 400; margin-bottom: 0; max-width: 100%; }
+
+  .coin-box { background: var(--af-blue); padding: 36px 40px; margin: 40px 0; border-radius: 2px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start; }
+  .coin-icon { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 26px; margin-top: 4px; }
+  .coin-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .coin-title { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--white); margin-bottom: 12px; line-height: 1.35; }
+  .coin-box p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 10px; max-width: 100%; }
+  .coin-box p:last-child { margin-bottom: 0; }
+
+  .reflection { background: var(--white); border: 1px solid var(--rule); padding: 38px 42px; margin-top: 44px; border-radius: 2px; }
+  .reflection p { max-width: 100%; }
+
+  .footer { background: var(--af-blue); color: rgba(255,255,255,0.45); text-align: center; padding: 28px 40px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; line-height: 2; }
+  .footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 700px) {
+    .masthead-inner, .content { padding-left: 24px; padding-right: 24px; }
+    .rec-item { grid-template-columns: 1fr; gap: 8px; }
+    .coin-box { grid-template-columns: 1fr; }
+    .persona-row { grid-template-columns: 1fr; }
+    .persona-row.header { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="program-tag">EITaaS Risk Reduction Effort &nbsp;|&nbsp; Department of the Air Force &nbsp;|&nbsp; 2022-2023</div>
+    <h1 class="case-title">Redefining <em>What "Working IT"</em><br>Means for 800,000 Airmen</h1>
+    <p class="deck">Research lead and trusted advisor on the EITaaS Risk Reduction Effort, where I developed the User Persona Framework and Experience Level Agreement model that shifted the Department of the Air Force from base-centric IT to an enterprise service model, and directly shaped the requirements for a $5.7 billion contract.</p>
+    <div class="meta-strip">
+      <div class="meta-item">
+        <span class="meta-label">Program</span>
+        <span class="meta-value">EITaaS / Dept. of the Air Force</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Engagement</span>
+        <span class="meta-value">2022 to 2023</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">My Role</span>
+        <span class="meta-value">Research Lead and Trusted Advisor</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Organization</span>
+        <span class="meta-value">Isobar Public Sector (subcontractor)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+
+  <section class="section">
+    <div class="section-label">01 &nbsp; Context</div>
+    <h2 class="section-heading">The Air Force had been measuring IT success<br><em>with the wrong instruments</em></h2>
+    <p>For decades, the Department of the Air Force managed IT the same way most large organizations do: locally, redundantly, and expensively. Over 230 separate organizations could make changes on the network. More than 80 distinct authority-to-operate boundaries fragmented the enterprise. Every base bought its own hardware, managed its own helpdesk, and defined "working IT" for itself. The result was massive duplication, inconsistent security posture, and a user experience that varied wildly from installation to installation.</p>
+    <p>EITaaS, Enterprise IT as a Service, was the Air Force's answer: transition from a base-by-base model to a centralized commercial enterprise service, and free Airmen and Guardians from first-level IT support work so they could focus on the missions they were trained for. The Risk Reduction Effort was a pilot across nine installations, designed to validate whether the model worked before the Air Force committed to scaling it across 800,000 personnel under a $5.7 billion contract.</p>
+
+    <div class="context-box" style="background: #1c2b3a;">
+      <div class="context-label">The Baseline &mdash; What "Before" Looked Like</div>
+      <p>In 2022, Michael Kanaan, then-Director of Operations for the USAF-MIT Artificial Intelligence Accelerator, posted an open letter that went viral across the defense community. It became the public articulation of what everyone who worked in DoD IT already knew privately.</p>
+      <p style="font-family: var(--serif); font-style: italic; font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7;">"Dear DoD, You tell us to Accelerate change or lose, then fix our computers. Before buying another plane, tank, or ship, fix our computers. Yesterday, I spent an hour waiting just to log on. Fix our computers&hellip; You lost literally hundreds of thousands of employee hours last year because computers don't work&hellip; I Googled how much the computer under my desk costs in the real world. It was $108 dollars&hellip; Making computers so useless that nobody can hack them is not a strategy (yet they hack them anyway)&hellip; Sincerely and on behalf of, Every DoD employee."</p>
+      <p>The letter received over 1,700 reactions and forced a public response from DoD CIOs. The specific failures it named, hour-long login times, Excel freezing and forcing restarts, Tanium and McAfee consuming 40% of machine resources fighting each other, 10 forced restarts in a single day, were not edge cases. They were the baseline. This was the environment the EITaaS research was designed to measure, and that the program was designed to fix.</p>
+    </div>
+
+    <div class="context-box">
+      <div class="context-label">Where Isobar Fit</div>
+      <p>Isobar Public Sector was not part of the delivery team. We served as Trusted Advisors and Subject Matter Experts to DAF program leadership, operating under the Architecture and Integration Directorate and advising the Cyber Security Team on RRE initiatives. Our role was to bridge commercial best practices and military requirements, with a specific focus on human-centered design and modernization strategy.</p>
+      <p>I led the research and UX strategy work. My primary deliverables were the User Persona Framework and the Experience Level Agreement model, which together changed how the Air Force defined, measured, and procured IT service outcomes. Those frameworks went directly into the Wave 1 and Wave 2 solicitation requirements.</p>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">800k+</div><div class="stat-desc">DAF personnel served</div></div>
+      <div class="stat"><div class="stat-num">$5.7B</div><div class="stat-desc">Wave 1 contract value</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-desc">Pilot installations</div></div>
+      <div class="stat"><div class="stat-num">84%</div><div class="stat-desc">Faster device startup at pilot bases</div></div>
+      <div class="stat"><div class="stat-num gold">5</div><div class="stat-desc">User personas developed and championed</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">02 &nbsp; Approach</div>
+    <h2 class="section-heading">Research that had to serve<br><em>two masters simultaneously</em></h2>
+    <p>The research mandate was dual. I needed to understand the current state IT experience across the nine RRE pilot bases, and I needed to define what the future state should look like in terms specific enough to write into a contract. The second part is where the work became unusual: not just documenting what users experienced, but translating those experiences into procurement-grade performance standards.</p>
+    <div class="methods-grid">
+      <div class="method-card">
+        <div class="method-num">01</div>
+        <div class="method-name">Stakeholder Interviews</div>
+        <div class="method-detail">In-depth interviews across all nine pilot installations, spanning Airmen, Guardians, and IT personnel in diverse roles and operational contexts.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">02</div>
+        <div class="method-name">Surveys</div>
+        <div class="method-detail">Quantitative surveys across the pilot base population to establish baseline experience metrics and track change over the course of the RRE.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">03</div>
+        <div class="method-name">Usability Testing</div>
+        <div class="method-detail">Moderated testing of new IT service touchpoints including the enterprise service desk interface, to identify friction before broader deployment.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">04</div>
+        <div class="method-name">Service Design and Journey Mapping</div>
+        <div class="method-detail">Mapped the end-to-end IT service experience from the user's perspective, from the moment something breaks to resolution, across multiple user types and operational contexts.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">05</div>
+        <div class="method-name">Persona Development</div>
+        <div class="method-detail">Developed a five-persona framework through research synthesis, segmenting 800,000+ personnel by operational context, mobility, technical need, and mission profile.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">06</div>
+        <div class="method-name">XLA Framework Design</div>
+        <div class="method-detail">Translated persona-specific user needs into Experience Level Agreements, shifting contract measurement from server uptime to mission-productivity outcomes.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">03 &nbsp; The Persona Framework</div>
+    <h2 class="section-heading">Five personas that changed<br><em>what the Air Force bought</em></h2>
+    <p>The core insight driving the persona work was that treating 800,000 Airmen and Guardians as a single user type was the root cause of both the cost problem and the experience problem. A desk-bound administrative specialist and a flightline maintenance technician have fundamentally different IT needs, operate in different environments, and define "working IT" differently. A procurement model that ignored those differences would keep buying the wrong equipment for the wrong people.</p>
+    <p>I developed and championed five strategic personas through the research, each grounded in interview and survey data from the RRE pilot bases. Each persona directly shaped technology decisions, tiered service design, and the XLA framework that went into the Wave 1 requirements.</p>
+
+    <div class="persona-grid">
+      <div class="persona-row header">
+        <div class="persona-cell">Persona</div>
+        <div class="persona-cell">What the Research Showed</div>
+        <div class="persona-cell">What It Drove</div>
+      </div>
+      <div class="persona-row">
+        <div class="persona-cell">
+          <div class="persona-name">The Garrison User</div>
+          <div class="persona-sub">Desk-bound / administrative</div>
+        </div>
+        <div class="persona-cell">Predictable, high-volume routine tasks. Primary frustrations were slow startup times and unreliable self-service tools. Needed reliability, not raw compute power.</div>
+        <div class="persona-cell">
+          <div class="xla-metric">Zero-Touch Resolution</div>
+          <div class="xla-sub">AI-enabled self-service for routine tasks; right-sized hardware at lower cost; First Contact Resolution rate as primary XLA metric</div>
+        </div>
+      </div>
+      <div class="persona-row">
+        <div class="persona-cell">
+          <div class="persona-name">The Mobile Warrior</div>
+          <div class="persona-sub">Frequently mobile across bases</div>
+        </div>
+        <div class="persona-cell">Lost productivity during location transitions. Needed secure, seamless connectivity across environments without helpdesk dependency each time they moved.</div>
+        <div class="persona-cell">
+          <div class="xla-metric">Time-to-Productivity</div>
+          <div class="xla-sub">Microsoft Intune (Unified Endpoint Management) and BYOAD policy; XLA measured by Intune policy application speed and access point availability</div>
+        </div>
+      </div>
+      <div class="persona-row">
+        <div class="persona-cell">
+          <div class="persona-name">The Power User</div>
+          <div class="persona-sub">Cyber, intel, engineering roles</div>
+        </div>
+        <div class="persona-cell">Standard service tiers throttled specialized workflows. Heavy compute and specialized application requirements were incompatible with general provisioning.</div>
+        <div class="persona-cell">
+          <div class="xla-metric">Application Latency and MTTR</div>
+          <div class="xla-sub">Tiered Service Model with dedicated high-compute provisioning; stricter technical MTTR targets separate from standard service SLAs</div>
+        </div>
+      </div>
+      <div class="persona-row">
+        <div class="persona-cell">
+          <div class="persona-name">The Flightline User</div>
+          <div class="persona-sub">Maintenance and logistics crews</div>
+        </div>
+        <div class="persona-cell">Harsh environments, offline requirements, ruggedized needs. Fast login and sync times were operationally critical; delays had direct maintenance implications in the field.</div>
+        <div class="persona-cell">
+          <div class="xla-metric">Startup Time and Data Transfer</div>
+          <div class="xla-sub">RRE benchmarks (84% faster startup, 59% faster data transfer) written to this persona; ruggedized device specs and offline resiliency requirements</div>
+        </div>
+      </div>
+      <div class="persona-row">
+        <div class="persona-cell">
+          <div class="persona-name">The Remote / Teleworker</div>
+          <div class="persona-sub">Distributed and off-base personnel</div>
+        </div>
+        <div class="persona-cell">Gained priority during the RRE as remote work surged. VDI instability and VPN friction were dominant failure modes, with high ticket reopen rates indicating issues not being resolved correctly the first time.</div>
+        <div class="persona-cell">
+          <div class="xla-metric">VDI Uptime and Ticket Reopen Rate</div>
+          <div class="xla-sub">VDI stability and cloud access point requirements; 2% reduction in ticket reopen rate established as XLA success threshold</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-label">The Strategic Shift</div>
+      <p>By mapping specific mission-productivity outcomes to each persona, the Air Force could move from paying for IT staff headcount per base to paying for the attainment of experience outcomes. That is what made outcome-based contracting possible at this scale, and it required the persona research to exist first.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">04 &nbsp; The XLA Framework</div>
+    <h2 class="section-heading">Measuring what the mission needs,<br><em>not just what the server does</em></h2>
+    <p>Traditional IT contracts measure performance in terms of system availability: is the server running, how long did it take to close a ticket, what percentage of the network was up this quarter. These metrics are real and necessary. They are also insufficient for understanding whether Airmen can actually do their jobs.</p>
+    <p>I developed the Experience Level Agreement framework as a parallel measurement layer, grounded in the persona research and designed to capture what operational IT performance looked like from the user's perspective. Each XLA was tied to a specific persona's definition of mission success, and together they shifted the contract evaluation model from server-centric to human-centric.</p>
+
+    <div class="rec-item">
+      <div class="rec-tag">The Core Shift</div>
+      <div>
+        <div class="rec-title">From "Is the server up?" to "Can the Airman work?"</div>
+        <p class="rec-text">SLAs measure whether systems meet technical thresholds. XLAs measure whether users can accomplish what they need to accomplish. The distinction matters because a system can meet every SLA and still produce a terrible user experience. For the Air Force, a terrible user experience is not just a satisfaction problem. It is a mission readiness problem.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Right-Sized Provisioning</div>
+      <div>
+        <div class="rec-title">Hardware and support scaled to actual operational need</div>
+        <p class="rec-text">The persona framework enabled the Air Force to stop buying identical equipment for every Airman regardless of need. Garrison Users could be provisioned with reliable, cost-appropriate devices. Power Users and Flightline Users could receive the hardware their roles actually required. Instead of a standard configuration across the enterprise, hardware could be matched to mission profile, producing significant cost efficiencies without degrading capability where capability mattered most.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Tiered Service Desk</div>
+      <div>
+        <div class="rec-title">AI self-service for routine issues; human expertise reserved for complex ones</div>
+        <p class="rec-text">The Tiered Enterprise Service Desk model I helped establish routed Garrison User requests through AI-enabled self-service channels for routine tasks like password resets and software requests, measuring success through First Contact Resolution rates. Complex issues from Power Users and Flightline Users escalated to specialized technicians with dedicated MTTR commitments. The result was a service model that was simultaneously more efficient and more capable across different user types.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Acquisition Shape</div>
+      <div>
+        <div class="rec-title">Research that went into the solicitation requirements</div>
+        <p class="rec-text">The persona framework and XLA model were not just internal deliverables. They informed the requirements that went into the Wave 1 and Wave 2 solicitations. The multi-vendor frontend strategy Isobar helped shape, specifically designed to prevent vendor lock-in by separating the delivery model into best-of-breed commercial components, drew directly on the persona-segmented service design work I led.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">05 &nbsp; Recognition</div>
+    <div class="coin-box">
+      <div class="coin-icon">🪙</div>
+      <div>
+        <div class="coin-label">Commander's Commendation &nbsp;|&nbsp; U.S. Air Force</div>
+        <div class="coin-title">Challenge Coin awarded by the Chief Experience Officer of the United States Air Force</div>
+        <p>A Challenge Coin is a discretionary personal commendation given directly by a senior official, not a program milestone or routine recognition. It is awarded when someone's contribution is considered personally worthy of acknowledgment by someone with the authority and no obligation to do so.</p>
+        <p>The Chief Experience Officer of the USAF awarded this coin specifically for the work of leading the transition to a user-centered service model and establishing experience-level standards across the Department of the Air Force's digital modernization program. That this recognition came from the person responsible for experience across the entire Air Force speaks to where the work landed.</p>
+        <p>For those unfamiliar with the tradition: a Challenge Coin from a senior official is not given routinely. It is given when the work mattered to someone who understood what it cost to do it right.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">05b &nbsp; Collaboration</div>
+    <h2 class="section-heading">Earning influence without<br><em>contractual authority</em></h2>
+
+    <p>Isobar's role on EITaaS was structurally unusual: we were not part of the primary delivery contract but served as trusted advisor and subject matter expert to Department of the Air Force program leadership, operating under the Architecture and Integration Directorate. That positioning shaped everything about how collaboration worked. Influence had to be earned through the quality of the work rather than backed by contractual authority.</p>
+
+    <p>Within that structure, I worked closely with DAF program leadership, the Cyber Security team on RRE initiatives, and program stakeholders across nine pilot installations. The research touched people in fundamentally different working environments: administrative staff, flightline maintenance crews, intelligence personnel, remote workers. Coordinating access and participation across that range of environments required sustained effort with the Air Force survey office, which controlled survey deployment and had its own requirements and timelines. Building that working relationship took real investment, and it was the prerequisite for being able to do the research at all.</p>
+
+    <p>The most important collaborative relationship was with DAF program leadership, for whom I served as the bridge between commercial UX best practices and military operational requirements. Translating concepts like experience-level agreements and persona-driven service design to an audience steeped in procurement and technical delivery language, and doing it well enough that those concepts ended up written into contract solicitation requirements, required genuine effort to understand their constraints and incentives rather than simply presenting findings and expecting them to land.</p>
+
+  </section>
+
+  <section class="section">
+    <div class="section-label">06 &nbsp; Impact</div>
+    <h2 class="section-heading">From pilot results to<br><em>a $5.7 billion commitment</em></h2>
+    <p>The RRE produced dramatic, measurable improvements at the nine pilot installations. Senior Air Force leadership publicly cited those user experience gains as the primary basis for confidence in proceeding with Wave 1. The research, personas, and XLA framework I developed were the infrastructure through which that confidence was built, measured, and communicated to decision-makers.</p>
+
+    <p>The pre/post survey data told the story most clearly at Gunter Annex, which was furthest along in the EITaaS transition at the time of measurement. Overall NIPR satisfaction at Gunter reached a mean of 73.6 out of 100, compared to means of 44.4, 46.4, and 43.2 at the other three measured bases still in earlier transition stages. Speed satisfaction at Gunter was 72.9 versus mid-40s elsewhere. Reliability satisfaction was 68.2 at Gunter versus low-to-mid 40s at the others. The gap is not noise. It is what the EITaaS model looks like when it is working. The baseline problem the survey also captured: at the pre-transition bases, between 40% and 69% of users reported slow network speeds affecting their ability to work daily or weekly. The 59% faster data transfer result is more meaningful when you understand that baseline.</p>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-label">Device Performance</div>
+        <p class="impact-text">84% faster startup times and 59% faster data transfer at pilot bases, measured against the baseline framework established during the RRE</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">Network and Security</div>
+        <p class="impact-text">3x faster network speeds versus legacy AFNET; 92% reduction in security event workload for IT personnel across pilot installations</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">Acquisition Impact</div>
+        <p class="impact-text">Persona framework and XLA model went directly into Wave 1 and Wave 2 solicitation requirements, shaping how a $5.7B contract was written and evaluated</p>
+      </div>
+      <div class="impact-card gold">
+        <div class="impact-label">Commander's Commendation</div>
+        <p class="impact-text">Challenge Coin awarded by the Chief Experience Officer of the USAF for leading the transition to a user-centered service model</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 8px; font-size: 14.5px; color: var(--ink-light); max-width: 700px;">The Wave 1 program, built on the foundation of the RRE research and the persona and XLA frameworks I developed, has continued to produce measurable outcomes since full deployment.</p>
+
+    <div class="impact-grid" style="margin-top: 16px;">
+      <div class="impact-card">
+        <div class="impact-label">Answer Speed</div>
+        <p class="impact-text">DAF average service desk answer speed of 19 seconds, enabled by AI-powered triage routing tickets to the correct technician instantly</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">Customer Satisfaction</div>
+        <p class="impact-text">10% increase in customer satisfaction since early 2025, tracked through the continuous feedback loops and user touchpoint surveys built into the XLA measurement model</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">Ticket Reopen Rate</div>
+        <p class="impact-text">Significant reduction in ticket reopen rates, confirming the Remote/Teleworker XLA threshold, that issues be resolved correctly the first time, is being met</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">21st Century Storefront</div>
+        <p class="impact-text">The UX strategy work fed directly into the 21st Century Storefront, a centralized hardware and software hub built on ServiceNow EITSM 3.0 with AI virtual agents handling natural language troubleshooting queries</p>
+      </div>
+    </div>
+
+<p style="font-size: 13.5px; color: var(--silver); font-style: italic;">Note on the contract pause: A bid protest in early 2023 temporarily paused the engagement. This was a procurement challenge unrelated to the research or program performance, resolved when the GAO denied the protest in May 2023.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">07 &nbsp; What I'd Do Differently</div>
+    <h2 class="section-heading">Three things I would<br><em>change in retrospect</em></h2>
+
+    <div class="rec-item">
+      <div class="rec-tag">Documentation</div>
+      <div>
+        <div class="rec-title">Document the XLA framework development more explicitly as a research output</div>
+        <p class="rec-text">The transition from SLA to XLA thinking was one of the most consequential things to come out of this engagement, and it emerged from the research rather than being handed down as a requirement. I would document that intellectual journey more formally: the specific interview and survey findings that made the SLA model's inadequacy visible, and the reasoning chain that led to each XLA metric. That documentation would have made the framework more defensible and more transferable to future program phases.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Continuous Listening</div>
+      <div>
+        <div class="rec-title">Build a feedback mechanism into the XLA measurement model from the start</div>
+        <p class="rec-text">The XLAs we developed were grounded in what Airmen said they needed. But user needs evolve, and a framework built on a point-in-time research base needs a mechanism for updating. I would push for a standing user feedback loop built into the program from the beginning: not just measuring whether XLA thresholds were being met, but whether the thresholds themselves were still the right ones to measure.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Stakeholder Access</div>
+      <div>
+        <div class="rec-title">Invest more time earlier in the trusted advisor relationship with program leadership</div>
+        <p class="rec-text">The advisory rather than delivery structure of Isobar's role meant that influence depended entirely on relationship quality. We built a strong working relationship with DAF program leadership, but it took time that could have been shortened with more deliberate investment upfront. The same applies to the Air Force survey office relationship, which controlled our ability to deploy research instruments at scale. Both were worth more early effort than they received.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="section-label">08 &nbsp; Reflection</div>
+    <h2 class="section-heading">What this project<br><em>was really about</em></h2>
+    <div class="reflection">
+      <p>The thing I keep coming back to on this project is the XLA work, specifically the moment of arguing that "is the server up" was not a sufficient definition of IT success for a fighting force. That argument sounds obvious in hindsight. It was not obvious to everyone in the room.</p>
+      <p>SLAs exist because they are measurable, defensible, and easy to write into contracts. XLAs require you to define what human productivity looks like for five different types of people in five different operational environments, and then figure out how to measure it at scale. That is a harder problem. It also turned out to be the problem that mattered, because the Air Force was not struggling to tell whether its servers were running. It was struggling to tell whether its people could do their jobs.</p>
+      <p>The persona work is where research methodology and acquisition strategy came together. Most user research produces findings that inform design. This work produced findings that informed a procurement. The personas were not just archetypes on a slide: they were the structure that made outcome-based contracting possible. A Flightline User's success metric is meaningless unless you know what a Flightline User actually does and why startup time matters to them at 0400 on a flight deck. You cannot write that into a contract without first doing the research to understand it.</p>
+      <p style="margin-bottom: 0;">The Challenge Coin sits on my desk. It is a reminder that research done carefully enough, and communicated clearly enough, changes things beyond the slide deck it ends up in.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  Shannon L Coleman, PhD &nbsp;&bull;&nbsp;
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+</footer>
+
+</body>
+</html>

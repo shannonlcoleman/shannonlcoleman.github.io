@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shannon L Coleman, PhD | Product Strategist & UX Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #0f1f2e;
+    --navy-mid:   #1a2f42;
+    --navy-light: #243d52;
+    --gold:       #b8901a;
+    --gold-light: #d4a82a;
+    --gold-pale:  #fdf6e3;
+    --white:      #fafaf8;
+    --text:       #1a1a1a;
+    --text-light: #444;
+    --steel:      #7a8a96;
+    --rule:       #e4e0d8;
+    --serif:      'Cormorant Garamond', Georgia, serif;
+    --mono:       'DM Mono', monospace;
+    --sans:       'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 0 48px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .site-logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .site-nav a {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .site-nav a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 100px 48px 88px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(184,144,26,0.04) 100%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-label::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(52px, 7vw, 84px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.0;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-credential {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 36px;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 40px;
+    max-width: 580px;
+    line-height: 1.5;
+  }
+
+  .hero-bio {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    max-width: 620px;
+    line-height: 1.85;
+    margin-bottom: 48px;
+  }
+
+  .hero-bio strong {
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 24px;
+    border-radius: 1px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 24px;
+    border-radius: 1px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    padding-top: 72px;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 48px;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    color: var(--navy);
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* ── CASE STUDY CARDS ── */
+  .case-studies {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 8px;
+  }
+
+  .cs-card {
+    display: grid;
+    grid-template-columns: 3px 1fr auto;
+    gap: 0;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cs-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 4px 24px rgba(15,31,46,0.08);
+  }
+
+  .cs-card:hover .cs-bar { background: var(--gold); }
+  .cs-card:hover .cs-arrow { opacity: 1; transform: translateX(0); }
+
+  .cs-bar {
+    background: var(--rule);
+    transition: background 0.2s;
+  }
+
+  .cs-body {
+    padding: 32px 36px;
+  }
+
+  .cs-meta {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 10px;
+  }
+
+  .cs-title {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .cs-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .cs-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 20px;
+  }
+
+  .cs-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .cs-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+    background: var(--gold-pale);
+    border: 1px solid rgba(184,144,26,0.18);
+    padding: 4px 10px;
+    border-radius: 1px;
+  }
+
+  .cs-arrow-wrap {
+    display: flex;
+    align-items: center;
+    padding: 32px 32px 32px 0;
+  }
+
+  .cs-arrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--text-light);
+    margin-bottom: 18px;
+    max-width: 100%;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .about-sidebar {
+    padding-top: 4px;
+  }
+
+  .sidebar-block {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .sidebar-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 10px;
+  }
+
+  .sidebar-item {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-item strong {
+    color: var(--text);
+    font-weight: 500;
+    display: block;
+    font-size: 13px;
+  }
+
+  /* ── WRITING ── */
+  .writing-link {
+    display: block;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    transition: padding-left 0.2s;
+  }
+
+  .writing-link:first-child { border-top: 1px solid var(--rule); }
+  .writing-link:hover { padding-left: 8px; }
+  .writing-link:hover .writing-title { color: var(--gold); }
+
+  .writing-pub {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 6px;
+  }
+
+  .writing-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--navy);
+    font-weight: 400;
+    line-height: 1.3;
+    transition: color 0.2s;
+  }
+
+  /* ── CONTACT ── */
+  .contact-strip {
+    background: var(--navy);
+    margin-top: 72px;
+    padding: 56px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .contact-left {}
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .contact-heading em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 24px 40px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    line-height: 2;
+  }
+
+  .footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer a:hover { color: var(--gold-light); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .site-header { padding: 0 24px; }
+    .hero { padding: 64px 24px 56px; }
+    .content { padding: 0 24px 72px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .cs-arrow-wrap { display: none; }
+    .cs-body { padding: 24px; }
+    .contact-strip { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+    .site-nav { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="#" class="site-logo">Shannon L Coleman</a>
+  <nav class="site-nav">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#writing">Writing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Portfolio</div>
+    <h1 class="hero-name">Shannon L.<br><em>Coleman</em></h1>
+    <div class="hero-credential">PhD &nbsp;&bull;&nbsp; Secret Clearance</div>
+    <p class="hero-title">Product strategist and UX researcher working at the intersection of rigorous measurement and AI product practice.</p>
+    <p class="hero-bio">Throughout my career I have been figuring out how to measure things that resist easy measurement, building systems honest about what they do not know, and knowing when a regression model answers the question and when you need to sit with a person for an hour and just listen. <strong>The best product decisions are built on both.</strong></p>
+    <div class="hero-links">
+      <a href="#work" class="btn-primary">View Case Studies</a>
+      <a href="https://linkedin.com/in/shannonlcoleman" class="btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://byshannoncoleman.substack.com" class="btn-secondary" target="_blank" rel="noopener">Ground Truth</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<main class="content">
+  <section class="section" id="work">
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-heading">Case studies in research,<br><em>strategy, and product direction</em></h2>
+
+    <div class="case-studies">
+
+      <!-- EITaaS -->
+      <a href="casestudy_eitaas.html" class="cs-card">
+        <div class="cs-bar"></div>
+        <div class="cs-body">
+          <div class="cs-meta">Department of the Air Force &nbsp;&bull;&nbsp; 2022&ndash;2023 &nbsp;&bull;&nbsp; Enterprise IT Transformation</div>
+          <div class="cs-title">When the Measure of Success<br><em>Is Whether Airmen Can Do Their Jobs</em></div>
+          <p class="cs-desc">Persona development, XLA framework design, and pre/post satisfaction research for the Air Force's enterprise IT transformation program. Research findings shaped contract requirements and provisioning strategy across nine pilot installations.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Persona Development</span>
+            <span class="cs-tag">XLA Framework</span>
+            <span class="cs-tag">Survey Research</span>
+            <span class="cs-tag">GovTech</span>
+            <span class="cs-tag">Strategic Advisory</span>
+          </div>
+        </div>
+        <div class="cs-arrow-wrap">
+          <div class="cs-arrow">Read &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Advana -->
+      <a href="casestudy_advana.html" class="cs-card">
+        <div class="cs-bar"></div>
+        <div class="cs-body">
+          <div class="cs-meta">DoD CDAO &nbsp;&bull;&nbsp; 2023&ndash;2024 &nbsp;&bull;&nbsp; Enterprise Analytics Platform</div>
+          <div class="cs-title">When a Platform Becomes<br><em>a Victim of Its Own Success</em></div>
+          <p class="cs-desc">Enterprise-scale user research, persona validation, and product roadmap development for Advana, the Department of Defense's AI and analytics platform serving 100,000 users. Research informed a $15 billion recompete and a program-level development pause.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Mixed Methods</span>
+            <span class="cs-tag">Product Roadmap</span>
+            <span class="cs-tag">Persona Validation</span>
+            <span class="cs-tag">Information Architecture</span>
+            <span class="cs-tag">GovTech</span>
+          </div>
+        </div>
+        <div class="cs-arrow-wrap">
+          <div class="cs-arrow">Read &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Health Platform -->
+      <a href="casestudy_healthplatform.html" class="cs-card">
+        <div class="cs-bar"></div>
+        <div class="cs-body">
+          <div class="cs-meta">Early-Stage Startup &nbsp;&bull;&nbsp; 2025&ndash;2026 &nbsp;&bull;&nbsp; AI Health Platform</div>
+          <div class="cs-title">The Product Was Not Broken.<br><em>The Entry Point Was.</em></div>
+          <p class="cs-desc">Usability research and strategic framework development for an AI-powered personal health platform struggling to convert awareness into active users. Research surfaced a trust gap at onboarding and produced the Trust-Transfer Model that reoriented the founders' go-to-market strategy.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Usability Research</span>
+            <span class="cs-tag">Strategic Framework</span>
+            <span class="cs-tag">HealthTech</span>
+            <span class="cs-tag">Go-to-Market</span>
+            <span class="cs-tag">Early Stage</span>
+          </div>
+        </div>
+        <div class="cs-arrow-wrap">
+          <div class="cs-arrow">Read &rarr;</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-label">About</div>
+    <h2 class="section-heading">The research background,<br><em>the product orientation</em></h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>My path to product was not linear. I started in marketing intelligence and child development research, spent years at the PhD level in quantitative methods and psychology, and moved through applied research and strategy before landing in product leadership. Most of that work had a common thread: figuring out how to measure things that resist easy measurement, and building systems honest about what they do not know.</p>
+        <p>I work primarily with AI-focused product teams, with particular depth in healthtech, govtech, and fintech. The questions I keep returning to are about decision quality: not whether an AI system produces impressive output, but whether it actually improves the decisions users are trying to make, for which users, under what conditions, and how you would know if it stopped.</p>
+        <p><strong>I am skeptical of demos. I am interested in what happens six months after launch.</strong> I think trust is a measurement problem and that most AI products are solving the wrong version of it.</p>
+        <p>I hold a current Secret clearance and have led research and strategy engagements throughout my career for Fortune 500 pharmaceutical companies, the Department of Defense, and early-stage startups. Earlier in my career I built a consumer and clinical trial recruitment research panel from zero to over 950 participants, an infrastructure project that shaped how I think about research operations and the conditions that make good research possible at scale. The scale of the work changes. The discipline does not.</p>
+      </div>
+
+      <div class="about-sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-label">Credentials</div>
+          <div class="sidebar-item"><strong>PhD in Psychology and Quantitative Methods</strong></div>
+          <div class="sidebar-item"><strong>Active Secret Clearance</strong></div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Recognition</div>
+          <div class="sidebar-item">Air Force Challenge Coin, awarded for research contributions to the EITaaS program</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Domain Experience</div>
+          <div class="sidebar-item">GovTech / Defense</div>
+          <div class="sidebar-item">HealthTech</div>
+          <div class="sidebar-item">Enterprise Analytics</div>
+          <div class="sidebar-item">AI Products</div>
+          <div class="sidebar-item">FinTech</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Methods</div>
+          <div class="sidebar-item">Large-scale survey design and analysis</div>
+          <div class="sidebar-item">In-depth interviews and qualitative synthesis</div>
+          <div class="sidebar-item">Ethnographic and observational research</div>
+          <div class="sidebar-item">Mixed methods research</div>
+          <div class="sidebar-item">Advanced statistical modeling</div>
+          <div class="sidebar-item">Persona and segmentation</div>
+          <div class="sidebar-item">Usability and concept testing</div>
+          <div class="sidebar-item">Information architecture</div>
+          <div class="sidebar-item">XLA and CX measurement</div>
+          <div class="sidebar-item">Research panel development and management</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Open To</div>
+          <div class="sidebar-item">UX Research Lead</div>
+          <div class="sidebar-item">Head of Research</div>
+          <div class="sidebar-item">Head of Insights</div>
+          <div class="sidebar-item">Experience Strategist</div>
+          <div class="sidebar-item">Research and Insights Lead</div>
+          <div class="sidebar-item">Product Manager</div>
+          <div class="sidebar-item">Research Operations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section class="section" id="writing">
+    <div class="section-label">Writing</div>
+    <h2 class="section-heading">Ground Truth on Substack:<br><em>rigorous AI product practice</em></h2>
+
+    <p style="font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 32px; max-width: 620px;">I write about evaluation frameworks, failure mode analysis, governance design, and the organizational conditions that determine whether good product thinking actually ships. The focus is on what happens after the demo.</p>
+
+    <a href="https://byshannoncoleman.substack.com" class="writing-link" target="_blank" rel="noopener">
+      <div class="writing-pub">Ground Truth &nbsp;&bull;&nbsp; Series Introduction</div>
+      <div class="writing-title">Introducing Ground Truth: A Publication on Rigorous AI Product Practice</div>
+    </a>
+    <a href="https://byshannoncoleman.substack.com" class="writing-link" target="_blank" rel="noopener">
+      <div class="writing-pub">Ground Truth &nbsp;&bull;&nbsp; Part 1 of 4</div>
+      <div class="writing-title">A Practical AI Evaluation Framework for Consumer Products</div>
+    </a>
+    <a href="https://byshannoncoleman.substack.com" class="writing-link" target="_blank" rel="noopener">
+      <div class="writing-pub">Ground Truth &nbsp;&bull;&nbsp; Substack</div>
+      <div class="writing-title">Currently publishing: A Framework for Rigorous AI Product Practice (4-part series). Next series: The Measurement Traps That Break Strategy. View all writing &rarr;</div>
+    </a>
+
+  </section>
+
+</main>
+
+<!-- CONTACT -->
+<div class="contact-strip" id="contact">
+  <div class="contact-left">
+    <div class="contact-label">Get In Touch</div>
+    <div class="contact-heading">Open to the right<br><em>conversation.</em></div>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:shannon@shannonlcoleman.com" class="btn-primary">shannon@shannonlcoleman.com</a>
+    <a href="https://linkedin.com/in/shannonlcoleman" class="btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  Shannon L. Coleman, PhD &nbsp;&bull;&nbsp;
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+</footer>
+
+</body>
+</html>

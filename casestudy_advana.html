@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Advana / DoD Enterprise Analytics | Shannon L Coleman, PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1b2f45;
+    --navy-light: #2c4a6e;
+    --paper: #f4f6f8;
+    --white: #ffffff;
+    --gold: #b8901a;
+    --gold-light: #e0b84a;
+    --gold-pale: #fdf6e3;
+    --steel: #6b8cae;
+    --rule: #d0d8e4;
+    --text: #2a3a4a;
+    --text-light: #4a5a6a;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--navy);
+    color: var(--white);
+    padding: 64px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 600px; height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 41px
+    );
+    pointer-events: none;
+  }
+
+  .masthead-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+  }
+
+  .classification {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    border: 1px solid rgba(184,144,26,0.4);
+    padding: 4px 12px;
+    margin-bottom: 32px;
+  }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5.5vw, 54px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+
+  .case-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .deck {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 52px;
+  }
+
+  .meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 4px;
+  }
+
+  .meta-item {
+    padding: 18px 36px 18px 0;
+    margin-right: 36px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .meta-item:last-child { border-right: none; }
+
+  .meta-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .meta-value {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 68px 0 0;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 48px;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.5vw, 34px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    color: var(--navy);
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  p {
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--text-light);
+    margin-bottom: 18px;
+    max-width: 700px;
+  }
+
+  p strong { color: var(--text); font-weight: 500; }
+
+  /* CONTEXT BOX */
+  .context-box {
+    background: var(--navy);
+    color: var(--white);
+    padding: 36px 40px;
+    margin: 36px 0;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .context-box::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+  }
+
+  .context-box .context-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+
+  .context-box p {
+    color: rgba(255,255,255,0.72);
+    max-width: 100%;
+    font-size: 14.5px;
+    margin-bottom: 10px;
+  }
+  .context-box p:last-child { margin-bottom: 0; }
+
+  /* METHODS */
+  .methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin: 28px 0;
+  }
+
+  .method-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--navy-light);
+    padding: 20px 22px;
+    border-radius: 0 0 2px 2px;
+  }
+
+  .method-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--steel);
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+
+  .method-name {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .method-detail {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  /* SCALE CALLOUT */
+  .scale-stat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .stat-item {
+    background: var(--white);
+    padding: 24px 26px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+  }
+
+  /* FINDINGS */
+  .finding-row {
+    display: grid;
+    grid-template-columns: 3px 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+    align-items: start;
+  }
+
+  .finding-bar {
+    background: var(--gold);
+    height: 100%;
+    min-height: 60px;
+    border-radius: 2px;
+  }
+
+  .finding-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .finding-text {
+    font-size: 14.5px;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* INSIGHT CARD */
+  .insight-card {
+    background: var(--gold-pale);
+    border: 1px solid rgba(184,144,26,0.25);
+    border-left: 3px solid var(--gold);
+    padding: 32px 36px;
+    margin: 36px 0;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .insight-card .insight-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .insight-card .insight-text {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.65;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* RECOMMENDATIONS */
+  .rec-item {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .rec-item:last-child { border-bottom: none; }
+
+  .rec-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+    line-height: 1.6;
+    padding-top: 3px;
+  }
+
+  .rec-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .rec-text {
+    font-size: 14.5px;
+    color: var(--text-light);
+    margin-bottom: 0;
+    max-width: 100%;
+    line-height: 1.75;
+  }
+
+  /* IMPACT */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+
+  .impact-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 22px 24px;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .impact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--navy);
+  }
+
+  .impact-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 10px;
+  }
+
+  .impact-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* REFLECTION */
+  .reflection {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 38px 42px;
+    margin-top: 44px;
+    border-radius: 2px;
+  }
+
+  .reflection p { max-width: 100%; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 28px 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    line-height: 2;
+  }
+
+  .footer a { color: var(--gold-light); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .masthead-inner, .content { padding-left: 24px; padding-right: 24px; }
+    .rec-item { grid-template-columns: 1fr; gap: 8px; }
+    .meta-item { border-right: none; margin-right: 0; padding-right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="classification">Research Case Study &nbsp;|&nbsp; DoD / CDAO &nbsp;|&nbsp; 2023-2024</div>
+    <h1 class="case-title">When a Platform Becomes<br><em>a Victim of Its Own Success</em></h1>
+    <p class="deck">Enterprise-scale user research and platform strategy for Advana, the Department of Defense's AI and analytics platform serving 100,000+ users across every branch of the military and civilian defense workforce.</p>
+    <div class="meta-strip">
+      <div class="meta-item">
+        <span class="meta-label">Platform</span>
+        <span class="meta-value">Advana / DoD CDAO</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Engagement</span>
+        <span class="meta-value">April 2023 to April 2024</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">My Role</span>
+        <span class="meta-value">Lead Researcher and Platform Strategist</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Organization</span>
+        <span class="meta-value">Isobar Public Sector (subcontractor)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+
+  <!-- CONTEXT -->
+  <section class="section">
+    <div class="section-label">01 &nbsp; Context</div>
+    <h2 class="section-heading">The Pentagon's most important<br><em>data platform had a user problem</em></h2>
+
+    <p>Advana is the Department of Defense's enterprise-wide AI and analytics platform, originally developed to help the comptroller's office manage financial data across thousands of disparate systems. By 2023, it had grown into something far more expansive: a platform relied on daily by decision-makers from the Secretary of Defense down, integrating data from over 400 business systems and serving a user base that had grown to roughly 100,000 people across every branch of the military and the civilian defense workforce.</p>
+
+    <p>That growth was both the platform's greatest achievement and its most pressing challenge. CDAO leadership described Advana publicly as "a victim of its own success." The platform had scaled faster than its architecture, its user experience, and its understanding of who was actually using it and why.</p>
+
+    <div class="context-box">
+      <div class="context-label">The Presenting Problem</div>
+      <p>Engagement was lower than expected given the platform's enterprise mandate. A major contract decision was approaching. And the CDAO needed a clear, research-grounded picture of its user base before committing to the next phase of investment and development.</p>
+      <p>Booz Allen Hamilton had already developed an initial set of personas and archetypes. Our team was brought in to validate them, pressure-test them against real users, and surface what the existing framework might be missing.</p>
+    </div>
+
+    <div class="scale-stat">
+      <div class="stat-item">
+        <div class="stat-number">100k+</div>
+        <div class="stat-label">Active users</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">400+</div>
+        <div class="stat-label">Integrated systems</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">All branches</div>
+        <div class="stat-label">Scope of user base</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$15B</div>
+        <div class="stat-label">Subsequent recompete</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section">
+    <div class="section-label">02 &nbsp; Approach</div>
+    <h2 class="section-heading">Research at the scale<br><em>the problem demanded</em></h2>
+
+    <p>The heterogeneity of Advana's user base was itself a methodological challenge. A platform serving financial analysts, logistics officers, intelligence personnel, human resources staff, and senior command leadership across every branch of the military cannot be understood through a small sample. I designed the research to match the scale and complexity of the user population, building a multi-method approach that ran simultaneously across survey, interview, and information architecture channels.</p>
+
+    <div class="scale-stat" style="margin: 28px 0;">
+      <div class="stat-item">
+        <div class="stat-number">1,382</div>
+        <div class="stat-label">Survey respondents</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">8+</div>
+        <div class="stat-label">Interview participants per user segment</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">20</div>
+        <div class="stat-label">Deliverables produced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">36%</div>
+        <div class="stat-label">Users reporting difficulty finding content</div>
+      </div>
+    </div>
+
+    <div class="methods-grid">
+      <div class="method-card">
+        <div class="method-num">01</div>
+        <div class="method-name">Segmentation Survey</div>
+        <div class="method-detail">Early-stage survey to ensure reliable representation of key user groups before the main research. 1,382 respondents across military, civilian, and contractor designations. Outputs informed persona groupings and defined the sampling frame for interviews.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">02</div>
+        <div class="method-name">SUS Survey</div>
+        <div class="method-detail">System Usability Scale deployed to assess the current UI. The SUS is a validated 10-item scale producing a standardized usability score (0-100). Outputs informed the user satisfaction report and UI assessment report.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">03</div>
+        <div class="method-name">CX Evaluation Survey</div>
+        <div class="method-detail">Multi-purpose instrument collecting CSAT data, persona validation data, pain points, task data, desired features, and journey stage inputs in a single deployment. Outputs informed nine separate deliverables, from updated personas to the product roadmap to future state navigation design.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">04</div>
+        <div class="method-name">In-Depth Interviews</div>
+        <div class="method-detail">Eight participants per user archetype segment, structured interview guide with room for exploration. Covered persona data, task flows, pain points, unmet needs, and desired capabilities across commands, branches, and roles.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">05</div>
+        <div class="method-name">Usability Studies</div>
+        <div class="method-detail">Two rounds: directed usability study on the current website, and a second study on the future state UI. Task-oriented, evaluated against heuristic criteria. Outputs fed directly into UI assessment and future state design recommendations.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">06</div>
+        <div class="method-name">Card Sort and Tree Jack</div>
+        <div class="method-detail">Card sort to design the future state information architecture: participants organized topics into categories that made sense to them. Tree jack to test and validate the proposed navigation structure. Together these produced the future state sitemap, navigation, and content model.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="section">
+    <div class="section-label">02b &nbsp; Deliverables</div>
+    <h2 class="section-heading">Twenty deliverables across<br><em>six workstreams</em></h2>
+    <p>The research did not end at findings. Each method fed a specific downstream deliverable, and the deliverables spanned the full pipeline from research synthesis through information architecture and future state design.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 28px 0;">
+      <div style="background: var(--white); border: 1px solid var(--rule); border-top: 2px solid var(--navy); padding: 20px 22px;">
+        <div class="method-num" style="color: var(--navy);">Persona Validation</div>
+        <div style="font-size: 13px; color: var(--text-light); line-height: 1.7;">Persona analysis report &bull; Persona summary document &bull; Workflow analysis document &bull; User satisfaction report &bull; Persona data mapping tables</div>
+      </div>
+      <div style="background: var(--white); border: 1px solid var(--rule); border-top: 2px solid var(--navy); padding: 20px 22px;">
+        <div class="method-num" style="color: var(--navy);">User Scenarios &amp; Journeys</div>
+        <div style="font-size: 13px; color: var(--text-light); line-height: 1.7;">User journey documents &bull; User scenarios</div>
+      </div>
+      <div style="background: var(--white); border: 1px solid var(--rule); border-top: 2px solid var(--navy); padding: 20px 22px;">
+        <div class="method-num" style="color: var(--navy);">User Requirements</div>
+        <div style="font-size: 13px; color: var(--text-light); line-height: 1.7;">User requirements document &bull; Product roadmap</div>
+      </div>
+      <div style="background: var(--white); border: 1px solid var(--rule); border-top: 2px solid var(--navy); padding: 20px 22px;">
+        <div class="method-num" style="color: var(--navy);">Information Architecture</div>
+        <div style="font-size: 13px; color: var(--text-light); line-height: 1.7;">Sitemap &bull; Navigation &bull; Site audit &bull; UI assessment report &bull; Key metrics &bull; Content model</div>
+      </div>
+      <div style="background: var(--white); border: 1px solid var(--rule); border-top: 2px solid var(--navy); padding: 20px 22px;">
+        <div class="method-num" style="color: var(--navy);">Future State Design</div>
+        <div style="font-size: 13px; color: var(--text-light); line-height: 1.7;">UI design recommendation &bull; Clickable prototype &bull; Design system recommendation</div>
+      </div>
+      <div style="background: var(--white); border: 1px solid var(--rule); border-top: 2px solid var(--navy); padding: 20px 22px;">
+        <div class="method-num" style="color: var(--navy);">Analysis of Alternatives</div>
+        <div style="font-size: 13px; color: var(--text-light); line-height: 1.7;">CMS analysis of alternatives &bull; Website rebuild analysis report &bull; Revised Advana product roadmap</div>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  <!-- PRODUCT STRATEGY -->
+  <section class="section">
+    <div class="section-label">02c &nbsp; Product Strategy</div>
+    <h2 class="section-heading">Research that fed directly<br><em>into product direction</em></h2>
+
+    <p>Two of the twenty deliverables were product roadmaps, not research reports. The first was developed in collaboration with the engagement's experience strategist and informed by early research findings and initial CDAO stakeholder input. It included strategic objectives, high-level themes, prioritized features, phased infrastructure improvements, milestones, and timeframes.</p>
+
+    <p>The second, revised roadmap came later in the engagement, after the full research picture had emerged. It incorporated both what the research had surfaced and what CDAO leadership had validated or pushed back on in interim briefings. The revision was not cosmetic. The six simultaneous failure modes the research identified changed what sequencing made sense, which infrastructure work had to come before which experience improvements, and which user segments needed to be prioritized first to unlock broader adoption.</p>
+
+    <p>Contributing to a product roadmap at this scale, for a platform used by 100,000 people across the entire Department of Defense, required holding the research findings and the organizational constraints in the same frame at the same time. That is a different kind of work than producing a findings report and handing it over.</p>
+
+  </section>
+
+  <!-- FINDINGS -->
+  <section class="section">
+    <div class="section-label">03 &nbsp; Findings</div>
+    <h2 class="section-heading">Six simultaneous failure modes<br><em>on a single platform</em></h2>
+
+    <p>What emerged from the research was not a single root cause but a constellation of interconnected problems, each compounding the others. The platform had scaled its user base without scaling the infrastructure, the user experience, or the organizational understanding needed to support that growth.</p>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div>
+        <div class="finding-title">Different branches had fundamentally different needs</div>
+        <p class="finding-text">The user base was not a single population with minor variation. Financial analysts, logistics personnel, intelligence staff, and command leadership used the platform in structurally different ways, worked with different data types, and had different definitions of what "useful" looked like. A one-size-fits-all platform architecture could not serve all of them well simultaneously.</p>
+      </div>
+    </div>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div>
+        <div class="finding-title">Infrastructure could not support the use cases being built on top of it</div>
+        <p class="finding-text">A major influx of new users had strained the underlying architecture, creating performance and reliability issues that surfaced repeatedly in interviews. Users were building workflows and analytical processes on a foundation that could not support them at scale. This was not a perception problem. It was a structural one.</p>
+      </div>
+    </div>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div>
+        <div class="finding-title">Users lacked the technical skills the platform assumed</div>
+        <p class="finding-text">The platform had been designed with a level of data literacy that was not uniformly present across its user base. Many users who needed the platform most were least equipped to use it independently, creating an adoption gap that training alone could not close without interface-level changes.</p>
+      </div>
+    </div>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div>
+        <div class="finding-title">The platform was being used differently than intended</div>
+        <p class="finding-text">Workflow mapping revealed significant divergence between designed and actual use patterns. Users had developed workarounds, partial workflows, and informal practices that reflected the platform's gaps rather than its intended capabilities. These unintended patterns were often invisible to platform leadership.</p>
+      </div>
+    </div>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div>
+        <div class="finding-title">Leadership and end users had misaligned expectations</div>
+        <p class="finding-text">What leadership believed users needed and what users reported actually needing diverged in meaningful ways. This misalignment was shaping roadmap and investment decisions without either side fully recognizing the gap. Surfacing it required getting both perspectives into the same analytical frame.</p>
+      </div>
+    </div>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div>
+        <div class="finding-title">Adoption was low despite significant investment and enterprise mandate</div>
+        <p class="finding-text">Even with a formal DoD mandate designating Advana as the department's authoritative analytics platform, voluntary active engagement remained lower than expected. The survey data showed that a substantial share of users visited only rarely or a few times a month, and most users had had access for less than a year despite the platform having existed far longer, reflecting how rapidly it had been onboarded without corresponding support infrastructure. Mandate alone cannot substitute for a platform users find genuinely useful and navigable.</p>
+      </div>
+    </div>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div>
+        <div class="finding-title">Finding content was a measurable problem</div>
+        <p class="finding-text">Ease of finding data was directly measured in the CX survey. 36% of respondents reported difficulty finding what they needed (combining extremely difficult, very difficult, and fairly difficult responses). Only 20% found content very or extremely easy to locate. In open-ended responses, users described not knowing where to go, searching across multiple community spaces without success, and relying on colleagues to navigate rather than the platform itself. This is an information architecture problem, not a user education problem, and it demanded an IA solution: the sitemap, navigation redesign, and content model that became three of the twenty deliverables.</p>
+      </div>
+    </div>
+
+    <div class="insight-card">
+      <div class="insight-label">Core Diagnostic</div>
+      <p class="insight-text">The platform had not failed. It had succeeded faster than the conditions for sustainable success had been built. The research made visible what scale had obscured: a user base that had outgrown the architecture, the interface, and the organizational model designed to support it.</p>
+    </div>
+  </section>
+
+  <!-- RECOMMENDATIONS -->
+  <section class="section">
+    <div class="section-label">03b &nbsp; Collaboration</div>
+    <h2 class="section-heading">Navigating multiple teams<br><em>with competing relationships to the research</em></h2>
+
+    <p>This project operated at the intersection of several stakeholders with different relationships to the work. Within Isobar, I worked alongside a project manager, UX designer, experience strategist, developer, and business analyst. My role was to ensure the research direction held through each phase and that findings translated into actionable design inputs rather than abstract insights.</p>
+
+    <p>Externally, I had ongoing communication with the Booz Allen Hamilton team whose existing persona framework we were charged with validating. That relationship required a particular kind of diplomatic rigor: being honest about where the prior framework needed revision while maintaining productive working relationships with the team that had built it. Receiving inherited work from another firm and stress-testing it without creating friction is a different skill than starting from scratch.</p>
+
+    <p>The most consistent challenge was translating research methodology and statistical reasoning to stakeholders without research backgrounds who nonetheless had authority over project decisions. Making the case for why sample size mattered, why certain findings were more reliable than others, and why some recommendations were more urgent than the timeline suggested was constant work. It is also what has made me a better communicator of research to non-research audiences than most researchers with purely academic backgrounds.</p>
+
+    <p>Primary research stakeholders were the CDAO's Chief Experience Architect and Chief Product Officer, to whom I presented findings and strategic recommendations directly at multiple points across the engagement.</p>
+
+  </section>
+
+  <section class="section">
+    <div class="section-label">04 &nbsp; Recommendations</div>
+    <h2 class="section-heading">Structural solutions to<br><em>structural problems</em></h2>
+
+    <p>The findings pointed to three distinct but interconnected interventions. Each addressed a different layer of the adoption problem: the infrastructure underneath, the experience on top, and the organizational model in between.</p>
+
+    <div class="rec-item">
+      <div class="rec-tag">Infrastructure First</div>
+      <div>
+        <div class="rec-title">Pause development and strengthen the underlying architecture</div>
+        <p class="rec-text">Before adding capabilities or expanding the user base further, the platform needed to address the infrastructure strain that was degrading the experience for existing users. Continued development on an unstable foundation would compound the problems already present. I delivered this recommendation directly to the CDAO's Chief Experience Architect and Chief Product Officer through both written deliverables and a formal presentation briefing. The DoD acted on it, pausing Advana development in June 2024 specifically to make infrastructure improvements.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Experience Layer</div>
+      <div>
+        <div class="rec-title">Redesign the user interface to meet users where they are</div>
+        <p class="rec-text">The interface needed to accommodate a far wider range of data literacy than it currently assumed. This meant reducing the cognitive load for less technical users without limiting the capabilities of more sophisticated ones, and making it substantially clearer where to go and what to do for users across every role and branch.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Platform Architecture</div>
+      <div>
+        <div class="rec-title">Individualize the platform through specialized components for distinct user segments</div>
+        <p class="rec-text">A single universal interface could not serve the full diversity of Advana's user base. The research supported a move toward specialized components tailored to the distinct data types, workflows, and analytical needs of different user groups across branches and functions. This recommendation aligned with what the CDAO subsequently pursued through the Open DAGIR framework: a modular, multi-vendor architecture designed to serve diverse needs rather than a single monolithic system.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="section">
+    <div class="section-label">05 &nbsp; Impact</div>
+    <h2 class="section-heading">Research that shaped<br><em>a billion-dollar decision</em></h2>
+
+    <p>The engagement ran through April 2024, after which the research and strategic framework continued informing CDAO planning. In the months that followed, the DoD took several significant actions that tracked directly with the findings and recommendations.</p>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-label">Development Pause</div>
+        <p class="impact-text">DoD paused Advana development in June 2024 to make infrastructure improvements, addressing the structural finding at the core of the research</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">Modular Architecture</div>
+        <p class="impact-text">The subsequent $15B recompete plan centered on a modular, multi-vendor architecture, reflecting the segmentation and specialization strategy surfaced in the research</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">Strategic Reframe</div>
+        <p class="impact-text">CDAO leadership publicly reframed Advana's challenges in language consistent with the research findings: "a victim of its own success" that needed to evolve its architecture and acquisition model to reach the next level of scale</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">$15B Recompete</div>
+        <p class="impact-text">In September 2024, the CDAO announced a 10-year, multi-vendor contract valued at up to $15 billion, described as the largest data and AI government acquisition in DoD history</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 24px; font-size: 14px; color: var(--steel); font-style: italic;">Note on attribution: The development pause and recompete involved many stakeholders and decision-makers across the DoD. The research contributed a user-grounded evidence base and strategic framework that informed those decisions. It is not claimed as the sole cause.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">06 &nbsp; What I'd Do Differently</div>
+    <h2 class="section-heading">Three things I would<br><em>change in retrospect</em></h2>
+
+    <div class="rec-item">
+      <div class="rec-tag">Decision Rights</div>
+      <div>
+        <div class="rec-title">Push earlier for a clear decision rights framework</div>
+        <p class="rec-text">The research produced findings that pointed in directions that challenged some existing assumptions: about the persona framework, about the platform's readiness to scale, about the infrastructure beneath it. Getting explicit alignment upfront on who had authority to act on different categories of findings would have shortened the distance between insight and action. Without it, some recommendations spent longer in deliberation than the urgency warranted.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Continuous Listening</div>
+      <div>
+        <div class="rec-title">Advocate earlier for ongoing measurement rather than a point-in-time study</div>
+        <p class="rec-text">A platform with 100,000 users and a major contract decision approaching deserved ongoing measurement, not a single research engagement. I would push earlier and more forcefully for standing up a lightweight continuous listening infrastructure: regular pulse surveys, a feedback mechanism embedded in the platform itself, so that findings could be tracked longitudinally rather than treated as a snapshot.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Information Architecture</div>
+      <div>
+        <div class="rec-title">Resource the card sort earlier in the process</div>
+        <p class="rec-text">The card sort was ultimately identified as critical for designing the future state information architecture. Getting it resourced and scheduled earlier would have given the IA deliverables a stronger empirical foundation rather than relying more heavily on interview synthesis for navigation and content model decisions.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- REFLECTION -->
+  <section class="section">
+    <div class="section-label">07 &nbsp; Reflection</div>
+    <h2 class="section-heading">What this project<br><em>was really about</em></h2>
+
+    <div class="reflection">
+      <p>The most important decision I made on this project was insisting on a sample large enough to be meaningful across a genuinely heterogeneous user population. A smaller study would have found the most visible problems and missed the structural ones. The enterprise survey was not methodological excess; it was the only way to ensure that findings about one segment were not being incorrectly applied to another.</p>
+      <p>The persona validation piece also matters more than it might appear in hindsight. I was not starting from scratch. I was handed a framework that had already shaped thinking about the platform's users, and asked to determine how much of it was accurate. That requires a different kind of intellectual discipline than building fresh. You have to hold the existing framework loosely enough to see what it gets wrong while taking seriously what it gets right.</p>
+      <p>The six failure modes I surfaced were not a surprise to everyone in the room. Some of them were known at some level. Prior to the research, the tendency had been to treat each problem as a discrete issue to be addressed on its own timeline. What the research provided was a unified, evidence-grounded account that made that approach harder to sustain. Seeing six failure modes operating simultaneously on the same platform changed what solutions looked like. That reframing mattered as much as any individual finding.</p>
+      <p style="margin-bottom: 0;">When a platform is the designated enterprise standard for the entire Department of Defense, the stakes of getting the user model wrong are not academic. This was research where the cost of confirmation bias was measured in billions of dollars and the working conditions of hundreds of thousands of people.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  Shannon L Coleman, PhD &nbsp;&bull;&nbsp;
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+</footer>
+
+</body>
+</html>
