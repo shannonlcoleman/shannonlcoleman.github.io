@@ -440,6 +440,50 @@
     font-size: 13px;
   }
 
+  /* TESTIMONIAL */
+  .testimonial-block {
+    margin-top: 56px;
+    border-left: 3px solid var(--gold);
+    padding: 32px 40px;
+    background: var(--gold-pale);
+    border-radius: 0 2px 2px 0;
+    max-width: 720px;
+  }
+
+  .testimonial-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .testimonial-quote {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .testimonial-attribution {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+  }
+
+  .testimonial-attribution strong {
+    color: var(--navy);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+  }
+
   /* WRITING */
   .writing-link {
     display: block;
@@ -555,6 +599,8 @@
     .footer { padding: 20px; }
     .writing-link { padding: 20px 0; }
     .writing-title { font-size: 17px; }
+    .testimonial-block { padding: 24px 20px; }
+    .testimonial-quote { font-size: 16px; }
   }
   @media (max-width: 480px) {
     .site-nav a { font-size: 9px; letter-spacing: 0.1em; }
@@ -577,7 +623,7 @@
     <a href="#about">About</a>
     <a href="#writing">Writing</a>
     <a href="#contact">Contact</a>
-<a href="resume.html">Resume</a>
+    <a href="resume.html">Resume</a>
   </nav>
 </header>
 
@@ -593,7 +639,7 @@
       <a href="#work" class="btn-primary">View Case Studies</a>
       <a href="https://linkedin.com/in/shannonlcoleman" class="btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://byshannoncoleman.substack.com" class="btn-secondary" target="_blank" rel="noopener">Ground Truth</a>
-<a href="resume.html" class="btn-secondary">Resume</a>
+      <a href="resume.html" class="btn-secondary">Resume</a>
     </div>
   </div>
 </section>
@@ -667,28 +713,30 @@
       </a>
 
     </div>
-   <!-- RESUME -->
-<div style="margin-top: 48px;">
-  <div class="section-label" style="margin-bottom: 20px;">Resume</div>
-  <a href="resume.html" class="cs-card" style="display: grid; grid-template-columns: 3px 1fr auto; text-decoration: none;">
-    <div class="cs-bar"></div>
-    <div class="cs-body">
-      <div class="cs-meta">Shannon L. Coleman, PhD &nbsp;&bull;&nbsp; Experience Strategist &amp; Researcher</div>
-      <div class="cs-title">Full Resume &amp; <em>Core Expertise</em></div>
-      <p class="cs-desc">Mixed methods research, product strategy, and experience design across AI platforms, HealthTech, GovTech, and regulated enterprise systems. Includes complete work history, education, and core expertise.</p>
-      <div class="cs-tags">
-        <span class="cs-tag">UX Research</span>
-        <span class="cs-tag">Product Strategy</span>
-        <span class="cs-tag">GovTech</span>
-        <span class="cs-tag">HealthTech</span>
-        <span class="cs-tag">Secret Clearance</span>
-      </div>
+
+    <!-- RESUME CARD -->
+    <div style="margin-top: 48px;">
+      <div class="section-label" style="margin-bottom: 20px;">Resume</div>
+      <a href="resume.html" class="cs-card" style="display: grid; grid-template-columns: 3px 1fr auto; text-decoration: none;">
+        <div class="cs-bar"></div>
+        <div class="cs-body">
+          <div class="cs-meta">Shannon L. Coleman, PhD &nbsp;&bull;&nbsp; Experience Strategist &amp; Researcher</div>
+          <div class="cs-title">Full Resume &amp; <em>Core Expertise</em></div>
+          <p class="cs-desc">Mixed methods research, product strategy, and experience design across AI platforms, HealthTech, GovTech, and regulated enterprise systems. Includes complete work history, education, and core expertise.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">UX Research</span>
+            <span class="cs-tag">Product Strategy</span>
+            <span class="cs-tag">GovTech</span>
+            <span class="cs-tag">HealthTech</span>
+            <span class="cs-tag">Secret Clearance</span>
+          </div>
+        </div>
+        <div class="cs-arrow-wrap">
+          <div class="cs-arrow">View &rarr;</div>
+        </div>
+      </a>
     </div>
-    <div class="cs-arrow-wrap">
-      <div class="cs-arrow">View &rarr;</div>
-    </div>
-  </a>
-</div>
+
   </section>
 
   <!-- ABOUT -->
@@ -747,6 +795,17 @@
         </div>
       </div>
     </div>
+
+    <!-- TESTIMONIAL -->
+    <div class="testimonial-block">
+      <div class="testimonial-label">Colleague Recommendation</div>
+      <div class="testimonial-quote">"Shannon is a doctoral-level researcher who profoundly understands the dynamic processes of conducting qualitative and quantitative studies. We collaborated on several significant UX and CX projects where her expertise was critical in a wide range of efforts, from survey planning to data processing and thematic analysis. Dr. Coleman's diverse background sets her apart from other researchers, making her a valuable team member and leader in the experience strategy space. Working with her extensively, I can account for her acute sense of research direction and problem-solving skills toward successful outcomes. Shannon is also an outstanding company contributor, bringing character, expertise, and insights to any occasion, fostering camaraderie and well-being."</div>
+      <div class="testimonial-attribution">
+        <strong>Damon Sanchez</strong>
+        Associate Director of Experience Strategy &nbsp;&bull;&nbsp; Isobar Public Sector
+      </div>
+    </div>
+
   </section>
 
   <!-- WRITING -->
@@ -790,7 +849,8 @@
   Shannon L. Coleman, PhD &nbsp;&bull;&nbsp;
   <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
   <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
-  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a> &nbsp;&bull;&nbsp;
+  &copy; 2026
 </footer>
 
 </body>
