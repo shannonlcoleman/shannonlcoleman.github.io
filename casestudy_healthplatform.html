@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study: AI Health Platform | Shannon L Coleman, PhD</title>
+<title>Case Study: AI Health Platform | Shannon L. Coleman, PhD</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -31,13 +31,63 @@
     min-height: 100vh;
   }
 
-  /* HEADER */
+  /* CASE STUDY NAV */
+  .cs-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 52px;
+    background: rgba(26,26,46,0.97);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .cs-nav-back {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .cs-nav-back:hover { color: var(--accent-light); }
+  .cs-nav-back::before { content: '←'; font-size: 12px; }
+  .cs-nav-studies { display: flex; gap: 4px; align-items: center; }
+  .cs-nav-study {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .cs-nav-study:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.15); }
+  .cs-nav-study.active { color: var(--accent-light); border-color: rgba(232,168,130,0.4); background: rgba(232,168,130,0.06); }
+  @media (max-width: 640px) {
+    .cs-nav { padding: 0 16px; }
+    .cs-nav-study { font-size: 8px; padding: 5px 8px; }
+  }
+
   .masthead {
     background: var(--ink);
     color: var(--paper);
     padding: 60px 0 0;
     position: relative;
     overflow: hidden;
+    margin-top: 52px;
   }
 
   .masthead::before {
@@ -95,6 +145,7 @@
 
   .meta-strip {
     display: flex;
+    flex-wrap: wrap;
     gap: 0;
     border-top: 1px solid rgba(247,245,240,0.12);
     opacity: 0;
@@ -124,21 +175,15 @@
     font-weight: 400;
   }
 
-  /* CONTENT */
   .content {
     max-width: 860px;
     margin: 0 auto;
     padding: 0 40px 100px;
   }
 
-  /* SECTION */
   .section {
     padding: 64px 0 0;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
   }
-  .section.visible { opacity: 1; transform: translateY(0); }
 
   .section-label {
     font-family: var(--mono);
@@ -186,7 +231,6 @@
     font-weight: 500;
   }
 
-  /* CALLOUT BOX */
   .callout {
     background: var(--accent-pale);
     border-left: 3px solid var(--accent);
@@ -214,10 +258,10 @@
     line-height: 1.6;
   }
 
-  /* METHODS GRID */
+  /* METHODS GRID - fixed for mobile */
   .methods-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 16px;
     margin: 32px 0;
   }
@@ -253,7 +297,6 @@
     line-height: 1.5;
   }
 
-  /* FINDINGS */
   .finding {
     display: grid;
     grid-template-columns: 48px 1fr;
@@ -288,7 +331,6 @@
     margin-bottom: 0;
   }
 
-  /* INSIGHT CARD */
   .insight-card {
     background: var(--ink);
     color: var(--paper);
@@ -329,7 +371,6 @@
     font-size: 15px;
   }
 
-  /* STRATEGY */
   .strategy-item {
     padding: 28px 0;
     border-bottom: 1px solid var(--rule);
@@ -362,10 +403,9 @@
     margin-bottom: 0;
   }
 
-  /* IMPACT */
   .impact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin: 32px 0;
   }
@@ -395,7 +435,6 @@
     margin-bottom: 0;
   }
 
-  /* REFLECTION */
   .reflection {
     background: var(--paper-warm);
     border: 1px solid var(--rule);
@@ -404,7 +443,6 @@
     border-radius: 4px;
   }
 
-  /* FOOTER */
   .footer {
     background: var(--ink);
     color: rgba(247,245,240,0.5);
@@ -420,25 +458,57 @@
     text-decoration: none;
   }
 
-  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* DIVIDER */
-  .divider {
-    height: 1px;
-    background: var(--rule);
-    margin: 48px 0 0;
+  @media (max-width: 700px) {
+    .masthead { padding: 40px 0 0; }
+    .masthead-inner, .content { padding-left: 20px; padding-right: 20px; }
+    .case-title { font-size: clamp(28px, 8vw, 46px); }
+    .deck { font-size: 14px; margin-bottom: 32px; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid rgba(247,245,240,0.12); padding: 12px 0; margin-right: 0; }
+    .meta-item:last-child { border-bottom: none; }
+    .section { padding-top: 48px; }
+    .section-heading { font-size: clamp(22px, 5.5vw, 30px); }
+    .methods-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .strategy-item { grid-template-columns: 1fr; gap: 6px; }
+    .strategy-tag { font-size: 9px; line-height: 1.4; }
+    .finding { grid-template-columns: 40px 1fr; gap: 14px; }
+    .finding-num { font-size: 38px; }
+    .finding-title { font-size: 15px; }
+    .insight-card { padding: 28px 22px; }
+    .insight-card .insight-title { font-size: 22px; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .reflection { padding: 24px 20px; }
+    p { font-size: 14.5px; max-width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .masthead-inner, .content { padding-left: 16px; padding-right: 16px; }
+    .methods-grid { grid-template-columns: 1fr; }
+    .byline { font-size: 9px; }
+    .cs-nav { padding: 0 12px; }
+    .cs-nav-study { font-size: 8px; padding: 4px 7px; letter-spacing: 0.08em; }
+    .cs-nav-back { font-size: 9px; }
   }
 </style>
 </head>
 <body>
 
+<nav class="cs-nav">
+  <a href="index.html" class="cs-nav-back">Portfolio</a>
+  <div class="cs-nav-studies">
+    <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
+    <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
+    <a href="casestudy_healthplatform.html" class="cs-nav-study active">Health Platform</a>
+  </div>
+</nav>
+
 <header class="masthead">
   <div class="masthead-inner">
-    <p class="byline">Shannon L Coleman, PhD &nbsp;/&nbsp; Research Case Study &nbsp;/&nbsp; 2025-2026</p>
+    <p class="byline">Shannon L. Coleman, PhD &nbsp;/&nbsp; Research Case Study &nbsp;/&nbsp; 2025&ndash;2026</p>
     <h1 class="case-title">When the Product Works<br>but <em>People Don't Show Up</em></h1>
     <p class="deck">A mixed-methods research engagement uncovering the psychological barriers blocking adoption of an AI-powered personal health platform, and the strategic framework built to address them.</p>
     <div class="meta-strip">
@@ -464,7 +534,6 @@
 
 <main class="content">
 
-  <!-- CONTEXT -->
   <section class="section">
     <div class="section-label">01 &nbsp; Context</div>
     <h2 class="section-heading">A product with strong fundamentals,<br><em>and a growth problem</em></h2>
@@ -472,7 +541,6 @@
     <p>I was brought in to conduct usability research and help the team understand where and why users were dropping off. What I found was more fundamental than a UX friction problem.</p>
   </section>
 
-  <!-- METHODS -->
   <section class="section">
     <div class="section-label">02 &nbsp; Approach</div>
     <h2 class="section-heading">A multi-method study designed to<br><em>follow the real story</em></h2>
@@ -507,7 +575,6 @@
     </div>
   </section>
 
-  <!-- FINDINGS -->
   <section class="section">
     <div class="section-label">03 &nbsp; Findings</div>
     <h2 class="section-heading">The product wasn't broken.<br><em>The entry point was.</em></h2>
@@ -545,7 +612,6 @@
     </div>
   </section>
 
-  <!-- STRATEGY -->
   <section class="section">
     <div class="section-label">04 &nbsp; Strategic Framework</div>
     <h2 class="section-heading">Don't change the product.<br><em>Change the context in which people meet it.</em></h2>
@@ -585,7 +651,6 @@
     </div>
   </section>
 
-  <!-- COLLABORATION -->
   <section class="section">
     <div class="section-label">04b &nbsp; Collaboration</div>
     <h2 class="section-heading">Working directly with<br><em>the people who had to act on it</em></h2>
@@ -598,7 +663,6 @@
 
   </section>
 
-  <!-- WHAT I'D DO DIFFERENTLY -->
   <section class="section">
     <div class="section-label">04c &nbsp; What I'd Do Differently</div>
     <h2 class="section-heading">Three things I would<br><em>change in retrospect</em></h2>
@@ -629,7 +693,6 @@
 
   </section>
 
-  <!-- IMPACT -->
   <section class="section">
     <div class="section-label">05 &nbsp; Impact</div>
     <h2 class="section-heading">The founders <em>acted on it.</em></h2>
@@ -656,7 +719,6 @@
     </div>
   </section>
 
-  <!-- REFLECTION -->
   <section class="section">
     <div class="section-label">06 &nbsp; Reflection</div>
     <h2 class="section-heading">What this project<br><em>was really about</em></h2>
@@ -671,7 +733,7 @@
 </main>
 
 <footer class="footer">
-  Shannon L Coleman, PhD &nbsp;&bull;&nbsp;
+  Shannon L. Coleman, PhD &nbsp;&bull;&nbsp;
   <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
   <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
   <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
