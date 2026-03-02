@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study: Advana / DoD Enterprise Analytics | Shannon L Coleman, PhD</title>
+<title>Case Study: Advana / DoD Enterprise Analytics | Shannon L. Coleman, PhD</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -34,13 +34,63 @@
     line-height: 1.7;
   }
 
-  /* MASTHEAD */
+  /* CASE STUDY NAV */
+  .cs-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 52px;
+    background: rgba(13,27,42,0.97);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .cs-nav-back {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .cs-nav-back:hover { color: var(--gold-light); }
+  .cs-nav-back::before { content: '←'; font-size: 12px; }
+  .cs-nav-studies { display: flex; gap: 4px; align-items: center; }
+  .cs-nav-study {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .cs-nav-study:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.15); }
+  .cs-nav-study.active { color: var(--gold-light); border-color: rgba(224,184,74,0.4); background: rgba(224,184,74,0.06); }
+  @media (max-width: 640px) {
+    .cs-nav { padding: 0 16px; }
+    .cs-nav-study { font-size: 8px; padding: 5px 8px; }
+  }
+
   .masthead {
     background: var(--navy);
     color: var(--white);
     padding: 64px 0 0;
     position: relative;
     overflow: hidden;
+    margin-top: 52px;
   }
 
   .masthead::after {
@@ -139,14 +189,12 @@
     font-weight: 400;
   }
 
-  /* CONTENT */
   .content {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 48px 100px;
   }
 
-  /* SECTIONS */
   .section {
     padding: 68px 0 0;
   }
@@ -195,7 +243,6 @@
 
   p strong { color: var(--text); font-weight: 500; }
 
-  /* CONTEXT BOX */
   .context-box {
     background: var(--navy);
     color: var(--white);
@@ -231,7 +278,6 @@
   }
   .context-box p:last-child { margin-bottom: 0; }
 
-  /* METHODS */
   .methods-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -268,7 +314,6 @@
     line-height: 1.5;
   }
 
-  /* SCALE CALLOUT */
   .scale-stat {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -303,7 +348,6 @@
     color: var(--steel);
   }
 
-  /* FINDINGS */
   .finding-row {
     display: grid;
     grid-template-columns: 3px 1fr;
@@ -334,7 +378,6 @@
     max-width: 100%;
   }
 
-  /* INSIGHT CARD */
   .insight-card {
     background: var(--gold-pale);
     border: 1px solid rgba(184,144,26,0.25);
@@ -364,13 +407,12 @@
     max-width: 100%;
   }
 
-  /* RECOMMENDATIONS */
   .rec-item {
     padding: 28px 0;
     border-bottom: 1px solid var(--rule);
     display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 32px;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
     align-items: start;
   }
   .rec-item:last-child { border-bottom: none; }
@@ -400,7 +442,6 @@
     line-height: 1.75;
   }
 
-  /* IMPACT */
   .impact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -440,7 +481,6 @@
     font-weight: 400;
   }
 
-  /* REFLECTION */
   .reflection {
     background: var(--white);
     border: 1px solid var(--rule);
@@ -451,7 +491,6 @@
 
   .reflection p { max-width: 100%; }
 
-  /* FOOTER */
   .footer {
     background: var(--navy);
     color: rgba(255,255,255,0.45);
@@ -465,19 +504,52 @@
 
   .footer a { color: var(--gold-light); text-decoration: none; }
 
-  /* RESPONSIVE */
-  @media (max-width: 640px) {
-    .masthead-inner, .content { padding-left: 24px; padding-right: 24px; }
-    .rec-item { grid-template-columns: 1fr; gap: 8px; }
-    .meta-item { border-right: none; margin-right: 0; padding-right: 0; }
+  @media (max-width: 700px) {
+    .masthead { padding: 40px 0 0; }
+    .masthead-inner, .content { padding-left: 20px; padding-right: 20px; }
+    .case-title { font-size: clamp(26px, 7vw, 42px); }
+    .deck { font-size: 14px; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 0; margin-right: 0; }
+    .meta-item:last-child { border-bottom: none; }
+    .section { padding-top: 48px; }
+    .section-heading { font-size: clamp(20px, 5.5vw, 30px); }
+    .methods-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .rec-item { grid-template-columns: 1fr; gap: 6px; }
+    .rec-tag { font-size: 9px; padding-top: 0; }
+    .scale-stat { grid-template-columns: repeat(2, 1fr); }
+    .impact-grid { grid-template-columns: 1fr; }
+    .context-box { padding: 24px 20px; }
+    .insight-card { padding: 24px 20px; }
+    .reflection { padding: 28px 20px; }
+    .finding-row { gap: 16px; }
+    p { font-size: 14.5px; }
+  }
+  @media (max-width: 480px) {
+    .masthead-inner, .content { padding-left: 16px; padding-right: 16px; }
+    .methods-grid { grid-template-columns: 1fr; }
+    .scale-stat { grid-template-columns: 1fr 1fr; }
+    .cs-nav { padding: 0 12px; }
+    .cs-nav-study { font-size: 8px; padding: 4px 7px; letter-spacing: 0.08em; }
+    .cs-nav-back { font-size: 9px; }
+    .stat-number { font-size: 28px; }
   }
 </style>
 </head>
 <body>
 
+<nav class="cs-nav">
+  <a href="index.html" class="cs-nav-back">Portfolio</a>
+  <div class="cs-nav-studies">
+    <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
+    <a href="casestudy_advana.html" class="cs-nav-study active">Advana</a>
+    <a href="casestudy_healthplatform.html" class="cs-nav-study">Health Platform</a>
+  </div>
+</nav>
+
 <header class="masthead">
   <div class="masthead-inner">
-    <div class="classification">Research Case Study &nbsp;|&nbsp; DoD / CDAO &nbsp;|&nbsp; 2023-2024</div>
+    <div class="classification">Research Case Study &nbsp;|&nbsp; DoD / CDAO &nbsp;|&nbsp; 2023&ndash;2024</div>
     <h1 class="case-title">When a Platform Becomes<br><em>a Victim of Its Own Success</em></h1>
     <p class="deck">Enterprise-scale user research and platform strategy for Advana, the Department of Defense's AI and analytics platform serving 100,000+ users across every branch of the military and civilian defense workforce.</p>
     <div class="meta-strip">
@@ -487,7 +559,7 @@
       </div>
       <div class="meta-item">
         <span class="meta-label">Engagement</span>
-        <span class="meta-value">April 2023 to April 2024</span>
+        <span class="meta-value">2023 to 2024</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">My Role</span>
@@ -503,7 +575,6 @@
 
 <main class="content">
 
-  <!-- CONTEXT -->
   <section class="section">
     <div class="section-label">01 &nbsp; Context</div>
     <h2 class="section-heading">The Pentagon's most important<br><em>data platform had a user problem</em></h2>
@@ -528,7 +599,7 @@
         <div class="stat-label">Integrated systems</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">All branches</div>
+        <div class="stat-number" style="font-size: 22px; line-height: 1.2;">All branches</div>
         <div class="stat-label">Scope of user base</div>
       </div>
       <div class="stat-item">
@@ -538,7 +609,6 @@
     </div>
   </section>
 
-  <!-- APPROACH -->
   <section class="section">
     <div class="section-label">02 &nbsp; Approach</div>
     <h2 class="section-heading">Research at the scale<br><em>the problem demanded</em></h2>
@@ -598,13 +668,12 @@
     </div>
   </section>
 
-  <!-- DELIVERABLES -->
   <section class="section">
     <div class="section-label">02b &nbsp; Deliverables</div>
     <h2 class="section-heading">Twenty deliverables across<br><em>six workstreams</em></h2>
     <p>The research did not end at findings. Each method fed a specific downstream deliverable, and the deliverables spanned the full pipeline from research synthesis through information architecture and future state design.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 28px 0;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 28px 0;">
       <div style="background: var(--white); border: 1px solid var(--rule); border-top: 2px solid var(--navy); padding: 20px 22px;">
         <div class="method-num" style="color: var(--navy);">Persona Validation</div>
         <div style="font-size: 13px; color: var(--text-light); line-height: 1.7;">Persona analysis report &bull; Persona summary document &bull; Workflow analysis document &bull; User satisfaction report &bull; Persona data mapping tables</div>
@@ -632,9 +701,6 @@
     </div>
   </section>
 
-  </section>
-
-  <!-- PRODUCT STRATEGY -->
   <section class="section">
     <div class="section-label">02c &nbsp; Product Strategy</div>
     <h2 class="section-heading">Research that fed directly<br><em>into product direction</em></h2>
@@ -647,7 +713,6 @@
 
   </section>
 
-  <!-- FINDINGS -->
   <section class="section">
     <div class="section-label">03 &nbsp; Findings</div>
     <h2 class="section-heading">Six simultaneous failure modes<br><em>on a single platform</em></h2>
@@ -716,7 +781,6 @@
     </div>
   </section>
 
-  <!-- RECOMMENDATIONS -->
   <section class="section">
     <div class="section-label">03b &nbsp; Collaboration</div>
     <h2 class="section-heading">Navigating multiple teams<br><em>with competing relationships to the research</em></h2>
@@ -762,7 +826,6 @@
     </div>
   </section>
 
-  <!-- IMPACT -->
   <section class="section">
     <div class="section-label">05 &nbsp; Impact</div>
     <h2 class="section-heading">Research that shaped<br><em>a billion-dollar decision</em></h2>
@@ -821,7 +884,6 @@
 
   </section>
 
-  <!-- REFLECTION -->
   <section class="section">
     <div class="section-label">07 &nbsp; Reflection</div>
     <h2 class="section-heading">What this project<br><em>was really about</em></h2>
@@ -837,7 +899,7 @@
 </main>
 
 <footer class="footer">
-  Shannon L Coleman, PhD &nbsp;&bull;&nbsp;
+  Shannon L. Coleman, PhD &nbsp;&bull;&nbsp;
   <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
   <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
   <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
