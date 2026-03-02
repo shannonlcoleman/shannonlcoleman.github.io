@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shannon L Coleman, PhD | Product Strategist & UX Researcher</title>
+<title>Shannon L. Coleman, PhD | Product Strategist &amp; UX Researcher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── HEADER ── */
+  /* HEADER */
   .site-header {
     background: var(--navy);
     padding: 0 48px;
@@ -78,7 +78,7 @@
 
   .site-nav a:hover { color: var(--gold-light); }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     background: var(--navy);
     padding: 100px 48px 88px;
@@ -132,7 +132,7 @@
 
   .hero-name {
     font-family: var(--serif);
-    font-size: clamp(52px, 7vw, 84px);
+    font-size: clamp(40px, 10vw, 84px);
     font-weight: 300;
     color: var(--white);
     line-height: 1.0;
@@ -225,14 +225,14 @@
     color: var(--gold-light);
   }
 
-  /* ── CONTENT ── */
+  /* CONTENT */
   .content {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 48px 100px;
   }
 
-  /* ── SECTION ── */
+  /* SECTION */
   .section {
     padding-top: 72px;
   }
@@ -271,7 +271,7 @@
     color: var(--gold);
   }
 
-  /* ── CASE STUDY CARDS ── */
+  /* CASE STUDY CARDS */
   .case-studies {
     display: flex;
     flex-direction: column;
@@ -374,7 +374,7 @@
     letter-spacing: 0.08em;
   }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 280px;
@@ -431,7 +431,7 @@
     font-size: 13px;
   }
 
-  /* ── WRITING ── */
+  /* WRITING */
   .writing-link {
     display: block;
     padding: 28px 0;
@@ -462,7 +462,20 @@
     transition: color 0.2s;
   }
 
-  /* ── CONTACT ── */
+  .writing-link-viewall .writing-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .writing-link-viewall .writing-title::after {
+    content: '→';
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--gold);
+  }
+
+  /* CONTACT */
   .contact-strip {
     background: var(--navy);
     margin-top: 72px;
@@ -473,8 +486,6 @@
     gap: 32px;
     flex-wrap: wrap;
   }
-
-  .contact-left {}
 
   .contact-label {
     font-family: var(--mono);
@@ -504,7 +515,7 @@
     flex-wrap: wrap;
   }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   .footer {
     background: var(--navy);
     border-top: 1px solid rgba(255,255,255,0.06);
@@ -520,16 +531,30 @@
   .footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
   .footer a:hover { color: var(--gold-light); }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 700px) {
-    .site-header { padding: 0 24px; }
-    .hero { padding: 64px 24px 56px; }
-    .content { padding: 0 24px 72px; }
+    .site-header { padding: 0 20px; }
+    .site-nav { gap: 16px; }
+    .hero { padding: 56px 20px 48px; }
+    .hero-name { font-size: clamp(38px, 11vw, 64px); }
+    .content { padding: 0 20px 64px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .cs-arrow-wrap { display: none; }
-    .cs-body { padding: 24px; }
-    .contact-strip { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
-    .site-nav { gap: 20px; }
+    .cs-body { padding: 20px; }
+    .cs-meta { font-size: 9px; }
+    .contact-strip { padding: 36px 20px; flex-direction: column; align-items: flex-start; }
+    .footer { padding: 20px; }
+    .writing-link { padding: 20px 0; }
+    .writing-title { font-size: 17px; }
+  }
+  @media (max-width: 480px) {
+    .site-nav a { font-size: 9px; letter-spacing: 0.1em; }
+    .hero-bio { font-size: 14px; }
+    .hero-links { flex-direction: column; align-items: flex-start; }
+    .btn-primary, .btn-secondary { font-size: 9px; padding: 11px 18px; }
+    .about-grid { gap: 28px; }
+    .contact-links { flex-direction: column; }
+    .btn-primary { font-size: 9px; word-break: break-all; }
   }
 </style>
 </head>
@@ -537,7 +562,7 @@
 
 <!-- HEADER -->
 <header class="site-header">
-  <a href="#" class="site-logo">Shannon L Coleman</a>
+  <a href="#" class="site-logo">Shannon L. Coleman</a>
   <nav class="site-nav">
     <a href="#work">Work</a>
     <a href="#about">About</a>
@@ -698,17 +723,17 @@
 
     <p style="font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 32px; max-width: 620px;">I write about evaluation frameworks, failure mode analysis, governance design, and the organizational conditions that determine whether good product thinking actually ships. The focus is on what happens after the demo.</p>
 
-    <a href="https://byshannoncoleman.substack.com" class="writing-link" target="_blank" rel="noopener">
+    <a href="https://byshannoncoleman.substack.com/p/introducing-ground-truth-a-publication" class="writing-link" target="_blank" rel="noopener">
       <div class="writing-pub">Ground Truth &nbsp;&bull;&nbsp; Series Introduction</div>
       <div class="writing-title">Introducing Ground Truth: A Publication on Rigorous AI Product Practice</div>
     </a>
-    <a href="https://byshannoncoleman.substack.com" class="writing-link" target="_blank" rel="noopener">
+    <a href="https://byshannoncoleman.substack.com/p/a-practical-ai-evaluation-framework" class="writing-link" target="_blank" rel="noopener">
       <div class="writing-pub">Ground Truth &nbsp;&bull;&nbsp; Part 1 of 4</div>
       <div class="writing-title">A Practical AI Evaluation Framework for Consumer Products</div>
     </a>
-    <a href="https://byshannoncoleman.substack.com" class="writing-link" target="_blank" rel="noopener">
+    <a href="https://byshannoncoleman.substack.com/" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
       <div class="writing-pub">Ground Truth &nbsp;&bull;&nbsp; Substack</div>
-      <div class="writing-title">Currently publishing: A Framework for Rigorous AI Product Practice (4-part series). Next series: The Measurement Traps That Break Strategy. View all writing &rarr;</div>
+      <div class="writing-title">View all writing at Ground Truth</div>
     </a>
 
   </section>
