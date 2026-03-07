@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Research Panel | Shannon L. Coleman, PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-dark: #0c3547;
+    --teal-mid: #1a6678;
+    --teal-light: #4a9db5;
+    --teal-pale: #edf4f6;
+    --copper: #b87333;
+    --copper-light: #d4976a;
+    --copper-pale: #f5ede4;
+    --white: #ffffff;
+    --ink: #1a2830;
+    --ink-light: #3d5560;
+    --rule: #cdd8dc;
+    --paper: #f5f8f9;
+    --paper-warm: #edf4f6;
+    --mono: 'Space Mono', monospace;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'Work Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* CASE STUDY NAV */
+  .cs-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 52px;
+    background: rgba(12,53,71,0.97);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .cs-nav-back {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .cs-nav-back:hover { color: var(--teal-light); }
+  .cs-nav-back::before { content: '←'; font-size: 12px; }
+  .cs-nav-studies { display: flex; gap: 4px; align-items: center; }
+  .cs-nav-study {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .cs-nav-study:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.15); }
+  .cs-nav-study.active { color: var(--teal-light); border-color: rgba(74,157,181,0.4); background: rgba(74,157,181,0.08); }
+  @media (max-width: 640px) {
+    .cs-nav { padding: 0 16px; }
+    .cs-nav-study { font-size: 8px; padding: 5px 8px; }
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--teal-dark);
+    color: var(--paper);
+    padding: 60px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: 52px;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,157,181,0.12) 0%, transparent 70%);
+  }
+
+  .masthead::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--copper) 0%, var(--copper-light) 50%, var(--copper) 100%);
+  }
+
+  .masthead-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .byline {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--teal-light);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5.5vw, 54px);
+    font-weight: 300;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.25s;
+  }
+
+  .case-title em {
+    font-style: italic;
+    color: var(--copper-light);
+  }
+
+  .deck {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(237,244,246,0.72);
+    max-width: 640px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  .meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid rgba(237,244,246,0.12);
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.55s;
+    padding-bottom: 8px;
+  }
+
+  .meta-item {
+    padding: 20px 32px 20px 0;
+    margin-right: 32px;
+    border-right: 1px solid rgba(237,244,246,0.12);
+  }
+  .meta-item:last-child { border-right: none; }
+
+  .meta-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .meta-value {
+    font-size: 14px;
+    color: rgba(237,244,246,0.85);
+    font-weight: 400;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+  }
+
+  .section {
+    padding: 64px 0 0;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 60px;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 400;
+    line-height: 1.22;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--teal-mid);
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.82;
+    color: var(--ink-light);
+    margin-bottom: 20px;
+    max-width: 680px;
+  }
+
+  p strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* CALLOUT / PULLQUOTE */
+  .callout {
+    background: var(--teal-pale);
+    border-left: 3px solid var(--teal-mid);
+    padding: 28px 32px;
+    margin: 36px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 10px;
+  }
+
+  .callout p {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* CONFLICT CARD — copper accent for tension */
+  .conflict-card {
+    background: var(--teal-dark);
+    color: var(--paper);
+    padding: 40px 44px;
+    margin: 40px 0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .conflict-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,115,51,0.18) 0%, transparent 70%);
+  }
+
+  .conflict-card::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--copper);
+  }
+
+  .conflict-card .callout-label {
+    color: var(--copper-light);
+    margin-bottom: 14px;
+  }
+
+  .conflict-card .conflict-title {
+    font-family: var(--serif);
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--copper-light);
+    margin-bottom: 18px;
+    line-height: 1.32;
+  }
+
+  .conflict-card p {
+    color: rgba(237,244,246,0.75);
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.78;
+    margin-bottom: 14px;
+  }
+
+  .conflict-card p:last-child { margin-bottom: 0; }
+
+  /* TECH / COMPLIANCE STACKS */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .stack-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--teal-light);
+    padding: 22px 22px 20px;
+    border-radius: 0 0 4px 4px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stack-card:hover { border-top-color: var(--teal-mid); transform: translateY(-2px); }
+
+  .stack-card.copper-top { border-top-color: var(--copper); }
+  .stack-card.copper-top:hover { border-top-color: var(--copper-light); }
+
+  .stack-icon {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--teal-mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .stack-card.copper-top .stack-icon { color: var(--copper); }
+
+  .stack-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 7px;
+    line-height: 1.3;
+  }
+
+  .stack-desc {
+    font-size: 12.5px;
+    color: var(--ink-light);
+    line-height: 1.55;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat {
+    background: var(--white);
+    padding: 24px 18px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 400;
+    color: var(--teal-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-num.copper { color: var(--copper); }
+
+  .stat-desc {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    line-height: 1.45;
+  }
+
+  /* WHAT SHE BUILT — numbered build steps */
+  .build-step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 22px;
+    margin-bottom: 40px;
+    align-items: start;
+  }
+
+  .build-num {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--rule);
+    line-height: 1;
+    text-align: right;
+    padding-top: 2px;
+  }
+
+  .build-body {}
+
+  .build-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-family: var(--sans);
+  }
+
+  .build-text {
+    font-size: 15px;
+    color: var(--ink-light);
+    line-height: 1.78;
+    margin-bottom: 0;
+  }
+
+  /* CLIENT ROW */
+  .client-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .client-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    background: var(--teal-pale);
+    border: 1px solid var(--teal-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+  }
+
+  /* STRATEGY ITEMS */
+  .strategy-item {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .strategy-item:last-child { border-bottom: none; }
+
+  .strategy-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    padding-top: 4px;
+    line-height: 1.5;
+  }
+
+  .strategy-content .strategy-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .strategy-content p {
+    font-size: 14.5px;
+    margin-bottom: 0;
+  }
+
+  /* REFLECTION / CLOSING */
+  .reflection {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--copper);
+    padding: 36px 40px;
+    margin-top: 48px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .reflection .callout-label { color: var(--copper); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--teal-dark);
+    color: rgba(237,244,246,0.45);
+    text-align: center;
+    padding: 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .footer p {
+    font-size: inherit;
+    color: inherit;
+    max-width: none;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+
+  .footer a {
+    color: var(--teal-light);
+    text-decoration: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .masthead { padding: 40px 0 0; }
+    .masthead-inner, .content { padding-left: 20px; padding-right: 20px; }
+    .case-title { font-size: clamp(28px, 8vw, 44px); }
+    .deck { font-size: 14px; margin-bottom: 32px; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid rgba(237,244,246,0.12); padding: 12px 0; margin-right: 0; }
+    .meta-item:last-child { border-bottom: none; }
+    .section { padding-top: 48px; }
+    .section-heading { font-size: clamp(22px, 5.5vw, 30px); }
+    .stack-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .strategy-item { grid-template-columns: 1fr; gap: 6px; }
+    .strategy-tag { font-size: 9px; }
+    .build-step { grid-template-columns: 42px 1fr; gap: 14px; }
+    .build-num { font-size: 40px; }
+    .build-title { font-size: 15px; }
+    .conflict-card { padding: 28px 22px; }
+    .conflict-card .conflict-title { font-size: 18px; }
+    .reflection { padding: 24px 20px; }
+    p { font-size: 14.5px; max-width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .masthead-inner, .content { padding-left: 16px; padding-right: 16px; }
+    .stack-grid { grid-template-columns: 1fr; }
+    .byline { font-size: 9px; }
+    .cs-nav { padding: 0 12px; }
+    .cs-nav-study { font-size: 8px; padding: 4px 7px; letter-spacing: 0.08em; }
+    .cs-nav-back { font-size: 9px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="cs-nav">
+  <a href="index.html" class="cs-nav-back">Portfolio</a>
+  <div class="cs-nav-studies">
+    <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
+    <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
+    <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
+    <a href="casestudy_researchpanel.html" class="cs-nav-study active">Research Panel</a>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="byline">Shannon L. Coleman, PhD &nbsp;/&nbsp; Research Operations Case Study &nbsp;/&nbsp; 2020&ndash;2022</p>
+    <h1 class="case-title">Building Research Infrastructure<br><em>Regulated Industries Will Actually Trust</em></h1>
+    <p class="deck">How a solo researcher built a 950+ participant proprietary panel from zero, under HIPAA-adjacent and FDIC-regulated constraints, by refusing a shortcut that would have destroyed what she was building.</p>
+    <div class="meta-strip">
+      <div class="meta-item">
+        <span class="meta-label">Organization</span>
+        <span class="meta-value">Crowley Webb / Praxis</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Timeline</span>
+        <span class="meta-value">2020&ndash;2022</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">My Role</span>
+        <span class="meta-value">Solo researcher &amp; panel architect</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Panel Size</span>
+        <span class="meta-value">950+ participants</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+
+  <section class="section">
+    <div class="section-label">01 &nbsp; Context</div>
+    <h2 class="section-heading">F500 pharma clients. FDIC-regulated banks.<br><em>And no panel to run research on.</em></h2>
+    <p>Crowley Webb is a full-service advertising agency with a meaningful book of business in regulated industries. The agency also owns Praxis, a clinical trial recruitment firm, and I technically worked for both organizations. That dual role is how the pharmaceutical side of the panel work took shape: Praxis brought the clinical and pharma client relationships, and I built the research infrastructure those relationships required. The client base included <strong>Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, and AbbVie</strong> on the pharmaceutical side, and <strong>M&amp;T Bank</strong> in financial services. These are environments where research data carries real compliance weight and where participant provenance actually matters to clients.</p>
+    <p>The agency had no proprietary research panel. Every study that required a screened participant pool meant going to a third-party vendor, paying vendor rates on top of the research itself, accepting whatever panel quality they offered, and working within their timelines and constraints. That was the baseline when I started. The question of whether to build something better was still open.</p>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">950+</div>
+        <div class="stat-desc">Panel participants<br>recruited</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num copper">~1</div>
+        <div class="stat-desc">Year to build<br>from zero</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Solo</div>
+        <div class="stat-desc">Researcher and<br>panel architect</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">F500</div>
+        <div class="stat-desc">pharma &amp; FinTech<br>client base</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">02 &nbsp; The Problem</div>
+    <h2 class="section-heading">What "trust" means when your clients<br><em>answer to regulators</em></h2>
+    <p>Building a research panel for a general consumer brand is one thing. Building one for clients whose industries are governed by HIPAA, FDA oversight, and FDIC regulation is something else. The participants need to be who they say they are. The data handling needs to hold up to scrutiny. The privacy architecture can't be an afterthought you patch later.</p>
+    <p>Third-party panels solve for scale and speed, and on the surface they look like the obvious move. But they come with two problems that mattered here: cost and credibility. Every study that required a screened panel meant paying a vendor premium on top of the research itself, which adds up fast across a roster of regulated-industry clients. More fundamentally, third-party panels don't solve for the kind of institutional credibility that lets a pharma client actually trust the data going to a medical affairs team. If the panel itself couldn't meet that bar, everything downstream was compromised: the research, the recommendations, and the client relationship.</p>
+    <p>That wasn't a research quality problem. That was a strategic infrastructure problem, and it needed to be treated like one.</p>
+
+    <div class="callout">
+      <div class="callout-label">The Core Constraint</div>
+      <p>A panel that can't prove its data lineage to a regulated-industry client isn't a research tool. It's a liability dressed up as a shortcut.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">03 &nbsp; The Conflict</div>
+    <h2 class="section-heading">The shortcut was available.<br><em>The consequences weren't worth it.</em></h2>
+
+    <div class="conflict-card">
+      <div class="callout-label">The Directive</div>
+      <div class="conflict-title">"Just buy email lists. It's faster."</div>
+      <p>When I proposed building a proprietary panel from organic recruitment, my manager pushed back. Purchasing email lists was the obvious shortcut: faster lead volume, lower upfront effort, results on a timeline the agency could sell to clients. It was a reasonable business instinct if you weren't thinking about what happens the moment a client asks how these participants were sourced.</p>
+      <p>I refused. Not because I wanted to make the project harder, but because I understood what a purchased list would actually cost us. A research panel is only as credible as its provenance. The moment you seed it with contacts who never opted in, you've introduced a contamination you can't remediate. With regulated-industry clients, that contamination doesn't stay theoretical. It surfaces during audits, in data governance reviews, and in the room when your client's legal team starts asking questions.</p>
+      <p>Refusing that shortcut meant I had to build the entire recruitment mechanism myself. There was no playbook for this, no existing infrastructure to inherit, and no timeline relief. What it did give me was a panel that could actually withstand scrutiny.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">04 &nbsp; What I Built</div>
+    <h2 class="section-heading">End-to-end recruitment infrastructure,<br><em>designed from scratch</em></h2>
+    <p>Without the option to buy contact lists, every participant had to be recruited through legitimate, auditable channels. That meant I needed multiple mechanisms that could generate volume while preserving consent and data integrity. I built three interlocking systems.</p>
+
+    <div class="build-step">
+      <div class="build-num">01</div>
+      <div class="build-body">
+        <div class="build-title">End-of-Survey Recruitment Flow</div>
+        <p class="build-text">I designed and built a post-completion opt-in experience directly inside Qualtrics. Participants who finished a study were presented with a clear, affirmative invitation to join the panel. The flow was sequenced so that consent was genuinely informed and separable from study participation. Joining the panel was never a condition of completing the survey, which mattered for both ethical and compliance reasons.</p>
+      </div>
+    </div>
+
+    <div class="build-step">
+      <div class="build-num">02</div>
+      <div class="build-body">
+        <div class="build-title">Referral Program with Unique Code Attribution</div>
+        <p class="build-text">I designed a referral system from scratch, including the attribution logic. Each existing panel member received a unique referral code. Referrals were tracked through a custom logic layer I built, allowing me to attribute new participants to their source, verify chain of consent, and eventually incentivize referrers through Giftbit, the reward fulfillment platform I integrated into the workflow. The attribution model mattered not just for panel growth accounting but for proving to clients that participant sourcing was traceable and clean.</p>
+      </div>
+    </div>
+
+    <div class="build-step">
+      <div class="build-num">03</div>
+      <div class="build-body">
+        <div class="build-title">Compliance Stack Built with Legal</div>
+        <p class="build-text">I built the compliance architecture in direct collaboration with the legal team, treating it as a design constraint that shaped every data handling decision rather than a post-hoc review. The resulting framework covered international and domestic requirements, including GDPR, the EU-U.S. Data Privacy Framework, APEC CBPR, and HIPAA-adjacent practices appropriate for research involving health-related data. I also worked to achieve TRUSTe certification and align the panel's data governance with ISO 27001:2022 standards. This compliance layer was not decorative; it was the thing that made the panel useful to the clients who most needed it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">05 &nbsp; Tech Stack</div>
+    <h2 class="section-heading">Purpose-built infrastructure,<br><em>not repurposed tools</em></h2>
+    <p>The technology choices were driven by the compliance and audit requirements, not the other way around. Each platform was selected for what it could handle responsibly at the data layer, not just for feature convenience.</p>
+
+    <div class="stack-grid">
+      <div class="stack-card">
+        <div class="stack-icon">Survey &amp; Recruitment</div>
+        <div class="stack-name">Qualtrics</div>
+        <div class="stack-desc">Survey platform and recruitment flow host. Used for end-of-study opt-in flow, screener logic, and study delivery.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-icon">Cloud Infrastructure</div>
+        <div class="stack-name">Microsoft Azure</div>
+        <div class="stack-desc">Cloud environment for panel data infrastructure, chosen for enterprise compliance posture and regulated-industry familiarity.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-icon">Database</div>
+        <div class="stack-name">Azure SQL Database</div>
+        <div class="stack-desc">Structured participant data storage with auditability and access controls. Also used to track panel health metrics including response rates, demographic composition, and participant activity from early in the build.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-icon">Incentive Fulfillment</div>
+        <div class="stack-name">Giftbit</div>
+        <div class="stack-desc">Reward delivery platform integrated into the referral attribution flow. Enabled clean, traceable incentive disbursement without manual handling.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">06 &nbsp; Compliance Stack</div>
+    <h2 class="section-heading">The certifications are the evidence,<br><em>not the goal</em></h2>
+    <p>The compliance stack wasn't assembled to check boxes. It was built to answer the question that regulated-industry clients are always implicitly asking: <em>can we trust this data if someone scrutinizes it?</em> Each framework addressed a specific risk surface, and together they covered the international and domestic terrain of the client base.</p>
+
+    <div class="stack-grid">
+      <div class="stack-card copper-top">
+        <div class="stack-icon">Information Security</div>
+        <div class="stack-name">ISO 27001:2022</div>
+        <div class="stack-desc">International standard for information security management. Governs how data is handled, stored, and protected across the panel infrastructure.</div>
+      </div>
+      <div class="stack-card copper-top">
+        <div class="stack-icon">EU Data Protection</div>
+        <div class="stack-name">GDPR</div>
+        <div class="stack-desc">General Data Protection Regulation. Consent architecture, data minimization, and participant rights built into the panel from the ground up.</div>
+      </div>
+      <div class="stack-card copper-top">
+        <div class="stack-icon">EU–U.S. Transfer</div>
+        <div class="stack-name">EU-U.S. Data Privacy Framework</div>
+        <div class="stack-desc">Governs lawful transfer of personal data between the EU and U.S. Essential for pharma clients with international operations.</div>
+      </div>
+      <div class="stack-card copper-top">
+        <div class="stack-icon">Asia-Pacific</div>
+        <div class="stack-name">APEC CBPR</div>
+        <div class="stack-desc">Cross-Border Privacy Rules system for APEC economies. Extends compliance coverage to Pacific-region data transfers.</div>
+      </div>
+      <div class="stack-card copper-top">
+        <div class="stack-icon">Third-Party Certification</div>
+        <div class="stack-name">TRUSTe</div>
+        <div class="stack-desc">Independent privacy certification demonstrating accountability to participants and clients beyond internal self-assessment.</div>
+      </div>
+      <div class="stack-card copper-top">
+        <div class="stack-icon">Health Data</div>
+        <div class="stack-name">HIPAA-Adjacent Practices</div>
+        <div class="stack-desc">Applied HIPAA-informed data handling for research involving health-related participant information, without formal PHI collection.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">07 &nbsp; Clients Served</div>
+    <h2 class="section-heading">The panel's first real test<br><em>was the caliber of the client</em></h2>
+    <p>The panel wasn't built in anticipation of a theoretical future use case. It was built against the actual client roster: organizations whose compliance standards set the floor, not the ceiling. That the infrastructure held up across all of them was the validation.</p>
+
+    <div class="client-row">
+      <span class="client-tag">Pfizer</span>
+      <span class="client-tag">Eli Lilly</span>
+      <span class="client-tag">Merck</span>
+      <span class="client-tag">Johnson &amp; Johnson</span>
+      <span class="client-tag">AbbVie</span>
+      <span class="client-tag">M&amp;T Bank</span>
+    </div>
+
+    <p>These aren't clients that give you a pass on data governance questions. Pfizer, Lilly, Merck, J&amp;J, and AbbVie operate in an environment where a research practice that couldn't withstand regulatory scrutiny would simply not get used. M&amp;T Bank brought FDIC-regulated financial services constraints into the mix. The fact that the panel served all of them on their own terms, without diluting the compliance posture to fit a lower standard, was the proof of concept.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">08 &nbsp; Strategic Framing</div>
+    <h2 class="section-heading">This wasn't a recruitment tool.<br><em>It was enablement infrastructure.</em></h2>
+    <p>The panel could have been scoped as a research operations efficiency play: faster studies, lower vendor spend, more control over timelines. That framing would have been accurate but incomplete. What actually got built was something more foundational: the infrastructure that let a mid-size agency credibly serve regulated-industry clients at a level typically reserved for shops with dedicated compliance teams.</p>
+
+    <div class="strategy-item">
+      <div class="strategy-tag">HealthTech Signal</div>
+      <div class="strategy-content">
+        <div class="strategy-title">Compliance fluency, not compliance awareness</div>
+        <p>Building GDPR, DPF, APEC CBPR, and HIPAA-adjacent practices into research infrastructure from the design phase rather than retrofitting them later is exactly the posture HealthTech companies need from researchers who will handle sensitive user and patient-adjacent data.</p>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="strategy-tag">FinTech Signal</div>
+      <div class="strategy-content">
+        <div class="strategy-title">Research that can survive an audit</div>
+        <p>Financial services clients and their regulators care about data lineage. Building a panel where every participant's sourcing, consent, and data handling is traceable and documented is a fundamentally different capability than running studies through a third-party panel you can't fully audit.</p>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="strategy-tag">Research Ops Signal</div>
+      <div class="strategy-content">
+        <div class="strategy-title">End-to-end ownership of the research ecosystem</div>
+        <p>Designing the recruitment mechanism, attribution logic, compliance stack, tech integration, and incentive fulfillment as a single coherent system, rather than stitching together vendor pieces, is exactly the operational scope that research ops roles inside product organizations actually require.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">09 &nbsp; What I'd Do Differently</div>
+    <h2 class="section-heading">Three things I'd approach<br><em>differently in retrospect</em></h2>
+
+    <div class="finding">
+      <div class="finding-num">1</div>
+      <div class="finding-body">
+        <div class="finding-title">Formalize the methodology into a handoff-ready playbook sooner</div>
+        <p class="finding-text">I documented decisions and built processes as I went, which meant the institutional knowledge existed. But most of it was organized around my own workflow rather than structured for someone else to operate without my context. Formalizing the methodology into a transferable playbook earlier would have made the panel easier to scale, easier to hand off, and easier for the agency to extend independently without me as the single point of continuity.</p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">2</div>
+      <div class="finding-body">
+        <div class="finding-title">Establish a formal participant lifecycle protocol earlier</div>
+        <p class="finding-text">The recruitment side of the panel got a lot of architectural attention because that was where the immediate pressure was. The participant lifecycle after onboarding, including re-engagement cadences for inactive members, off-boarding logic for participants who aged out of target segments, and a structured refresh strategy, was something I addressed as it came up rather than designing upfront. Building that protocol into the initial architecture would have reduced attrition and kept the panel composition cleaner over time.</p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">3</div>
+      <div class="finding-body">
+        <div class="finding-title">Get explicit written alignment on recruitment methodology at kickoff</div>
+        <p class="finding-text">The conflict with my manager over purchased email lists surfaced after the panel build was already in motion. Getting clear written alignment on the parameters and constraints of the recruitment approach at project kickoff, rather than mid-build, would have saved time, reduced friction, and put the rationale for organic recruitment on record from the start instead of having to defend it under pressure.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="section-label">10 &nbsp; Takeaway</div>
+    <h2 class="section-heading">What this case study demonstrates</h2>
+
+    <div class="reflection">
+      <div class="callout-label">The Broader Point</div>
+      <p style="font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--ink); max-width: 100%; line-height: 1.65; margin-bottom: 18px;">The decision that mattered most in this project was the one I made before I built anything.</p>
+      <p style="font-size: 15px; max-width: 100%;">Refusing to buy email lists was a research integrity decision, but it was also a strategic one. It forced me to invent infrastructure that turned out to be considerably more valuable than a faster path to a compromised outcome would have been. The panel that emerged from that refusal was something the agency couldn't have bought: a first-party, fully auditable, compliance-ready research asset that made a new category of client trust possible.</p>
+      <p style="font-size: 15px; max-width: 100%; margin-bottom: 0;">For organizations in HealthTech and FinTech where the research function touches sensitive data, the ability to build research infrastructure that can actually be trusted, not merely used, is the differentiator. That's what this project was about.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Shannon L. Coleman, PhD &nbsp;&bull;&nbsp; <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp; <a href="https://www.linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp; <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a></p>
+</footer>
+
+</body>
+</html>
