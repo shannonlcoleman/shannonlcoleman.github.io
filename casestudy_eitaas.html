@@ -80,15 +80,19 @@
   .masthead-inner { max-width: 900px; margin: 0 auto; padding: 0 48px; position: relative; }
   .program-tag { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
   .program-tag::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-  .case-title { font-family: var(--serif); font-size: clamp(28px, 4.5vw, 48px); font-weight: 400; line-height: 1.2; margin-bottom: 20px; }
+  .case-title { font-family: var(--serif); font-size: clamp(28px, 4.5vw, 48px); font-weight: 400; line-height: 1.2; margin-bottom: 20px;  opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
   .case-title em { font-style: italic; color: var(--gold); }
-  .deck { font-size: 16px; color: rgba(255,255,255,0.62); max-width: 640px; line-height: 1.72; margin-bottom: 52px; font-weight: 300; }
-  .meta-strip { display: flex; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); }
+  .deck { font-size: 16px; color: rgba(255,255,255,0.62); max-width: 640px; line-height: 1.72; margin-bottom: 52px; font-weight: 300;  opacity: 0; animation: fadeUp 0.6s ease forwards 0.25s; }
+  .meta-strip { display: flex; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1);  opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
   .meta-item { padding: 18px 32px 18px 0; margin-right: 32px; border-right: 1px solid rgba(255,255,255,0.1); }
   .meta-item:last-child { border-right: none; }
   .meta-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
   .meta-value { font-size: 13px; color: rgba(255,255,255,0.78); font-weight: 400; }
 
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   .content { max-width: 900px; margin: 0 auto; padding: 0 48px 100px; }
   .section { padding: 68px 0 0; }
   .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--af-light); margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
@@ -236,7 +240,7 @@
     <p>EITaaS, Enterprise IT as a Service, was the Air Force's answer: transition from a base-by-base model to a centralized commercial enterprise service, and free Airmen and Guardians from first-level IT support work so they could focus on the missions they were trained for. The Risk Reduction Effort was a pilot across nine installations, designed to validate whether the model worked before the Air Force committed to scaling it across 800,000 personnel under a $5.7 billion contract.</p>
 
     <div class="context-box" style="background: #1c2b3a;">
-      <div class="context-label">The Baseline &mdash; What "Before" Looked Like</div>
+      <div class="context-label">The Baseline: What &#8220;Before&#8221; Looked Like</div>
       <p>In 2022, Michael Kanaan, then-Director of Operations for the USAF-MIT Artificial Intelligence Accelerator, posted an open letter that went viral across the defense community. It became the public articulation of what everyone who worked in DoD IT already knew privately.</p>
       <p style="font-family: var(--serif); font-style: italic; font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7;">"Dear DoD, You tell us to Accelerate change or lose, then fix our computers. Before buying another plane, tank, or ship, fix our computers. Yesterday, I spent an hour waiting just to log on. Fix our computers&hellip; You lost literally hundreds of thousands of employee hours last year because computers don't work&hellip; I Googled how much the computer under my desk costs in the real world. It was $108 dollars&hellip; Making computers so useless that nobody can hack them is not a strategy (yet they hack them anyway)&hellip; Sincerely and on behalf of, Every DoD employee."</p>
       <p>The letter received over 1,700 reactions and forced a public response from DoD CIOs. The specific failures it named, hour-long login times, Excel freezing and forcing restarts, Tanium and McAfee consuming 40% of machine resources fighting each other, 10 forced restarts in a single day, were not edge cases. They were the baseline. This was the environment the EITaaS research was designed to measure, and that the program was designed to fix.</p>
