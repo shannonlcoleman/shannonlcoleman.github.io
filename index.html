@@ -139,6 +139,11 @@
     opacity: 0.4;
   }
 
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
   .hero-name {
     font-family: var(--serif);
     font-size: clamp(40px, 10vw, 84px);
@@ -147,6 +152,8 @@
     line-height: 1.0;
     margin-bottom: 6px;
     letter-spacing: -0.01em;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
   }
 
   .hero-name em {
@@ -161,6 +168,8 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.35);
     margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.22s;
   }
 
   .hero-title {
@@ -172,6 +181,8 @@
     margin-bottom: 40px;
     max-width: 580px;
     line-height: 1.5;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.35s;
   }
 
   .hero-bio {
@@ -180,6 +191,8 @@
     max-width: 620px;
     line-height: 1.85;
     margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.5s;
   }
 
   .hero-bio strong {
@@ -192,6 +205,8 @@
     gap: 16px;
     flex-wrap: wrap;
     align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.65s;
   }
 
   .btn-primary {
@@ -687,11 +702,6 @@
     .testimonial-block { padding: 24px 20px; }
     .testimonial-quote { font-size: 16px; }
   }
-  @keyframes pageFadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  body { animation: pageFadeIn 0.4s ease both; }
 
   @media (max-width: 480px) {
     .site-nav a { font-size: 9px; letter-spacing: 0.1em; }
