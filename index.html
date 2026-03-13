@@ -603,7 +603,6 @@
     border-right: 1px solid var(--rule);
   }
 
-  .impact-stat:first-child { padding-left: 0; text-align: left; }
   .impact-stat:last-child { border-right: none; }
 
   .impact-stat-num {
@@ -673,9 +672,8 @@
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .impact-strip { grid-template-columns: repeat(2, 1fr); padding: 32px 0; }
     .impact-stat { padding: 0 16px; }
-    .impact-stat:first-child { padding-left: 0; }
     .impact-stat:nth-child(2) { border-right: none; }
-    .impact-stat:nth-child(3) { border-right: 1px solid var(--rule); padding-left: 0; padding-top: 28px; }
+    .impact-stat:nth-child(3) { border-right: 1px solid var(--rule); padding-top: 28px; }
     .impact-stat:nth-child(4) { border-right: none; padding-top: 28px; }
     .impact-stat-num { font-size: 44px; }
     .methods-full-grid { grid-template-columns: 1fr; gap: 0; }
@@ -689,6 +687,12 @@
     .testimonial-block { padding: 24px 20px; }
     .testimonial-quote { font-size: 16px; }
   }
+  @keyframes pageFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  body { animation: pageFadeIn 0.4s ease both; }
+
   @media (max-width: 480px) {
     .site-nav a { font-size: 9px; letter-spacing: 0.1em; }
     .hero-bio { font-size: 14px; }
@@ -1005,5 +1009,18 @@
   &copy; 2026
 </footer>
 
+<script>
+  document.querySelectorAll('a[href]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (href && href[0] !== '#' && href.indexOf('http') !== 0 && href.indexOf('mailto') !== 0) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.style.transition = 'opacity 0.25s ease';
+        document.body.style.opacity = '0';
+        setTimeout(function() { location.href = href; }, 260);
+      });
+    }
+  });
+</script>
 </body>
 </html>
