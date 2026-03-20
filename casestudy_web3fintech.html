@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Web3 Fintech / Tokenized Asset Platform | Shannon L. Coleman, PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --w3-dark:     #110e2d;
+    --w3-mid:      #1e1a52;
+    --w3-light:    #3a3480;
+    --w3-accent:   #7c6fd4;
+    --w3-pale:     #eeebf8;
+    --paper:       #f8f7fc;
+    --white:       #ffffff;
+    --ink:         #1e1a35;
+    --ink-light:   #4a4570;
+    --steel:       #8a85a8;
+    --rule:        #ddd9ee;
+    --gold:        #c9aa6e;
+    --mono:        'DM Mono', monospace;
+    --serif:       'Cormorant Garamond', Georgia, serif;
+    --sans:        'Manrope', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  .cs-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 52px;
+    background: rgba(17,14,45,0.97);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .cs-nav-back {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .cs-nav-back:hover { color: var(--w3-accent); }
+  .cs-nav-back::before { content: '←'; font-size: 12px; }
+
+  .cs-nav-studies { display: flex; gap: 4px; align-items: center; }
+
+  .cs-nav-study {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+
+  .cs-nav-study:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.15); }
+  .cs-nav-study.active { color: var(--w3-accent); border-color: rgba(124,111,212,0.4); background: rgba(124,111,212,0.08); }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--w3-dark);
+    color: var(--white);
+    padding: 56px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: 52px;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 35%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(124,111,212,0.06) 100%);
+    pointer-events: none;
+  }
+
+  .masthead::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--w3-accent) 0%, rgba(124,111,212,0.3) 60%, transparent 100%);
+  }
+
+  .masthead-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+  }
+
+  .program-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+  }
+
+  .program-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--w3-accent);
+  }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4.5vw, 48px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+
+  .case-title em { font-style: italic; color: var(--w3-accent); }
+
+  .deck {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    max-width: 640px;
+    line-height: 1.72;
+    margin-bottom: 52px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.25s;
+  }
+
+  .meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  .meta-item {
+    padding: 18px 32px 18px 0;
+    margin-right: 32px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .meta-item:last-child { border-right: none; }
+
+  .meta-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--w3-accent);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .meta-value { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 400; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+  }
+
+  .section { padding: 68px 0 0; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--w3-accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 48px;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 28px;
+    color: var(--w3-mid);
+  }
+
+  .section-heading em { font-style: italic; color: var(--w3-accent); }
+
+  p {
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--ink-light);
+    margin-bottom: 18px;
+    max-width: 700px;
+  }
+
+  p strong { color: var(--ink); font-weight: 500; }
+
+  /* CONTEXT BOX */
+  .context-box {
+    background: var(--w3-dark);
+    padding: 32px 38px;
+    margin: 32px 0;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .context-box::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--w3-accent);
+  }
+
+  .context-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--w3-accent);
+    margin-bottom: 12px;
+  }
+
+  .context-box p {
+    color: rgba(255,255,255,0.65);
+    max-width: 100%;
+    font-size: 14.5px;
+    margin-bottom: 10px;
+  }
+
+  .context-box p:last-child { margin-bottom: 0; }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 28px 0;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .stat {
+    background: var(--white);
+    padding: 22px 16px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--w3-mid);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-num.accent { color: var(--w3-accent); }
+
+  .stat-desc {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    line-height: 1.4;
+  }
+
+  /* METHODS GRID */
+  .methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 28px 0;
+  }
+
+  .method-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--w3-accent);
+    padding: 20px 22px;
+  }
+
+  .method-num {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--w3-accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .method-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .method-detail {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.55;
+  }
+
+  /* INSIGHT BOX */
+  .insight-box {
+    background: var(--w3-pale);
+    border: 1px solid rgba(124,111,212,0.25);
+    border-left: 3px solid var(--w3-accent);
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+
+  .insight-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--w3-accent);
+    margin-bottom: 12px;
+  }
+
+  .insight-box p {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--ink);
+    max-width: 100%;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* FRICTION GRID */
+  .friction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+
+  .friction-category {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 24px 26px;
+    position: relative;
+  }
+
+  .friction-category::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--w3-accent);
+  }
+
+  .friction-category.secondary::before { background: var(--w3-light); opacity: 0.5; }
+  .friction-category.tertiary::before { background: var(--gold); opacity: 0.6; }
+
+  .friction-cat-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--w3-accent);
+    margin-bottom: 4px;
+  }
+
+  .friction-cat-count {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--w3-mid);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  .friction-item {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.6;
+    margin-bottom: 6px;
+    padding-left: 12px;
+    position: relative;
+  }
+
+  .friction-item::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--w3-accent);
+  }
+
+  /* RECOMMENDATIONS */
+  .rec-item {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .rec-item:last-child { border-bottom: none; }
+
+  .rec-tag {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--w3-accent);
+    line-height: 1.6;
+    padding-top: 3px;
+  }
+
+  .rec-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .rec-text {
+    font-size: 14.5px;
+    color: var(--ink-light);
+    margin-bottom: 0;
+    max-width: 100%;
+    line-height: 1.75;
+  }
+
+  /* DARK CALLOUT */
+  .dark-callout {
+    background: var(--w3-dark);
+    padding: 32px 38px;
+    margin: 32px 0;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .dark-callout::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--w3-accent);
+  }
+
+  .dark-callout-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--w3-accent);
+    margin-bottom: 12px;
+  }
+
+  .dark-callout p {
+    color: rgba(255,255,255,0.65);
+    max-width: 100%;
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .dark-callout p:last-child { margin-bottom: 0; }
+
+  /* REFLECTION */
+  .reflection {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 38px 42px;
+    margin-top: 44px;
+    border-radius: 2px;
+  }
+
+  .reflection p { max-width: 100%; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--w3-dark);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 28px 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    line-height: 2;
+  }
+
+  .footer a { color: var(--w3-accent); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .masthead { padding: 40px 0 0; }
+    .masthead-inner, .content { padding-left: 20px; padding-right: 20px; }
+    .case-title { font-size: clamp(24px, 7vw, 40px); }
+    .deck { font-size: 14px; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 0; margin-right: 0; }
+    .meta-item:last-child { border-bottom: none; }
+    .section { padding-top: 48px; }
+    .section-heading { font-size: clamp(20px, 5.5vw, 28px); }
+    .methods-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .rec-item { grid-template-columns: 1fr; gap: 6px; }
+    .rec-tag { padding-top: 0; }
+    .friction-grid { grid-template-columns: 1fr; }
+    .context-box, .dark-callout { padding: 24px 20px; }
+    .insight-box { padding: 20px 22px; }
+    .reflection { padding: 28px 20px; }
+    p { font-size: 14.5px; }
+  }
+
+  @media (max-width: 480px) {
+    .masthead-inner, .content { padding-left: 16px; padding-right: 16px; }
+    .methods-grid { grid-template-columns: 1fr; }
+    .cs-nav { padding: 0 12px; }
+    .cs-nav-study { font-size: 8px; padding: 4px 7px; letter-spacing: 0.08em; }
+    .cs-nav-back { font-size: 9px; }
+  }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+.slc-w3r {
+  --bg:    #110e2d;
+  --mid:   #1e1a52;
+  --mid2:  #252060;
+  --mid3:  #2e2870;
+  --ac:    #7c6fd4;
+  --acl:   #b0a8e4;
+  --white: #f8f7fc;
+  --muted: #c4bef0;
+  --bd:    rgba(124,111,212,0.28);
+  --bd2:   rgba(124,111,212,0.45);
+  --green: #5bbf8a;
+  --red:   #d4706a;
+  --amber: #d4a96a;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  background: var(--bg);
+  padding: 48px 40px;
+  border-radius: 6px;
+}
+.slc-w3r *, .slc-w3r *::before, .slc-w3r *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── SHARED ── */
+.slc-w3r .w3-vtag  { font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--ac); margin-bottom: 6px; }
+.slc-w3r .w3-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
+.slc-w3r .w3-title em { font-style: italic; font-weight: 400; }
+.slc-w3r .w3-desc  { font-family: 'EB Garamond', serif; font-size: 15px; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
+.slc-w3r .w3-card  { background: var(--mid); border: 1px solid var(--bd); border-radius: 4px; padding: 36px; margin-bottom: 56px; }
+.slc-w3r .w3-div   { border: none; border-top: 1px solid var(--bd); margin: 56px 0; }
+.slc-w3r .w3-callout { margin-top: 22px; padding: 16px 20px; background: rgba(124,111,212,.1); border-left: 3px solid var(--ac); font-family: 'EB Garamond', serif; font-size: 15px; color: var(--muted); font-style: italic; line-height: 1.6; }
+.slc-w3r .w3-callout strong { color: var(--white); font-style: normal; }
+
+/* ══════════════════════════════════
+   VISUAL A — FRICTION MAP (category tiles)
+══════════════════════════════════ */
+.slc-w3r .w3-fm-wrap {
+  display: flex;
+  gap: 2px;
+  align-items: stretch;
+  margin-bottom: 20px;
+}
+.slc-w3r .w3-fm-cat {
+  padding: 24px 20px;
+  border: 1px solid var(--bd);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.slc-w3r .w3-fm-cat.txn  { flex: 11; background: var(--mid2); border-top: 3px solid var(--red); }
+.slc-w3r .w3-fm-cat.onb  { flex: 4;  background: var(--mid);  border-top: 3px solid var(--amber); }
+.slc-w3r .w3-fm-cat.reg  { flex: 2;  background: var(--mid);  border-top: 3px solid var(--acl); }
+.slc-w3r .w3-fm-label  { font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
+.slc-w3r .w3-fm-cat.txn  .w3-fm-label { color: var(--red); }
+.slc-w3r .w3-fm-cat.onb  .w3-fm-label { color: var(--amber); }
+.slc-w3r .w3-fm-cat.reg  .w3-fm-label { color: var(--acl); }
+.slc-w3r .w3-fm-count  { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
+.slc-w3r .w3-fm-cat.txn  .w3-fm-count { color: var(--red); }
+.slc-w3r .w3-fm-cat.onb  .w3-fm-count { color: var(--amber); }
+.slc-w3r .w3-fm-cat.reg  .w3-fm-count { color: var(--acl); }
+.slc-w3r .w3-fm-sub    { font-family: 'EB Garamond', serif; font-size: 13px; color: var(--muted); line-height: 1.5; }
+.slc-w3r .w3-fm-pct    { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; margin-top: 12px; opacity: .7; }
+.slc-w3r .w3-fm-total  { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px; background: rgba(124,111,212,.1); border: 1px solid var(--bd); border-top: none; }
+.slc-w3r .w3-fm-tnum   { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; color: var(--ac); line-height: 1; }
+.slc-w3r .w3-fm-tlbl   { font-family: 'EB Garamond', serif; font-size: 16px; color: var(--muted); font-style: italic; }
+
+/* ══════════════════════════════════
+   VISUAL B — TRANSACTION STATE FLOW
+══════════════════════════════════ */
+.slc-w3r .w3-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.slc-w3r .w3-flow-row {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr;
+  align-items: center;
+  gap: 0;
+}
+.slc-w3r .w3-flow-header {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr;
+  margin-bottom: 6px;
+}
+.slc-w3r .w3-flow-hlbl {
+  font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); padding-bottom: 8px;
+}
+.slc-w3r .w3-flow-hlbl.r { text-align: right; }
+.slc-w3r .w3-flow-left {
+  background: var(--mid2); border: 1px solid var(--bd); padding: 13px 16px;
+}
+.slc-w3r .w3-flow-right {
+  background: var(--mid); border: 1px solid var(--bd2); padding: 13px 16px;
+}
+.slc-w3r .w3-flow-right.broken { border-color: var(--red); background: rgba(212,112,106,.08); }
+.slc-w3r .w3-flow-right.ok     { border-color: var(--green); background: rgba(91,191,138,.08); }
+.slc-w3r .w3-flow-state { font-size: 12px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
+.slc-w3r .w3-flow-sub   { font-family: 'EB Garamond', serif; font-size: 12px; color: var(--muted); font-style: italic; line-height: 1.4; }
+.slc-w3r .w3-flow-arrow { text-align: center; font-size: 14px; color: var(--ac); opacity: .6; }
+.slc-w3r .w3-flow-gap   { height: 1px; background: var(--bd); margin: 4px 0; grid-column: 1 / -1; }
+.slc-w3r .w3-flow-tag   { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; margin-bottom: 4px; }
+.slc-w3r .w3-flow-tag.broken { background: rgba(212,112,106,.15); color: var(--red); }
+.slc-w3r .w3-flow-tag.ok     { background: rgba(91,191,138,.15);  color: var(--green); }
+.slc-w3r .w3-flow-tag.warn   { background: rgba(212,169,106,.15); color: var(--amber); }
+
+/* ══════════════════════════════════
+   VISUAL C — 17-POINT AUDIT MATRIX
+══════════════════════════════════ */
+.slc-w3r .w3-matrix { width: 100%; }
+.slc-w3r .w3-mat-header {
+  display: grid;
+  grid-template-columns: 2fr 90px 90px 90px;
+  gap: 2px; margin-bottom: 2px;
+}
+.slc-w3r .w3-mat-hlbl {
+  font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  padding: 8px 12px; text-align: center;
+}
+.slc-w3r .w3-mat-hlbl.left { text-align: left; padding-left: 0; }
+.slc-w3r .w3-mat-row {
+  display: grid;
+  grid-template-columns: 2fr 90px 90px 90px;
+  gap: 2px; margin-bottom: 2px;
+}
+.slc-w3r .w3-mat-desc {
+  background: var(--mid); border: 1px solid var(--bd); padding: 11px 14px;
+}
+.slc-w3r .w3-mat-cat  { font-size: 9px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
+.slc-w3r .w3-mat-cat.txn  { color: var(--red); }
+.slc-w3r .w3-mat-cat.onb  { color: var(--amber); }
+.slc-w3r .w3-mat-cat.reg  { color: var(--acl); }
+.slc-w3r .w3-mat-txt  { font-family: 'EB Garamond', serif; font-size: 13px; color: var(--muted); line-height: 1.45; }
+.slc-w3r .w3-mat-cell {
+  background: var(--mid); border: 1px solid var(--bd);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 500; text-align: center; padding: 8px 4px;
+}
+.slc-w3r .w3-sev-h   { color: var(--red);   background: rgba(212,112,106,.1);  border-color: rgba(212,112,106,.3); }
+.slc-w3r .w3-sev-m   { color: var(--amber); background: rgba(212,169,106,.1);  border-color: rgba(212,169,106,.3); }
+.slc-w3r .w3-sev-l   { color: var(--acl);   background: rgba(176,168,228,.08); }
+.slc-w3r .w3-own-p   { color: var(--ac);    background: rgba(124,111,212,.1);  border-color: rgba(124,111,212,.3); }
+.slc-w3r .w3-own-c   { color: var(--green); background: rgba(91,191,138,.1);   border-color: rgba(91,191,138,.3);  }
+.slc-w3r .w3-own-co  { color: var(--amber); background: rgba(212,169,106,.1);  border-color: rgba(212,169,106,.3); }
+.slc-w3r .w3-mat-legend {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--bd);
+}
+.slc-w3r .w3-leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+.slc-w3r .w3-leg-dot  { width: 8px; height: 8px; border-radius: 1px; }
+
+/* ══════════════════════════════════
+   VISUAL D — TWO TRACKS, ONE PROBLEM
+══════════════════════════════════ */
+.slc-w3r .w3-two-tracks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.slc-w3r .w3-track {
+  padding: 28px 24px;
+  border: 1px solid var(--bd);
+}
+.slc-w3r .w3-track.ux   { background: var(--mid2); border-top: 3px solid var(--ac); }
+.slc-w3r .w3-track.reg  { background: var(--mid2); border-top: 3px solid var(--green); }
+.slc-w3r .w3-track-label {
+  font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 14px;
+}
+.slc-w3r .w3-track.ux  .w3-track-label  { color: var(--ac); }
+.slc-w3r .w3-track.reg .w3-track-label  { color: var(--green); }
+.slc-w3r .w3-track-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+.slc-w3r .w3-track-items { display: flex; flex-direction: column; gap: 8px; }
+.slc-w3r .w3-track-item {
+  font-family: 'EB Garamond', serif; font-size: 14px; color: var(--muted); line-height: 1.5;
+  padding-left: 14px; position: relative;
+}
+.slc-w3r .w3-track-item::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 5px; height: 1px; background: var(--bd2);
+}
+.slc-w3r .w3-convergence {
+  background: rgba(124,111,212,.12);
+  border: 1px solid var(--ac);
+  border-top: none;
+  padding: 22px 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.slc-w3r .w3-conv-label { font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--ac); margin-bottom: 10px; }
+.slc-w3r .w3-conv-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.slc-w3r .w3-conv-title em { font-style: italic; }
+.slc-w3r .w3-conv-desc  { font-family: 'EB Garamond', serif; font-size: 15px; color: var(--muted); line-height: 1.65; max-width: 540px; margin: 0 auto; }
+
+/* ══════════════════════════════════
+   VISUAL E — BEFORE/AFTER MENTAL MODEL
+══════════════════════════════════ */
+.slc-w3r .w3-mm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.slc-w3r .w3-mm-col { }
+.slc-w3r .w3-mm-head {
+  padding: 14px 18px;
+  margin-bottom: 2px;
+}
+.slc-w3r .w3-mm-head.expect { background: var(--mid2); border: 1px solid var(--bd); }
+.slc-w3r .w3-mm-head.actual { background: var(--mid);  border: 1px solid var(--red); }
+.slc-w3r .w3-mm-hlbl { font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 4px; }
+.slc-w3r .w3-mm-head.expect .w3-mm-hlbl { color: var(--acl); }
+.slc-w3r .w3-mm-head.actual .w3-mm-hlbl { color: var(--red); }
+.slc-w3r .w3-mm-hn { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--white); }
+.slc-w3r .w3-mm-items { display: flex; flex-direction: column; gap: 2px; }
+.slc-w3r .w3-mm-item {
+  padding: 13px 16px;
+  border: 1px solid var(--bd);
+}
+.slc-w3r .w3-mm-item.expect { background: var(--mid2); }
+.slc-w3r .w3-mm-item.actual { background: var(--mid); }
+.slc-w3r .w3-mm-item.actual.broken { border-color: rgba(212,112,106,.35); }
+.slc-w3r .w3-mm-stage { font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.slc-w3r .w3-mm-txt   { font-family: 'EB Garamond', serif; font-size: 14px; color: var(--muted); line-height: 1.5; }
+.slc-w3r .w3-mm-txt.alert { color: var(--red); }
+.slc-w3r .w3-mm-gap {
+  border: 1px solid var(--ac); border-top: none;
+  padding: 18px 22px; text-align: center;
+}
+.slc-w3r .w3-mm-glbl { font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--ac); margin-bottom: 8px; }
+.slc-w3r .w3-mm-gtxt { font-family: 'EB Garamond', serif; font-size: 15px; color: var(--muted); font-style: italic; line-height: 1.65; max-width: 560px; margin: 0 auto; }
+.slc-w3r .w3-mm-gtxt strong { color: var(--white); font-style: normal; }
+
+/* PULL QUOTE */
+.slc-w3r .w3-pq {
+  padding: 30px 28px;
+  border: 1px solid var(--ac);
+  border-left: 3px solid var(--ac);
+  background: rgba(124,111,212,.08);
+  position: relative; overflow: hidden;
+  margin-bottom: 56px;
+}
+.slc-w3r .w3-pq::before {
+  content: '\201C';
+  position: absolute; top: -10px; right: 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 110px; color: rgba(124,111,212,.12); line-height: 1;
+  pointer-events: none;
+}
+.slc-w3r .w3-pqsrc { font-size: 9px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--ac); margin-bottom: 14px; }
+.slc-w3r .w3-pqt { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: var(--white); line-height: 1.65; margin-bottom: 16px; position: relative; z-index: 1; }
+.slc-w3r .w3-pqa { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+@media (max-width:680px) {
+  .slc-w3r .w3-fm-wrap { flex-direction: column; }
+  .slc-w3r .w3-flow-row { grid-template-columns: 1fr; }
+  .slc-w3r .w3-flow-arrow { display: none; }
+  .slc-w3r .w3-mat-header { grid-template-columns: 1fr 70px 70px; }
+  .slc-w3r .w3-mat-row    { grid-template-columns: 1fr 70px 70px; }
+  .slc-w3r .w3-two-tracks { grid-template-columns: 1fr; }
+  .slc-w3r .w3-mm-grid    { grid-template-columns: 1fr; }
+}
+
+/* Light retheme — Web3 */
+.slc-w3r {
+  --bg:    #f8f7fc;
+  --mid:   #eeebf8;
+  --mid2:  #e4e0f4;
+  --mid3:  #d8d4ee;
+  --white: #1e1a35;
+  --muted: #4a4570;
+  --bd:    rgba(124,111,212,0.22);
+  --bd2:   rgba(124,111,212,0.38);
+  background: transparent;
+  padding: 0;
+  color: #1e1a35;
+}
+</style>
+</head>
+<body>
+
+<nav class="cs-nav">
+  <a href="index.html" class="cs-nav-back">Portfolio</a>
+  <div class="cs-nav-studies">
+    <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
+    <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
+    <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
+    <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
+    <a href="casestudy_web3fintech.html" class="cs-nav-study active">Web3 Fintech</a>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="program-tag">Tokenized Asset Platform (NDA) &nbsp;|&nbsp; Coleman Advisory &nbsp;|&nbsp; 2022</div>
+    <h1 class="case-title">The Interface Was Clear.<br><em>The Users Were Still Afraid.</em></h1>
+    <p class="deck">Research lead and strategic advisor on a 2022 engagement with a tokenized asset platform navigating the intersection of TradFi compliance and DeFi mechanics. The audit identified 17 distinct friction points, the majority tied to transaction state legibility, and produced an executive roadmap that treated regulatory communication and UX as a unified problem.</p>
+    <div class="meta-strip">
+      <div class="meta-item">
+        <span class="meta-label">Platform</span>
+        <span class="meta-value">Tokenized Asset Platform (NDA)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Engagement</span>
+        <span class="meta-value">2022</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">My Role</span>
+        <span class="meta-value">Research Lead and Strategic Advisor</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Organization</span>
+        <span class="meta-value">Coleman Advisory</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+
+  
+<div style="background: var(--w3-pale); border-left: 4px solid var(--w3-accent); padding: 28px 36px; margin: 36px 0;">
+  <p style="font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: normal; color: var(--ink); line-height: 1.6; margin: 0;">Helping innovators move fast without breaking the things that matter most requires knowing <em style="color: var(--w3-accent); font-style: italic;">which things matter most</em> before moving.</p>
+</div>
+<section class="section">
+    <div class="section-label">01 &nbsp; Context</div>
+    <h2 class="section-heading">A product at the edge<br><em>of two financial worlds</em></h2>
+
+    <p>The client built a tokenized asset platform that let users invest in real-world assets through blockchain-based instruments, under a compliant and regulated framework. The pitch was genuine: DeFi-level accessibility with the structural rigor of traditional finance. What nobody had tested was whether users could tell which world they were in at any given moment.</p>
+
+    <p>Tokenized asset platforms occupy a specific and strange middle space. They carry the design conventions of traditional finance: clean account dashboards, familiar transaction flows, recognizable compliance disclosures. But the mechanics are blockchain-native, which means settlement is asynchronous, states change in layers the interface does not expose, and the timeline for a "completed" transaction has no equivalent in anything a typical user has encountered before.</p>
+
+    <p>In a conventional banking app, that ambiguity is minor. Users have cognitive frameworks for navigating it. In a platform where real money moves into positions that do not carry the familiar backstop of traditional financial infrastructure, the same ambiguity becomes a different category of problem entirely.</p>
+
+    <div class="context-box">
+      <div class="context-label">The Brief</div>
+      <p>Audit the onboarding experience and full transaction flow. Identify the friction points threatening user retention and document failure modes before launch.</p>
+      <p>The engagement was scoped as a research and advisory project, with deliverables including a friction audit and an executive roadmap prioritizing findings by combined UX and regulatory risk.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">02 &nbsp; Approach</div>
+    <h2 class="section-heading">Mapping the experience against<br><em>the mental model users actually had</em></h2>
+
+    <p>The research started with a deliberate reframe. This was not primarily a usability problem. The interface was technically well-built: buttons did what they were supposed to do, navigation was clear, nothing was visually broken. A usability-first audit would have generated a list of minor UI improvements and left the underlying problem completely intact.</p>
+
+    <p>The audit focused instead on the gap between what the interface communicated and what users interpreted. That distinction shaped both the methods and the framing of findings. Fixing the wrong thing, in this context, would have made the problem invisible rather than solved.</p>
+
+    <div class="methods-grid">
+      <div class="method-card">
+        <div class="method-num">01</div>
+        <div class="method-name">Transaction Flow Audit</div>
+        <div class="method-detail">End-to-end walkthrough of every state a user encounters from initial deposit through position management and withdrawal, documenting what each state communicated and what a user without blockchain experience would plausibly interpret.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">02</div>
+        <div class="method-name">Mental Model Mapping</div>
+        <div class="method-detail">Structured research surfacing the prior frameworks users brought from traditional financial products and identifying the specific points where those frameworks would fail to map onto how this product actually worked.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">03</div>
+        <div class="method-name">Onboarding Journey Analysis</div>
+        <div class="method-detail">Step-by-step analysis of the onboarding flow with attention to sequencing, disclosure placement, and cognitive load at each stage, assessed against what users needed to understand before making their first transaction.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">04</div>
+        <div class="method-name">Regulatory Communication Review</div>
+        <div class="method-detail">Assessment of disclosure language and compliance messaging against user comprehension, with specific attention to where regulatory boilerplate introduced ambiguity rather than reducing it.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">03 &nbsp; The Diagnostic</div>
+    <h2 class="section-heading">Pending didn't mean pending<br><em>to the people using it</em></h2>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">17</div>
+        <div class="stat-desc">Friction points identified</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num accent">11</div>
+        <div class="stat-desc">Transaction state failures</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-desc">Central finding that reframed the rest</div>
+      </div>
+    </div>
+
+    
+<div class="slc-w3r">
+<!-- ════════════════════════════════════
+       VISUAL A — FRICTION MAP
+  ════════════════════════════════════ -->
+  <div class="w3-vtag">Findings — Friction Distribution</div>
+  <div class="w3-title">17 Friction Points. <em>65% in One Category.</em></div>
+  <div class="w3-desc">The audit identified 17 discrete friction points across the onboarding and transaction flow. The concentration was itself a finding — not distributed risk, but a single systemic failure with a clear name.</div>
+  <div class="w3-card">
+    <div class="w3-fm-wrap">
+      <div class="w3-fm-cat txn">
+        <div>
+          <div class="w3-fm-label">Transaction State Legibility</div>
+          <div class="w3-fm-count">11</div>
+          <div class="w3-fm-sub">Pending states, settlement windows, failed vs. in-progress states, balance display during settlement, network errors indistinguishable from rejections</div>
+        </div>
+        <div class="w3-fm-pct">11 of 17 &nbsp;·&nbsp; 65%</div>
+      </div>
+      <div class="w3-fm-cat onb">
+        <div>
+          <div class="w3-fm-label">Onboarding Flow</div>
+          <div class="w3-fm-count">4</div>
+          <div class="w3-fm-sub">Wallet and account creation conflated; asset explainer sequenced after wallet creation; TradFi mental model assumed at first deposit</div>
+        </div>
+        <div class="w3-fm-pct">4 of 17 &nbsp;·&nbsp; 24%</div>
+      </div>
+      <div class="w3-fm-cat reg">
+        <div>
+          <div class="w3-fm-label">Regulatory Communication</div>
+          <div class="w3-fm-count">2</div>
+          <div class="w3-fm-sub">Generic boilerplate not calibrated to tokenized assets; regulatory status of tokenized positions not distinguished from conventional securities</div>
+        </div>
+        <div class="w3-fm-pct">2 of 17 &nbsp;·&nbsp; 12%</div>
+      </div>
+    </div>
+    <div class="w3-fm-total">
+      <div class="w3-fm-tnum">17</div>
+      <div class="w3-fm-tlbl">friction points with severity ratings and ownership classification</div>
+    </div>
+    <div class="w3-callout">The interface was not broken. The <strong>mental model users arrived with was built for a different product category entirely</strong>, and nothing in the flow told them otherwise.</div>
+  </div>
+</div>
+<p>Seventeen distinct friction points emerged from the audit. The distribution was striking. Eleven of the seventeen were concentrated in a single area: transaction state legibility. The interface was technically accurate at every step. The problem was that accuracy and comprehensibility are not the same thing.</p>
+
+    <p>The central finding: users consistently interpreted pending transaction states as evidence of asset loss. A transaction in settlement, processing normally and on schedule, looked to users like a failed transaction. Or one that had simply disappeared. The interface was showing exactly what was happening. Users understood something different.</p>
+
+    <div class="insight-box">
+      <div class="insight-label">Core Finding</div>
+      <p>The interface was not broken. The mental model users arrived with was built for a different product category entirely, and nothing in the flow told them otherwise.</p>
+    </div>
+
+    <p>This failure mode gets worse as the stakes increase. A user who cannot tell if their grocery order went through hits refresh. A user who cannot tell if their asset position is processing or lost does something more costly: they abandon the transaction, contact support, or do not come back. The cost of the same information gap scales with what the user believes is at risk.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">04 &nbsp; The Stakes</div>
+    <h2 class="section-heading">The same finding costs more<br><em>in some contexts than others</em></h2>
+
+    <p>In most products, a confusing loading state is a minor annoyance. Users have mental frameworks for navigating uncertainty during a transaction. In a tokenized asset platform, the same ambiguity activates a different category of concern entirely.</p>
+
+    <p>Traditional financial infrastructure has spent decades building cognitive safety nets that users have absorbed without realizing it. FDIC coverage, monthly statements, customer service lines, the ability to walk into a branch and speak to someone. None of these protect a user against a confusing interface in any direct sense. What they provide is a backdrop of institutional accountability that quietly mutes anxiety during moments of uncertainty. Users do not think "I am protected." They feel protected, without thinking about it at all.</p>
+
+    <p>That infrastructure does not exist in DeFi-native products, and users know it, even if they cannot articulate it. A tokenized asset platform may carry legitimate regulatory standing, but users bring their associations from the broader DeFi landscape: irreversible transactions, no customer recourse, self-custody risk, the familiar stories about assets lost to a mistyped address or a wallet that cannot be recovered. When a pending state appears and the interface offers no context for how long, why, or what it means, the worst interpretation fills the space immediately.</p>
+
+    <div class="dark-callout">
+      <div class="dark-callout-label">The Gap</div>
+      <p>The finding was not novel as a UX observation. Mental model mismatches between product mechanics and user expectations are common. What made this finding consequential was the context it landed in.</p>
+      <p>This was a platform where that specific gap, users misreading a normal pending state as asset loss, could translate directly into permanent user attrition, support volume the team was not staffed for, and reputational risk at exactly the moment a new product most needs positive word of mouth.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">05 &nbsp; The Friction Map</div>
+    <h2 class="section-heading">What the audit<br><em>surfaced</em></h2>
+
+    <p>The 17 friction points broke across three categories. The concentration in transaction state legibility was not a random distribution. It reflected a product that had invested heavily in building a technically sound system and had not yet invested in making that system legible to users who arrived without blockchain-native experience.</p>
+
+    <div class="friction-grid">
+      <div class="friction-category">
+        <div class="friction-cat-label">Transaction State Legibility</div>
+        <div class="friction-cat-count">11 <span style="font-size:13px; color: var(--steel); font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase;">of 17</span></div>
+        <div class="friction-item">Pending deposit states used TradFi language ("processing") without mapping to blockchain settlement stages</div>
+        <div class="friction-item">Settlement window duration not communicated at transaction initiation</div>
+        <div class="friction-item">"Processing" and "pending" used interchangeably for distinct system states</div>
+        <div class="friction-item">No differentiation between blockchain confirmation pending and platform-level processing</div>
+        <div class="friction-item">Failed and in-progress transaction interfaces near-identical visually</div>
+        <div class="friction-item">No proactive notification on extended settlement beyond the expected window</div>
+        <div class="friction-item">Position balance during settlement showed pre-transaction value without contextual explanation</div>
+        <div class="friction-item">Transaction history compressed state data, making past pending states unverifiable retroactively</div>
+        <div class="friction-item">Network delay errors indistinguishable from rejected transaction errors</div>
+        <div class="friction-item">Session re-entry mid-flow provided no state summary</div>
+        <div class="friction-item">Withdrawal initiation did not surface the position lock during the processing window</div>
+      </div>
+
+      <div class="friction-category secondary">
+        <div class="friction-cat-label">Onboarding Flow</div>
+        <div class="friction-cat-count">4 <span style="font-size:13px; color: var(--steel); font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase;">of 17</span></div>
+        <div class="friction-item">Wallet creation and account creation presented as a single flow without distinguishing their different functions</div>
+        <div class="friction-item">Tokenized asset explainer sequenced after wallet creation, when user comprehension needed it most</div>
+        <div class="friction-item">First deposit flow assumed a TradFi mental model without bridging to blockchain settlement expectations</div>
+        <div class="friction-item">Progressive disclosure not applied to regulatory consent, creating friction and likely incomplete comprehension</div>
+      </div>
+
+      <div class="friction-category tertiary">
+        <div class="friction-cat-label">Regulatory Communication</div>
+        <div class="friction-cat-count">2 <span style="font-size:13px; color: var(--steel); font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase;">of 17</span></div>
+        <div class="friction-item">Risk disclosure language used regulatory boilerplate not calibrated to tokenized asset-specific risk profiles</div>
+        <div class="friction-item">Regulatory status of tokenized positions not clearly distinguished from conventional securities in interface copy</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">06 &nbsp; The Roadmap</div>
+    <h2 class="section-heading">Two problems that<br><em>turned out to be one</em></h2>
+
+    <p>The executive deliverable was a prioritized roadmap covering both product changes and regulatory sequencing. The framing was deliberate. It was a departure from how the leadership team had been thinking about the work.</p>
+
+    <p>Most product teams in this space treat UX design and regulatory compliance as separate workstreams. Different owners, different timelines, different definitions of what "done" looks like. The audit produced evidence that they could not be separated here. The specific communication gaps making pending states feel like asset loss were the same gaps that would create regulatory exposure if users misunderstood the nature of their positions. Fixing the interface without fixing the disclosure language would paper over the problem. Fixing the disclosures without improving the interface would bury the solution in legal text nobody reads.</p>
+
+    <p>The roadmap gave the leadership team a sequenced plan: 17 friction points ordered by combined UX and regulatory risk, with clear ownership and decision points across both tracks. The single most important output of the engagement was the reframe itself. This was not a UX problem with a compliance annex. It was a user trust problem that happened to have both UX and regulatory dimensions, and it needed to be solved as one thing.</p>
+
+    
+<div class="slc-w3r">
+<!-- ════════════════════════════════════
+       VISUAL D — TWO TRACKS, ONE PROBLEM
+  ════════════════════════════════════ -->
+  <div class="w3-vtag">The Reframe — Core Finding</div>
+  <div class="w3-title">Two Tracks. <em>One Problem.</em></div>
+  <div class="w3-desc">UX design and regulatory compliance had been treated as separate workstreams. The research showed they were the same problem — and had to be solved as one thing.</div>
+  <div class="w3-card">
+    <div class="w3-two-tracks">
+      <div class="w3-track ux">
+        <div class="w3-track-label">UX Track</div>
+        <div class="w3-track-name">Communication gaps made pending states feel like asset loss</div>
+        <div class="w3-track-items">
+          <div class="w3-track-item">Ambiguous state labels mapped onto worst-case interpretations</div>
+          <div class="w3-track-item">Balance display during settlement read as balance gone</div>
+          <div class="w3-track-item">No contextual guidance at the moment of confusion</div>
+          <div class="w3-track-item">Visual design could not distinguish recoverable from terminal states</div>
+        </div>
+      </div>
+      <div class="w3-track reg">
+        <div class="w3-track-label">Regulatory Track</div>
+        <div class="w3-track-name">The same gaps created regulatory exposure if users misunderstood their positions</div>
+        <div class="w3-track-items">
+          <div class="w3-track-item">Generic risk disclosures not calibrated to tokenized asset risk profile</div>
+          <div class="w3-track-item">Regulatory status of positions undefined at point of decision</div>
+          <div class="w3-track-item">Consent architecture did not match the complexity of what users were agreeing to</div>
+          <div class="w3-track-item">Misunderstood positions = misunderstood exposure</div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-convergence">
+      <div class="w3-conv-label">Where they converge</div>
+      <div class="w3-conv-title">A User Trust Problem with <em>Both UX and Regulatory Dimensions</em></div>
+      <div class="w3-conv-desc">The deliverable reframed this as a single problem requiring a single roadmap — sequencing both tracks together by combined UX and regulatory risk, with explicit decision points and dependencies across both.</div>
+    </div>
+  </div>
+</div>
+<div class="context-box">
+      <div class="context-label">Deliverables</div>
+      <p>Full friction audit documenting 17 friction points with severity ratings and primary ownership (product vs. compliance vs. content).</p>
+      <p>Executive roadmap sequencing the 17 findings by combined UX and regulatory risk, with decision points and dependencies surfaced explicitly across both tracks.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">07 &nbsp; What I'd Do Differently</div>
+    <h2 class="section-heading">The methodology choices<br><em>worth revisiting</em></h2>
+
+    <div class="rec-item">
+      <div class="rec-tag">Parallel analysis</div>
+      <div>
+        <div class="rec-title">Run the onboarding and transaction analyses simultaneously from day one</div>
+        <p class="rec-text">The onboarding finding arrived later in the process than it should have. I prioritized the transaction flow because that is where the retention signals pointed, and it was the right call for urgency. But the onboarding sequencing failures had downstream effects on how users interpreted everything that came after. Users who arrived at a transaction without the right mental model were more likely to read a pending state as failure than users who had been properly oriented. Running both analyses in parallel and sharing findings between them earlier would have surfaced that connection sooner.</p>
+      </div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-tag">Depth on disclosure</div>
+      <div>
+        <div class="rec-title">Go deeper on the regulatory communication finding</div>
+        <p class="rec-text">Two points in the friction map does not reflect how important the regulatory communication finding actually was to the overall problem. The boilerplate disclosure issue was flagged clearly in the roadmap, but a more thorough review, including comprehension testing of the disclosure language specifically, would have strengthened the recommendation considerably. That was a resource constraint more than a judgment call, but it is worth naming. The finding deserved more evidentiary support than it got.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">08 &nbsp; Reflection</div>
+    <div class="reflection">
+      <p>Research in high-stakes financial contexts is different not because the methods change but because the cost of a wrong interpretation is higher and faster. The core challenge here was a familiar one: users arrive with mental models built for a different product, and the interface has to bridge that gap or they leave. Every research engagement I have worked on involves some version of that problem.</p>
+      <p>What made this one distinct was that "they leave" meant something more consequential than a bounced session. On a platform where user trust is the actual moat (not the technology, not the compliance infrastructure, not the asset selection), a UX finding is also a business continuity finding. The two are the same thing, even if the teams responsible for each one are not used to thinking that way.</p>
+      <p><strong>That reframe was the real deliverable.</strong> The roadmap documented it. But getting a leadership team to see a user trust problem as a unified product and regulatory challenge, rather than two separate workstreams that occasionally overlap, is the harder and more durable outcome.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  Shannon L. Coleman, PhD &nbsp;&bull;&nbsp;
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a> &nbsp;&bull;&nbsp;
+  &copy; 2026
+</footer>
+
+<script>
+  document.querySelectorAll('a[href]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (href && href[0] !== '#' && href.indexOf('http') !== 0 && href.indexOf('mailto') !== 0) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.style.transition = 'opacity 0.25s ease';
+        document.body.style.opacity = '0';
+        setTimeout(function() { location.href = href; }, 260);
+      });
+    }
+  });
+</script>
+</body>
+</html>

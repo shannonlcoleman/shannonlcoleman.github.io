@@ -124,15 +124,24 @@
   }
 
   .classification {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold-light);
-    border: 1px solid rgba(184,144,26,0.4);
-    padding: 4px 12px;
     margin-bottom: 32px;
+  }
+
+  .classification::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold-light);
+    flex-shrink: 0;
   }
 
   .case-title {
@@ -545,11 +554,121 @@
     .stat-number { font-size: 28px; }
   }
 
-  @keyframes pageFadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  body { animation: pageFadeIn 0.4s ease both; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+.slc-adv {
+  --bg-s: #161b25;
+  --bg-s2: #1e2535;
+  --bg-s3: #222c3c;
+  --bd: rgba(255,255,255,0.08);
+  --bd2: rgba(255,255,255,0.14);
+  --tx: #e8e4dc;
+  --tx2: #b0aec0;
+  --tx3: #555568;
+  --ac: #c8a96e;
+  --ac2: #7e9ec8;
+  --ac3: #6bbf8e;
+  --red: #c87070;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--tx);
+}
+.slc-adv *, .slc-adv *::before, .slc-adv *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* shared */
+.slc-adv .slc-vtag { font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--ac); margin-bottom: 6px; }
+.slc-adv .slc-vtitle { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--tx); margin-bottom: 6px; line-height: 1.3; }
+.slc-adv .slc-vtitle em { font-style: italic; font-weight: 400; }
+.slc-adv .slc-vdesc { font-family: 'EB Garamond', serif; font-size: 15px; color: var(--tx2); margin-bottom: 24px; line-height: 1.6; }
+.slc-adv .slc-card { background: var(--bg-s); border: 1px solid var(--bd); border-radius: 4px; padding: 36px; margin-bottom: 56px; }
+.slc-adv .slc-divider { border: none; border-top: 1px solid var(--bd); margin: 56px 0; }
+
+/* ── VISUAL A: SIX FAILURE MODES ── */
+.slc-adv .slc-fg { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--bd); border: 1px solid var(--bd); margin-bottom: 24px; }
+.slc-adv .slc-fc { background: var(--bg-s); padding: 22px 20px; transition: background .2s; }
+.slc-adv .slc-fc:hover { background: var(--bg-s2); }
+.slc-adv .slc-fn { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; color: var(--bd); line-height: 1; margin-bottom: 8px; transition: color .2s; }
+.slc-adv .slc-fc:hover .slc-fn { color: var(--ac); }
+.slc-adv .slc-fname { font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ac); margin-bottom: 7px; }
+.slc-adv .slc-fdesc { font-family: 'EB Garamond', serif; font-size: 13px; color: var(--tx2); line-height: 1.55; }
+.slc-adv .slc-fcon { text-align: center; padding: 18px; border-top: 1px solid var(--bd); }
+.slc-adv .slc-fcon p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px; color: var(--tx2); max-width: 580px; margin: 0 auto; line-height: 1.6; }
+.slc-adv .slc-fcon strong { color: var(--ac); font-style: normal; font-weight: 500; }
+
+/* ── VISUAL B: METHOD → DELIVERABLE ── */
+.slc-adv .slc-fhd { display: grid; grid-template-columns: 1fr 24px 1fr; margin-bottom: 2px; }
+.slc-adv .slc-fhl { font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--tx2); padding-bottom: 10px; }
+.slc-adv .slc-fhl.r { text-align: right; }
+.slc-adv .slc-fr { display: grid; grid-template-columns: 1fr 24px 1fr; align-items: center; margin-bottom: 2px; }
+.slc-adv .slc-fm { background: var(--bg-s2); border: 1px solid var(--bd); padding: 13px 16px; border-radius: 3px 0 0 3px; }
+.slc-adv .slc-fmn { font-size: 12px; font-weight: 500; color: var(--tx); margin-bottom: 2px; }
+.slc-adv .slc-fms { font-family: 'Playfair Display', serif; font-size: 11px; color: var(--ac); font-style: italic; }
+.slc-adv .slc-far { text-align: center; color: var(--ac); font-size: 13px; opacity: .7; }
+.slc-adv .slc-fds { display: flex; flex-direction: column; gap: 2px; }
+.slc-adv .slc-fd { background: var(--bg-s); border: 1px solid var(--bd); border-left: 3px solid var(--ac2); padding: 7px 13px; font-size: 11px; color: var(--tx2); border-radius: 0 3px 3px 0; }
+.slc-adv .slc-fd.p { border-left-color: var(--ac); color: var(--tx); font-weight: 500; }
+.slc-adv .slc-ftot { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--bd); }
+.slc-adv .slc-ftnum { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--ac); line-height: 1; }
+.slc-adv .slc-ftlbl { font-family: 'EB Garamond', serif; font-size: 16px; color: var(--tx2); font-style: italic; }
+
+/* ── VISUAL C: FINDABILITY CHART ── */
+.slc-adv .slc-fc-chart { display: flex; flex-direction: column; gap: 11px; }
+.slc-adv .slc-fcr { display: grid; grid-template-columns: 190px 1fr 50px; align-items: center; gap: 12px; }
+.slc-adv .slc-fcl { font-size: 12px; color: var(--tx2); text-align: right; }
+.slc-adv .slc-fcl.hi { color: var(--tx); font-weight: 500; }
+.slc-adv .slc-fct { height: 26px; background: var(--bg-s2); border-radius: 2px; overflow: hidden; }
+.slc-adv .slc-fcf { height: 100%; border-radius: 2px; }
+.slc-adv .slc-fcp { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--tx); text-align: right; }
+.slc-adv .slc-fcp.m { color: var(--tx2); font-size: 12px; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+.slc-adv .slc-fcdiv { height: 1px; background: var(--bd); margin: 3px 0; }
+.slc-adv .slc-call { margin-top: 22px; padding: 16px 20px; background: var(--bg-s2); border-left: 3px solid var(--ac); font-family: 'EB Garamond', serif; font-size: 15px; color: var(--tx2); font-style: italic; line-height: 1.6; }
+.slc-adv .slc-call strong { color: var(--tx); font-style: normal; font-weight: 500; }
+
+/* ── VISUAL D: TIMELINE ── */
+.slc-adv .slc-tl { position: relative; padding-left: 26px; }
+.slc-adv .slc-tl::before { content:''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--bd2); }
+.slc-adv .slc-ti { position: relative; padding-bottom: 28px; }
+.slc-adv .slc-ti:last-child { padding-bottom: 0; }
+.slc-adv .slc-td { position: absolute; left: -22px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg-s2); border: 2px solid var(--tx3); }
+.slc-adv .slc-td.a { background: var(--ac); border-color: var(--ac); box-shadow: 0 0 0 3px rgba(200,169,110,.15); }
+.slc-adv .slc-td.i { background: var(--ac3); border-color: var(--ac3); box-shadow: 0 0 0 3px rgba(107,191,142,.15); }
+.slc-adv .slc-td.m { background: var(--ac2); border-color: var(--ac2); box-shadow: 0 0 0 3px rgba(126,158,200,.15); }
+.slc-adv .slc-tbadge { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; margin-bottom: 5px; }
+.slc-adv .slc-tbadge.r { background: rgba(200,169,110,.12); color: var(--ac); }
+.slc-adv .slc-tbadge.i { background: rgba(107,191,142,.12); color: var(--ac3); }
+.slc-adv .slc-tbadge.m { background: rgba(126,158,200,.12); color: var(--ac2); }
+.slc-adv .slc-tdate { font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--tx3); margin-bottom: 3px; }
+.slc-adv .slc-tev { font-size: 13px; font-weight: 500; color: var(--tx); margin-bottom: 4px; }
+.slc-adv .slc-tdet { font-family: 'EB Garamond', serif; font-size: 14px; color: var(--tx2); line-height: 1.55; }
+
+@media (max-width:680px) {
+  .slc-adv .slc-fg { grid-template-columns: 1fr 1fr; }
+  .slc-adv .slc-fr { grid-template-columns: 1fr; }
+  .slc-adv .slc-far { display: none; }
+  .slc-adv .slc-fcr { grid-template-columns: 120px 1fr 36px; }
+}
+
+/* above-card text: adapted to Advana page colours */
+.slc-adv .slc-vtag   { color: #b8901a; }
+.slc-adv .slc-vtitle { color: #0d1b2a; }
+.slc-adv .slc-vdesc  { color: #4a5a6a; }
+
+/* Light retheme — Advana */
+.slc-adv {
+  --bg-s:  #ffffff;
+  --bg-s2: #f0f2f6;
+  --bg-s3: #e6e8ef;
+  --bd:    rgba(13,27,42,0.12);
+  --bd2:   rgba(13,27,42,0.20);
+  --tx:    #0d1b2a;
+  --tx2:   #4a5a6a;
+  --tx3:   #7a8a9a;
+  --ac:    #b8901a;
+  --ac2:   #5a7a9e;
+  --ac3:   #4a9a6e;
+  --red:   #c0392b;
+  color:   #0d1b2a;
+}
 </style>
 </head>
 <body>
@@ -561,12 +680,13 @@
     <a href="casestudy_advana.html" class="cs-nav-study active">Advana</a>
     <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
+    <a href="casestudy_web3fintech.html" class="cs-nav-study">Web3 Fintech</a>
   </div>
 </nav>
 
 <header class="masthead">
   <div class="masthead-inner">
-    <div class="classification">Research Case Study &nbsp;|&nbsp; DoD / CDAO &nbsp;|&nbsp; 2023&ndash;2024</div>
+    <div class="classification">Advana &nbsp;|&nbsp; DoD / CDAO &nbsp;|&nbsp; 2023&ndash;2024</div>
     <h1 class="case-title">When a Platform Becomes<br><em>a Victim of Its Own Success</em></h1>
     <p class="deck">Enterprise-scale user research and platform strategy for Advana, the Department of Defense's AI and analytics platform serving 100,000+ users across every branch of the military and civilian defense workforce.</p>
     <div class="meta-strip">
@@ -736,7 +856,25 @@
 
     <p>What emerged from the research was not a single root cause but a constellation of interconnected problems, each compounding the others. The platform had scaled its user base without scaling the infrastructure, the user experience, or the organizational understanding needed to support that growth.</p>
 
-    <div class="finding-row">
+    
+<div class="slc-adv">
+<!-- ══ VISUAL A: SIX FAILURE MODES — place in Findings ══ -->
+  <div class="slc-vtag">Findings</div>
+  <div class="slc-vtitle">Six Simultaneous Failure Modes <em>on a Single Platform</em></div>
+  <div class="slc-vdesc">The research surfaced not one root cause but a constellation of interconnected problems, each compounding the others.</div>
+  <div class="slc-card">
+    <div class="slc-fg">
+      <div class="slc-fc"><div class="slc-fn">01</div><div class="slc-fname">Segmented Needs</div><div class="slc-fdesc">Financial analysts, logistics officers, intelligence staff, and command leadership used the platform in structurally different ways. One architecture could not serve all of them.</div></div>
+      <div class="slc-fc"><div class="slc-fn">02</div><div class="slc-fname">Infrastructure Strain</div><div class="slc-fdesc">A major influx of users had strained the underlying architecture. Users were building workflows on a foundation that could not support them at scale. This was structural, not perceptual.</div></div>
+      <div class="slc-fc"><div class="slc-fn">03</div><div class="slc-fname">Literacy Gap</div><div class="slc-fdesc">The platform assumed a level of data literacy not uniformly present across the user base. Users who needed it most were least equipped to use it independently.</div></div>
+      <div class="slc-fc"><div class="slc-fn">04</div><div class="slc-fname">Unintended Use Patterns</div><div class="slc-fdesc">Workflow mapping revealed significant divergence between designed and actual use. Users had developed workarounds invisible to platform leadership.</div></div>
+      <div class="slc-fc"><div class="slc-fn">05</div><div class="slc-fname">Expectation Misalignment</div><div class="slc-fdesc">What leadership believed users needed and what users actually reported diverged in ways shaping roadmap decisions without either side recognizing the gap.</div></div>
+      <div class="slc-fc"><div class="slc-fn">06</div><div class="slc-fname">Mandate ≠ Adoption</div><div class="slc-fdesc">Even with a formal DoD mandate, voluntary active engagement remained lower than expected. Enterprise mandate alone cannot substitute for a platform users find genuinely useful.</div></div>
+    </div>
+    <div class="slc-fcon"><p>The platform had not failed. It had <strong>succeeded faster than the conditions for sustainable success had been built.</strong></p></div>
+  </div>
+</div>
+<div class="finding-row">
       <div class="finding-bar"></div>
       <div>
         <div class="finding-title">Different branches had fundamentally different needs</div>
@@ -791,6 +929,27 @@
         <p class="finding-text">Ease of finding data was directly measured in the CX survey. 36% of respondents reported difficulty finding what they needed (combining extremely difficult, very difficult, and fairly difficult responses). Only 20% found content very or extremely easy to locate. In open-ended responses, users described not knowing where to go, searching across multiple community spaces without success, and relying on colleagues to navigate rather than the platform itself. This is an information architecture problem, not a user education problem, and it demanded an IA solution: the sitemap, navigation redesign, and content model that became three of the twenty deliverables.</p>
       </div>
     </div>
+
+
+<div class="slc-adv">
+<!-- ══ VISUAL C: FINDABILITY CHART — place in Findings at "36%" ══ -->
+  <div class="slc-vtag">Findings — Content Discovery</div>
+  <div class="slc-vtitle">Finding Content Was <em>a Measurable Problem</em></div>
+  <div class="slc-vdesc">Ease of finding data was directly measured in the CX survey. The result was an information architecture problem — and it demanded an IA solution.</div>
+  <div class="slc-card">
+    <div class="slc-fc-chart">
+      <div class="slc-fcr"><div class="slc-fcl">Extremely difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:9%;background:#c0392b;opacity:.8"></div></div><div class="slc-fcp m">9%</div></div>
+      <div class="slc-fcr"><div class="slc-fcl">Very difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:13%;background:#c0392b;opacity:.6"></div></div><div class="slc-fcp m">13%</div></div>
+      <div class="slc-fcr"><div class="slc-fcl">Fairly difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:14%;background:#c0392b;opacity:.5"></div></div><div class="slc-fcp m">14%</div></div>
+      <div class="slc-fcr"><div class="slc-fcl hi" style="color:var(--ac)">Difficulty — combined</div><div class="slc-fct"><div class="slc-fcf" style="width:36%;background:var(--ac)"></div></div><div class="slc-fcp">36%</div></div>
+      <div class="slc-fcdiv"></div>
+      <div class="slc-fcr"><div class="slc-fcl">Neither easy nor difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:44%;background:var(--tx2);opacity:.35"></div></div><div class="slc-fcp m">44%</div></div>
+      <div class="slc-fcdiv"></div>
+      <div class="slc-fcr"><div class="slc-fcl hi">Very or extremely easy</div><div class="slc-fct"><div class="slc-fcf" style="width:20%;background:var(--ac3)"></div></div><div class="slc-fcp" style="color:var(--ac3)">20%</div></div>
+    </div>
+    <div class="slc-call">Users described <strong>not knowing where to go</strong>, searching across multiple community spaces without success, and relying on colleagues to navigate rather than the platform itself. This is an information architecture problem, not a user education problem.</div>
+  </div>
+</div>
 
     <div class="insight-card">
       <div class="insight-label">Core Diagnostic</div>
