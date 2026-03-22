@@ -380,6 +380,26 @@
     background: rgba(184,144,26,0.05);
   }
 
+  /* PDF DOWNLOAD LINK */
+  .cs-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cs-nav-download {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.14);
+    padding: 4px 10px;
+    border-radius: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cs-nav-download:hover { color: var(--gold-light); border-color: rgba(184,144,26,0.4); }
+
   /* FOOTER */
   .footer {
     background: var(--navy);
@@ -411,14 +431,17 @@
 
 <nav class="cs-nav">
   <a href="index.html" class="cs-nav-back">Portfolio</a>
-  <span class="cs-nav-title">Resume</span>
+  <div class="cs-nav-right">
+    <span class="cs-nav-title">Resume</span>
+    <a href="shannon_coleman_resume.pdf" download class="cs-nav-download">↓ PDF</a>
+  </div>
 </nav>
 
 <header class="masthead">
   <div class="masthead-inner">
     <div class="masthead-label">Resume</div>
     <h1 class="masthead-name">Shannon L. <em>Coleman</em></h1>
-    <div class="masthead-tagline">Research Lead &amp; Product Strategist &nbsp;&bull;&nbsp; AI Products, HealthTech, &amp; GovTech</div>
+    <div class="masthead-tagline">UX Research Lead &amp; Product Strategist &nbsp;&bull;&nbsp; Enterprise &amp; Regulated Markets &nbsp;&bull;&nbsp; AI &amp; Emerging Tech</div>
     <div class="masthead-contact">
       <a href="tel:7168642780">716.864.2780</a>
       <span>&bull;</span>
@@ -437,8 +460,20 @@
   <section class="section">
     <div class="section-label">Summary</div>
     <p class="summary-text">
-      Research lead and product strategist who comes into complex, ambiguous situations, figures out what is actually true, and moves organizations toward better decisions. Work spans AI platforms, enterprise IT, clinical trials, and early-stage health startups. Research has shaped a <strong>$15B DoD acquisition</strong>, a program-level infrastructure pause, and go-to-market pivots at early-stage startups. Equally fluent in a regression model and a 90-minute interview. PhD in Psychology &amp; Quantitative Methods. Active Secret Clearance.
+      Research lead and product strategist with <strong>15+ years</strong> across DoD and federal modernization, enterprise AI platforms, consumer and UX research, clinical trial recruitment, regulated fintech, and early-stage health technology. Comes into complex, ambiguous situations, figures out what is actually true, and moves organizations toward better decisions. Research has shaped a <strong>$15B DoD acquisition</strong>, a program-level infrastructure pause, and go-to-market pivots at early-stage startups. Equally fluent in a regression model and a 90-minute interview. Writes publicly on human intelligence and AI systems. PhD in Psychology &amp; Quantitative Methods. Active Secret Clearance.
     </p>
+  </section>
+
+  <!-- KEY ACHIEVEMENTS -->
+  <section class="section">
+    <div class="section-label">Key Achievements</div>
+    <ul style="margin-top: 20px;">
+      <li><strong>$15B DoD Acquisition</strong> — Research contributed directly to the Advana multi-vendor recompete at the DoD CDAO, one of the largest defense analytics platform contracts in recent history.</li>
+      <li><strong>XLA Standards in $5.7B Contracts</strong> — Defined and operationalized Experience Level Agreement standards embedded into Air Force EITaaS vendor contracts, institutionalizing UX performance expectations at the contract level for 800,000+ personnel.</li>
+      <li><strong>Commander's Commendation</strong> — Awarded U.S. Air Force Commander's Challenge Coin for shifting IT modernization to a user-centric service model and setting foundational standards for DAF digital transformation.</li>
+      <li><strong>950+ Participant Panel Built from Zero</strong> — Designed and scaled a proprietary research panel under HIPAA-adjacent and FDIC-regulated constraints, eliminating external recruitment spend and accelerating clinical study timelines.</li>
+      <li><strong>Trust-Transfer Model</strong> — Developed a B2B2C go-to-market framework for an AI health platform that reoriented channel strategy around trust intermediaries; founders adopted the framework and extended the engagement.</li>
+    </ul>
   </section>
 
   <!-- EXPERIENCE -->
@@ -449,15 +484,15 @@
     <div class="job">
       <div class="job-header">
         <span class="job-company">Coleman Advisory</span>
-        <span class="job-dates">2025 to present</span>
+        <span class="job-dates">2022 to present</span>
       </div>
-      <div class="job-title">Principal Research &amp; Product Strategy <em>Advisor</em></div>
-      <p class="job-intro">Lead mixed methods UX research and product strategy for early-stage HealthTech and FinTech platforms in regulated markets, working directly with founders and executive teams.</p>
+      <div class="job-title">Principal Research &amp; Strategy <em>Advisor</em></div>
+      <p class="job-intro">Independent consulting practice focused on mixed methods UX research and product strategy for early-stage HealthTech and FinTech platforms in regulated markets, working directly with founders and executive teams.</p>
       <ul>
-        <li>Surfaced a psychological adoption barrier (the <strong>"Not for Me" Paradox</strong>) and a trust gap at onboarding for an AI-powered personal health platform; the trust gap finding came specifically from including non-completers as research participants rather than treating refusal as dropout</li>
-        <li>Developed the <strong>Trust-Transfer Model</strong>, a B2B2C go-to-market framework reorienting channel strategy toward self-funded employers, unions, and advocacy organizations as trust intermediaries; founders adopted the framework and extended the engagement into several months of ongoing strategic advisory</li>
-        <li>Defined product strategy for a Web3 FinTech platform, aligning onboarding and transaction flows with regulatory risk, user trust, and retention behaviors</li>
-        <li>Built lightweight validation frameworks incorporating rapid usability testing, prototype evaluation, and iterative Agile feedback loops, reducing decision latency without sacrificing evidence quality</li>
+        <li>Surfaced the <strong>"Not for Me" Paradox</strong>, a psychological adoption barrier and a trust gap at onboarding, for an AI-powered personal health platform; the trust gap finding emerged specifically from including non-completers rather than treating refusal as dropout</li>
+        <li>Developed the <strong>Trust-Transfer Model</strong>, a B2B2C go-to-market framework reorienting channel strategy toward self-funded employers, unions, and advocacy organizations as trust intermediaries; founders adopted the framework and extended the engagement into ongoing strategic advisory</li>
+        <li>Define product strategy and research frameworks for early-stage platforms, including a Web3 FinTech engagement where aligning onboarding and transaction flows with regulatory risk required framing UX and compliance as a single problem rather than two workstreams</li>
+        <li>Build lightweight validation frameworks incorporating rapid usability testing, prototype evaluation, and iterative Agile feedback loops, reducing decision latency without sacrificing evidence quality</li>
       </ul>
     </div>
 
@@ -468,7 +503,7 @@
         <span class="job-dates">2022 to 2025</span>
       </div>
       <div class="job-title">Research &amp; Strategy Lead, <em>DoD</em></div>
-      <p class="job-intro">Principal researcher and strategist for two large-scale DoD platforms: Advana (AI and analytics, <strong>110,000+ users</strong>) and Air Force EITaaS (enterprise IT modernization, <strong>800,000+ personnel</strong>).</p>
+      <p class="job-intro">Principal researcher and strategist for two large-scale DoD programs serving a combined <strong>900,000+ users and personnel</strong>.</p>
 
       <div class="sub-label">Advana &nbsp;|&nbsp; DoD CDAO Enterprise Analytics Platform</div>
       <ul>
@@ -482,7 +517,7 @@
 
       <div class="sub-label">Air Force EITaaS &nbsp;|&nbsp; Enterprise IT Modernization ($5.7B program)</div>
       <ul>
-        <li>Developed persona and workflow research framework establishing segmentation across nine pilot installations, improving provisioning clarity and reducing cross-user friction</li>
+        <li>Developed persona and workflow research framework establishing segmentation across nine initial deployment sites, improving provisioning clarity and reducing cross-user friction</li>
         <li>Defined and operationalized <strong>Experience Level Agreement (XLA)</strong> standards embedded into <strong>$5.7B vendor contracts</strong>, institutionalizing performance and usability expectations at the contract level</li>
         <li>Replaced uptime-only evaluation with performance-based UX metrics, contributing to <strong>84% faster system startup</strong>, <strong>59% faster data transfer</strong>, and <strong>92% reduction in security event workload</strong></li>
         <li>Awarded U.S. Air Force Commander's Commendation (Challenge Coin) for shifting IT modernization to a user-centric service model, setting foundational standards for DAF digital transformation</li>
@@ -495,10 +530,10 @@
         <span class="job-company">Crowley Webb / Praxis</span>
         <span class="job-dates">2020 to 2022</span>
       </div>
-      <div class="job-title">Product Strategy &amp; <em>Research Analyst</em></div>
+      <div class="job-title">Research &amp; Strategy <em>Analyst</em></div>
       <ul>
-        <li>Built and scaled a <strong>950+ participant research panel from zero</strong>, reducing external recruitment spend and accelerating usability and feasibility study timelines across concurrent clinical programs</li>
-        <li>Conducted qualitative interviews, large-scale surveys, and social listening research informing trial positioning and patient recruitment conversion for F500 pharmaceutical clients including Pfizer, Eli Lilly, Merck, J&amp;J, and AbbVie</li>
+        <li>Built and scaled a <strong>950+ participant research panel from zero</strong> under HIPAA-adjacent and FDIC-regulated constraints, using Qualtrics, Azure SQL, and Giftbit with a compliance stack including ISO 27001:2022, GDPR, and the EU-U.S. Data Privacy Framework; eliminated external recruitment spend and accelerated clinical study timelines</li>
+        <li>Conducted qualitative interviews, large-scale surveys, social listening, and patient experience research informing trial positioning and patient recruitment conversion for F500 pharmaceutical clients including Pfizer, Eli Lilly, Merck, J&amp;J, and AbbVie</li>
         <li>Applied quantitative analysis to optimize multi-million-dollar Phase II/III recruitment campaigns through real-time performance insights, informing site selection, messaging, and budget reallocation</li>
         <li>Managed research operations for a growing <strong>7 to 10 person team</strong>, including participant recruitment workflows, study standardization, and coordination across concurrent client programs</li>
       </ul>
@@ -517,29 +552,14 @@
       </ul>
     </div>
 
-    <!-- FISHER-PRICE -->
+    <!-- EARLY CAREER -->
     <div class="job">
       <div class="job-header">
-        <span class="job-company">Fisher-Price</span>
-        <span class="job-dates">2009 to 2010</span>
+        <span class="job-company">Early Career</span>
       </div>
-      <div class="job-title"><em>Child Product Researcher</em></div>
-      <ul>
-        <li>Led usability and developmental research informing a <strong>4-product category launch</strong>, translating observational and diary study findings into product requirements and manufacturing decisions</li>
-        <li>Evaluated <strong>100+ concepts and prototypes</strong> across multiple product lines; partnered with Product Managers, Engineers, and Designers throughout discovery, design, and delivery</li>
-      </ul>
-    </div>
-
-    <!-- SEGMEDICA -->
-    <div class="job">
-      <div class="job-header">
-        <span class="job-company">Segmedica, Inc.</span>
-        <span class="job-dates">2008 to 2009</span>
-      </div>
-      <div class="job-title"><em>Market Intelligence Researcher</em></div>
-      <ul>
-        <li>Conducted mixed methods segmentation research across <strong>30+ pharmaceutical brands</strong>, informing positioning and expansion strategies</li>
-        <li>Designed and analyzed a <strong>35,000+ response</strong> national survey; packaged insights into a proprietary strategic research product</li>
+      <ul style="margin-top: 12px;">
+        <li><strong>Fisher-Price:</strong> Led usability and developmental research informing a <strong>4-product category launch</strong>; evaluated <strong>100+ concepts and prototypes</strong> across multiple product lines, partnering with Product, Engineering, and Design throughout</li>
+        <li><strong>Segmedica, Inc.:</strong> Mixed methods segmentation research across <strong>30+ pharmaceutical brands</strong>; designed and analyzed a <strong>35,000+ response</strong> national survey packaged into a proprietary strategic research product</li>
       </ul>
     </div>
 
@@ -551,7 +571,7 @@
     <div style="margin-top: 16px;">
       <div class="edu-item">
         <div class="edu-school">University at Buffalo, State University of New York</div>
-        <div class="edu-degree">PhD, Psychology &amp; Quantitative Methods &nbsp;&bull;&nbsp; MA, Psychology</div>
+        <div class="edu-degree">PhD &amp; MA, Psychology &amp; Quantitative Methods</div>
       </div>
       <div class="edu-item">
         <div class="edu-school">Fredonia, State University of New York</div>
@@ -569,24 +589,36 @@
     <div class="section-label">Core Expertise</div>
     <div class="expertise-grid">
       <div class="expertise-card">
-        <div class="expertise-card-label">Product &amp; Strategy</div>
-        <div class="expertise-card-text">Product Roadmapping, Strategic Framework Development, Go-to-Market Research, XLA &amp; CX Measurement, Persona &amp; Segmentation Frameworks, Information Architecture</div>
+        <div class="expertise-card-label">Research Methods</div>
+        <div class="expertise-card-text">Mixed methods research, usability testing &amp; prototype validation, in-depth interviews &amp; contextual inquiry, survey design &amp; quantitative analysis, longitudinal &amp; behavioral data modeling, survival analysis, logistic regression, A/B testing</div>
       </div>
       <div class="expertise-card">
-        <div class="expertise-card-label">Research Methods</div>
-        <div class="expertise-card-text">Mixed Methods Research, Usability Testing &amp; Prototype Validation, In-Depth Interviews &amp; Contextual Inquiry, Survey Design &amp; Quantitative Analysis, Longitudinal &amp; Behavioral Data Modeling, Survival Analysis, Logistic Regression</div>
+        <div class="expertise-card-label">Product &amp; Strategy</div>
+        <div class="expertise-card-text">Product roadmapping, strategic framework development, go-to-market research, XLA &amp; CX measurement, persona &amp; segmentation frameworks, information architecture, Agile research integration</div>
       </div>
       <div class="expertise-card">
         <div class="expertise-card-label">Research Operations</div>
-        <div class="expertise-card-text">Research Program Design, Panel Development &amp; Management, Research Ops Standardization, Cross-Functional Research Leadership</div>
+        <div class="expertise-card-text">Research program design, panel development &amp; management, research ops standardization, cross-functional research leadership, compliance-driven research (HIPAA, GDPR, ISO 27001:2022)</div>
       </div>
       <div class="expertise-card">
-        <div class="expertise-card-label">Domains &amp; Contexts</div>
-        <div class="expertise-card-text">AI Products, HealthTech, GovTech / DoD, Enterprise Platforms, Regulated &amp; Compliance-Driven Systems, Classified Environments</div>
+        <div class="expertise-card-label">Domains</div>
+        <div class="expertise-card-text">AI products, HealthTech, GovTech / DoD, enterprise platforms, regulated &amp; compliance-driven systems, classified environments, Web3 / FinTech</div>
       </div>
       <div class="expertise-card">
-        <div class="expertise-card-label">Tools</div>
-        <div class="expertise-card-text">Figma, Miro, Tableau, Power BI, R, Jira, Confluence, ServiceNow, Qualtrics</div>
+        <div class="expertise-card-label">AI Tools</div>
+        <div class="expertise-card-text">Claude, ChatGPT, Gemini, Dovetail AI, Notion AI, Otter.ai, Miro Assist</div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-card-label">Research &amp; Design Tools</div>
+        <div class="expertise-card-text">Qualtrics, dscout, Figma, Miro, UserTesting, Optimal Workshop, Dovetail</div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-card-label">Statistical Analysis</div>
+        <div class="expertise-card-text">R, SPSS, Excel</div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-card-label">Data, Visualization &amp; Platforms</div>
+        <div class="expertise-card-text">Tableau, Power BI, Azure SQL, Jira, Confluence, ServiceNow, GitHub</div>
       </div>
     </div>
   </section>
