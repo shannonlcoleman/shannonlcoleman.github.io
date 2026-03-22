@@ -146,10 +146,11 @@
   .masthead-tagline {
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.10em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.45);
     margin-bottom: 28px;
+    white-space: nowrap;
     opacity: 0;
     animation: fadeUp 0.6s ease forwards 0.35s;
   }
@@ -160,8 +161,8 @@
     letter-spacing: 0.06em;
     color: rgba(255,255,255,0.45);
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px 20px;
+    flex-wrap: nowrap;
+    gap: 6px 14px;
     opacity: 0;
     animation: fadeUp 0.6s ease forwards 0.45s;
   }
@@ -419,6 +420,8 @@
     .masthead { padding: 48px 0 36px; }
     .job-header { flex-direction: column; gap: 2px; }
     .expertise-grid { grid-template-columns: 1fr; }
+    .masthead-tagline { white-space: normal; letter-spacing: 0.08em; }
+    .masthead-contact { flex-wrap: wrap; gap: 4px 12px; }
   }
   @media (max-width: 480px) {
     .masthead-inner, .content { padding-left: 16px; padding-right: 16px; }
