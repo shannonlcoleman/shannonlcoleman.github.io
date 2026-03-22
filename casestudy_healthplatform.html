@@ -517,6 +517,25 @@
     .cs-nav-back { font-size: 9px; }
   }
 
+
+  /* ── Mobile nav: two-row layout with scrollable study strip ── */
+    .cs-nav-dropdown { display: none; }
+  @media (max-width: 640px) {
+    .cs-nav { height: 44px; flex-direction: row; align-items: center; padding: 0 16px; gap: 0; }
+    .cs-nav-back { font-size: 9px; }
+    .cs-nav-studies { display: none; }
+    .cs-nav::after { display: none; }
+    .masthead { margin-top: 52px; }
+    .cs-nav-dropdown { display: block; }
+    .cs-nav-dropdown-btn { list-style: none; color: rgba(255,255,255,0.7); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; user-select: none; }
+    .cs-nav-dropdown-btn::-webkit-details-marker { display: none; }
+    .cs-nav-dropdown-btn::marker { display: none; }
+    .cs-nav-dropdown[open] .cs-nav-dropdown-btn { color: rgba(255,255,255,0.95); border-color: rgba(255,255,255,0.3); }
+    .cs-nav-dropdown-list { position: absolute; right: 16px; top: 44px; background: rgba(26,26,46,0.97); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; overflow: hidden; min-width: 160px; z-index: 300; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }}
+    .cs-nav-dropdown-item { display: block; padding: 9px 16px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; }
+    .cs-nav-dropdown-item.active { color: rgba(255,255,255,0.3); pointer-events: none; cursor: default; }
+    .cs-nav-dropdown-item:hover:not(.active) { color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.06); }
+  }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -649,6 +668,17 @@
     <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-study">Web3 Fintech</a>
   </div>
+<details class="cs-nav-dropdown">
+  <summary class="cs-nav-dropdown-btn">Case Studies &#9662;</summary>
+  <div class="cs-nav-dropdown-list">
+    <a href="casestudy_eitaas.html" class="cs-nav-dropdown-item">EITaaS</a>
+    <a href="casestudy_advana.html" class="cs-nav-dropdown-item">Advana</a>
+    <a href="casestudy_healthplatform.html" class="cs-nav-dropdown-item active">AI Health Platform</a>
+    <a href="casestudy_researchpanel.html" class="cs-nav-dropdown-item">Research Panel</a>
+    <a href="casestudy_web3fintech.html" class="cs-nav-dropdown-item">Web3 Fintech</a>
+  </div>
+</details>
+
 </nav>
 
 <header class="masthead">
