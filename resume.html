@@ -455,7 +455,7 @@
   <a href="index.html" class="cs-nav-back">Portfolio</a>
   <div class="cs-nav-right">
     <span class="cs-nav-title">Resume</span>
-    <a href="shannon_coleman_resume.pdf" target="_blank" rel="noopener noreferrer" class="cs-nav-download" onclick="gtag('event', 'resume_pdf_download', {'event_category': 'engagement', 'event_label': 'Resume PDF'});">↓ PDF</a>
+    <a href="#" class="cs-nav-download" onclick="event.preventDefault(); try{gtag('event','resume_pdf_download',{'event_category':'engagement','event_label':'Resume PDF'});}catch(e){} window.open('shannon_coleman_resume.pdf','_blank'); return false;">↓ PDF</a>
   </div>
 </nav>
 
