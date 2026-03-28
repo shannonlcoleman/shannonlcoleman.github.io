@@ -43,7 +43,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -57,7 +58,7 @@
     --white:      #fafaf8;
     --text:       #1a1a1a;
     --text-light: #444;
-    --steel:      #7a8a96;
+    --steel:      #4e6070;
     --rule:       #e4e0d8;
     --serif:      'Cormorant Garamond', Georgia, serif;
     --mono:       'DM Mono', monospace;
@@ -108,9 +109,10 @@
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
     transition: color 0.2s;
+    padding: 4px 8px;
   }
 
   .site-nav a:hover { color: var(--gold-light); }
@@ -194,7 +196,7 @@
     font-size: 11px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.6);
     margin-bottom: 36px;
     opacity: 0;
     animation: fadeUp 0.6s ease forwards 0.22s;
@@ -205,7 +207,7 @@
     font-size: clamp(18px, 2.2vw, 22px);
     font-weight: 300;
     font-style: italic;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.82);
     margin-bottom: 40px;
     max-width: 580px;
     line-height: 1.5;
@@ -215,7 +217,7 @@
 
   .hero-bio {
     font-size: 15px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.78);
     max-width: 620px;
     line-height: 1.85;
     margin-bottom: 48px;
@@ -248,10 +250,11 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 13px 24px;
+    padding: 16px 24px;
     border-radius: 1px;
     font-weight: 500;
     transition: background 0.2s;
+    min-height: 48px;
   }
 
   .btn-primary:hover { background: var(--gold-light); }
@@ -261,15 +264,16 @@
     align-items: center;
     gap: 8px;
     border: 1px solid rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.75);
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 13px 24px;
+    padding: 16px 24px;
     border-radius: 1px;
     transition: border-color 0.2s, color 0.2s;
+    min-height: 48px;
   }
 
   .btn-secondary:hover {
@@ -621,10 +625,14 @@
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.08em;
-    line-height: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px 16px;
   }
 
-  .footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer a { color: rgba(255,255,255,0.55); text-decoration: none; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
   .footer a:hover { color: var(--gold-light); }
 
   /* IMPACT STRIP */
@@ -667,7 +675,7 @@
     font-size: 9px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--steel);
+    color: var(--gold);
     line-height: 1.7;
   }
 
@@ -720,7 +728,8 @@
     .impact-stat:nth-child(4) { border-right: none; padding-top: 28px; }
     .impact-stat-num { font-size: 44px; }
     .methods-full-grid { grid-template-columns: 1fr; gap: 0; }
-    .cs-arrow-wrap { display: none; }
+    .cs-arrow-wrap { display: flex; padding: 0 20px 20px; }
+    .cs-arrow { opacity: 0.85; }
     .cs-body { padding: 20px; }
     .cs-meta { font-size: 9px; }
     .contact-strip { padding: 36px 20px; flex-direction: column; align-items: flex-start; }
@@ -1068,11 +1077,11 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  Shannon L. Coleman, PhD &nbsp;&bull;&nbsp;
-  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
-  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
-  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a> &nbsp;&bull;&nbsp;
-  &copy; 2026
+  <span>Shannon L. Coleman, PhD</span>
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a>
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a>
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+  <span>&copy; 2026</span>
 </footer>
 
 <script>

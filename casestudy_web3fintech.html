@@ -15,7 +15,8 @@
 <meta name="twitter:description" content="Shannon L. Coleman's UX research and strategy for a Web3 fintech tokenized asset platform, navigating regulatory and user trust challenges.">
 <meta name="twitter:image" content="https://shannonlcoleman.com/og-image.jpg">
 <title>Case Study: Web3 Fintech / Tokenized Asset Platform | Shannon L. Coleman, PhD</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap"></noscript>
 <style>
   :root {
     --w3-dark:     #110e2d;
@@ -66,7 +67,7 @@
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -548,10 +549,9 @@
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.08em;
-    line-height: 2;
-  }
+    line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; }
 
-  .footer a { color: var(--w3-accent); text-decoration: none; }
+  .footer a { color: var(--w3-accent); text-decoration: none; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
 
   /* RESPONSIVE */
   @media (max-width: 700px) {
@@ -602,7 +602,8 @@
     .cs-nav-dropdown-item:hover:not(.active) { color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.06); }
   }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 <style>
 .slc-w3r {
   --bg:    #110e2d;
@@ -1214,11 +1215,11 @@
 </main>
 
 <footer class="footer">
-  Shannon L. Coleman, PhD &nbsp;&bull;&nbsp;
-  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
-  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
-  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a> &nbsp;&bull;&nbsp;
-  &copy; 2026
+  <span>Shannon L. Coleman, PhD</span>
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a>
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a>
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+  <span>&copy; 2026</span>
 </footer>
 
 <script>

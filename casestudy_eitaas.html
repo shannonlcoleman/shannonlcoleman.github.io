@@ -15,7 +15,8 @@
 <meta name="twitter:description" content="Shannon L. Coleman's UX research and strategy for the Department of the Air Force's EITaaS initiative.">
 <meta name="twitter:image" content="https://shannonlcoleman.com/og-image.jpg">
 <title>Case Study: EITaaS / Department of the Air Force | Shannon L. Coleman, PhD</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&family=Mulish:wght@300;400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&family=Mulish:wght@300;400;500;600&display=swap"></noscript>
 <style>
   :root {
     --af-blue: #003087;
@@ -56,7 +57,7 @@
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -170,8 +171,8 @@
   .reflection { background: var(--white); border: 1px solid var(--rule); padding: 38px 42px; margin-top: 44px; border-radius: 2px; }
   .reflection p { max-width: 100%; }
 
-  .footer { background: var(--af-blue); color: rgba(255,255,255,0.45); text-align: center; padding: 28px 40px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; line-height: 2; }
-  .footer a { color: var(--gold); text-decoration: none; }
+  .footer { background: var(--af-blue); color: rgba(255,255,255,0.45); text-align: center; padding: 28px 40px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; }
+  .footer a { color: var(--gold); text-decoration: none; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
 
   @media (max-width: 700px) {
     .masthead { padding: 40px 0 0; }
@@ -585,9 +586,9 @@
 </main>
 
 <footer class="footer">
-  Shannon L. Coleman, PhD &nbsp;&bull;&nbsp;
-  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a> &nbsp;&bull;&nbsp;
-  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a> &nbsp;&bull;&nbsp;
+  <span>Shannon L. Coleman, PhD</span>
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a>
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a>
   <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
 </footer>
 
