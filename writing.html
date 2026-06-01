@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ground Truth — writing on rigorous AI product practice by Shannon L. Coleman, PhD. Three series covering AI product metrics, measurement strategy, and AI enablement research.">
+<link rel="canonical" href="https://shannonlcoleman.com/writing.html">
+<meta property="og:title" content="Writing | Shannon L. Coleman, PhD">
+<meta property="og:description" content="Ground Truth — a publication on rigorous AI product practice. Three series on evaluation frameworks, measurement strategy, and AI enablement research.">
+<meta property="og:url" content="https://shannonlcoleman.com/writing.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://shannonlcoleman.com/og-image-v2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Writing | Shannon L. Coleman, PhD">
+<meta name="twitter:description" content="Ground Truth — a publication on rigorous AI product practice.">
+<meta name="twitter:image" content="https://shannonlcoleman.com/og-image-v2.jpg">
+<title>Writing | Shannon L. Coleman, PhD</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W97T1GM03N');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #0f1f2e;
+    --navy-mid:   #1a2f42;
+    --navy-light: #243d52;
+    --gold:       #b8901a;
+    --gold-light: #d4a82a;
+    --gold-pale:  #fdf6e3;
+    --white:      #fafaf8;
+    --text:       #1a1a1a;
+    --text-light: #444;
+    --steel:      #4e6070;
+    --rule:       #e4e0d8;
+    --serif:      'Cormorant Garamond', Georgia, serif;
+    --mono:       'DM Mono', monospace;
+    --sans:       'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--navy);
+    padding: 0 48px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .site-logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .site-nav a {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 4px 8px;
+  }
+
+  .site-nav a:hover,
+  .site-nav a.active { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 80px 48px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(184,144,26,0.04) 100%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-label::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-heading {
+    font-family: var(--serif);
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+
+  .hero-heading em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    max-width: 540px;
+    line-height: 1.85;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.28s;
+  }
+
+  .hero-logo-wrap {
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+    flex-shrink: 0;
+  }
+
+  .hero-logo-wrap img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    opacity: 0.92;
+  }
+
+  .hero-substack-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.45s;
+  }
+
+  .hero-substack-link:hover { color: var(--gold-light); }
+
+  .hero-substack-link::after {
+    content: '→';
+    font-size: 13px;
+    color: var(--gold);
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+  }
+
+  /* SERIES BLOCK */
+  .series-block {
+    padding-top: 72px;
+  }
+
+  .series-header {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .series-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .series-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 48px;
+  }
+
+  .series-title {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    color: var(--navy);
+  }
+
+  .series-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .series-desc {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 620px;
+  }
+
+  /* ARTICLE LINKS */
+  .article-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-link {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    transition: padding-left 0.2s;
+  }
+
+  .article-link:first-child { border-top: 1px solid var(--rule); }
+  .article-link:hover { padding-left: 8px; }
+  .article-link:hover .article-title { color: var(--gold); }
+  .article-link:hover .article-arrow { opacity: 1; transform: translateX(4px); }
+
+  .article-body {}
+
+  .article-meta {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 6px;
+  }
+
+  .article-title {
+    font-family: var(--serif);
+    font-size: clamp(17px, 2vw, 21px);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+  }
+
+  .article-desc {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.65;
+    max-width: 580px;
+  }
+
+  .article-arrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    opacity: 0.35;
+    transform: translateX(0);
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+
+  /* SERIES INTRO ARTICLE (styled differently) */
+  .article-link.is-intro .article-title {
+    font-size: clamp(15px, 1.8vw, 18px);
+    color: var(--steel);
+    font-style: italic;
+  }
+
+  .article-link.is-intro:hover .article-title { color: var(--gold); }
+
+    /* BUTTONS */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 1px;
+    font-weight: 500;
+    transition: background 0.2s;
+    min-height: 48px;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.75);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 1px;
+    transition: border-color 0.2s, color 0.2s;
+    min-height: 48px;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* CONTACT */
+  .contact-strip {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 56px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .contact-heading em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px 40px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px 16px;
+  }
+
+  .footer a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    padding: 8px 4px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer a:hover { color: var(--gold-light); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .site-header { padding: 0 20px; }
+    .site-nav { gap: 16px; }
+    .hero { padding: 48px 20px 48px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .hero-logo-wrap { order: -1; }
+    .hero-logo-wrap img { width: 140px; height: 140px; }
+    .content { padding: 0 20px 64px; }
+    .article-link { grid-template-columns: 1fr; gap: 8px; }
+    .article-arrow { display: none; }
+    .viewall-strip { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    .contact-strip { padding: 36px 20px; flex-direction: column; align-items: flex-start; }
+    .footer { padding: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .site-nav a { font-size: 9px; letter-spacing: 0.1em; }
+    .contact-links { flex-direction: column; }
+  }
+
+  /* SUBSTACK CTA */
+  .substack-cta {
+    background: var(--gold-pale);
+    border-top: 1px solid rgba(184,144,26,0.2);
+    border-bottom: 1px solid rgba(184,144,26,0.2);
+    padding: 28px 48px;
+    margin-top: 72px;
+  }
+
+  .substack-cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .substack-cta-text {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .substack-cta-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 700px) {
+    .substack-cta { padding: 24px 20px; }
+    .substack-cta-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="site-logo">Shannon L. Coleman</a>
+  <nav class="site-nav">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="writing.html" class="active" aria-current="page">Writing</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-label">Writing</div>
+      <h1 class="hero-heading">Ground Truth:<br><em>AI product practice,</em><br>examined.</h1>
+      <p class="hero-sub">Most AI product content is written by people excited about what AI can do. Ground Truth is where I work through what rigorous practice actually looks like: from evaluation frameworks and measurement strategy to the organizational conditions that determine whether good research ever changes anything.</p>
+      <a href="https://byshannoncoleman.substack.com" class="hero-substack-link" target="_blank" rel="noopener">Subscribe on Substack</a>
+    </div>
+    <div class="hero-logo-wrap">
+      <img src="ground-truth-logo.png" alt="Ground Truth — AI Product Practice">
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- SERIES 3 -->
+  <div class="series-block">
+    <div class="series-header">
+      <div class="series-label">Series 3 &nbsp;&bull;&nbsp; May 2026</div>
+      <h2 class="series-title">The Capability Question:<br><em>What AI Enablement Actually Does to People</em></h2>
+      <p class="series-desc">Adoption metrics measure whether people use a tool. They do not measure whether people are getting better at their jobs. This series examines what capability actually means in the context of AI enablement and how to design research that answers that question honestly.</p>
+    </div>
+    <div class="article-list">
+      <a href="https://byshannoncoleman.substack.com/p/ai-confidence-calibration-problem" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">May 27, 2026</div>
+          <div class="article-title">The Confidence Problem</div>
+          <div class="article-desc">The tool was certain. The employees were certain. The outputs were wrong.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/what-ai-capability-actually-means" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">May 20, 2026</div>
+          <div class="article-title">What Does Capable Even Mean?</div>
+          <div class="article-desc">Employees are finishing tasks. That is not the same as getting better at their jobs.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/introducing-the-capability-question" class="article-link is-intro" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">May 13, 2026 &nbsp;&bull;&nbsp; Series Introduction</div>
+          <div class="article-title">Introducing The Capability Question: What AI Enablement Actually Does to People</div>
+          <div class="article-desc">The adoption metrics look fine. That is not the same as knowing whether your people are getting better.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SERIES 2 -->
+  <div class="series-block">
+    <div class="series-header">
+      <div class="series-label">Series 2 &nbsp;&bull;&nbsp; April 2026</div>
+      <h2 class="series-title">The Measurement Traps<br><em>That Break Strategy</em></h2>
+      <p class="series-desc">Organizations make consequential decisions from evidence that was never designed to support them. This series examines the structural incentives that produce bad measurement and what it takes to build insight functions that actually change decisions.</p>
+    </div>
+    <div class="article-list">
+      <a href="https://byshannoncoleman.substack.com/p/the-quant-default" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Apr 29, 2026</div>
+          <div class="article-title">The Quant Default</div>
+          <div class="article-desc">Organizations default to quantitative evidence when it conflicts with qualitative not because it is more right, but because it is easier to defend.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/how-research-gets-designed-to-survive" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Apr 22, 2026</div>
+          <div class="article-title">How Research Gets Designed to Survive Scrutiny Rather Than Generate Insight</div>
+          <div class="article-desc">The incentive to be defensible and the incentive to be useful are not the same incentive.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/why-most-insight-functions-produce" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Apr 15, 2026</div>
+          <div class="article-title">Why Most Insight Functions Produce Answers Nobody Asked For</div>
+          <div class="article-desc">Insight functions optimized for research production will produce research. Whether anyone uses it is a different question.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/the-difference-between-a-finding" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Apr 8, 2026</div>
+          <div class="article-title">The Difference Between a Finding and a Decision</div>
+          <div class="article-desc">Most research tells you what is true. Decisions require something else entirely.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/introducing-the-measurement-traps" class="article-link is-intro" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Apr 1, 2026 &nbsp;&bull;&nbsp; Series Introduction</div>
+          <div class="article-title">Introducing The Measurement Traps That Break Strategy</div>
+          <div class="article-desc">Organizations are making consequential decisions from evidence that was never designed to support them.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SERIES 1 -->
+  <div class="series-block">
+    <div class="series-header">
+      <div class="series-label">Series 1 &nbsp;&bull;&nbsp; February – March 2026</div>
+      <h2 class="series-title">Rigorous AI Product Practice:<br><em>Evaluation, Metrics, and Governance</em></h2>
+      <p class="series-desc">Most AI product teams only instrument one of the four evaluation layers that matter. This series builds the case for a more rigorous approach: evaluation frameworks, metric failure modes, human-in-the-loop design, and governance checklists for shipping responsibly.</p>
+    </div>
+    <div class="article-list">
+      <a href="https://byshannoncoleman.substack.com/p/how-to-design-human-in-the-loop-ai" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Mar 19, 2026</div>
+          <div class="article-title">How to Design Human-in-the-Loop AI Systems That Don't Collapse</div>
+          <div class="article-desc">Adding a human review step is not the same as having oversight. Here's why HITL systems fail and what holds up in practice.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/a-governance-checklist-for-shipping" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Mar 12, 2026</div>
+          <div class="article-title">A Governance Checklist for Shipping LLM Features in Consumer Apps</div>
+          <div class="article-desc">A checklist is not a governance system. Here's the difference and what actually needs to be in place before you ship.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/why-most-ai-product-metrics-fail" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Mar 5, 2026</div>
+          <div class="article-title">Why Most AI Product Metrics Fail Under Distribution Shift</div>
+          <div class="article-desc">Why your dashboard looks green while your product is quietly failing a subset of users.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/a-practical-ai-evaluation-framework" class="article-link" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Feb 26, 2026</div>
+          <div class="article-title">A Practical AI Evaluation Framework for Consumer Products</div>
+          <div class="article-desc">Most teams only instrument one of the four evaluation layers that matter. Here's the full framework.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+      <a href="https://byshannoncoleman.substack.com/p/introducing-ground-truth-a-publication" class="article-link is-intro" target="_blank" rel="noopener">
+        <div class="article-body">
+          <div class="article-meta">Feb 23, 2026 &nbsp;&bull;&nbsp; Series Introduction</div>
+          <div class="article-title">Introducing Ground Truth: A Publication on Rigorous AI Product Practice</div>
+          <div class="article-desc">Most AI product content is written by people who are excited about what AI can do.</div>
+        </div>
+        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<!-- SUBSTACK CTA -->
+<div class="substack-cta">
+  <div class="substack-cta-inner">
+    <div class="substack-cta-text">
+      <span class="substack-cta-label">Ground Truth</span>
+      New articles publish every week.
+    </div>
+    <a href="https://byshannoncoleman.substack.com" class="btn-primary" target="_blank" rel="noopener" aria-label="Subscribe to Ground Truth on Substack">Subscribe on Substack</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-strip" id="contact">
+  <div class="contact-left">
+    <div class="contact-label">Get In Touch</div>
+    <div class="contact-heading">Open to the right<br><em>conversation.</em></div>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:shannon@shannonlcoleman.com" class="btn-primary">shannon@shannonlcoleman.com</a>
+    <a href="https://linkedin.com/in/shannonlcoleman" class="btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span>Shannon L. Coleman, PhD</span>
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a>
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a>
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+  <span>&copy; 2026</span>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (href && href[0] !== '#' && href.indexOf('http') !== 0 && href.indexOf('mailto') !== 0) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.style.transition = 'opacity 0.25s ease';
+        document.body.style.opacity = '0';
+        setTimeout(function() { location.href = href; }, 260);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
