@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Depth Without Calibration Isn't Adoption | Shannon L. Coleman, PhD</title>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"></noscript>
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1b2f45;
+    --teal: #2a7a7a;
+    --teal-light: #3a9898;
+    --teal-pale: #e8f4f4;
+    --teal-accent: #4db8b8;
+    --paper: #f4f6f8;
+    --white: #ffffff;
+    --steel: #6b8cae;
+    --rule: #d0d8e4;
+    --text-primary: #f0f4f8;
+    --text-secondary: #a8bcd0;
+    --text-dark: #0d1b2a;
+    --text-mid: #1e3a4a;
+    --text-mid-light: #2a4a5a;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--navy);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  .nav {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-back {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-back:hover {
+    color: var(--teal-accent);
+  }
+
+  .nav-back::before {
+    content: '←';
+    font-size: 0.85rem;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--teal-accent);
+    opacity: 0.5;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.8rem, 4.5vw, 2.75rem);
+    line-height: 1.15;
+    color: var(--teal-accent);
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, var(--teal), transparent);
+    margin-bottom: 2.5rem;
+    opacity: 0.4;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    background: var(--navy-mid);
+    border-left: 3px solid var(--teal-accent);
+    padding: 1.5rem 1.75rem;
+    margin: 0 auto 3rem;
+    max-width: 780px;
+    width: calc(100% - 4rem);
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  /* CONTENT SECTIONS */
+  .content {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .section:last-of-type {
+    border-bottom: none;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: var(--teal);
+    opacity: 0.3;
+  }
+
+  .section h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .section h3 em {
+    font-style: italic;
+    color: var(--teal-accent);
+    font-weight: 400;
+  }
+
+  .section p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section p strong {
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  /* TENSION BOX */
+  .tension-box {
+    background: rgba(42, 122, 122, 0.08);
+    border: 1px solid rgba(77, 184, 184, 0.2);
+    padding: 1.5rem 1.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .tension-box p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .tension-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tension-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--teal-accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* WHAT I'D BRING */
+  .bring-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .bring-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .bring-marker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+    width: 1.5rem;
+  }
+
+  .bring-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  .bring-text strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  /* CLOSING */
+  .closing {
+    background: var(--navy-mid);
+    padding: 2.5rem 2rem;
+    margin-top: 1rem;
+  }
+
+  .closing-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .closing p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-style: normal;
+    line-height: 1.65;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  .closing-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .closing-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .closing-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .closing-meta a {
+    color: var(--teal-accent);
+    text-decoration: none;
+  }
+
+  .closing-meta a:hover {
+    text-decoration: underline;
+  }
+
+  .closing-copyright {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(168, 188, 208, 0.5);
+    letter-spacing: 0.06em;
+    margin-top: 0.25rem;
+  }
+
+  /* LIGHT SECTION */
+  .light-section {
+    background: var(--teal-pale);
+    padding: 3rem 2rem;
+    margin-bottom: 0;
+  }
+
+  .light-section .content {
+    padding-bottom: 0;
+  }
+
+  .light-section .section {
+    border-bottom-color: rgba(0,0,0,0.08);
+  }
+
+  .light-section .section-label {
+    color: var(--teal);
+  }
+
+  .light-section .section-label::after {
+    background: var(--teal);
+    opacity: 0.4;
+  }
+
+  .light-section .section h3 {
+    color: #0d1b2a !important;
+  }
+
+  .light-section .section h3 em {
+    color: #2a7a7a !important;
+  }
+
+  .light-section .section p {
+    color: #1e3a4a !important;
+  }
+
+  .light-section .section p strong {
+    color: #0d1b2a !important;
+  }
+
+  .light-section .bring-marker {
+    color: #2a7a7a !important;
+  }
+
+  .light-section .bring-text {
+    color: #1e3a4a !important;
+  }
+
+  .light-section .bring-text strong {
+    color: #0d1b2a !important;
+  }
+
+  /* FADE IN */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero, .pull-quote, .section, .closing {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero { animation-delay: 0.05s; }
+  .pull-quote { animation-delay: 0.15s; }
+  .section:nth-child(1) { animation-delay: 0.2s; }
+  .section:nth-child(2) { animation-delay: 0.28s; }
+  .section:nth-child(3) { animation-delay: 0.36s; }
+  .closing { animation-delay: 0.44s; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 2rem 1.25rem 2rem; }
+    .pull-quote { margin-left: 1.25rem; margin-right: 1.25rem; }
+    .content { padding: 0 1.25rem 3rem; }
+    .light-section { padding: 2.5rem 1.25rem; }
+    .closing { padding: 2rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://shannonlcoleman.com" class="nav-back">Portfolio</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">AI Outcomes &nbsp;|&nbsp; Shannon L. Coleman, PhD</div>
+  <h1>Exposure Isn't Adoption.</h1>
+  <h2>Depth Without Calibration Isn't Either.</h2>
+  <div class="hero-rule"></div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <p>A user who opens the AI tool three times a week and passively accepts whatever it returns isn't an adopted user. She's a user who hasn't quit yet.</p>
+</div>
+
+<!-- DARK SECTIONS -->
+<div class="content">
+
+  <div class="section">
+    <div class="section-label">01 &nbsp; The Problem</div>
+    <h3>Most organizations measure exposure.<br><em>They call it adoption.</em></h3>
+    <p>Seat activation. Session counts. Weekly actives.<br>These are breadth metrics, and breadth tells you people showed up. It does not tell you whether people are doing better work.</p>
+    <p>The breadth/depth distinction isn't really about engagement volume. <strong>It's about decision quality.</strong> Depth means users are calibrating their reliance correctly: leaning on AI more heavily where it's reliable, less heavily where it isn't. Almost no one is measuring for it.</p>
+    <p>Even when companies do try to measure depth, they reach for the wrong proxies. Prompt sophistication, feature utilization rate, and time on task are output impressiveness metrics dressed up as depth. They don't tell you whether the user made a better decision because of the AI than she would have made without it.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">02 &nbsp; The Glean-Specific Tension</div>
+    <h3>93% adoption is a headline.<br><em>It is not a success story.</em></h3>
+    <p>Glean's growth proposition rests on demonstrating ROI. The AIOM function exists to make that case. But the ROI story is only as credible as the measurement framework behind it, and right now that framework is being built.</p>
+
+    <div class="tension-box">
+      <p><span class="tension-label">The Unreliability Risk</span>Index sync delays introduce uncertainty about whether the content Glean surfaces is current. When users start questioning accuracy, engagement declines. This gets framed as a technical problem, but it's actually a calibration problem. Users who engage most deeply are also most exposed to that failure. Depth of engagement in a system with uneven reliability isn't a success metric. It's a risk factor.</p>
+      <p><span class="tension-label">The power user trap</span>The standard playbook finds the 15% who've deeply integrated the tool and tries to drive everyone else there. That cohort often contains people who are over-reliant rather than well-calibrated — fluency that looks like depth is sometimes automation bias at scale.</p>
+      <p><span class="tension-label">The Renewal Question</span>User reviews flagging accuracy concerns aren't just a product problem, they're a commercial risk signal. When the people using the tool publicly question whether it surfaces current, reliable information, that evidence has a way of surfacing in procurement conversations at renewal time. High adoption numbers don't survive a procurement team that's done a quick G2 search. Organizations that can't demonstrate decision quality improvement by then are at risk of losing the contract.</p>
+    </div>
+
+    <p>The question underneath all of it: <strong>are users actually doing better work, or are they just more accustomed to the product?</strong></p>
+  </div>
+
+</div>
+
+<!-- LIGHT SECTION -->
+<div class="light-section">
+  <div class="content">
+    <div class="section">
+      <div class="section-label">03 &nbsp; What This Means for the AIOM Function</div>
+      <h3>The playbook Glean needs isn't about<br><em>getting people to use it more.</em></h3>
+      <p>It's about building the measurement infrastructure to prove that people who use it are making better decisions. That's a different document, a different set of success criteria, and a different conversation with executive sponsors.</p>
+      <p>I've built the upstream version of this before, in contexts where the measurement framework had to hold up under federal scrutiny. What that work taught me is that the playbook and the metrics have to be designed together, or the metrics will always lag behind the reality on the ground.</p>
+
+      <div class="bring-grid">
+        <div class="bring-item">
+          <div class="bring-marker">01</div>
+          <div class="bring-text"><strong>Calibration-first success criteria.</strong> Reframing what AIOM teams measure so that ROI reporting reflects decision quality, not just engagement volume.</div>
+        </div>
+        <div class="bring-item">
+          <div class="bring-marker">02</div>
+          <div class="bring-text"><strong>Segmentation that maps to reliance patterns.</strong> Not all users who look like power users are calibrated well. Understanding that distinction changes how you design enablement.</div>
+        </div>
+        <div class="bring-item">
+          <div class="bring-marker">03</div>
+          <div class="bring-text"><strong>Playbook infrastructure built to scale.</strong> Standard processes and templates that hold up across accounts and functions, not just in the accounts where you have your best people.</div>
+        </div>
+        <div class="bring-item">
+          <div class="bring-marker">04</div>
+          <div class="bring-text"><strong>The field feedback loop.</strong> Synthesizing what's actually happening in accounts into product insights that make the platform more trustworthy over time, not just more used.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-inner">
+    <p>The measurement problem underneath AI outcomes is the problem I've been working on. I'd love to talk about how you're approaching it from the inside.</p>
+    <div class="closing-contact">
+      <div class="closing-name">Shannon L. Coleman, PhD</div>
+      <div class="closing-meta">
+        <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a><br>
+        <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a><br>
+        <a href="https://shannonlcoleman.com">shannonlcoleman.com</a><br>
+        <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+      </div>
+      <div class="closing-copyright">© 2026 Shannon L. Coleman</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
