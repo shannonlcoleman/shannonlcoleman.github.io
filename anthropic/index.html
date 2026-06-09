@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Standard Manager Effectiveness Metrics Weren't Built for Anthropic | Shannon L. Coleman, PhD</title>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"></noscript>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W97T1GM03N');
+</script>
+
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1b2f45;
+    --teal: #2a7a7a;
+    --teal-light: #3a9898;
+    --teal-pale: #e8f4f4;
+    --teal-accent: #4db8b8;
+    --paper: #f4f6f8;
+    --white: #ffffff;
+    --steel: #6b8cae;
+    --rule: #d0d8e4;
+    --text-primary: #f0f4f8;
+    --text-secondary: #a8bcd0;
+    --text-dark: #0d1b2a;
+    --text-mid: #1e3a4a;
+    --text-mid-light: #2a4a5a;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--navy);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  .nav {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-back {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-back:hover {
+    color: var(--teal-accent);
+  }
+
+  .nav-back::before {
+    content: '←';
+    font-size: 0.85rem;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--teal-accent);
+    opacity: 0.5;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.8rem, 4.5vw, 2.75rem);
+    line-height: 1.15;
+    color: var(--teal-accent);
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, var(--teal), transparent);
+    margin-bottom: 2.5rem;
+    opacity: 0.4;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    background: var(--navy-mid);
+    border-left: 3px solid var(--teal-accent);
+    padding: 1.5rem 1.75rem;
+    margin: 0 auto 3rem;
+    max-width: 780px;
+    width: calc(100% - 4rem);
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  /* CONTENT SECTIONS */
+  .content {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .section:last-of-type {
+    border-bottom: none;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: var(--teal);
+    opacity: 0.3;
+  }
+
+  .section h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .section h3 em {
+    font-style: italic;
+    color: var(--teal-accent);
+    font-weight: 400;
+  }
+
+  .section p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section p strong {
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  /* TENSION BOX */
+  .tension-box {
+    background: rgba(42, 122, 122, 0.08);
+    border: 1px solid rgba(77, 184, 184, 0.2);
+    padding: 1.5rem 1.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .tension-box p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .tension-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tension-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--teal-accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* CONTRAST TABLE */
+  .contrast-table {
+    display: flex;
+    gap: 0;
+    margin: 1.75rem 0;
+    border: 1px solid rgba(77, 184, 184, 0.2);
+  }
+
+  .contrast-col {
+    flex: 1;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contrast-col--left {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .contrast-col--right {
+    background: rgba(77, 184, 184, 0.06);
+  }
+
+  .contrast-divider {
+    width: 1px;
+    background: rgba(77, 184, 184, 0.2);
+    flex-shrink: 0;
+  }
+
+  .contrast-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .contrast-rows {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .contrast-row-pair {
+    display: contents;
+  }
+
+  .contrast-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    min-height: 2.2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .contrast-col--right .contrast-item {
+    color: var(--text-primary);
+  }
+
+  .contrast-footer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(168, 188, 208, 0.6);
+    margin-top: 0.75rem;
+  }
+
+  .contrast-col--right .contrast-footer {
+    color: var(--teal-accent);
+  }
+
+  /* WHAT I'D BRING */
+  .bring-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .bring-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .bring-marker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+    width: 1.5rem;
+    color: var(--teal-accent);
+  }
+
+  .bring-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  .bring-text strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  /* CLOSING */
+  .closing {
+    background: var(--navy-mid);
+    padding: 2.5rem 2rem;
+    margin-top: 1rem;
+  }
+
+  .closing-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .closing p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    line-height: 1.65;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  .closing-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .closing-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .closing-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .closing-meta a {
+    color: var(--teal-accent);
+    text-decoration: none;
+  }
+
+  .closing-meta a:hover {
+    text-decoration: underline;
+  }
+
+  .closing-copyright {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(168, 188, 208, 0.5);
+    letter-spacing: 0.06em;
+    margin-top: 0.25rem;
+  }
+
+  /* LIGHT SECTION */
+  .light-section {
+    background: var(--teal-pale);
+    padding: 3rem 2rem;
+    margin-bottom: 0;
+  }
+
+  .light-section .content {
+    padding-bottom: 0;
+  }
+
+  .light-section .section {
+    border-bottom-color: rgba(0,0,0,0.08);
+  }
+
+  .light-section .section-label {
+    color: var(--teal);
+  }
+
+  .light-section .section-label::after {
+    background: var(--teal);
+    opacity: 0.4;
+  }
+
+  .light-section .section h3 {
+    color: #0d1b2a !important;
+  }
+
+  .light-section .section h3 em {
+    color: #2a7a7a !important;
+  }
+
+  .light-section .section p {
+    color: #1e3a4a !important;
+  }
+
+  .light-section .section p strong {
+    color: #0d1b2a !important;
+  }
+
+  .light-section .bring-marker {
+    color: #2a7a7a !important;
+  }
+
+  .light-section .bring-text {
+    color: #1e3a4a !important;
+  }
+
+  .light-section .bring-text strong {
+    color: #0d1b2a !important;
+  }
+
+  /* FADE IN */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero, .pull-quote, .section, .closing {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero { animation-delay: 0.05s; }
+  .pull-quote { animation-delay: 0.15s; }
+  .section:nth-child(1) { animation-delay: 0.2s; }
+  .section:nth-child(2) { animation-delay: 0.28s; }
+  .section:nth-child(3) { animation-delay: 0.36s; }
+  .closing { animation-delay: 0.44s; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 2rem 1.25rem 2rem; }
+    .pull-quote { margin-left: 1.25rem; margin-right: 1.25rem; width: auto; }
+    .content { padding: 0 1.25rem 3rem; }
+    .light-section { padding: 2.5rem 1.25rem; }
+    .closing { padding: 2rem 1.25rem; }
+    .contrast-table { flex-direction: column; }
+    .contrast-divider { width: 100%; height: 1px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://shannonlcoleman.com" class="nav-back">Portfolio</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">People Research &nbsp;|&nbsp; Shannon L. Coleman, PhD</div>
+  <h1>Standard Manager Effectiveness Metrics</h1>
+  <h2>Weren't Built for Anthropic.</h2>
+  <div class="hero-rule"></div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <p>A manager whose team is shipping fast and scoring well on engagement surveys looks effective by conventional measures. Whether that team is developing genuine judgment or becoming more efficiently dependent on AI outputs is a different question entirely, and most people measurement infrastructure cannot answer it.</p>
+</div>
+
+<!-- DARK SECTIONS -->
+<div class="content">
+
+  <div class="section">
+    <div class="section-label">01 &nbsp; The Problem</div>
+    <h3>Most manager effectiveness frameworks measure outcomes.<br><em>Anthropic needs one that measures judgment.</em></h3>
+    <p>Engagement scores, retention rates, 360-degree feedback, and team velocity are reasonable proxies in most organizations. They were designed for workforces where the primary risk is disengagement. Anthropic is not that organization.</p>
+    <p>At a company whose mission is to develop AI that is safe and beneficial, manager effectiveness has a dimension that standard frameworks don't account for: <strong>are managers cultivating the kind of critical, calibrated thinking that good AI work depends on, or are they inadvertently rewarding speed and output confidence over rigor?</strong> Those are different questions, and they require different measurement infrastructure.</p>
+
+    <div class="contrast-table">
+      <div class="contrast-col contrast-col--left">
+        <div class="contrast-header">What standard frameworks measure</div>
+        <div class="contrast-rows">
+          <div class="contrast-item">Engagement and satisfaction scores</div>
+          <div class="contrast-item">Retention and attrition risk</div>
+          <div class="contrast-item">360-degree feedback ratings</div>
+          <div class="contrast-item">Team velocity and output volume</div>
+          <div class="contrast-item">Self-reported confidence</div>
+        </div>
+        <div class="contrast-footer">Proxies for effectiveness</div>
+      </div>
+      <div class="contrast-divider"></div>
+      <div class="contrast-col contrast-col--right">
+        <div class="contrast-header">What Anthropic needs</div>
+        <div class="contrast-rows">
+          <div class="contrast-item">Calibration quality in high-stakes decisions</div>
+          <div class="contrast-item">Psychological safety for dissent and uncertainty</div>
+          <div class="contrast-item">Team capacity for independent judgment</div>
+          <div class="contrast-item">Rigor under pressure and ambiguity</div>
+          <div class="contrast-item">Confidence-capability alignment</div>
+        </div>
+        <div class="contrast-footer">Judgment infrastructure</div>
+      </div>
+    </div>
+
+    <p>The gap between those two columns is a gap in construct definition, not a gap in data collection. Before the measurement infrastructure can be built, the right questions have to be asked about what manager effectiveness actually means here.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">02 &nbsp; The Anthropic-Specific Tension</div>
+    <h3>The people you are trying to measure<br><em>are the hardest population to measure well.</em></h3>
+    <p>Anthropic's workforce is not average. Researchers and engineers here have unusually high baseline capability and unusually high confidence in their domain expertise. That combination creates measurement problems that standard people analytics approaches are not designed to handle.</p>
+
+    <div class="tension-box">
+      <p><span class="tension-label">The Confidence-Capability Divergence Risk</span>AI tools increase felt confidence faster than they increase actual capability in most populations. For a workforce that is simultaneously building those tools and using them, the divergence is harder to detect and more consequential when missed. A manager who does not have measurement infrastructure to see this pattern cannot correct for it, and a people team that is not asking for that infrastructure is not getting an accurate picture of team health.</p>
+      <p><span class="tension-label">The Safety Culture Measurement Gap</span>Standard psychological safety instruments measure whether people feel comfortable speaking up. At Anthropic, the relevant construct is more specific: do team members feel safe expressing genuine uncertainty, flagging capability limits, and dissenting from confident consensus? That is a meaningfully different thing, and it requires purpose-built measurement to distinguish it from general team cohesion.</p>
+      <p><span class="tension-label">The Research Ethics Dimension</span>Studying employee behavior rigorously, especially longitudinally, raises questions that go beyond survey confidentiality. Consent design, data minimization, and the inherent power asymmetry of an employer studying its own workforce are real considerations. Getting that infrastructure right upfront is what makes findings defensible and the research program scalable. It is not what slows things down. It is what prevents having to redo them.</p>
+    </div>
+
+    <p>The question underneath all of it: <strong>do existing people measurement frameworks give Anthropic an accurate picture of what is happening inside its teams, or a confident-sounding one?</strong></p>
+  </div>
+
+</div>
+
+<!-- LIGHT SECTION -->
+<div class="light-section">
+  <div class="content">
+    <div class="section">
+      <div class="section-label">03 &nbsp; What the Measurement Infrastructure Needs to Do</div>
+      <h3>Building it starts with<br><em>defining the right constructs.</em></h3>
+      <p>Measurement infrastructure that is fit for Anthropic has to start from a clear definition of what manager effectiveness actually means in a research-intensive, safety-oriented, AI-native context. The standard constructs are a starting point, not an answer.</p>
+      <p>My background spans academic research design, large-scale federal workforce studies, and applied people measurement in high-stakes environments. What that combination has taught me is that borrowed instruments applied to novel populations produce confident-sounding findings that do not survive scrutiny. The framework and the metrics have to be designed together, and the people closest to the work have to be part of that design process for the findings to actually move anything.</p>
+
+      <div class="bring-grid">
+        <div class="bring-item">
+          <div class="bring-marker">01</div>
+          <div class="bring-text"><strong>Construct definition before instrument selection.</strong> Working with the People team to specify what manager effectiveness means at Anthropic before deciding how to measure it. The relevant constructs here, judgment quality, calibration, safety for productive dissent, are not the same ones standard frameworks were built to capture.</div>
+        </div>
+        <div class="bring-item">
+          <div class="bring-marker">02</div>
+          <div class="bring-text"><strong>Psychometric validation for a non-standard population.</strong> Adapting or developing instruments that are valid for a high-expertise, high-confidence workforce. That means pilot testing, factor analysis, and honest evaluation of what the data can and cannot claim before any instrument goes into production use.</div>
+        </div>
+        <div class="bring-item">
+          <div class="bring-marker">03</div>
+          <div class="bring-text"><strong>Longitudinal design to catch what cross-sectional data misses.</strong> The confidence-capability divergence pattern is only visible over time. A measurement program built around single timepoints will miss the most important signals, including the ones most relevant to safety culture and manager effectiveness at this organization specifically.</div>
+        </div>
+        <div class="bring-item">
+          <div class="bring-marker">04</div>
+          <div class="bring-text"><strong>Findings that are honest about what they can and cannot claim.</strong> The most useful research findings accurately describe what the data can support, where the uncertainty lies, and what would have to be true for the finding to be wrong. It does not just tell leadership what it wants to hear.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-inner">
+    <p>People measurement infrastructure that is rigorous enough to be trusted and practical enough to be used is a problem I have been working on across contexts. I would love to talk about how your team is approaching it from the inside.</p>
+    <div class="closing-contact">
+      <div class="closing-name">Shannon L. Coleman, PhD</div>
+      <div class="closing-meta">
+        <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a><br>
+        <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a><br>
+        <a href="https://shannonlcoleman.com">shannonlcoleman.com</a><br>
+        <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+      </div>
+      <div class="closing-copyright">© 2026 Shannon L. Coleman</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
