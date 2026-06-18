@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Research That Survives the Operator | Shannon L. Coleman, PhD</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W97T1GM03N');
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b27;
+      --border: #242c3d;
+      --text-primary: #e8eaf0;
+      --text-secondary: #b0b8cc;
+      --text-muted: #7a859e;
+      --accent: #d4521a;
+      --accent-eyebrow: #e8622a;
+      --accent-card-label: #e8622a;
+      --accent-dim: rgba(212, 82, 26, 0.10);
+      --accent-table: rgba(212, 82, 26, 0.18);
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Georgia', serif;
+      font-size: 18px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      padding: 24px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    nav a {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* EYEBROW */
+    .eyebrow {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-eyebrow);
+      margin-bottom: 20px;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Georgia', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: normal;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .hero .subhead {
+      font-size: 19px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 660px;
+    }
+
+    /* SECTIONS */
+    .section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-family: 'Georgia', serif;
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: normal;
+      line-height: 1.25;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    h2 em {
+      font-style: italic;
+      color: #c8cfdf;
+    }
+
+    .section-intro {
+      font-size: 15px;
+      font-family: 'Courier New', monospace;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      color: var(--text-primary);
+      margin-bottom: 22px;
+      font-size: 18px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    strong {
+      color: var(--white);
+      font-weight: normal;
+    }
+
+    /* CONTRAST TABLE */
+    .contrast-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 44px 0;
+      border: 1px solid var(--border);
+    }
+
+    .ct-col {
+      padding: 32px 28px;
+    }
+    .ct-col:first-child {
+      border-right: 1px solid var(--border);
+    }
+
+    .ct-col-label {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .ct-item {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    .ct-item:last-child { border-bottom: none; }
+
+    .ct-col.right .ct-item {
+      color: var(--text-primary);
+    }
+
+    .ct-bottom-label {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 14px;
+      border-top: 1px solid var(--border);
+      grid-column: 1 / -1;
+    }
+
+    .ct-bottom-label span {
+      color: var(--accent);
+    }
+
+    /* CALLOUT */
+    .callout {
+      background: var(--accent-dim);
+      border-left: 2px solid var(--accent);
+      padding: 24px 28px;
+      margin: 40px 0;
+      font-size: 18px;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    /* EVIDENCE CARDS */
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 44px 0;
+    }
+
+    .evidence-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+    }
+
+    .ec-label {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-card-label);
+    }
+
+    .ec-title {
+      font-family: 'Georgia', serif;
+      font-size: 17px;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .ec-body {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    /* SIGNAL LIST */
+    .signal-list {
+      list-style: none;
+      margin: 32px 0;
+    }
+    .signal-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 17px;
+      color: var(--text-primary);
+      line-height: 1.6;
+      display: flex;
+      gap: 16px;
+    }
+    .signal-list li:last-child { border-bottom: none; }
+
+    .signal-marker {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* FOOTER */
+    .footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 48px;
+    }
+
+    .footer-name {
+      font-family: 'Georgia', serif;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .footer-links a {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      margin-right: 28px;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .copyright {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 36px;
+    }
+
+    /* STAR FIELD */
+    .star-field {
+      position: relative;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+      margin-bottom: 40px;
+      overflow: visible;
+    }
+    .star-field::after {
+      content: '· · ·';
+      position: absolute;
+      right: 0;
+      top: -7px;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 6px;
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 64px 24px 56px; }
+      .section { padding: 56px 24px; }
+      .contrast-table { grid-template-columns: 1fr; }
+      .ct-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .ct-item { white-space: normal; }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .footer { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://shannonlcoleman.com">Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">UX Research · Shannon L. Coleman, PhD</div>
+  <h1>Operators Make Decisions<br>in Seconds. <em>Research Has<br>to Hold Up Under That.</em></h1>
+  <p class="subhead">What research infrastructure for high-stakes space operations requires, and why I think it's one of the more interesting problems in the field right now.</p>
+</div>
+
+<div class="section">
+  <div class="section-label">01 · The Core Tension</div>
+  <h2>The people Slingshot builds for<br><em>can't wait for insight.</em></h2>
+  <p class="section-intro">Neither can the research that supports them.</p>
+
+  <p>Analysts tracking conjunction events in real time, operators executing maneuver planning under pressure, decision-makers synthesizing multi-source data during high-stakes scenarios. This is a user population that operates with a different cognitive profile than most software users. They have deep domain expertise, low tolerance for friction, and limited margin for tools that aren't working exactly as expected.</p>
+
+  <p>That combination creates a research problem that standard UXR playbooks aren't quite designed for. The typical cycle of research, synthesis, handoff, and eventual integration is too slow for the pace at which Slingshot needs to learn. And the risk profile of getting it wrong is different when the downstream consequences of friction include mission-critical decisions.</p>
+
+  <p><strong>The question underneath all of it: how do you build research infrastructure that's rigorous enough to produce trustworthy findings and embedded enough to actually move product decisions in a fast-moving environment?</strong> That's the problem I find genuinely interesting about this role.</p>
+
+  <div class="contrast-table">
+    <div class="ct-col left">
+      <div class="ct-col-label">What most UXR functions optimize for</div>
+      <div class="ct-item">Research-to-handoff cycle time</div>
+      <div class="ct-item">Insight volume per quarter</div>
+      <div class="ct-item">Stakeholder satisfaction with deliverables</div>
+      <div class="ct-item">Coverage of product surface area</div>
+      <div class="ct-item">Usability benchmarks vs. baseline</div>
+    </div>
+    <div class="ct-col right">
+      <div class="ct-col-label">What research has to do here</div>
+      <div class="ct-item">Reduce decision latency for product teams</div>
+      <div class="ct-item">Build operator mental model fidelity</div>
+      <div class="ct-item">Surface friction before it hits mission workflows</div>
+      <div class="ct-item">Make research reusable across product teams</div>
+      <div class="ct-item">Close the loop on what actually changed</div>
+    </div>
+    <div class="ct-bottom-label">The gap between those two columns is a <span>research ops design problem</span>, not just a methods problem.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">02 · What the UXR Page Signals</div>
+  <h2>You've already built something<br><em>most orgs at this stage haven't.</em></h2>
+  <p class="section-intro">That's worth being specific about.</p>
+
+  <p>The UXR page at slingshot.space/uxresearch isn't just a recruitment vehicle. It's a research infrastructure artifact. The Learn-Build-Measure loop you've formalized, the distinction between foundational workflow studies and quantitative validation, the participant community with SPU incentives tied to actual platform activity: these are structural choices that reflect a real point of view about how research and product should interact.</p>
+
+  <p>Most companies at Slingshot's stage don't build a public-facing research community with formalized participation tiers. The fact that this exists tells me something about how you think about the function: research is something the organization builds with users, not just a discovery layer that precedes design.</p>
+
+  <div class="callout">
+    What's interesting about running foundational studies alongside the continuous feedback loop you've described is that they require different recruiting pipelines, different analysis workflows, and different relationships with product teams to be effective at the same time. Building that infrastructure while running the research is the hard problem. That's where I'd want to contribute.
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">03 · Why My Background Maps Here</div>
+  <h2>High-stakes users. Complex systems.<br><em>Research that had to hold up.</em></h2>
+  <p class="section-intro">Not a pivot. A direct line.</p>
+
+  <p>My background isn't in aerospace, but the users I've researched and the systems I've supported have a lot structurally in common with yours. DoD enterprise software at scale, with users who have deep domain expertise and low tolerance for tools that add cognitive load to already-demanding work. I know what it means to design research for populations where the stakes of getting the tool wrong aren't just friction. They're mission impact.</p>
+
+  <ul class="signal-list">
+    <li>
+      <span class="signal-marker">·</span>
+      <span><strong>EITaaS at the Department of the Air Force:</strong> 736,000-user platform modernization. Research in that context meant understanding how airmen with a wide range of technical backgrounds navigated complex enterprise systems under time pressure. Earned a Commander's Commendation for the research contributions.</span>
+    </li>
+    <li>
+      <span class="signal-marker">·</span>
+      <span><strong>Advana at the DoD CDAO:</strong> 110,000+ users, research that directly informed a $15B recompete strategy. Mixed methods work that had to hold up in front of federal acquisition audiences. That's a different bar than a typical product review.</span>
+    </li>
+    <li>
+      <span class="signal-marker">·</span>
+      <span><strong>AI health platform:</strong> Scaled to 16,000+ users. End-to-end research ownership through product lifecycle, generative, evaluative, and continuous discovery simultaneously.</span>
+    </li>
+    <li>
+      <span class="signal-marker">·</span>
+      <span><strong>Ground Truth on Substack:</strong> My ongoing writing on AI capability measurement, the gap between adoption metrics and actual decision quality, and how to build research infrastructure that answers real product questions. The measurement framework I've been developing maps directly to the research-to-product integration challenge you're working on.</span>
+    </li>
+    <li>
+      <span class="signal-marker">·</span>
+      <span><strong>PhD in Psychology and Quantitative Methods:</strong> Survival analysis, logistic regression on longitudinal data, psychometric validation. The quant side isn't separate from the qual work. It's what lets you know when qualitative patterns are real.</span>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-label">04 · What I'd Focus On First</div>
+  <h2>Not a list of deliverables.<br><em>A set of structural bets.</em></h2>
+  <p class="section-intro">Based on what's visible from the outside.</p>
+
+  <div class="evidence-grid">
+    <div class="evidence-card">
+      <div class="ec-label">Research Ops</div>
+      <div class="ec-title">Make the community a research asset, not just a recruiting list</div>
+      <p class="ec-body">The UXR Community infrastructure exists. The question is whether it's generating longitudinal insight or one-time participation. Designing the taxonomy and tagging system for what you learn from community members is the difference between a panel and a strategic data asset.</p>
+    </div>
+    <div class="evidence-card">
+      <div class="ec-label">Methods</div>
+      <div class="ec-title">Instrument the conjunction scenario for research, not just telemetry</div>
+      <p class="ec-body">High-pressure workflow moments are where mental model failures surface. Building research protocols specifically around those moments, diary studies, contextual inquiry in operational environments, surfaces what product analytics can't.</p>
+    </div>
+    <div class="evidence-card">
+      <div class="ec-label">Integration</div>
+      <div class="ec-title">Close the loop on what changes because of research</div>
+      <p class="ec-body">The research impact section on your public page names the right outcomes: friction reduction, adoption through trust, workflow continuity. Building the internal tracking that ties specific research findings to those outcomes is what makes the function legible to leadership.</p>
+    </div>
+    <div class="evidence-card">
+      <div class="ec-label">Scale</div>
+      <div class="ec-title">Build templates that hold up without the senior researcher in the room</div>
+      <p class="ec-body">Research ops isn't administration. It's the infrastructure that lets a growing team run consistent, high-quality studies without starting from scratch each time. I've built this before in contexts where the research team was small relative to the product surface area.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="border-bottom: none;">
+  <div class="star-field"></div>
+  <p>The intersection of mission-critical operations, a research team that's actively building its infrastructure, and a product space that's genuinely hard to understand from the outside is not a combination that comes up often. I'd like to talk about how you're thinking about the function's next phase.</p>
+  <p>I've worked in high-stakes, high-expertise user environments my entire career. This feels like a natural extension of that work, not a stretch.</p>
+</div>
+
+<div class="footer">
+  <div class="footer-name">Shannon L. Coleman, PhD</div>
+  <div class="footer-links">
+    <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a>
+    <a href="https://linkedin.com/in/shannonlcoleman" target="_blank">linkedin.com/in/shannonlcoleman</a>
+    <a href="https://shannonlcoleman.com" target="_blank">shannonlcoleman.com</a>
+    <a href="https://byshannoncoleman.substack.com" target="_blank">Ground Truth on Substack</a>
+  </div>
+  <div class="copyright">© 2026 Shannon L. Coleman</div>
+</div>
+
+</body>
+</html>
