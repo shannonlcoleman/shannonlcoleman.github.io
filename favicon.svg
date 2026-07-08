@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="#15273e"></circle>
+  <text x="256" y="336" text-anchor="middle" font-size="267" fill="#d8b260">
+    <tspan class="s">S</tspan><tspan class="c">C</tspan>
+  </text>
+</svg>
