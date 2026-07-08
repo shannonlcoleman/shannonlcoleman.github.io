@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g transform="rotate(-18 100 100)">
+    <circle cx="100" cy="100" r="72" fill="none" stroke="#111F3D" stroke-width="12" stroke-dasharray="382 70.3"></circle>
+    <circle cx="163.57" cy="66.2" r="7" fill="#B79357"></circle>
+  </g>
+  <text x="100" y="140" text-anchor="middle" font-family="&#39;Source Serif 4&#39;, Georgia, serif" font-weight="500" font-size="108" fill="#111F3D">A</text>
+</svg>

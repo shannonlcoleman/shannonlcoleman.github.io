@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Coleman Advisory: a monthly retainer for senior research leadership, for organizations with AI products, data-intensive platforms, or complex research challenges that don't have it in house yet.">
+<link rel="canonical" href="https://shannonlcoleman.com/coleman-advisory/">
+<link rel="icon" type="image/svg+xml" href="coleman-advisory-mark-on-light.svg">
+<link rel="icon" type="image/png" href="coleman-advisory-mark-on-light.png">
+<link rel="apple-touch-icon" href="coleman-advisory-mark-on-dark.png">
+<meta property="og:title" content="Coleman Advisory | Fractional Research Leadership">
+<meta property="og:description" content="A monthly retainer for senior research strategy and advisory work. 10 to 15 hours a month, for organizations with AI products, data-intensive platforms, or complex research challenges that don't have senior research leadership internally.">
+<meta property="og:url" content="https://shannonlcoleman.com/coleman-advisory/">
+<meta property="og:type" content="website">
+<meta name="twitter:title" content="Coleman Advisory | Fractional Research Leadership">
+<meta name="twitter:description" content="A monthly retainer for senior research strategy and advisory work. 10 to 15 hours a month, for organizations with AI products, data-intensive platforms, or complex research challenges that don't have senior research leadership internally.">
+<meta property="og:image" content="https://shannonlcoleman.com/og-image-v2.jpg">
+<meta name="twitter:image" content="https://shannonlcoleman.com/og-image-v2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Coleman Advisory | Fractional Research Leadership</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Fractional Research Leadership",
+  "provider": {
+    "@type": "Person",
+    "name": "Shannon L. Coleman",
+    "honorificSuffix": "PhD",
+    "url": "https://shannonlcoleman.com"
+  },
+  "areaServed": "Remote",
+  "description": "A monthly retainer for senior research strategy and advisory work, for organizations with AI products, data-intensive platforms, or complex research challenges that lack senior research infrastructure internally."
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #0f1f2e;
+    --navy-mid:   #1a2f42;
+    --navy-light: #243d52;
+    --gold:       #b8901a;
+    --gold-light: #d4a82a;
+    --gold-pale:  #fdf6e3;
+    --white:      #fafaf8;
+    --text:       #1a1a1a;
+    --text-light: #444;
+    --steel:      #4e6070;
+    --rule:       #e4e0d8;
+    --serif:      'Cormorant Garamond', Georgia, serif;
+    --mono:       'DM Mono', monospace;
+    --sans:       'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--navy);
+    padding: 0 48px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .site-logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .site-nav a {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 4px 8px;
+  }
+
+  .site-nav a:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 100px 48px 88px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(184,144,26,0.04) 100%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-label::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(34px, 6.5vw, 58px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+    max-width: 760px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-stats {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.22s;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 40px;
+    max-width: 620px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.35s;
+  }
+
+  .hero-bio {
+    font-size: 15px;
+    color: rgba(255,255,255,0.78);
+    max-width: 640px;
+    line-height: 1.85;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.5s;
+  }
+
+  .hero-bio strong {
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.65s;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 1px;
+    font-weight: 500;
+    transition: background 0.2s;
+    min-height: 48px;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.75);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 1px;
+    transition: border-color 0.2s, color 0.2s;
+    min-height: 48px;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+  }
+
+  /* SECTION */
+  .section {
+    padding-top: 80px;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 48px;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    color: var(--navy);
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* ABOUT / WHY GRID (reused pattern) */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--text-light);
+    margin-bottom: 18px;
+    max-width: 100%;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-text a { color: var(--gold); }
+  .about-text a:hover { color: var(--gold-light); }
+
+  .about-sidebar {
+    padding-top: 4px;
+  }
+
+  .sidebar-block {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .sidebar-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 10px;
+  }
+
+  .sidebar-item {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-item strong {
+    color: var(--text);
+    font-weight: 500;
+    display: block;
+    font-size: 13px;
+  }
+
+  /* OFFER / STAT STRIP */
+  .offer-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin: 8px 0 40px;
+    padding: 36px 0;
+  }
+
+  .offer-stat {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .offer-stat:last-child { border-right: none; }
+
+  .offer-stat-num {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .offer-stat-num em { font-style: normal; color: var(--gold); }
+
+  .offer-stat-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+    line-height: 1.6;
+  }
+
+  .offer-intro {
+    font-size: 15.5px;
+    color: var(--text-light);
+    line-height: 1.85;
+    max-width: 680px;
+    margin-bottom: 40px;
+  }
+
+  /* DELIVERABLES */
+  .deliverable-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .deliverable-item {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+  }
+
+  .deliverable-item:first-child {
+    border-top: 1px solid var(--rule);
+  }
+
+  .deliverable-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .deliverable-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.75;
+    max-width: 480px;
+  }
+
+  .offer-note {
+    font-size: 15px;
+    color: var(--text-light);
+    font-family: var(--sans);
+    line-height: 1.7;
+    margin-top: 28px;
+    max-width: 620px;
+  }
+
+  /* FIT GRID */
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 8px;
+  }
+
+  .fit-col-header {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .fit-col-header.is-yes { color: var(--gold); }
+  .fit-col-header.is-no { color: var(--steel); }
+
+  .fit-item {
+    font-size: 14.5px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .fit-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 1px;
+    background: var(--steel);
+  }
+
+  .fit-col.is-yes .fit-item::before { background: var(--gold); }
+
+  /* CONTACT */
+  .contact-strip {
+    background: var(--navy);
+    margin-top: 80px;
+    padding: 64px 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.4vw, 34px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .contact-heading em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .contact-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    max-width: 440px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px 40px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px 16px;
+  }
+
+  .footer a { color: rgba(255,255,255,0.55); text-decoration: none; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
+  .footer a:hover { color: var(--gold-light); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .site-header { padding: 0 20px; }
+    .site-nav { gap: 16px; }
+    .hero { padding: 56px 20px 48px; }
+    .content { padding: 0 20px 64px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .offer-stats { grid-template-columns: 1fr; padding: 24px 0; }
+    .offer-stat { border-right: none; border-bottom: 1px solid var(--rule); padding: 20px 0; }
+    .offer-stat:last-child { border-bottom: none; }
+    .deliverable-item { grid-template-columns: 1fr; gap: 8px; }
+    .fit-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-strip { padding: 48px 20px; }
+    .footer { padding: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .site-nav a { font-size: 9px; letter-spacing: 0.1em; }
+    .hero-bio { font-size: 14px; }
+    .hero-links { flex-direction: column; align-items: flex-start; }
+    .btn-primary, .btn-secondary { font-size: 9px; padding: 11px 18px; }
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W97T1GM03N');
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="#" class="site-logo"><img src="coleman-advisory-wordmark-on-dark-header.png" alt="Coleman Advisory" style="height: 20px; width: auto; display: block;"></a>
+  <nav class="site-nav">
+    <a href="#why">Why</a>
+    <a href="#offer">The Offer</a>
+    <a href="#fit">Who It's For</a>
+    <a href="#start">Start</a>
+    <a href="https://shannonlcoleman.com/">Portfolio</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Coleman Advisory &nbsp;&bull;&nbsp; Fractional Research Leadership</div>
+    <h1 class="hero-headline">Senior research leadership,<br><em>on retainer.</em></h1>
+    <div class="hero-stats">$3,000&ndash;$5,000 / MO &nbsp;&bull;&nbsp; 10&ndash;15 HRS / MO &nbsp;&bull;&nbsp; MONTH-TO-MONTH</div>
+    <p class="hero-title">For organizations with AI products, data-intensive platforms, or complex research challenges that need senior research judgment and don't have it in house yet.</p>
+    <p class="hero-bio">I've spent the last several years building research infrastructure inside organizations that had none: a Department of Defense analytics platform used by more than 100,000 people, an Air Force IT modernization program that reached over 800,000 personnel, and a healthtech platform that grew from a few hundred users to more than 16,000 with no senior research function guiding it. <strong>Coleman Advisory is that work, sized for teams that need it now but aren't ready for a full-time hire.</strong></p>
+    <div class="hero-links">
+      <a href="https://calendly.com/colemanadvisory" class="btn-primary" target="_blank" rel="noopener">Book a 30-Minute Conversation</a>
+      <a href="https://shannonlcoleman.com/#work" class="btn-secondary">Read the Case Studies</a>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+
+  <!-- WHY -->
+  <section class="section" id="why">
+    <div class="section-label">Why Coleman Advisory</div>
+    <h2 class="section-heading">The research background<br><em>behind the retainer</em></h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I hold a PhD in Psychology and Quantitative Methods, and most of my career has been spent on the unglamorous side of research: building the measurement systems and research infrastructure that hold up once a program is actually under pressure.</p>
+        <p>At the Department of Defense, I led user research for Advana, an enterprise AI and analytics platform serving more than 100,000 users. That work informed a $15 billion recompete decision. On the Air Force's EITaaS program, my research shaped provisioning strategy across nine pilot installations for a modernization effort touching more than 800,000 personnel, and I received a Commander's Commendation for that contribution.</p>
+        <p>In healthtech, I found the trust gap at onboarding that was quietly capping adoption on an AI-powered platform, work that helped it grow from a few hundred users to more than 16,000. In fintech and Web3, I've mapped friction points in a tokenized asset platform navigating both TradFi compliance and DeFi mechanics. Earlier in my career, I built a proprietary research panel from zero to over 950 participants under HIPAA-adjacent and FDIC-regulated constraints, for clients including Pfizer, Eli Lilly, and M&amp;T Bank.</p>
+        <p><strong>I also publish Ground Truth</strong>, a research series on AI measurement and methodology, and built a capability measurement tool that helps teams design honest studies of what AI enablement actually does to the people using it. The full case studies behind all of this live on <a href="https://shannonlcoleman.com/#work">my main site</a> if you want the detail.</p>
+      </div>
+
+      <div class="about-sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-label">Credentials</div>
+          <div class="sidebar-item"><strong>PhD in Psychology and Quantitative Methods</strong></div>
+          <div class="sidebar-item"><strong>Secret Clearance (Inactive)</strong></div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Recognition</div>
+          <div class="sidebar-item">U.S. Air Force Commander's Commendation, awarded for research contributions to the EITaaS program</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Domain Experience</div>
+          <div class="sidebar-item">DoD / GovTech</div>
+          <div class="sidebar-item">HealthTech</div>
+          <div class="sidebar-item">FinTech / Web3</div>
+          <div class="sidebar-item">AI Enablement</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Ongoing Research</div>
+          <div class="sidebar-item"><a href="https://byshannoncoleman.substack.com" target="_blank" rel="noopener" style="color: var(--gold);">Ground Truth on Substack</a></div>
+          <div class="sidebar-item"><a href="https://shannonlcoleman.com/capability-measurement-tool" target="_blank" rel="noopener" style="color: var(--gold);">Capability Measurement Tool</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="section" id="offer">
+    <div class="section-label">The Offer</div>
+    <h2 class="section-heading">What you're actually<br><em>buying</em></h2>
+
+    <p class="offer-intro">A monthly retainer for senior research strategy and advisory work. Not a project engagement, and not a full-time hire. Every retainer is month-to-month, with no long-term contract required. Work that outgrows this scope, a larger project, a longer engagement, gets scoped separately once we've talked.</p>
+
+    <div class="offer-stats">
+      <div class="offer-stat">
+        <div class="offer-stat-num">$<em>3,000&ndash;5,000</em></div>
+        <div class="offer-stat-label">Per Month</div>
+      </div>
+      <div class="offer-stat">
+        <div class="offer-stat-num"><em>10&ndash;15</em></div>
+        <div class="offer-stat-label">Hours Per Month</div>
+      </div>
+      <div class="offer-stat">
+        <div class="offer-stat-num"><em>Monthly</em></div>
+        <div class="offer-stat-label">No Long-Term Contract</div>
+      </div>
+    </div>
+
+    <div class="deliverable-list">
+      <div class="deliverable-item">
+        <div class="deliverable-name">Research Infrastructure Assessment</div>
+        <div class="deliverable-desc">An honest read on what your team can and can't learn right now, and specifically what's missing before you build anything new.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-name">Capability Measurement Design</div>
+        <div class="deliverable-desc">Study designs for what your AI product or enablement program is actually doing to the people using it, not just what the dashboard says it's doing.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-name">AI Product Research Strategy</div>
+        <div class="deliverable-desc">A research plan tied to the product decisions actually in front of your team this quarter, not a generic roadmap template.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-name">Study Design Review</div>
+        <div class="deliverable-desc">A second, senior set of eyes on research your team has already planned or run, before it ships and before it gets cited in a board deck.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-name">Team Coaching</div>
+        <div class="deliverable-desc">Working sessions with your research, product, or data team on methodology, analysis, and interpreting results without overreaching them.</div>
+      </div>
+    </div>
+
+    <p class="offer-note">Every engagement starts with a conversation about which of these your organization needs most this month. Not a fixed package you have to talk yourself into.</p>
+  </section>
+
+  <!-- FIT -->
+  <section class="section" id="fit">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-heading">A specific kind of<br><em>gap</em></h2>
+
+    <div class="fit-grid">
+      <div class="fit-col is-yes">
+        <div class="fit-col-header is-yes">This Is For You If</div>
+        <div class="fit-item">You have an AI product, a data-intensive platform, or a research challenge that's outgrown ad hoc, and no senior research leadership yet.</div>
+        <div class="fit-item">You're early to mid-stage, past the "just ship it" phase, where research decisions now carry real weight.</div>
+        <div class="fit-item">You're a DoD-adjacent organization or contractor navigating enterprise-scale AI or IT modernization.</div>
+        <div class="fit-item">You're a healthtech team building AI-powered products in HIPAA-adjacent or otherwise regulated environments.</div>
+      </div>
+      <div class="fit-col is-no">
+        <div class="fit-col-header is-no">This Isn't For You If</div>
+        <div class="fit-item">You need a research hire embedded in your team five days a week.</div>
+        <div class="fit-item">You want a research report that nobody has a plan to act on.</div>
+        <div class="fit-item">You're earlier than product-market fit, with nothing yet to measure.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CONTACT -->
+<div class="contact-strip" id="start">
+  <div class="contact-label">Start Here</div>
+  <div class="contact-heading">One conversation.<br><em>Thirty minutes.</em></div>
+  <p class="contact-sub">No deck, no pitch. Just a conversation about whether this is the right fit for what your team needs.</p>
+  <a href="https://calendly.com/colemanadvisory" class="btn-primary" target="_blank" rel="noopener">Book a 30-Minute Conversation</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span>Coleman Advisory &nbsp;&bull;&nbsp; Shannon L. Coleman, PhD</span>
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a>
+  <a href="https://shannonlcoleman.com/">Full Portfolio</a>
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+  <span>&copy; 2026</span>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (href && href[0] !== '#' && href.indexOf('http') !== 0 && href.indexOf('mailto') !== 0) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.style.transition = 'opacity 0.25s ease';
+        document.body.style.opacity = '0';
+        setTimeout(function() { location.href = href; }, 260);
+      });
+    }
+  });
+</script>
+</body>
+</html>
