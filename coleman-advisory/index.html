@@ -423,6 +423,28 @@
     line-height: 1.6;
   }
 
+  .offer-stats-note {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .offer-stats-note-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    margin: 0 auto;
+  }
+
+  .offer-stats-note-text {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 14px 0;
+  }
+
   .offer-intro {
     font-size: 15.5px;
     color: var(--text-light);
@@ -432,21 +454,30 @@
   }
 
   /* DELIVERABLES */
-  .deliverable-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .deliverable-item {
-    padding: 24px 0;
-    border-bottom: 1px solid var(--rule);
+  .deliverable-grid {
     display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 
-  .deliverable-item:first-child {
-    border-top: 1px solid var(--rule);
+  .deliverable-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+  }
+
+  .deliverable-card.is-wide {
+    grid-column: 1 / -1;
+  }
+
+  .deliverable-eyebrow {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
   }
 
   .deliverable-name {
@@ -455,21 +486,22 @@
     color: var(--navy);
     font-weight: 500;
     line-height: 1.3;
+    margin-bottom: 10px;
   }
 
   .deliverable-desc {
     font-size: 14px;
     color: var(--text-light);
     line-height: 1.75;
-    max-width: 480px;
   }
 
   .offer-note {
-    font-size: 15px;
+    font-size: 17px;
     color: var(--text-light);
     font-family: var(--sans);
-    line-height: 1.7;
-    margin-top: 28px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-top: 44px;
     max-width: 620px;
   }
 
@@ -638,7 +670,8 @@
     .offer-stats { grid-template-columns: 1fr; padding: 24px 0; }
     .offer-stat { border-right: none; border-bottom: 1px solid var(--rule); padding: 20px 0; }
     .offer-stat:last-child { border-bottom: none; }
-    .deliverable-item { grid-template-columns: 1fr; gap: 8px; }
+    .deliverable-grid { grid-template-columns: 1fr; }
+    .deliverable-card { padding: 22px 20px; }
     .fit-grid { grid-template-columns: 1fr; gap: 32px; }
     .contact-strip { padding: 48px 20px; }
     .footer { padding: 20px; }
@@ -681,7 +714,7 @@
   <div class="hero-inner">
     <div class="hero-label">Coleman Advisory &nbsp;&bull;&nbsp; Fractional Research Leadership</div>
     <h1 class="hero-headline">Senior research leadership,<br><em>on retainer.</em></h1>
-    <div class="hero-stats">$3,000&ndash;$5,000 / MO &nbsp;&bull;&nbsp; 10&ndash;15 HRS / MO &nbsp;&bull;&nbsp; MONTH-TO-MONTH</div>
+    <div class="hero-stats">$3,000&ndash;$5,000 / MO, BY SCOPE &nbsp;&bull;&nbsp; TYPICALLY 10&ndash;15 HRS &nbsp;&bull;&nbsp; MONTH-TO-MONTH</div>
     <p class="hero-title">For organizations with AI products, data-intensive platforms, or complex research challenges that need senior research judgment and don't have it in house yet.</p>
     <p class="hero-bio">I've spent the last several years building research infrastructure inside organizations that had none: a Department of Defense analytics platform used by more than 100,000 people, an Air Force IT modernization program that reached over 800,000 personnel, and a healthtech platform that grew from a few hundred users to more than 16,000 with no senior research function guiding it. <strong>Coleman Advisory is that work, sized for teams that need it now but aren't ready for a full-time hire.</strong></p>
     <div class="hero-links">
@@ -749,42 +782,52 @@
     <div class="offer-stats">
       <div class="offer-stat">
         <div class="offer-stat-num">$<em>3,000&ndash;5,000</em></div>
-        <div class="offer-stat-label">Per Month</div>
+        <div class="offer-stat-label">Per Month, By Scope</div>
       </div>
       <div class="offer-stat">
         <div class="offer-stat-num"><em>10&ndash;15</em></div>
-        <div class="offer-stat-label">Hours Per Month</div>
+        <div class="offer-stat-label">Typical Hours</div>
       </div>
       <div class="offer-stat">
         <div class="offer-stat-num"><em>Monthly</em></div>
         <div class="offer-stat-label">No Long-Term Contract</div>
       </div>
+      <div class="offer-stats-note">
+        <div class="offer-stats-note-rule"></div>
+        <p class="offer-stats-note-text">$3,000 to $5,000 per month, depending on engagement scope, typically 10 to 15 hours.</p>
+        <div class="offer-stats-note-rule"></div>
+      </div>
     </div>
 
-    <div class="deliverable-list">
-      <div class="deliverable-item">
+    <div class="deliverable-grid">
+      <div class="deliverable-card">
+        <div class="deliverable-eyebrow">Service 01</div>
         <div class="deliverable-name">Research Infrastructure Assessment</div>
         <div class="deliverable-desc">An honest read on what your team can and can't learn right now, and specifically what's missing before you build anything new.</div>
       </div>
-      <div class="deliverable-item">
+      <div class="deliverable-card">
+        <div class="deliverable-eyebrow">Service 02</div>
         <div class="deliverable-name">Capability Measurement Design</div>
         <div class="deliverable-desc">Study designs for what your AI product or enablement program is actually doing to the people using it, not just what the dashboard says it's doing.</div>
       </div>
-      <div class="deliverable-item">
+      <div class="deliverable-card">
+        <div class="deliverable-eyebrow">Service 03</div>
         <div class="deliverable-name">AI Product Research Strategy</div>
         <div class="deliverable-desc">A research plan tied to the product decisions actually in front of your team this quarter, not a generic roadmap template.</div>
       </div>
-      <div class="deliverable-item">
+      <div class="deliverable-card">
+        <div class="deliverable-eyebrow">Service 04</div>
         <div class="deliverable-name">Study Design Review</div>
         <div class="deliverable-desc">A second, senior set of eyes on research your team has already planned or run, before it ships and before it gets cited in a board deck.</div>
       </div>
-      <div class="deliverable-item">
+      <div class="deliverable-card is-wide">
+        <div class="deliverable-eyebrow">Service 05</div>
         <div class="deliverable-name">Team Coaching</div>
         <div class="deliverable-desc">Working sessions with your research, product, or data team on methodology, analysis, and interpreting results without overreaching them.</div>
       </div>
     </div>
 
-    <p class="offer-note">Every engagement starts with a conversation about which of these your organization needs most this month. Not a fixed package you have to talk yourself into.</p>
+    <p class="offer-note">Every engagement starts with a conversation about which of these your organization needs most this month, or what to build if it's something these don't quite cover. Not a fixed package you have to talk yourself into.</p>
   </section>
 
   <!-- FIT -->
