@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Case study: How Shannon L. Coleman traced a 28% average lift in screener conversions to the Engagement-Conversion Gap, across five concurrent F100 pharmaceutical trial recruitment programs.">
+<link rel="canonical" href="https://shannonlcoleman.com/casestudy_brandtracking.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="favicon-512.png">
+<meta property="og:title" content="Case Study: Brand &amp; Consumer Tracking | Shannon L. Coleman, PhD">
+<meta property="og:description" content="How Shannon L. Coleman traced a 28% average lift in screener conversions to the Engagement-Conversion Gap, across five concurrent F100 pharmaceutical trial recruitment programs.">
+<meta property="og:url" content="https://shannonlcoleman.com/casestudy_brandtracking.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://shannonlcoleman.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Study: Brand &amp; Consumer Tracking | Shannon L. Coleman, PhD">
+<meta name="twitter:description" content="How Shannon L. Coleman traced a 28% lift in screener conversions to a gap between engagement and enrollment across concurrent pharma trial programs.">
+<meta name="twitter:image" content="https://shannonlcoleman.com/og-image.jpg">
+<title>Case Study: Brand &amp; Consumer Tracking | Shannon L. Coleman, PhD</title>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap"></noscript>
+<style>
+  :root {
+    --wine-dark: #4a1942;
+    --wine-mid: #7d3560;
+    --wine-light: #b5719c;
+    --wine-pale: #f5edf1;
+    --rose-gold: #c98a6b;
+    --rose-gold-light: #dba98f;
+    --rose-gold-pale: #f7ece6;
+    --white: #ffffff;
+    --ink: #2a1620;
+    --ink-light: #5c4450;
+    --rule: #ddc9d1;
+    --paper: #faf6f8;
+    --paper-warm: #f5edf1;
+    --mono: 'Space Mono', monospace;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'Work Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* CASE STUDY NAV */
+  .cs-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 52px;
+    background: rgba(74,25,66,0.97);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .cs-nav-back {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .cs-nav-back:hover { color: var(--wine-light); }
+  .cs-nav-back::before { content: '←'; font-size: 12px; }
+  .cs-nav-studies { display: flex; gap: 4px; align-items: center; }
+  .cs-nav-study {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .cs-nav-study:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.15); }
+  .cs-nav-study.active { color: var(--wine-light); border-color: rgba(181,113,156,0.4); background: rgba(181,113,156,0.08); }
+  @media (max-width: 640px) {
+    .cs-nav { padding: 0 16px; }
+    .cs-nav-study { font-size: 8px; padding: 5px 8px; }
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--wine-dark);
+    color: var(--paper);
+    padding: 60px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: 52px;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(181,113,156,0.12) 0%, transparent 70%);
+  }
+
+  .masthead::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose-gold) 0%, var(--rose-gold-light) 50%, var(--rose-gold) 100%);
+  }
+
+  .masthead-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .byline {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--wine-light);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+
+  .byline::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--wine-light);
+    flex-shrink: 0;
+  }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5.5vw, 54px);
+    font-weight: 300;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.25s;
+  }
+
+  .case-title em {
+    font-style: italic;
+    color: var(--rose-gold-light);
+  }
+
+  .deck {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(245,237,241,0.72);
+    max-width: 640px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  .meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid rgba(245,237,241,0.12);
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.55s;
+    padding-bottom: 8px;
+  }
+
+  .meta-item {
+    padding: 20px 32px 20px 0;
+    margin-right: 32px;
+    border-right: 1px solid rgba(245,237,241,0.12);
+  }
+  .meta-item:last-child { border-right: none; }
+
+  .meta-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--wine-light);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .meta-value {
+    font-size: 14px;
+    color: rgba(245,237,241,0.85);
+    font-weight: 400;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+  }
+
+  .section {
+    padding: 64px 0 0;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--wine-mid);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 60px;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 400;
+    line-height: 1.22;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--wine-mid);
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.82;
+    color: var(--ink-light);
+    margin-bottom: 20px;
+    max-width: 680px;
+  }
+
+  p strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* CALLOUT / PULLQUOTE */
+  .callout {
+    background: var(--wine-pale);
+    border-left: 3px solid var(--wine-mid);
+    padding: 28px 32px;
+    margin: 36px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--wine-mid);
+    margin-bottom: 10px;
+  }
+
+  .callout p {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat {
+    background: var(--white);
+    padding: 24px 18px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 400;
+    color: var(--wine-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-num.rose { color: var(--rose-gold); }
+
+  .stat-desc {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    line-height: 1.45;
+  }
+
+  /* NUMBERED LENS STEPS */
+  .build-step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 22px;
+    margin-bottom: 40px;
+    align-items: start;
+  }
+
+  .build-num {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--rule);
+    line-height: 1;
+    text-align: right;
+    padding-top: 2px;
+  }
+
+  .build-body {}
+
+  .build-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-family: var(--sans);
+  }
+
+  .build-text {
+    font-size: 15px;
+    color: var(--ink-light);
+    line-height: 1.78;
+    margin-bottom: 0;
+  }
+
+  /* CLIENT ROW */
+  .client-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .client-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--wine-dark);
+    background: var(--wine-pale);
+    border: 1px solid var(--wine-light);
+    padding: 6px 14px;
+    border-radius: 2px;
+  }
+
+  /* REFLECTION / CLOSING */
+  .reflection {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--rose-gold);
+    padding: 36px 40px;
+    margin-top: 48px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .reflection .callout-label { color: var(--rose-gold); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--wine-dark);
+    color: rgba(245,237,241,0.45);
+    text-align: center;
+    padding: 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .footer p {
+    font-size: inherit;
+    color: inherit;
+    max-width: none;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+
+  .footer a {
+    color: var(--wine-light);
+    text-decoration: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .masthead { padding: 40px 0 0; }
+    .masthead-inner, .content { padding-left: 20px; padding-right: 20px; }
+    .case-title { font-size: clamp(28px, 8vw, 44px); }
+    .deck { font-size: 14px; margin-bottom: 32px; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid rgba(245,237,241,0.12); padding: 12px 0; margin-right: 0; }
+    .meta-item:last-child { border-bottom: none; }
+    .section { padding-top: 48px; }
+    .section-heading { font-size: clamp(22px, 5.5vw, 30px); }
+    .build-step { grid-template-columns: 42px 1fr; gap: 14px; }
+    .build-num { font-size: 40px; }
+    .build-title { font-size: 15px; }
+    .reflection { padding: 24px 20px; }
+    p { font-size: 14.5px; max-width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .masthead-inner, .content { padding-left: 16px; padding-right: 16px; }
+    .byline { font-size: 9px; gap: 8px; }
+    .cs-nav { padding: 0 12px; }
+    .cs-nav-study { font-size: 8px; padding: 4px 7px; letter-spacing: 0.08em; }
+    .cs-nav-back { font-size: 9px; }
+  }
+
+
+  /* ── Mobile nav: two-row layout with scrollable study strip ── */
+    .cs-nav-dropdown { display: none; }
+  @media (max-width: 640px) {
+    .cs-nav { height: 44px; flex-direction: row; align-items: center; padding: 0 16px; gap: 0; }
+    .cs-nav-back { font-size: 9px; }
+    .cs-nav-studies { display: none; }
+    .cs-nav::after { display: none; }
+    .masthead { margin-top: 52px; }
+    .cs-nav-dropdown { display: block; }
+    .cs-nav-dropdown-btn { list-style: none; color: rgba(255,255,255,0.7); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; user-select: none; }
+    .cs-nav-dropdown-btn::-webkit-details-marker { display: none; }
+    .cs-nav-dropdown-btn::marker { display: none; }
+    .cs-nav-dropdown[open] .cs-nav-dropdown-btn { color: rgba(255,255,255,0.95); border-color: rgba(255,255,255,0.3); }
+    .cs-nav-dropdown-list { position: absolute; right: 16px; top: 44px; background: rgba(74,25,66,0.97); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; overflow: hidden; min-width: 160px; z-index: 300; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }}
+    .cs-nav-dropdown-item { display: block; padding: 9px 16px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; }
+    .cs-nav-dropdown-item.active { color: rgba(255,255,255,0.3); pointer-events: none; cursor: default; }
+    .cs-nav-dropdown-item:hover:not(.active) { color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.06); }
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W97T1GM03N');
+</script>
+</head>
+<body>
+
+<nav class="cs-nav">
+  <a href="index.html" class="cs-nav-back">Portfolio</a>
+  <div class="cs-nav-studies">
+    <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
+    <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
+    <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
+    <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
+    <a href="casestudy_web3fintech.html" class="cs-nav-study">Web3 Fintech</a>
+    <a href="casestudy_brandtracking.html" class="cs-nav-study active">Brand Tracking</a>
+  </div>
+<details class="cs-nav-dropdown">
+  <summary class="cs-nav-dropdown-btn">Case Studies &#9662;</summary>
+  <div class="cs-nav-dropdown-list">
+    <a href="casestudy_eitaas.html" class="cs-nav-dropdown-item">EITaaS</a>
+    <a href="casestudy_advana.html" class="cs-nav-dropdown-item">Advana</a>
+    <a href="casestudy_healthplatform.html" class="cs-nav-dropdown-item">AI Health Platform</a>
+    <a href="casestudy_researchpanel.html" class="cs-nav-dropdown-item">Research Panel</a>
+    <a href="casestudy_web3fintech.html" class="cs-nav-dropdown-item">Web3 Fintech</a>
+    <a href="casestudy_brandtracking.html" class="cs-nav-dropdown-item active">Brand Tracking</a>
+  </div>
+</details>
+
+</nav>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="byline">Brand &amp; Consumer Tracking &nbsp;|&nbsp; Crowley Webb / Praxis &nbsp;|&nbsp; 2020&ndash;2022</div>
+    <h1 class="case-title">Engagement Was Up.<br><em>Enrollment Wasn't.</em></h1>
+    <p class="deck">How closing the gap between what campaigns earned in engagement and what they actually converted into enrollment drove a 28% average lift in screener conversions across five concurrent F100 pharmaceutical trial recruitment programs.</p>
+    <div class="meta-strip">
+      <div class="meta-item">
+        <span class="meta-label">Organization</span>
+        <span class="meta-value">Crowley Webb / Praxis</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Timeline</span>
+        <span class="meta-value">2020&ndash;2022</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">My Role</span>
+        <span class="meta-value">Brand &amp; Consumer Tracking Lead</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Programs</span>
+        <span class="meta-value">5 concurrent F100 pharma trials</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+
+  <section class="section">
+    <div class="section-label">01 &nbsp; The Challenge</div>
+    <h2 class="section-heading">Every dashboard said the campaigns<br><em>were working. Enrollment disagreed.</em></h2>
+    <p>Every dashboard said the campaigns were working. Strong click-through rates, real traffic, real spend, all pointing in the right direction. But enrollment lagged behind targets across several concurrent F100 pharmaceutical trial recruitment programs, including Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, and AbbVie.</p>
+    <p>The engagement metrics and the enrollment numbers were telling two different stories, and nothing in the existing reporting explained why.</p>
+
+    <div class="client-row">
+      <span class="client-tag">Pfizer</span>
+      <span class="client-tag">Eli Lilly</span>
+      <span class="client-tag">Merck</span>
+      <span class="client-tag">Johnson &amp; Johnson</span>
+      <span class="client-tag">AbbVie</span>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="section-label">02 &nbsp; The Approach</div>
+    <h2 class="section-heading">Treating the funnel as one system,<br><em>not four separate reports</em></h2>
+    <p>I tracked the full funnel, media spend, click-through rate, landing page behavior, and screener responses, as one connected system instead of four separate reports, using month-over-month and quarter-over-quarter comparisons to separate real shifts from noise.</p>
+    <p>That connected view surfaced a consistent pattern I've since come to call the <strong>Engagement-Conversion Gap</strong>: the space between what a channel earns in attention and what it actually converts into enrollment. Paid social was the clearest case, often strong on every engagement metric, weak at the one that mattered, the completed screener.</p>
+
+    <div class="callout">
+      <div class="callout-label">The Engagement-Conversion Gap</div>
+      <p>A channel can win every engagement metric on the dashboard and still lose at the one metric that was ever the point.</p>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="section-label">03 &nbsp; Applying the Lens</div>
+    <h2 class="section-heading">Not what's earning attention,<br><em>but where we're losing people</em></h2>
+    <p>Once I could see the gap clearly, it gave message testing and budget decisions a sharper target: not "what's getting engagement" but "where exactly are we losing people."</p>
+
+    <div class="build-step">
+      <div class="build-num">01</div>
+      <div class="build-body">
+        <div class="build-title">Reworking messages that earned clicks but not trust</div>
+        <p class="build-text">Sometimes the gap traced back to the message itself, creative that performed well on click-through but failed to build the trust a screener completion actually requires. Those messages got reworked, not because they were underperforming on engagement, but because engagement was never where they were losing people.</p>
+      </div>
+    </div>
+
+    <div class="build-step">
+      <div class="build-num">02</div>
+      <div class="build-body">
+        <div class="build-title">Pulling budget from channels that looked efficient but weren't converting</div>
+        <p class="build-text">Other times the gap was a budget problem wearing an efficiency disguise: a channel with a low cost per click and a high volume of engagement, sitting on a screener conversion rate that didn't justify the spend. That budget moved to channels where the gap was smaller.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="section-label">04 &nbsp; The Outcome</div>
+    <h2 class="section-heading">Attention and action<br><em>are not the same metric</em></h2>
+    <p>Applied across concurrent tracking programs, closing that gap drove an average 28% lift in screener conversions and directly shaped site selection, messaging, and budget decisions for ongoing campaigns.</p>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num rose">28%</div>
+        <div class="stat-desc">Average lift in<br>screener conversions</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-desc">Concurrent F100 pharma<br>tracking programs</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-desc">Connected funnel view,<br>not four separate reports</div>
+      </div>
+    </div>
+
+    <p>The Engagement-Conversion Gap became a standing lens for how tracking data was read across the broader recruitment research practice: attention and action are not the same metric, and a campaign can look successful right up until someone checks actual enrollment.</p>
+  </section>
+
+
+  <section class="section">
+    <div class="section-label">05 &nbsp; A Note on the Numbers</div>
+    <h2 class="section-heading">What this case study demonstrates</h2>
+
+    <div class="reflection">
+      <div class="callout-label">In the Interest of Transparency</div>
+      <p style="font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--ink); max-width: 100%; line-height: 1.65; margin-bottom: 18px;">The 28% is an average across multiple concurrent tracking programs, not one campaign's before-and-after.</p>
+      <p style="font-size: 15px; max-width: 100%; margin-bottom: 0;">I'd rather be transparent about that than round it into a cleaner story than it was.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Shannon L. Coleman, PhD</span>
+  <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a>
+  <a href="https://www.linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a>
+  <a href="https://byshannoncoleman.substack.com">Ground Truth on Substack</a>
+</footer>
+
+<script>
+  document.querySelectorAll("a[href]").forEach(function(a) {
+    var href = a.getAttribute("href");
+    if (href && href[0] !== "#" && href.indexOf("http") !== 0 && href.indexOf("mailto") !== 0) {
+      a.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.body.style.transition = "opacity 0.25s ease";
+        document.body.style.opacity = "0";
+        setTimeout(function() { location.href = href; }, 260);
+      });
+    }
+  });
+</script>
+</body>
+</html>
+
