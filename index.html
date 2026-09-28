@@ -331,7 +331,7 @@
     padding: 36px 0 38px;
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto auto 1fr;
     column-gap: 56px;
     align-content: start;
   }
@@ -435,9 +435,14 @@
     height: auto;
     aspect-ratio: 2 / 1;
     margin-top: 24px;
-    border: 1px solid var(--ink);
+    border: 1px solid var(--rule);
     background: var(--paper);
   }
+
+
+  /* Description and tags stack together in the right column */
+  .case-studies .cs-side { grid-column: 2; grid-row: 1 / -1; align-self: start; }
+  .case-studies .cs-side .cs-desc, .case-studies .cs-side .cs-tags { grid-column: auto; grid-row: auto; }
 
   /* Headshot at the top of the About sidebar */
   .about-photo {
@@ -678,6 +683,7 @@
     .cs-body { grid-template-rows: none; }
     .cs-meta, .cs-title, .cs-desc, .cs-tags, .case-studies .cs-thumb { grid-column: 1; grid-row: auto; }
     .case-studies .cs-thumb { margin: 4px 0 18px; }
+    .case-studies .cs-side { grid-column: 1; grid-row: auto; }
     .cs-title { margin-bottom: 14px; }
     .impact-strip { grid-template-columns: repeat(3, 1fr); }
     .impact-stat:nth-child(4) { border-left: none; padding-left: 0; }
@@ -826,13 +832,15 @@
           <div class="cs-meta">Department of the Air Force &nbsp;&bull;&nbsp; 2022&ndash;2023 &nbsp;&bull;&nbsp; Enterprise IT Transformation</div>
           <div class="cs-title">When the Measure of Success<br><em>Is Whether Airmen Can Do Their Jobs</em></div>
           <img class="cs-thumb" src="images/thumb-eitaas.jpg" alt="Challenge coin from the U.S. Air Force Chief Experience Officer, awarded for the EITaaS research" width="800" height="400" loading="lazy" decoding="async">
-          <p class="cs-desc">Persona development, XLA framework design, and pre/post satisfaction research for the Air Force's enterprise IT transformation program. Research findings shaped contract requirements and provisioning strategy across nine pilot installations.</p>
-          <div class="cs-tags">
-            <span class="cs-tag">Persona Development</span>
-            <span class="cs-tag">XLA Framework</span>
-            <span class="cs-tag">Survey Research</span>
-            <span class="cs-tag">GovTech</span>
-            <span class="cs-tag">Strategic Advisory</span>
+          <div class="cs-side">
+            <p class="cs-desc">Persona development, XLA framework design, and pre/post satisfaction research for the Air Force's enterprise IT transformation program. Research findings shaped contract requirements and provisioning strategy across nine pilot installations.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Persona Development</span>
+              <span class="cs-tag">XLA Framework</span>
+              <span class="cs-tag">Survey Research</span>
+              <span class="cs-tag">GovTech</span>
+              <span class="cs-tag">Strategic Advisory</span>
+            </div>
           </div>
         </div>
         <div class="cs-arrow-wrap">
@@ -850,13 +858,15 @@
           <div class="cs-meta">DoD CDAO &nbsp;&bull;&nbsp; 2023&ndash;2024 &nbsp;&bull;&nbsp; Enterprise AI &amp; Analytics Platform</div>
           <div class="cs-title">When a Platform Becomes<br><em>a Victim of Its Own Success</em></div>
           <img class="cs-thumb" src="images/thumb-advana.jpg" alt="Bar chart from the Advana CX survey: 36% of users found content difficult to find, and 20% found it very or extremely easy" width="800" height="400" loading="lazy" decoding="async">
-          <p class="cs-desc">Enterprise-scale user research, persona validation, and product roadmap development for Advana, the Department of Defense's AI and analytics platform serving 100,000 users. Research informed a $15 billion recompete and a program-level development pause.</p>
-          <div class="cs-tags">
-            <span class="cs-tag">Mixed Methods</span>
-            <span class="cs-tag">Product Roadmap</span>
-            <span class="cs-tag">Persona Validation</span>
-            <span class="cs-tag">Information Architecture</span>
-            <span class="cs-tag">GovTech</span>
+          <div class="cs-side">
+            <p class="cs-desc">Enterprise-scale user research, persona validation, and product roadmap development for Advana, the Department of Defense's AI and analytics platform serving 100,000 users. Research informed a $15 billion recompete and a program-level development pause.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Mixed Methods</span>
+              <span class="cs-tag">Product Roadmap</span>
+              <span class="cs-tag">Persona Validation</span>
+              <span class="cs-tag">Information Architecture</span>
+              <span class="cs-tag">GovTech</span>
+            </div>
           </div>
         </div>
         <div class="cs-arrow-wrap">
@@ -874,13 +884,15 @@
           <div class="cs-meta">Early-Stage Startup &nbsp;&bull;&nbsp; 2025&ndash;2026 &nbsp;&bull;&nbsp; AI Health Platform</div>
           <div class="cs-title">The Product Was Not Broken.<br><em>The Entry Point Was.</em></div>
           <img class="cs-thumb" src="images/thumb-healthplatform.jpg" alt="16,000+ users, grown from a few" width="800" height="400" loading="lazy" decoding="async">
-          <p class="cs-desc">Usability research and strategic framework development for an AI-powered personal health platform struggling to convert awareness into active users. Research surfaced a trust gap at onboarding and produced the Trust-Transfer Model that reoriented the founders' go-to-market strategy.</p>
-          <div class="cs-tags">
-            <span class="cs-tag">Usability Research</span>
-            <span class="cs-tag">Strategic Framework</span>
-            <span class="cs-tag">HealthTech</span>
-            <span class="cs-tag">Go-to-Market</span>
-            <span class="cs-tag">Early Stage</span>
+          <div class="cs-side">
+            <p class="cs-desc">Usability research and strategic framework development for an AI-powered personal health platform struggling to convert awareness into active users. Research surfaced a trust gap at onboarding and produced the Trust-Transfer Model that reoriented the founders' go-to-market strategy.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Usability Research</span>
+              <span class="cs-tag">Strategic Framework</span>
+              <span class="cs-tag">HealthTech</span>
+              <span class="cs-tag">Go-to-Market</span>
+              <span class="cs-tag">Early Stage</span>
+            </div>
           </div>
         </div>
         <div class="cs-arrow-wrap">
@@ -902,13 +914,15 @@
           <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022 &nbsp;&bull;&nbsp; Research Operations</div>
           <div class="cs-title">Building Research Infrastructure<br><em>Regulated Industries Will Actually Trust</em></div>
           <img class="cs-thumb" src="images/thumb-researchpanel.jpg" alt="~1,000 participant panel, built from zero" width="800" height="400" loading="lazy" decoding="async">
-          <p class="cs-desc">Solo build of a ~1,000 participant proprietary research panel under HIPAA-adjacent and FDIC-regulated constraints, serving F100 pharma clients including Pfizer, Eli Lilly, Merck, J&amp;J, and AbbVie, and M&amp;T Bank. Includes compliance stack design, referral attribution logic, and the decision to refuse a shortcut that would have compromised the whole thing.</p>
-          <div class="cs-tags">
-            <span class="cs-tag">Research Operations</span>
-            <span class="cs-tag">Panel Development</span>
-            <span class="cs-tag">Compliance Architecture</span>
-            <span class="cs-tag">HealthTech</span>
-            <span class="cs-tag">FinTech</span>
+          <div class="cs-side">
+            <p class="cs-desc">Solo build of a ~1,000 participant proprietary research panel under HIPAA-adjacent and FDIC-regulated constraints, serving F100 pharma clients including Pfizer, Eli Lilly, Merck, J&amp;J, and AbbVie, and M&amp;T Bank. Includes compliance stack design, referral attribution logic, and the decision to refuse a shortcut that would have compromised the whole thing.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Research Operations</span>
+              <span class="cs-tag">Panel Development</span>
+              <span class="cs-tag">Compliance Architecture</span>
+              <span class="cs-tag">HealthTech</span>
+              <span class="cs-tag">FinTech</span>
+            </div>
           </div>
         </div>
         <div class="cs-arrow-wrap">
@@ -926,13 +940,15 @@
           <div class="cs-meta">Tokenized Asset Platform (NDA) &nbsp;&bull;&nbsp; Consumer FinTech</div>
           <div class="cs-title">The Interface Was Clear.<br><em>The Users Were Still Afraid.</em></div>
           <img class="cs-thumb" src="images/thumb-web3fintech.jpg" alt="Friction map: 11 of 17 friction points in transaction state legibility, 4 in onboarding flow, and 2 in regulatory communication" width="800" height="400" loading="lazy" decoding="async">
-          <p class="cs-desc">UX audit and friction mapping for a consumer-facing tokenized asset platform navigating the intersection of TradFi compliance and DeFi mechanics. Research identified 17 distinct friction points concentrated in transaction state legibility, and produced an executive roadmap that reframed a UX problem and a regulatory communication failure as a single unified challenge.</p>
-          <div class="cs-tags">
-            <span class="cs-tag">UX Audit</span>
-            <span class="cs-tag">Friction Mapping</span>
-            <span class="cs-tag">FinTech</span>
-            <span class="cs-tag">Web3</span>
-            <span class="cs-tag">Strategic Advisory</span>
+          <div class="cs-side">
+            <p class="cs-desc">UX audit and friction mapping for a consumer-facing tokenized asset platform navigating the intersection of TradFi compliance and DeFi mechanics. Research identified 17 distinct friction points concentrated in transaction state legibility, and produced an executive roadmap that reframed a UX problem and a regulatory communication failure as a single unified challenge.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">UX Audit</span>
+              <span class="cs-tag">Friction Mapping</span>
+              <span class="cs-tag">FinTech</span>
+              <span class="cs-tag">Web3</span>
+              <span class="cs-tag">Strategic Advisory</span>
+            </div>
           </div>
         </div>
         <div class="cs-arrow-wrap">
@@ -954,13 +970,15 @@
           <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022 &nbsp;&bull;&nbsp; Campaign &amp; Funnel Performance</div>
           <div class="cs-title">Engagement Was Up.<br><em>Enrollment Wasn't.</em></div>
           <img class="cs-thumb" src="images/thumb-funnelperformance.jpg" alt="Bar chart comparing click-through rate and screener conversion rate for Google paid search, Bing and Yahoo paid search, and paid social" width="800" height="400" loading="lazy" decoding="async">
-          <p class="cs-desc">Full-funnel tracking across concurrent F100 pharmaceutical trial recruitment programs surfaced a persistent Engagement-Conversion Gap, channels winning on clicks but losing on completed screeners. Applying that lens to message testing and budget decisions drove an average 28% lift in screener conversions across Pfizer, Eli Lilly, Merck, J&amp;J, and AbbVie campaigns.</p>
-          <div class="cs-tags">
-            <span class="cs-tag">Funnel Performance</span><span class="cs-tag">Media Analytics</span>
-            <span class="cs-tag">Campaign Analytics</span>
-            <span class="cs-tag">Segmentation</span>
-            <span class="cs-tag">Consumer Research</span>
-            <span class="cs-tag">Pharma</span>
+          <div class="cs-side">
+            <p class="cs-desc">Full-funnel tracking across concurrent F100 pharmaceutical trial recruitment programs surfaced a persistent Engagement-Conversion Gap, channels winning on clicks but losing on completed screeners. Applying that lens to message testing and budget decisions drove an average 28% lift in screener conversions across Pfizer, Eli Lilly, Merck, J&amp;J, and AbbVie campaigns.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Funnel Performance</span><span class="cs-tag">Media Analytics</span>
+              <span class="cs-tag">Campaign Analytics</span>
+              <span class="cs-tag">Segmentation</span>
+              <span class="cs-tag">Consumer Research</span>
+              <span class="cs-tag">Pharma</span>
+            </div>
           </div>
         </div>
         <div class="cs-arrow-wrap">
