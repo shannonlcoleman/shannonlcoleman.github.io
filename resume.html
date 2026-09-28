@@ -563,6 +563,7 @@
   .masthead-contact span { color: rgba(255,255,255,0.2); }
   .masthead-substack { margin-top: 14px; }
   .masthead-substack span { color: rgba(255,255,255,0.45); }
+  .masthead-substack a { flex: 0 0 17em; white-space: nowrap; }
 
 
 
@@ -1661,6 +1662,9 @@
     .expertise-grid { grid-template-columns: 1fr; }
     .masthead-tagline { white-space: normal; letter-spacing: 0.08em; }
     .masthead-contact { flex-wrap: wrap; gap: 4px 12px; }
+    .masthead-substack { flex-direction: column; }
+    .masthead-substack a { flex: none; }
+    .masthead-substack > span:first-of-type { display: none; }
   }
   @media (max-width: 480px) {
     .masthead-inner, .content { padding-left: 16px; padding-right: 16px; }
