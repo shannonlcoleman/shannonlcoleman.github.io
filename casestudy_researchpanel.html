@@ -19,27 +19,45 @@
 <meta name="twitter:description" content="How Shannon L. Coleman built a proprietary research panel for regulated-industry clients, enabling faster, higher-quality qualitative research at scale.">
 <meta name="twitter:image" content="https://shannonlcoleman.com/og-image.jpg">
 <title>Case Study: Research Panel | Shannon L. Coleman, PhD</title>
-<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"></noscript>
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --teal-dark: #0c3547;
-    --teal-mid: #1a6678;
-    --teal-light: #4a9db5;
-    --teal-pale: #edf4f6;
-    --copper: #b87333;
-    --copper-light: #d4976a;
-    --copper-pale: #f5ede4;
-    --white: #ffffff;
-    --ink: #1a2830;
-    --ink-light: #3d5560;
-    --rule: #cdd8dc;
-    --paper: #f5f8f9;
-    --paper-warm: #edf4f6;
-    --mono: 'Space Mono', monospace;
-    --serif: 'Source Serif 4', Georgia, serif;
-    --sans: 'Work Sans', sans-serif;
+    --paper:        #ffffff;
+    --ink:          #1c1b19;
+    --ink-2:        #55514b;
+    --ink-3:        #6b665f;
+    --rule:         #dcd8d2;
+    --accent:       #9b3a22;
+    --accent-on-ink:#e8a48b;
+    --on-ink-2:     #c9c5bf;
+    --data-2:       #2f5f6b;
+    --serif:        'Newsreader', Georgia, 'Times New Roman', serif;
+    --sans:         'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 400;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  h1 em, h2 em, h3 em, h4 em { font-style: normal; color: inherit; }
+
+
+  /* Old variable names, mapped to the new palette */
+  :root { --teal-dark: var(--ink); --teal-mid: var(--ink); --teal-light: var(--accent); --teal-pale: var(--paper); --copper: var(--accent); --copper-light: var(--accent); --copper-pale: var(--paper); --white: var(--paper); --ink-light: var(--ink-2); --paper-warm: var(--paper); --mono: var(--sans); }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -47,7 +65,7 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
     min-height: 100vh;
   }
@@ -62,41 +80,39 @@
     justify-content: space-between;
     padding: 0 32px;
     height: 52px;
-    background: rgba(12,53,71,0.97);
+    background: rgba(28,27,25,0.97);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
   .cs-nav-back {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: rgba(255,255,255,0.75);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: color 0.2s;
-  }
+    transition: color 0.2s; font-weight: 500;}
   .cs-nav-back:hover { color: var(--teal-light); }
   .cs-nav-back::before { content: '←'; font-size: 12px; }
   .cs-nav-studies { display: flex; gap: 4px; align-items: center; }
   .cs-nav-study {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: rgba(255,255,255,0.4);
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 2px;
     border: 1px solid transparent;
     transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-  }
+    white-space: nowrap; font-weight: 500;}
   .cs-nav-study:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.15); }
-  .cs-nav-study.active { color: var(--teal-light); border-color: rgba(74,157,181,0.4); background: rgba(74,157,181,0.08); }
+  .cs-nav-study.active { color: var(--teal-light); border-color: rgba(47,95,107,0.4); background: transparent; }
   @media (max-width: 640px) {
     .cs-nav { padding: 0 16px; }
     .cs-nav-study { font-size: 8px; padding: 5px 8px; }
@@ -118,7 +134,7 @@
     top: -80px; right: -80px;
     width: 420px; height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(74,157,181,0.12) 0%, transparent 70%);
+    background: none;
   }
 
   .masthead::after {
@@ -139,15 +155,14 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.18em;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
     color: var(--teal-light);
-    text-transform: uppercase;
+    text-transform: none;
     margin-bottom: 28px;
     opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.1s;
-  }
+    animation: fadeUp 0.6s ease forwards 0.1s; font-weight: 500;}
 
   .byline::before {
     content: '';
@@ -161,7 +176,7 @@
   .case-title {
     font-family: var(--serif);
     font-size: clamp(34px, 5.5vw, 54px);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.18;
     letter-spacing: -0.01em;
     margin-bottom: 24px;
@@ -170,13 +185,13 @@
   }
 
   .case-title em {
-    font-style: italic;
+    font-style: normal;
     color: var(--copper-light);
   }
 
   .deck {
     font-size: 17px;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(237,244,246,0.72);
     max-width: 640px;
     line-height: 1.65;
@@ -203,14 +218,13 @@
   .meta-item:last-child { border-right: none; }
 
   .meta-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--teal-light);
     display: block;
-    margin-bottom: 4px;
-  }
+    margin-bottom: 4px; font-weight: 500;}
 
   .meta-value {
     font-size: 14px;
@@ -230,16 +244,15 @@
   }
 
   .section-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--teal-mid);
     margin-bottom: 16px;
     display: flex;
     align-items: center;
-    gap: 12px;
-  }
+    gap: 12px; font-weight: 500;}
   .section-label::after {
     content: '';
     flex: 1;
@@ -258,7 +271,7 @@
   }
 
   .section-heading em {
-    font-style: italic;
+    font-style: normal;
     color: var(--teal-mid);
   }
 
@@ -285,18 +298,17 @@
   }
 
   .callout-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--teal-mid);
-    margin-bottom: 10px;
-  }
+    margin-bottom: 10px; font-weight: 500;}
 
   .callout p {
     font-family: var(--serif);
     font-size: 19px;
-    font-style: italic;
+    font-style: normal;
     line-height: 1.6;
     color: var(--ink);
     margin-bottom: 0;
@@ -320,7 +332,7 @@
     top: -60px; right: -60px;
     width: 220px; height: 220px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(184,115,51,0.18) 0%, transparent 70%);
+    background: none;
   }
 
   .conflict-card::after {
@@ -340,7 +352,7 @@
     font-family: var(--serif);
     font-size: clamp(20px, 3vw, 26px);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     color: var(--copper-light);
     margin-bottom: 18px;
     line-height: 1.32;
@@ -378,13 +390,12 @@
   .stack-card.copper-top:hover { border-top-color: var(--copper-light); }
 
   .stack-icon {
-    font-family: var(--mono);
-    font-size: 10px;
+    font-family: var(--sans);
+    font-size: 14px;
     color: var(--teal-mid);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
+    letter-spacing: 0.01em;
+    text-transform: none;
+    margin-bottom: 10px; font-weight: 500;}
   .stack-card.copper-top .stack-icon { color: var(--copper); }
 
   .stack-name {
@@ -431,13 +442,12 @@
   .stat-num.copper { color: var(--copper); }
 
   .stat-desc {
-    font-family: var(--mono);
-    font-size: 9.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--ink-light);
-    line-height: 1.45;
-  }
+    line-height: 1.45; font-weight: 500;}
 
   /* WHAT SHE BUILT — numbered build steps */
   .build-step {
@@ -451,7 +461,7 @@
   .build-num {
     font-family: var(--serif);
     font-size: 52px;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--rule);
     line-height: 1;
     text-align: right;
@@ -484,16 +494,15 @@
   }
 
   .client-tag {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--teal-dark);
     background: var(--teal-pale);
     border: 1px solid var(--teal-light);
     padding: 6px 14px;
-    border-radius: 2px;
-  }
+    border-radius: 2px; font-weight: 500;}
 
   /* STRATEGY ITEMS */
   .strategy-item {
@@ -507,14 +516,13 @@
   .strategy-item:last-child { border-bottom: none; }
 
   .strategy-tag {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--teal-mid);
     padding-top: 4px;
-    line-height: 1.5;
-  }
+    line-height: 1.5; font-weight: 500;}
 
   .strategy-content .strategy-title {
     font-size: 16px;
@@ -546,10 +554,9 @@
     color: rgba(237,244,246,0.45);
     text-align: center;
     padding: 32px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em; line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px;
-  }
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em; line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; font-weight: 500;}
 
   .footer p {
     font-size: inherit;
@@ -610,15 +617,379 @@
     .cs-nav::after { display: none; }
     .masthead { margin-top: 52px; }
     .cs-nav-dropdown { display: block; }
-    .cs-nav-dropdown-btn { list-style: none; color: rgba(255,255,255,0.7); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; user-select: none; }
+    .cs-nav-dropdown-btn { list-style: none; color: rgba(255,255,255,0.7); font-size: 13px; letter-spacing: 0.01em; text-transform: none; cursor: pointer; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; user-select: none; font-weight: 500;}
     .cs-nav-dropdown-btn::-webkit-details-marker { display: none; }
     .cs-nav-dropdown-btn::marker { display: none; }
     .cs-nav-dropdown[open] .cs-nav-dropdown-btn { color: rgba(255,255,255,0.95); border-color: rgba(255,255,255,0.3); }
-    .cs-nav-dropdown-list { position: absolute; right: 16px; top: 44px; background: rgba(12,53,71,0.97); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; overflow: hidden; min-width: 160px; z-index: 300; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }}
-    .cs-nav-dropdown-item { display: block; padding: 9px 16px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; }
+    .cs-nav-dropdown-list { position: absolute; right: 16px; top: 44px; background: rgba(28,27,25,0.97); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; overflow: hidden; min-width: 160px; z-index: 300; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }}
+    .cs-nav-dropdown-item { display: block; padding: 9px 16px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; letter-spacing: 0.01em; text-transform: none; font-weight: 500;}
     .cs-nav-dropdown-item.active { color: rgba(255,255,255,0.3); pointer-events: none; cursor: default; }
-    .cs-nav-dropdown-item:hover:not(.active) { color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.06); }
+    .cs-nav-dropdown-item:hover:not(.active) { color: rgba(255,255,255,0.95); background: transparent; }
   }
+
+  /* ============ Case study layer (shared) ============ */
+  body { background: var(--paper); color: var(--ink); font-weight: 400; font-size: 17px; line-height: 1.65; }
+
+  /* NAV */
+  .cs-nav {
+    background: var(--paper) !important;
+    border-bottom: 1px solid var(--rule) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    height: 60px;
+    padding: 0 32px;
+  }
+  .cs-nav-back { font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--ink-2); }
+  .cs-nav-back:hover { color: var(--accent); }
+  .cs-nav-back::before { content: '\2190'; font-size: 15px; }
+  .cs-nav-studies { gap: 2px; }
+  .cs-nav-study {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--ink-3);
+    padding: 6px 10px;
+    border: none;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    background: none;
+  }
+  .cs-nav-study:hover { color: var(--ink); border-color: transparent; border-bottom-color: var(--accent); }
+  .cs-nav-study.active { color: var(--ink); background: none; border-color: transparent; border-bottom-color: var(--ink); }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    margin-top: 60px;
+    padding: 88px 0 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead::before, .masthead::after { display: none !important; }
+  .masthead-inner { max-width: 1080px; padding: 0 48px; }
+
+  .classification, .program-tag, .byline {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--accent);
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .classification::before, .program-tag::before, .byline::before { display: none; }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(38px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 18ch;
+    opacity: 1;
+    animation: none;
+  }
+  .case-title em { font-style: normal; color: inherit; }
+
+  .deck {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.1vw, 25px);
+    font-weight: 400;
+    color: var(--ink-2);
+    line-height: 1.4;
+    max-width: 44ch;
+    margin-bottom: 56px;
+    opacity: 1;
+    animation: none;
+  }
+
+  .meta-strip {
+    border-top: 1px solid var(--ink);
+    padding-top: 0;
+    opacity: 1;
+    animation: none;
+  }
+  .meta-item {
+    padding: 16px 32px 20px 0;
+    margin-right: 32px;
+    border-right: 1px solid var(--rule);
+  }
+  .meta-item:last-child { border-right: none; margin-right: 0; }
+  .meta-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .meta-value { font-size: 16px; color: var(--ink); font-weight: 400; }
+
+  /* BODY */
+  .content { max-width: 1080px; padding: 0 48px 120px; }
+  .section { padding-top: 96px; }
+
+  .section-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--accent);
+    border-top: 1px solid var(--ink);
+    padding-top: 14px;
+    margin-bottom: 20px;
+  }
+  .section-label::before, .section-label::after { display: none; }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(30px, 3.8vw, 46px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 36px;
+    max-width: 30ch;
+  }
+  .section-heading em { font-style: normal; color: inherit; }
+
+  .content p { font-size: 17px; line-height: 1.75; color: var(--ink-2); max-width: 68ch; }
+  .content p strong { color: var(--ink); font-weight: 600; }
+
+  /* Step numbers: plain figures in the accent color */
+  .method-num:not([style]), .build-num, .method-icon, .slc-fn, .finding-num {
+    font-family: var(--sans) !important;
+    font-size: 28px !important;
+    font-weight: 400 !important;
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.01em !important;
+    line-height: 1 !important;
+    color: var(--accent) !important;
+    background: none !important;
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    display: block !important;
+    text-align: left !important;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--ink);
+    color: var(--on-ink-2);
+    padding: 20px 48px 24px;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 28px;
+    text-align: left;
+  }
+  .footer a { color: var(--on-ink-2); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; padding: 0; }
+  .footer a:hover { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 700px) {
+    body { font-size: 16px; }
+    .masthead { padding-top: 48px; }
+    .masthead-inner, .content { padding-left: 20px; padding-right: 20px; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 12px 0; margin-right: 0; }
+    .meta-item:last-child { border-bottom: none; }
+    .section { padding-top: 64px; }
+    .section-heading { font-size: clamp(27px, 7.4vw, 34px); }
+    .content p { font-size: 16px; }
+    .footer { padding: 12px 20px 20px; flex-direction: column; align-items: flex-start; gap: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .cs-nav { height: 52px; padding: 0 20px; }
+    .masthead { margin-top: 52px; }
+    .cs-nav-back { font-size: 15px; }
+    .cs-nav-dropdown-btn {
+      color: var(--ink) !important;
+      font-size: 14px !important;
+      font-weight: 500;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      border: 1px solid var(--ink) !important;
+      border-radius: 2px !important;
+      padding: 7px 12px !important;
+    }
+    .cs-nav-dropdown-list {
+      top: 52px !important;
+      background: var(--paper) !important;
+      border: 1px solid var(--ink) !important;
+      border-radius: 2px !important;
+      box-shadow: 0 8px 24px rgba(28,27,25,0.12) !important;
+      min-width: 220px !important;
+    }
+    .cs-nav-dropdown-item {
+      color: var(--ink) !important;
+      font-size: 15px !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      padding: 11px 16px !important;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cs-nav-dropdown-item:last-child { border-bottom: none; }
+    .cs-nav-dropdown-item.active { color: var(--ink-3) !important; }
+    .cs-nav-dropdown-item:hover:not(.active) { color: var(--accent) !important; background: none !important; }
+  }
+
+  /* Figures */
+  .stat-number, .stat-num, .impact-num, .big-num {
+    font-family: var(--sans) !important;
+    font-weight: 400 !important;
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.02em;
+    color: var(--accent) !important;
+  }
+
+  /* Dark callouts become ruled light panels */
+  .context-box {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+  }
+  .context-box::before { width: 3px; background: var(--accent) !important; }
+  .context-box p { color: var(--ink-2) !important; }
+  .context-box p strong { color: var(--ink) !important; }
+
+  /* Embedded diagrams: light version of their own palettes */
+  body .slc-adv, body .slc-hp {
+    --bg-s: #ffffff; --bg-s2: #eeece8; --bg-s3: #e2dfda;
+    --bd: #dcd8d2; --bd2: #bdb8b0;
+    --tx: #1c1b19; --tx2: #55514b; --tx3: #6b665f;
+    --ac: #9b3a22; --ac2: #2f5f6b; --ac3: #3b6b45; --red: #9b3a22;
+  }
+  body .slc-w3r {
+    --bg: #ffffff; --mid: #ffffff; --mid2: #eeece8; --mid3: #e2dfda;
+    --ac: #9b3a22; --acl: #2f5f6b; --white: #1c1b19; --muted: #55514b;
+    --bd: #dcd8d2; --bd2: #bdb8b0;
+    --green: #3b6b45; --red: #9b3a22; --amber: #8a6414;
+  }
+
+  /* A method-num with inline styling is a title, not a step number */
+  .method-num[style] {
+    font-family: var(--serif) !important;
+    font-size: 23px !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.005em !important;
+    line-height: 1.2 !important;
+    color: var(--ink) !important;
+    margin-bottom: 8px;
+  }
+
+  /* Card grids become ruled columns */
+  .method-card, .impact-card {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--ink) !important;
+    border-radius: 0 !important;
+    padding: 16px 0 8px !important;
+  }
+  .impact-card::before { display: none !important; }
+  .methods-grid, .impact-grid { column-gap: 32px !important; row-gap: 28px !important; }
+  .method-name { font-size: 16px; font-weight: 600; color: var(--ink); margin: 10px 0 6px; }
+  .method-detail { font-size: 15px; color: var(--ink-2); line-height: 1.6; }
+  .impact-label { font-size: 14px; font-weight: 600; color: var(--accent); letter-spacing: 0.02em; }
+  .impact-text { font-size: 16px; color: var(--ink); line-height: 1.6; }
+
+  .section > div[style*="grid-template-columns"] { column-gap: 32px !important; row-gap: 28px !important; }
+  .section > div[style*="grid-template-columns"] > div[style] {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--ink) !important;
+    padding: 16px 0 8px !important;
+  }
+  .section > div[style*="grid-template-columns"] > div[style] > div[style] { font-size: 15px !important; color: var(--ink-2) !important; line-height: 1.6 !important; }
+
+  /* Stat rows: figures on a rule, not in boxes */
+  .scale-stat {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--rule) !important;
+    border-bottom: 1px solid var(--rule) !important;
+    border-radius: 0 !important;
+    gap: 0 !important;
+  }
+  .stats-row {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--rule) !important;
+    border-bottom: 1px solid var(--rule) !important;
+    border-radius: 0 !important;
+    gap: 0 !important;
+  }
+  .stat-item, .stat {
+    background: none !important;
+    text-align: left !important;
+    padding: 24px 20px 26px !important;
+    border-left: 1px solid var(--rule);
+  }
+  .stat-item:first-child, .stat:first-child { border-left: none; padding-left: 0 !important; }
+  .stat-num { font-family: var(--sans) !important; font-weight: 400 !important; font-variant-numeric: lining-nums tabular-nums; letter-spacing: -0.02em; color: var(--accent) !important; font-size: clamp(32px, 3.4vw, 42px) !important; line-height: 1 !important; margin-bottom: 12px !important; }
+  .stat-desc { font-size: 14px !important; font-weight: 400 !important; color: var(--ink-2) !important; letter-spacing: 0 !important; line-height: 1.45 !important; }
+  .stat-number { font-size: clamp(32px, 3.4vw, 42px) !important; line-height: 1 !important; margin-bottom: 12px !important; }
+  .stat-number[style] { font-size: 26px !important; line-height: 1.2 !important; }
+  .stat-label { font-size: 14px !important; font-weight: 400 !important; color: var(--ink-2) !important; letter-spacing: 0 !important; line-height: 1.45; }
+
+  .reflection {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--ink) !important;
+    border-radius: 0 !important;
+    padding: 28px 0 0 !important;
+  }
+
+  .insight-card, .insight-box, .callout {
+    background: var(--paper) !important;
+    border: 1px solid var(--rule) !important;
+    border-left: 3px solid var(--accent) !important;
+    border-radius: 0 !important;
+  }
+  .insight-card .insight-text { font-size: 21px !important; line-height: 1.5 !important; color: var(--ink) !important; }
+
+  /* Diagram callouts sit on white */
+  body .slc-adv .slc-call, body .slc-hp .slc-call { background: var(--paper) !important; border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  body .slc-adv .slc-card, body .slc-hp .slc-card { border-color: var(--ink); border-radius: 2px; }
+
+  @media (max-width: 700px) {
+    .stat-item, .stat { padding: 18px 12px !important; }
+    .stat-item:nth-child(odd), .stat:nth-child(odd) { border-left: none; padding-left: 0 !important; }
+  }
+
+  .content .impact-text, .content .rec-text, .content .finding-text { font-size: 16px; line-height: 1.65; }
+
+  /* Other dark callouts become light panels */
+  .conflict-card, .dark-callout {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--ink) !important;
+    border-radius: 2px !important;
+  }
+  .conflict-card::after, .conflict-card::before, .dark-callout::after { display: none !important; }
+  .conflict-card { border-left: 3px solid var(--accent) !important; }
+  .dark-callout::before { background: var(--accent) !important; }
+  .content .conflict-card p, .content .dark-callout p { color: var(--ink-2) !important; }
+  .conflict-card .conflict-title { color: var(--ink) !important; }
+  .conflict-card .callout-label, .dark-callout-label { color: var(--accent) !important; }
+
+  .finding-num { min-width: 40px; }
+  .slc-hp .slc-tni { display: none !important; }
+
+  .case-title, .section-heading { text-wrap: balance; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -684,7 +1055,7 @@
 <main class="content">
 
   <section class="section">
-    <div class="section-label">01 &nbsp; Context</div>
+    <div class="section-label">Context</div>
     <h2 class="section-heading">F100 pharma clients. FDIC-regulated banks.<br><em>And no panel to run research on.</em></h2>
     <p>Crowley Webb is a full-service advertising agency with a meaningful book of business in regulated industries. The agency also owns Praxis, a clinical trial recruitment firm, and I technically worked for both organizations. That dual role is how the pharmaceutical side of the panel work took shape: Praxis brought the clinical and pharma client relationships, and I built the research infrastructure those relationships required. The client base included <strong>Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, and AbbVie</strong> on the pharmaceutical side, and <strong>M&amp;T Bank</strong> in financial services. These are environments where research data carries real compliance weight and where participant provenance actually matters to clients.</p>
     <p>The agency had no proprietary research panel. Every study that required a screened participant pool meant going to a third-party vendor, paying vendor rates on top of the research itself, accepting whatever panel quality they offered, and working within their timelines and constraints. That was the baseline when I started. The question of whether to build something better was still open.</p>
@@ -710,7 +1081,7 @@
   </section>
 
   <section class="section">
-    <div class="section-label">02 &nbsp; The Problem</div>
+    <div class="section-label">The Problem</div>
     <h2 class="section-heading">What "trust" means when your clients<br><em>answer to regulators</em></h2>
     <p>Building a research panel for a general consumer brand is one thing. Building one for clients whose industries are governed by HIPAA, FDA oversight, and FDIC regulation is something else. The participants need to be who they say they are. The data handling needs to hold up to scrutiny. The privacy architecture can't be an afterthought you patch later.</p>
     <p>Third-party panels solve for scale and speed, and on the surface they look like the obvious move. But they come with two problems that mattered here: cost and credibility. Every study that required a screened panel meant paying a vendor premium on top of the research itself, which adds up fast across a roster of regulated-industry clients. More fundamentally, third-party panels don't solve for the kind of institutional credibility that lets a pharma client actually trust the data going to a medical affairs team. If the panel itself couldn't meet that bar, everything downstream was compromised: the research, the recommendations, and the client relationship.</p>
@@ -723,7 +1094,7 @@
   </section>
 
   <section class="section">
-    <div class="section-label">03 &nbsp; The Conflict</div>
+    <div class="section-label">The Conflict</div>
     <h2 class="section-heading">The shortcut was available.<br><em>The consequences weren't worth it.</em></h2>
 
     <div class="conflict-card">
@@ -736,12 +1107,12 @@
   </section>
 
   <section class="section">
-    <div class="section-label">04 &nbsp; What I Built</div>
+    <div class="section-label">What I Built</div>
     <h2 class="section-heading">End-to-end recruitment infrastructure,<br><em>designed from scratch</em></h2>
     <p>Without the option to buy contact lists, every participant had to be recruited through legitimate, auditable channels. That meant I needed multiple mechanisms that could generate volume while preserving consent and data integrity. I built three interlocking systems.</p>
 
     <div class="build-step">
-      <div class="build-num">01</div>
+      <div class="build-num">1</div>
       <div class="build-body">
         <div class="build-title">End-of-Survey Recruitment Flow</div>
         <p class="build-text">I designed and built a post-completion opt-in experience directly inside Qualtrics. Participants who finished a study were presented with a clear, affirmative invitation to join the panel. The flow was sequenced so that consent was genuinely informed and separable from study participation. Joining the panel was never a condition of completing the survey, which mattered for both ethical and compliance reasons.</p>
@@ -749,7 +1120,7 @@
     </div>
 
     <div class="build-step">
-      <div class="build-num">02</div>
+      <div class="build-num">2</div>
       <div class="build-body">
         <div class="build-title">Referral Program with Unique Code Attribution</div>
         <p class="build-text">I designed a referral system from scratch, including the attribution logic. Each existing panel member received a unique referral code. Referrals were tracked through a custom logic layer I built, allowing me to attribute new participants to their source, verify chain of consent, and eventually incentivize referrers through Giftbit, the reward fulfillment platform I integrated into the workflow. The attribution model mattered not just for panel growth accounting but for proving to clients that participant sourcing was traceable and clean.</p>
@@ -757,7 +1128,7 @@
     </div>
 
     <div class="build-step">
-      <div class="build-num">03</div>
+      <div class="build-num">3</div>
       <div class="build-body">
         <div class="build-title">Compliance Stack Built with Legal</div>
         <p class="build-text">I built the compliance architecture in direct collaboration with the legal team, treating it as a design constraint that shaped every data handling decision rather than a post-hoc review. The resulting framework covered international and domestic requirements, including GDPR, the EU-U.S. Data Privacy Framework, APEC CBPR, and HIPAA-adjacent practices appropriate for research involving health-related data. I also worked to achieve TRUSTe certification and align the panel's data governance with ISO 27001:2022 standards. This compliance layer was not decorative; it was the thing that made the panel useful to the clients who most needed it.</p>
@@ -766,7 +1137,7 @@
   </section>
 
   <section class="section">
-    <div class="section-label">05 &nbsp; Tech Stack</div>
+    <div class="section-label">Tech Stack</div>
     <h2 class="section-heading">Purpose-built infrastructure,<br><em>not repurposed tools</em></h2>
     <p>The technology choices were driven by the compliance and audit requirements, not the other way around. Each platform was selected for what it could handle responsibly at the data layer, not just for feature convenience.</p>
 
@@ -795,7 +1166,7 @@
   </section>
 
   <section class="section">
-    <div class="section-label">06 &nbsp; Compliance Stack</div>
+    <div class="section-label">Compliance Stack</div>
     <h2 class="section-heading">The certifications are the evidence,<br><em>not the goal</em></h2>
     <p>The compliance stack wasn't assembled to check boxes. It was built to answer the question that regulated-industry clients are always implicitly asking: <em>can we trust this data if someone scrutinizes it?</em> Each framework addressed a specific risk surface, and together they covered the international and domestic terrain of the client base.</p>
 
@@ -834,7 +1205,7 @@
   </section>
 
   <section class="section">
-    <div class="section-label">07 &nbsp; Clients Served</div>
+    <div class="section-label">Clients Served</div>
     <h2 class="section-heading">The panel's first real test<br><em>was the caliber of the client</em></h2>
     <p>The panel wasn't built in anticipation of a theoretical future use case. It was built against the actual client roster: organizations whose compliance standards set the floor, not the ceiling. That the infrastructure held up across all of them was the validation.</p>
 
@@ -851,7 +1222,7 @@
   </section>
 
   <section class="section">
-    <div class="section-label">08 &nbsp; Strategic Framing</div>
+    <div class="section-label">Strategic Framing</div>
     <h2 class="section-heading">This wasn't a recruitment tool.<br><em>It was enablement infrastructure.</em></h2>
     <p>The panel could have been scoped as a research operations efficiency play: faster studies, lower vendor spend, more control over timelines. That framing would have been accurate but incomplete. What actually got built was something more foundational: the infrastructure that let a mid-size agency credibly serve regulated-industry clients at a level typically reserved for shops with dedicated compliance teams.</p>
 
@@ -881,7 +1252,7 @@
   </section>
 
   <section class="section">
-    <div class="section-label">09 &nbsp; What I'd Do Differently</div>
+    <div class="section-label">What I'd Do Differently</div>
     <h2 class="section-heading">Three things I'd approach<br><em>differently in retrospect</em></h2>
 
     <div class="finding">
@@ -911,12 +1282,12 @@
   </section>
 
   <section class="section">
-    <div class="section-label">10 &nbsp; Takeaway</div>
+    <div class="section-label">Takeaway</div>
     <h2 class="section-heading">What this case study demonstrates</h2>
 
     <div class="reflection">
       <div class="callout-label">The Broader Point</div>
-      <p style="font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--ink); max-width: 100%; line-height: 1.65; margin-bottom: 18px;">The decision that mattered most in this project was the one I made before I built anything.</p>
+      <p style="font-family: var(--serif); font-size: 19px; font-style: normal; color: var(--ink); max-width: 100%; line-height: 1.65; margin-bottom: 18px;">The decision that mattered most in this project was the one I made before I built anything.</p>
       <p style="font-size: 15px; max-width: 100%;">Refusing to buy email lists was a research integrity decision, but it was also a strategic one. It forced me to invent infrastructure that turned out to be considerably more valuable than a faster path to a compromised outcome would have been. The panel that emerged from that refusal was something the agency couldn't have bought: a first-party, fully auditable, compliance-ready research asset that made a new category of client trust possible.</p>
       <p style="font-size: 15px; max-width: 100%; margin-bottom: 0;">For organizations in HealthTech and FinTech where the research function touches sensitive data, the ability to build research infrastructure that can actually be trusted, not merely used, is the differentiator. That's what this project was about.</p>
     </div>
