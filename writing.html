@@ -13,11 +13,11 @@
 <meta property="og:description" content="Ground Truth — a publication on rigorous AI product practice. Three series on evaluation frameworks, measurement strategy, and AI enablement research.">
 <meta property="og:url" content="https://shannonlcoleman.com/writing.html">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://shannonlcoleman.com/og-image-v2.jpg">
+<meta property="og:image" content="https://shannonlcoleman.com/og-image-v3.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Writing | Shannon L. Coleman, PhD">
 <meta name="twitter:description" content="Ground Truth — a publication on rigorous AI product practice.">
-<meta name="twitter:image" content="https://shannonlcoleman.com/og-image-v2.jpg">
+<meta name="twitter:image" content="https://shannonlcoleman.com/og-image-v3.jpg">
 <title>Writing | Shannon L. Coleman, PhD</title>
 
 <!-- Google tag (gtag.js) -->
@@ -228,8 +228,7 @@
   /* HERO */
   .hero {
     background: var(--paper);
-    padding: 96px 48px 80px;
-    border-bottom: 1px solid var(--rule);
+    padding: 96px 48px 0;
   }
 
   .hero-inner {
@@ -269,11 +268,16 @@
 
   .hero-left .btn-primary { margin-top: 32px; }
 
-  .hero-logo-wrap img {
-    display: block;
-    width: 220px;
-    height: 220px;
-    object-fit: contain;
+  /* The Ground Truth ruler: an accent baseline with minor and major ticks, full column width */
+  .hero-inner::after {
+    content: '';
+    grid-column: 1 / -1;
+    height: 13px;
+    margin-top: 80px;
+    background:
+      linear-gradient(var(--accent), var(--accent)) left top / 100% 2px no-repeat,
+      linear-gradient(90deg, var(--accent) 2px, transparent 2px) left top / calc((100% - 2px) / 4) 13px repeat-x,
+      linear-gradient(90deg, var(--accent) 2px, transparent 2px) left top / calc((100% - 2px) / 20) 7px repeat-x;
   }
 
   /* CONTENT */
@@ -422,10 +426,9 @@
   }
 
   @media (max-width: 700px) {
-    .hero { padding: 48px 20px 56px; }
+    .hero { padding: 48px 20px 0; }
     .hero-inner { grid-template-columns: 1fr; gap: 28px; }
-    .hero-logo-wrap { order: -1; }
-    .hero-logo-wrap img { width: 120px; height: 120px; }
+    .hero-inner::after { margin-top: 56px; }
     .hero-sub { font-size: 17px; }
     .content { padding: 0 20px 80px; }
     .series-block { padding-top: 72px; }
@@ -459,9 +462,6 @@
       <h1 class="hero-heading">Ground Truth:<br><em>AI product practice,</em><br>examined.</h1>
       <p class="hero-sub">Most AI product content is written by people excited about what AI can do. Ground Truth is where I work through what rigorous practice actually looks like: from evaluation frameworks and measurement strategy to the organizational conditions that determine whether good research ever changes anything.</p>
       <a href="https://byshannoncoleman.substack.com/?utm_source=portfolio&amp;utm_medium=writing-page&amp;utm_campaign=site" class="btn-primary" target="_blank" rel="noopener" style="margin-top: 32px;" aria-label="Subscribe to Ground Truth on Substack">Subscribe on Substack</a>
-    </div>
-    <div class="hero-logo-wrap">
-      <img src="ground-truth-logo.png" alt="Ground Truth — AI Product Practice">
     </div>
   </div>
 </section>
