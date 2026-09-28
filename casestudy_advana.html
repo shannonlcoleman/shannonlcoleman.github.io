@@ -19,26 +19,45 @@
 <meta name="twitter:description" content="How Shannon L. Coleman led UX research and strategy for Advana, the Department of Defense's enterprise AI and analytics platform.">
 <meta name="twitter:image" content="https://shannonlcoleman.com/og-image.jpg">
 <title>Case Study: Advana / DoD Enterprise Analytics | Shannon L. Coleman, PhD</title>
-<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"></noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"></noscript>
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --navy: #0d1b2a;
-    --navy-mid: #1b2f45;
-    --navy-light: #2c4a6e;
-    --paper: #f4f6f8;
-    --white: #ffffff;
-    --gold: #b8901a;
-    --gold-light: #e0b84a;
-    --gold-pale: #fdf6e3;
-    --steel: #6b8cae;
-    --rule: #d0d8e4;
-    --text: #2a3a4a;
-    --text-light: #4a5a6a;
-    --mono: 'IBM Plex Mono', monospace;
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans: 'Inter', sans-serif;
+    --paper:        #ffffff;
+    --ink:          #1c1b19;
+    --ink-2:        #55514b;
+    --ink-3:        #6b665f;
+    --rule:         #dcd8d2;
+    --accent:       #9b3a22;
+    --accent-on-ink:#e8a48b;
+    --on-ink-2:     #c9c5bf;
+    --data-2:       #2f5f6b;
+    --serif:        'Newsreader', Georgia, 'Times New Roman', serif;
+    --sans:         'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 400;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  h1 em, h2 em, h3 em, h4 em { font-style: normal; color: inherit; }
+
+
+  /* Old variable names, mapped to the new palette */
+  :root { --navy: var(--ink); --navy-mid: var(--ink); --navy-light: var(--ink-2); --white: var(--paper); --gold: var(--accent); --gold-light: var(--accent); --gold-pale: var(--paper); --steel: var(--ink-3); --text: var(--ink); --text-light: var(--ink-2); --mono: var(--sans); }
 
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,7 +67,7 @@
     background: var(--paper);
     color: var(--text);
     font-family: var(--sans);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
   }
 
@@ -63,41 +82,39 @@
     justify-content: space-between;
     padding: 0 32px;
     height: 52px;
-    background: rgba(13,27,42,0.97);
+    background: rgba(28,27,25,0.97);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
   .cs-nav-back {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: rgba(255,255,255,0.75);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: color 0.2s;
-  }
+    transition: color 0.2s; font-weight: 500;}
   .cs-nav-back:hover { color: var(--gold-light); }
   .cs-nav-back::before { content: '←'; font-size: 12px; }
   .cs-nav-studies { display: flex; gap: 4px; align-items: center; }
   .cs-nav-study {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: rgba(255,255,255,0.4);
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 2px;
     border: 1px solid transparent;
     transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-  }
+    white-space: nowrap; font-weight: 500;}
   .cs-nav-study:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.15); }
-  .cs-nav-study.active { color: var(--gold-light); border-color: rgba(224,184,74,0.4); background: rgba(224,184,74,0.06); }
+  .cs-nav-study.active { color: var(--gold-light); border-color: rgba(155,58,34,0.4); background: transparent; }
   @media (max-width: 640px) {
     .cs-nav { padding: 0 16px; }
     .cs-nav-study { font-size: 8px; padding: 5px 8px; }
@@ -151,13 +168,12 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--gold-light);
-    margin-bottom: 32px;
-  }
+    margin-bottom: 32px; font-weight: 500;}
 
 
   .classification::before {
@@ -183,14 +199,14 @@
 
 
   .case-title em {
-    font-style: italic;
+    font-style: normal;
     color: var(--gold-light);
   }
 
 
   .deck {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(255,255,255,0.65);
     max-width: 640px;
     line-height: 1.7;
@@ -220,14 +236,13 @@
 
 
   .meta-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--gold-light);
     display: block;
-    margin-bottom: 4px;
-  }
+    margin-bottom: 4px; font-weight: 500;}
 
 
   .meta-value {
@@ -254,16 +269,15 @@
 
 
   .section-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--gold);
     margin-bottom: 14px;
     display: flex;
     align-items: center;
-    gap: 14px;
-  }
+    gap: 14px; font-weight: 500;}
 
 
   .section-label::after {
@@ -286,7 +300,7 @@
 
 
   .section-heading em {
-    font-style: italic;
+    font-style: normal;
     color: var(--gold);
   }
 
@@ -324,13 +338,12 @@
 
 
   .context-box .context-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--gold-light);
-    margin-bottom: 12px;
-  }
+    margin-bottom: 12px; font-weight: 500;}
 
 
   .context-box p {
@@ -360,12 +373,11 @@
 
 
   .method-num {
-    font-family: var(--mono);
-    font-size: 10px;
+    font-family: var(--sans);
+    font-size: 14px;
     color: var(--steel);
-    letter-spacing: 0.12em;
-    margin-bottom: 8px;
-  }
+    letter-spacing: 0.01em;
+    margin-bottom: 8px; font-weight: 500;}
 
 
   .method-name {
@@ -405,7 +417,7 @@
   .stat-number {
     font-family: var(--serif);
     font-size: 36px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     line-height: 1;
     margin-bottom: 6px;
@@ -413,12 +425,11 @@
 
 
   .stat-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--steel);
-  }
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--steel); font-weight: 500;}
 
 
   .finding-row {
@@ -457,7 +468,7 @@
 
   .insight-card {
     background: var(--gold-pale);
-    border: 1px solid rgba(184,144,26,0.25);
+    border: 1px solid rgba(155,58,34,0.25);
     border-left: 3px solid var(--gold);
     padding: 32px 36px;
     margin: 36px 0;
@@ -466,13 +477,12 @@
 
 
   .insight-card .insight-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--gold);
-    margin-bottom: 12px;
-  }
+    margin-bottom: 12px; font-weight: 500;}
 
 
   .insight-card .insight-text {
@@ -499,14 +509,13 @@
 
 
   .rec-tag {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--steel);
     line-height: 1.6;
-    padding-top: 3px;
-  }
+    padding-top: 3px; font-weight: 500;}
 
 
   .rec-title {
@@ -553,13 +562,12 @@
 
 
   .impact-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--steel);
-    margin-bottom: 10px;
-  }
+    margin-bottom: 10px; font-weight: 500;}
 
 
   .impact-text {
@@ -587,10 +595,10 @@
     color: rgba(255,255,255,0.45);
     text-align: center;
     padding: 28px 40px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; }
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; font-weight: 500;}
 
 
   .footer a { color: var(--gold-light); text-decoration: none; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
@@ -639,43 +647,407 @@
     .cs-nav::after { display: none; }
     .masthead { margin-top: 52px; }
     .cs-nav-dropdown { display: block; }
-    .cs-nav-dropdown-btn { list-style: none; color: rgba(255,255,255,0.7); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; user-select: none; }
+    .cs-nav-dropdown-btn { list-style: none; color: rgba(255,255,255,0.7); font-size: 13px; letter-spacing: 0.01em; text-transform: none; cursor: pointer; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; user-select: none; font-weight: 500;}
     .cs-nav-dropdown-btn::-webkit-details-marker { display: none; }
     .cs-nav-dropdown-btn::marker { display: none; }
     .cs-nav-dropdown[open] .cs-nav-dropdown-btn { color: rgba(255,255,255,0.95); border-color: rgba(255,255,255,0.3); }
-    .cs-nav-dropdown-list { position: absolute; right: 16px; top: 44px; background: rgba(13,27,42,0.97); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; overflow: hidden; min-width: 160px; z-index: 300; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }}
-    .cs-nav-dropdown-item { display: block; padding: 9px 16px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 9px; letter-spacing: 0.10em; text-transform: uppercase; }
+    .cs-nav-dropdown-list { position: absolute; right: 16px; top: 44px; background: rgba(28,27,25,0.97); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; overflow: hidden; min-width: 160px; z-index: 300; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }}
+    .cs-nav-dropdown-item { display: block; padding: 9px 16px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; letter-spacing: 0.01em; text-transform: none; font-weight: 500;}
     .cs-nav-dropdown-item.active { color: rgba(255,255,255,0.3); pointer-events: none; cursor: default; }
-    .cs-nav-dropdown-item:hover:not(.active) { color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.06); }
+    .cs-nav-dropdown-item:hover:not(.active) { color: rgba(255,255,255,0.95); background: transparent; }
   }
+
+  /* ============ Case study layer (shared) ============ */
+  body { background: var(--paper); color: var(--ink); font-weight: 400; font-size: 17px; line-height: 1.65; }
+
+  /* NAV */
+  .cs-nav {
+    background: var(--paper) !important;
+    border-bottom: 1px solid var(--rule) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    height: 60px;
+    padding: 0 32px;
+  }
+  .cs-nav-back { font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--ink-2); }
+  .cs-nav-back:hover { color: var(--accent); }
+  .cs-nav-back::before { content: '\2190'; font-size: 15px; }
+  .cs-nav-studies { gap: 2px; }
+  .cs-nav-study {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--ink-3);
+    padding: 6px 10px;
+    border: none;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    background: none;
+  }
+  .cs-nav-study:hover { color: var(--ink); border-color: transparent; border-bottom-color: var(--accent); }
+  .cs-nav-study.active { color: var(--ink); background: none; border-color: transparent; border-bottom-color: var(--ink); }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    margin-top: 60px;
+    padding: 88px 0 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead::before, .masthead::after { display: none !important; }
+  .masthead-inner { max-width: 1080px; padding: 0 48px; }
+
+  .classification, .program-tag, .byline {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--accent);
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .classification::before, .program-tag::before, .byline::before { display: none; }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(38px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 18ch;
+    opacity: 1;
+    animation: none;
+  }
+  .case-title em { font-style: normal; color: inherit; }
+
+  .deck {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.1vw, 25px);
+    font-weight: 400;
+    color: var(--ink-2);
+    line-height: 1.4;
+    max-width: 44ch;
+    margin-bottom: 56px;
+    opacity: 1;
+    animation: none;
+  }
+
+  .meta-strip {
+    border-top: 1px solid var(--ink);
+    padding-top: 0;
+    opacity: 1;
+    animation: none;
+  }
+  .meta-item {
+    padding: 16px 32px 20px 0;
+    margin-right: 32px;
+    border-right: 1px solid var(--rule);
+  }
+  .meta-item:last-child { border-right: none; margin-right: 0; }
+  .meta-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .meta-value { font-size: 16px; color: var(--ink); font-weight: 400; }
+
+  /* BODY */
+  .content { max-width: 1080px; padding: 0 48px 120px; }
+  .section { padding-top: 96px; }
+
+  .section-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--accent);
+    border-top: 1px solid var(--ink);
+    padding-top: 14px;
+    margin-bottom: 20px;
+  }
+  .section-label::before, .section-label::after { display: none; }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(30px, 3.8vw, 46px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 36px;
+    max-width: 30ch;
+  }
+  .section-heading em { font-style: normal; color: inherit; }
+
+  .content p { font-size: 17px; line-height: 1.75; color: var(--ink-2); max-width: 68ch; }
+  .content p strong { color: var(--ink); font-weight: 600; }
+
+  /* Step numbers: plain figures in the accent color */
+  .method-num:not([style]), .build-num, .method-icon, .slc-fn, .finding-num {
+    font-family: var(--sans) !important;
+    font-size: 28px !important;
+    font-weight: 400 !important;
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.01em !important;
+    line-height: 1 !important;
+    color: var(--accent) !important;
+    background: none !important;
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    display: block !important;
+    text-align: left !important;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--ink);
+    color: var(--on-ink-2);
+    padding: 20px 48px 24px;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 28px;
+    text-align: left;
+  }
+  .footer a { color: var(--on-ink-2); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; padding: 0; }
+  .footer a:hover { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 700px) {
+    body { font-size: 16px; }
+    .masthead { padding-top: 48px; }
+    .masthead-inner, .content { padding-left: 20px; padding-right: 20px; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 12px 0; margin-right: 0; }
+    .meta-item:last-child { border-bottom: none; }
+    .section { padding-top: 64px; }
+    .section-heading { font-size: clamp(27px, 7.4vw, 34px); }
+    .content p { font-size: 16px; }
+    .footer { padding: 12px 20px 20px; flex-direction: column; align-items: flex-start; gap: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .cs-nav { height: 52px; padding: 0 20px; }
+    .masthead { margin-top: 52px; }
+    .cs-nav-back { font-size: 15px; }
+    .cs-nav-dropdown-btn {
+      color: var(--ink) !important;
+      font-size: 14px !important;
+      font-weight: 500;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      border: 1px solid var(--ink) !important;
+      border-radius: 2px !important;
+      padding: 7px 12px !important;
+    }
+    .cs-nav-dropdown-list {
+      top: 52px !important;
+      background: var(--paper) !important;
+      border: 1px solid var(--ink) !important;
+      border-radius: 2px !important;
+      box-shadow: 0 8px 24px rgba(28,27,25,0.12) !important;
+      min-width: 220px !important;
+    }
+    .cs-nav-dropdown-item {
+      color: var(--ink) !important;
+      font-size: 15px !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      padding: 11px 16px !important;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cs-nav-dropdown-item:last-child { border-bottom: none; }
+    .cs-nav-dropdown-item.active { color: var(--ink-3) !important; }
+    .cs-nav-dropdown-item:hover:not(.active) { color: var(--accent) !important; background: none !important; }
+  }
+
+  /* Figures */
+  .stat-number, .stat-num, .impact-num, .big-num {
+    font-family: var(--sans) !important;
+    font-weight: 400 !important;
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.02em;
+    color: var(--accent) !important;
+  }
+
+  /* Dark callouts become ruled light panels */
+  .context-box {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+  }
+  .context-box::before { width: 3px; background: var(--accent) !important; }
+  .context-box p { color: var(--ink-2) !important; }
+  .context-box p strong { color: var(--ink) !important; }
+
+  /* Embedded diagrams: light version of their own palettes */
+  body .slc-adv, body .slc-hp {
+    --bg-s: #ffffff; --bg-s2: #eeece8; --bg-s3: #e2dfda;
+    --bd: #dcd8d2; --bd2: #bdb8b0;
+    --tx: #1c1b19; --tx2: #55514b; --tx3: #6b665f;
+    --ac: #9b3a22; --ac2: #2f5f6b; --ac3: #3b6b45; --red: #9b3a22;
+  }
+  body .slc-w3r {
+    --bg: #ffffff; --mid: #ffffff; --mid2: #eeece8; --mid3: #e2dfda;
+    --ac: #9b3a22; --acl: #2f5f6b; --white: #1c1b19; --muted: #55514b;
+    --bd: #dcd8d2; --bd2: #bdb8b0;
+    --green: #3b6b45; --red: #9b3a22; --amber: #8a6414;
+  }
+
+  /* A method-num with inline styling is a title, not a step number */
+  .method-num[style] {
+    font-family: var(--serif) !important;
+    font-size: 23px !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.005em !important;
+    line-height: 1.2 !important;
+    color: var(--ink) !important;
+    margin-bottom: 8px;
+  }
+
+  /* Card grids become ruled columns */
+  .method-card, .impact-card {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--ink) !important;
+    border-radius: 0 !important;
+    padding: 16px 0 8px !important;
+  }
+  .impact-card::before { display: none !important; }
+  .methods-grid, .impact-grid { column-gap: 32px !important; row-gap: 28px !important; }
+  .method-name { font-size: 16px; font-weight: 600; color: var(--ink); margin: 10px 0 6px; }
+  .method-detail { font-size: 15px; color: var(--ink-2); line-height: 1.6; }
+  .impact-label { font-size: 14px; font-weight: 600; color: var(--accent); letter-spacing: 0.02em; }
+  .impact-text { font-size: 16px; color: var(--ink); line-height: 1.6; }
+
+  .section > div[style*="grid-template-columns"] { column-gap: 32px !important; row-gap: 28px !important; }
+  .section > div[style*="grid-template-columns"] > div[style] {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--ink) !important;
+    padding: 16px 0 8px !important;
+  }
+  .section > div[style*="grid-template-columns"] > div[style] > div[style] { font-size: 15px !important; color: var(--ink-2) !important; line-height: 1.6 !important; }
+
+  /* Stat rows: figures on a rule, not in boxes */
+  .scale-stat {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--rule) !important;
+    border-bottom: 1px solid var(--rule) !important;
+    border-radius: 0 !important;
+    gap: 0 !important;
+  }
+  .stats-row {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--rule) !important;
+    border-bottom: 1px solid var(--rule) !important;
+    border-radius: 0 !important;
+    gap: 0 !important;
+  }
+  .stat-item, .stat {
+    background: none !important;
+    text-align: left !important;
+    padding: 24px 20px 26px !important;
+    border-left: 1px solid var(--rule);
+  }
+  .stat-item:first-child, .stat:first-child { border-left: none; padding-left: 0 !important; }
+  .stat-num { font-family: var(--sans) !important; font-weight: 400 !important; font-variant-numeric: lining-nums tabular-nums; letter-spacing: -0.02em; color: var(--accent) !important; font-size: clamp(32px, 3.4vw, 42px) !important; line-height: 1 !important; margin-bottom: 12px !important; }
+  .stat-desc { font-size: 14px !important; font-weight: 400 !important; color: var(--ink-2) !important; letter-spacing: 0 !important; line-height: 1.45 !important; }
+  .stat-number { font-size: clamp(32px, 3.4vw, 42px) !important; line-height: 1 !important; margin-bottom: 12px !important; }
+  .stat-number[style] { font-size: 26px !important; line-height: 1.2 !important; }
+  .stat-label { font-size: 14px !important; font-weight: 400 !important; color: var(--ink-2) !important; letter-spacing: 0 !important; line-height: 1.45; }
+
+  .reflection {
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid var(--ink) !important;
+    border-radius: 0 !important;
+    padding: 28px 0 0 !important;
+  }
+
+  .insight-card, .insight-box, .callout {
+    background: var(--paper) !important;
+    border: 1px solid var(--rule) !important;
+    border-left: 3px solid var(--accent) !important;
+    border-radius: 0 !important;
+  }
+  .insight-card .insight-text { font-size: 21px !important; line-height: 1.5 !important; color: var(--ink) !important; }
+
+  /* Diagram callouts sit on white */
+  body .slc-adv .slc-call, body .slc-hp .slc-call { background: var(--paper) !important; border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  body .slc-adv .slc-card, body .slc-hp .slc-card { border-color: var(--ink); border-radius: 2px; }
+
+  @media (max-width: 700px) {
+    .stat-item, .stat { padding: 18px 12px !important; }
+    .stat-item:nth-child(odd), .stat:nth-child(odd) { border-left: none; padding-left: 0 !important; }
+  }
+
+  .content .impact-text, .content .rec-text, .content .finding-text { font-size: 16px; line-height: 1.65; }
+
+  /* Other dark callouts become light panels */
+  .conflict-card, .dark-callout {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--ink) !important;
+    border-radius: 2px !important;
+  }
+  .conflict-card::after, .conflict-card::before, .dark-callout::after { display: none !important; }
+  .conflict-card { border-left: 3px solid var(--accent) !important; }
+  .dark-callout::before { background: var(--accent) !important; }
+  .content .conflict-card p, .content .dark-callout p { color: var(--ink-2) !important; }
+  .conflict-card .conflict-title { color: var(--ink) !important; }
+  .conflict-card .callout-label, .dark-callout-label { color: var(--accent) !important; }
+
+  .finding-num { min-width: 40px; }
+  .slc-hp .slc-tni { display: none !important; }
+
+  .case-title, .section-heading { text-wrap: balance; }
 </style>
-<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"></noscript>
 <style>
 .slc-adv {
-  --bg-s: #161b25;
-  --bg-s2: #1e2535;
-  --bg-s3: #222c3c;
-  --bd: rgba(255,255,255,0.08);
-  --bd2: rgba(255,255,255,0.14);
-  --tx: #e8e4dc;
-  --tx2: #b0aec0;
-  --tx3: #555568;
-  --ac: #c8a96e;
-  --ac2: #7e9ec8;
-  --ac3: #6bbf8e;
-  --red: #c87070;
-  font-family: 'DM Sans', sans-serif;
+  --bg-s: #1c1b19;
+  --bg-s2: #1c1b19;
+  --bg-s3: #1c1b19;
+  --bd: rgba(28,27,25,0.08);
+  --bd2: rgba(28,27,25,0.14);
+  --tx: #ffffff;
+  --tx2: #55514b;
+  --tx3: #6b665f;
+  --ac: #9b3a22;
+  --ac2: #2f5f6b;
+  --ac3: #3b6b45;
+  --red: #9b3a22;
+  font-family: 'IBM Plex Sans', sans-serif;
   color: var(--tx);
 }
 .slc-adv *, .slc-adv *::before, .slc-adv *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 
 /* shared */
-.slc-adv .slc-vtag { font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--ac); margin-bottom: 6px; }
-.slc-adv .slc-vtitle { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--tx); margin-bottom: 6px; line-height: 1.3; }
-.slc-adv .slc-vtitle em { font-style: italic; font-weight: 400; }
-.slc-adv .slc-vdesc { font-family: 'EB Garamond', serif; font-size: 15px; color: var(--tx2); margin-bottom: 24px; line-height: 1.6; }
+.slc-adv .slc-vtag { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; color: var(--ac); margin-bottom: 6px; }
+.slc-adv .slc-vtitle { font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 500; color: var(--tx); margin-bottom: 6px; line-height: 1.3; }
+.slc-adv .slc-vtitle em { font-style: normal; font-weight: 400; }
+.slc-adv .slc-vdesc { font-family: 'Newsreader', Georgia, serif; font-size: 15px; color: var(--tx2); margin-bottom: 24px; line-height: 1.6; }
 .slc-adv .slc-card { background: var(--bg-s); border: 1px solid var(--bd); border-radius: 4px; padding: 36px; margin-bottom: 56px; }
 .slc-adv .slc-divider { border: none; border-top: 1px solid var(--bd); margin: 56px 0; }
 
@@ -684,30 +1056,30 @@
 .slc-adv .slc-fg { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--bd); border: 1px solid var(--bd); margin-bottom: 24px; }
 .slc-adv .slc-fc { background: var(--bg-s); padding: 22px 20px; transition: background .2s; }
 .slc-adv .slc-fc:hover { background: var(--bg-s2); }
-.slc-adv .slc-fn { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; color: var(--bd); line-height: 1; margin-bottom: 8px; transition: color .2s; }
+.slc-adv .slc-fn { font-family: 'IBM Plex Sans', sans-serif; font-size: 34px; font-weight: 400; color: var(--bd); line-height: 1; margin-bottom: 8px; transition: color .2s; }
 .slc-adv .slc-fc:hover .slc-fn { color: var(--ac); }
-.slc-adv .slc-fname { font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ac); margin-bottom: 7px; }
-.slc-adv .slc-fdesc { font-family: 'EB Garamond', serif; font-size: 13px; color: var(--tx2); line-height: 1.55; }
+.slc-adv .slc-fname { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; color: var(--ac); margin-bottom: 7px; }
+.slc-adv .slc-fdesc { font-family: 'Newsreader', Georgia, serif; font-size: 13px; color: var(--tx2); line-height: 1.55; }
 .slc-adv .slc-fcon { text-align: center; padding: 18px; border-top: 1px solid var(--bd); }
-.slc-adv .slc-fcon p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px; color: var(--tx2); max-width: 580px; margin: 0 auto; line-height: 1.6; }
+.slc-adv .slc-fcon p { font-family: 'Newsreader', Georgia, serif; font-style: normal; font-size: 15px; color: var(--tx2); max-width: 580px; margin: 0 auto; line-height: 1.6; }
 .slc-adv .slc-fcon strong { color: var(--ac); font-style: normal; font-weight: 500; }
 
 
 /* ── VISUAL B: METHOD → DELIVERABLE ── */
 .slc-adv .slc-fhd { display: grid; grid-template-columns: 1fr 24px 1fr; margin-bottom: 2px; }
-.slc-adv .slc-fhl { font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--tx2); padding-bottom: 10px; }
+.slc-adv .slc-fhl { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; color: var(--tx2); padding-bottom: 10px; }
 .slc-adv .slc-fhl.r { text-align: right; }
 .slc-adv .slc-fr { display: grid; grid-template-columns: 1fr 24px 1fr; align-items: center; margin-bottom: 2px; }
 .slc-adv .slc-fm { background: var(--bg-s2); border: 1px solid var(--bd); padding: 13px 16px; border-radius: 3px 0 0 3px; }
 .slc-adv .slc-fmn { font-size: 12px; font-weight: 500; color: var(--tx); margin-bottom: 2px; }
-.slc-adv .slc-fms { font-family: 'Playfair Display', serif; font-size: 11px; color: var(--ac); font-style: italic; }
+.slc-adv .slc-fms { font-family: 'Newsreader', Georgia, serif; font-size: 11px; color: var(--ac); font-style: normal; }
 .slc-adv .slc-far { text-align: center; color: var(--ac); font-size: 13px; opacity: .7; }
 .slc-adv .slc-fds { display: flex; flex-direction: column; gap: 2px; }
 .slc-adv .slc-fd { background: var(--bg-s); border: 1px solid var(--bd); border-left: 3px solid var(--ac2); padding: 7px 13px; font-size: 11px; color: var(--tx2); border-radius: 0 3px 3px 0; }
 .slc-adv .slc-fd.p { border-left-color: var(--ac); color: var(--tx); font-weight: 500; }
 .slc-adv .slc-ftot { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--bd); }
-.slc-adv .slc-ftnum { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--ac); line-height: 1; }
-.slc-adv .slc-ftlbl { font-family: 'EB Garamond', serif; font-size: 16px; color: var(--tx2); font-style: italic; }
+.slc-adv .slc-ftnum { font-family: 'IBM Plex Sans', sans-serif; font-size: 40px; font-weight: 400; color: var(--ac); line-height: 1; }
+.slc-adv .slc-ftlbl { font-family: 'Newsreader', Georgia, serif; font-size: 16px; color: var(--tx2); font-style: normal; }
 
 
 /* ── VISUAL C: FINDABILITY CHART ── */
@@ -717,10 +1089,10 @@
 .slc-adv .slc-fcl.hi { color: var(--tx); font-weight: 500; }
 .slc-adv .slc-fct { height: 26px; background: var(--bg-s2); border-radius: 2px; overflow: hidden; }
 .slc-adv .slc-fcf { height: 100%; border-radius: 2px; }
-.slc-adv .slc-fcp { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--tx); text-align: right; }
-.slc-adv .slc-fcp.m { color: var(--tx2); font-size: 12px; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+.slc-adv .slc-fcp { font-family: 'Newsreader', Georgia, serif; font-size: 15px; font-weight: 500; color: var(--tx); text-align: right; }
+.slc-adv .slc-fcp.m { color: var(--tx2); font-size: 12px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; }
 .slc-adv .slc-fcdiv { height: 1px; background: var(--bd); margin: 3px 0; }
-.slc-adv .slc-call { margin-top: 22px; padding: 16px 20px; background: var(--bg-s2); border-left: 3px solid var(--ac); font-family: 'EB Garamond', serif; font-size: 15px; color: var(--tx2); font-style: italic; line-height: 1.6; }
+.slc-adv .slc-call { margin-top: 22px; padding: 16px 20px; background: var(--bg-s2); border-left: 3px solid var(--ac); font-family: 'Newsreader', Georgia, serif; font-size: 15px; color: var(--tx2); font-style: normal; line-height: 1.6; }
 .slc-adv .slc-call strong { color: var(--tx); font-style: normal; font-weight: 500; }
 
 
@@ -730,16 +1102,16 @@
 .slc-adv .slc-ti { position: relative; padding-bottom: 28px; }
 .slc-adv .slc-ti:last-child { padding-bottom: 0; }
 .slc-adv .slc-td { position: absolute; left: -22px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg-s2); border: 2px solid var(--tx3); }
-.slc-adv .slc-td.a { background: var(--ac); border-color: var(--ac); box-shadow: 0 0 0 3px rgba(200,169,110,.15); }
-.slc-adv .slc-td.i { background: var(--ac3); border-color: var(--ac3); box-shadow: 0 0 0 3px rgba(107,191,142,.15); }
-.slc-adv .slc-td.m { background: var(--ac2); border-color: var(--ac2); box-shadow: 0 0 0 3px rgba(126,158,200,.15); }
-.slc-adv .slc-tbadge { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; margin-bottom: 5px; }
-.slc-adv .slc-tbadge.r { background: rgba(200,169,110,.12); color: var(--ac); }
-.slc-adv .slc-tbadge.i { background: rgba(107,191,142,.12); color: var(--ac3); }
-.slc-adv .slc-tbadge.m { background: rgba(126,158,200,.12); color: var(--ac2); }
-.slc-adv .slc-tdate { font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--tx3); margin-bottom: 3px; }
+.slc-adv .slc-td.a { background: var(--ac); border-color: var(--ac); box-shadow: 0 0 0 3px rgba(155,58,34,.15); }
+.slc-adv .slc-td.i { background: var(--ac3); border-color: var(--ac3); box-shadow: 0 0 0 3px rgba(59,107,69,.15); }
+.slc-adv .slc-td.m { background: var(--ac2); border-color: var(--ac2); box-shadow: 0 0 0 3px rgba(47,95,107,.15); }
+.slc-adv .slc-tbadge { display: inline-block; font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; padding: 2px 7px; border-radius: 2px; margin-bottom: 5px; }
+.slc-adv .slc-tbadge.r { background: transparent; color: var(--ac); }
+.slc-adv .slc-tbadge.i { background: transparent; color: var(--ac3); }
+.slc-adv .slc-tbadge.m { background: transparent; color: var(--ac2); }
+.slc-adv .slc-tdate { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; color: var(--tx3); margin-bottom: 3px; }
 .slc-adv .slc-tev { font-size: 13px; font-weight: 500; color: var(--tx); margin-bottom: 4px; }
-.slc-adv .slc-tdet { font-family: 'EB Garamond', serif; font-size: 14px; color: var(--tx2); line-height: 1.55; }
+.slc-adv .slc-tdet { font-family: 'Newsreader', Georgia, serif; font-size: 14px; color: var(--tx2); line-height: 1.55; }
 
 
 @media (max-width:680px) {
@@ -751,26 +1123,26 @@
 
 
 /* above-card text: adapted to Advana page colours */
-.slc-adv .slc-vtag   { color: #b8901a; }
-.slc-adv .slc-vtitle { color: #0d1b2a; }
-.slc-adv .slc-vdesc  { color: #4a5a6a; }
+.slc-adv .slc-vtag   { color: #9b3a22; }
+.slc-adv .slc-vtitle { color: #1c1b19; }
+.slc-adv .slc-vdesc  { color: #55514b; }
 
 
 /* Light retheme — Advana */
 .slc-adv {
   --bg-s:  #ffffff;
-  --bg-s2: #f0f2f6;
-  --bg-s3: #e6e8ef;
-  --bd:    rgba(13,27,42,0.12);
-  --bd2:   rgba(13,27,42,0.20);
-  --tx:    #0d1b2a;
-  --tx2:   #4a5a6a;
-  --tx3:   #7a8a9a;
-  --ac:    #b8901a;
-  --ac2:   #5a7a9e;
-  --ac3:   #4a9a6e;
-  --red:   #c0392b;
-  color:   #0d1b2a;
+  --bg-s2: #ffffff;
+  --bg-s3: #e2dfda;
+  --bd:    rgba(28,27,25,0.12);
+  --bd2:   rgba(28,27,25,0.20);
+  --tx:    #1c1b19;
+  --tx2:   #55514b;
+  --tx3:   #6b665f;
+  --ac:    #9b3a22;
+  --ac2:   #2f5f6b;
+  --ac3:   #3b6b45;
+  --red:   #9b3a22;
+  color:   #1c1b19;
 }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -842,7 +1214,7 @@
 
 
   <section class="section">
-    <div class="section-label">01 &nbsp; Context</div>
+    <div class="section-label">Context</div>
     <h2 class="section-heading">The Pentagon's most important<br><em>data platform had a user problem</em></h2>
 
 
@@ -881,7 +1253,7 @@
 
 
   <section class="section">
-    <div class="section-label">02 &nbsp; Approach</div>
+    <div class="section-label">Approach</div>
     <h2 class="section-heading">Research at the scale<br><em>the problem demanded</em></h2>
 
 
@@ -910,32 +1282,32 @@
 
     <div class="methods-grid">
       <div class="method-card">
-        <div class="method-num">01</div>
+        <div class="method-num">1</div>
         <div class="method-name">Segmentation Survey</div>
         <div class="method-detail">Early-stage survey to ensure reliable representation of key user groups before the main research. 1,382 respondents across military, civilian, and contractor designations. Outputs informed persona groupings and defined the sampling frame for interviews.</div>
       </div>
       <div class="method-card">
-        <div class="method-num">02</div>
+        <div class="method-num">2</div>
         <div class="method-name">SUS Survey</div>
         <div class="method-detail">System Usability Scale deployed to assess the current UI. The SUS is a validated 10-item scale producing a standardized usability score (0-100). Outputs informed the user satisfaction report and UI assessment report.</div>
       </div>
       <div class="method-card">
-        <div class="method-num">03</div>
+        <div class="method-num">3</div>
         <div class="method-name">CX Evaluation Survey</div>
         <div class="method-detail">Multi-purpose instrument collecting CSAT data, persona validation data, pain points, task data, desired features, and journey stage inputs in a single deployment. Outputs informed nine separate deliverables, from updated personas to the product roadmap to future state navigation design.</div>
       </div>
       <div class="method-card">
-        <div class="method-num">04</div>
+        <div class="method-num">4</div>
         <div class="method-name">In-Depth Interviews</div>
         <div class="method-detail">Eight participants per user archetype segment, structured interview guide with room for exploration. Covered persona data, task flows, pain points, unmet needs, and desired capabilities across commands, branches, and roles.</div>
       </div>
       <div class="method-card">
-        <div class="method-num">05</div>
+        <div class="method-num">5</div>
         <div class="method-name">Usability Studies</div>
         <div class="method-detail">Two rounds: directed usability study on the current website, and a second study on the future state UI. Task-oriented, evaluated against heuristic criteria. Outputs fed directly into UI assessment and future state design recommendations.</div>
       </div>
       <div class="method-card">
-        <div class="method-num">06</div>
+        <div class="method-num">6</div>
         <div class="method-name">Card Sort and Tree Jack</div>
         <div class="method-detail">Card sort to design the future state information architecture: participants organized topics into categories that made sense to them. Tree jack to test and validate the proposed navigation structure. Together these produced the future state sitemap, navigation, and content model.</div>
       </div>
@@ -944,7 +1316,7 @@
 
 
   <section class="section">
-    <div class="section-label">02b &nbsp; Deliverables</div>
+    <div class="section-label">Deliverables</div>
     <h2 class="section-heading">Twenty deliverables across<br><em>six workstreams</em></h2>
     <p>The research did not end at findings. Each method fed a specific downstream deliverable, and the deliverables spanned the full pipeline from research synthesis through information architecture and future state design.</p>
 
@@ -979,7 +1351,7 @@
 
 
   <section class="section">
-    <div class="section-label">02c &nbsp; Product Strategy</div>
+    <div class="section-label">Product Strategy</div>
     <h2 class="section-heading">Research that fed directly<br><em>into product direction</em></h2>
 
 
@@ -996,7 +1368,7 @@
 
 
   <section class="section">
-    <div class="section-label">03 &nbsp; Findings</div>
+    <div class="section-label">Findings</div>
     <h2 class="section-heading">Six simultaneous failure modes<br><em>on a single platform</em></h2>
 
 
@@ -1011,12 +1383,12 @@
   <div class="slc-vdesc">The research surfaced not one root cause but a constellation of interconnected problems, each compounding the others.</div>
   <div class="slc-card">
     <div class="slc-fg">
-      <div class="slc-fc"><div class="slc-fn">01</div><div class="slc-fname">Segmented Needs</div><div class="slc-fdesc">Financial analysts, logistics officers, intelligence staff, and command leadership used the platform in structurally different ways. One architecture could not serve all of them.</div></div>
-      <div class="slc-fc"><div class="slc-fn">02</div><div class="slc-fname">Infrastructure Strain</div><div class="slc-fdesc">A major influx of users had strained the underlying architecture. Users were building workflows on a foundation that could not support them at scale. This was structural, not perceptual.</div></div>
-      <div class="slc-fc"><div class="slc-fn">03</div><div class="slc-fname">Literacy Gap</div><div class="slc-fdesc">The platform assumed a level of data literacy not uniformly present across the user base. Users who needed it most were least equipped to use it independently.</div></div>
-      <div class="slc-fc"><div class="slc-fn">04</div><div class="slc-fname">Unintended Use Patterns</div><div class="slc-fdesc">Workflow mapping revealed significant divergence between designed and actual use. Users had developed workarounds invisible to platform leadership.</div></div>
-      <div class="slc-fc"><div class="slc-fn">05</div><div class="slc-fname">Expectation Misalignment</div><div class="slc-fdesc">What leadership believed users needed and what users actually reported diverged in ways shaping roadmap decisions without either side recognizing the gap.</div></div>
-      <div class="slc-fc"><div class="slc-fn">06</div><div class="slc-fname">Mandate ≠ Adoption</div><div class="slc-fdesc">Even with a formal DoD mandate, voluntary active engagement remained lower than expected. Enterprise mandate alone cannot substitute for a platform users find genuinely useful.</div></div>
+      <div class="slc-fc"><div class="slc-fn">1</div><div class="slc-fname">Segmented Needs</div><div class="slc-fdesc">Financial analysts, logistics officers, intelligence staff, and command leadership used the platform in structurally different ways. One architecture could not serve all of them.</div></div>
+      <div class="slc-fc"><div class="slc-fn">2</div><div class="slc-fname">Infrastructure Strain</div><div class="slc-fdesc">A major influx of users had strained the underlying architecture. Users were building workflows on a foundation that could not support them at scale. This was structural, not perceptual.</div></div>
+      <div class="slc-fc"><div class="slc-fn">3</div><div class="slc-fname">Literacy Gap</div><div class="slc-fdesc">The platform assumed a level of data literacy not uniformly present across the user base. Users who needed it most were least equipped to use it independently.</div></div>
+      <div class="slc-fc"><div class="slc-fn">4</div><div class="slc-fname">Unintended Use Patterns</div><div class="slc-fdesc">Workflow mapping revealed significant divergence between designed and actual use. Users had developed workarounds invisible to platform leadership.</div></div>
+      <div class="slc-fc"><div class="slc-fn">5</div><div class="slc-fname">Expectation Misalignment</div><div class="slc-fdesc">What leadership believed users needed and what users actually reported diverged in ways shaping roadmap decisions without either side recognizing the gap.</div></div>
+      <div class="slc-fc"><div class="slc-fn">6</div><div class="slc-fname">Mandate ≠ Adoption</div><div class="slc-fdesc">Even with a formal DoD mandate, voluntary active engagement remained lower than expected. Enterprise mandate alone cannot substitute for a platform users find genuinely useful.</div></div>
     </div>
     <div class="slc-fcon"><p>The platform had not failed. It had <strong>succeeded faster than the conditions for sustainable success had been built.</strong></p></div>
   </div>
@@ -1093,9 +1465,9 @@
   <div class="slc-vdesc">Ease of finding data was directly measured in the CX survey. The result was an information architecture problem — and it demanded an IA solution.</div>
   <div class="slc-card">
     <div class="slc-fc-chart">
-      <div class="slc-fcr"><div class="slc-fcl">Extremely difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:9%;background:#c0392b;opacity:.8"></div></div><div class="slc-fcp m">9%</div></div>
-      <div class="slc-fcr"><div class="slc-fcl">Very difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:13%;background:#c0392b;opacity:.6"></div></div><div class="slc-fcp m">13%</div></div>
-      <div class="slc-fcr"><div class="slc-fcl">Fairly difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:14%;background:#c0392b;opacity:.5"></div></div><div class="slc-fcp m">14%</div></div>
+      <div class="slc-fcr"><div class="slc-fcl">Extremely difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:9%;background:#9b3a22;opacity:.8"></div></div><div class="slc-fcp m">9%</div></div>
+      <div class="slc-fcr"><div class="slc-fcl">Very difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:13%;background:#9b3a22;opacity:.6"></div></div><div class="slc-fcp m">13%</div></div>
+      <div class="slc-fcr"><div class="slc-fcl">Fairly difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:14%;background:#9b3a22;opacity:.5"></div></div><div class="slc-fcp m">14%</div></div>
       <div class="slc-fcr"><div class="slc-fcl hi" style="color:var(--ac)">Difficulty — combined</div><div class="slc-fct"><div class="slc-fcf" style="width:36%;background:var(--ac)"></div></div><div class="slc-fcp">36%</div></div>
       <div class="slc-fcdiv"></div>
       <div class="slc-fcr"><div class="slc-fcl">Neither easy nor difficult</div><div class="slc-fct"><div class="slc-fcf" style="width:44%;background:var(--tx2);opacity:.35"></div></div><div class="slc-fcp m">44%</div></div>
@@ -1115,7 +1487,7 @@
 
 
   <section class="section">
-    <div class="section-label">03b &nbsp; Collaboration</div>
+    <div class="section-label">Collaboration</div>
     <h2 class="section-heading">Navigating multiple teams<br><em>with competing relationships to the research</em></h2>
 
 
@@ -1135,7 +1507,7 @@
 
 
   <section class="section">
-    <div class="section-label">04 &nbsp; Recommendations</div>
+    <div class="section-label">Recommendations</div>
     <h2 class="section-heading">Structural solutions to<br><em>structural problems</em></h2>
 
 
@@ -1171,7 +1543,7 @@
 
 
   <section class="section">
-    <div class="section-label">05 &nbsp; Impact</div>
+    <div class="section-label">Impact</div>
     <h2 class="section-heading">Research that shaped<br><em>a billion-dollar decision</em></h2>
 
 
@@ -1198,12 +1570,12 @@
     </div>
 
 
-    <p style="margin-top: 24px; font-size: 14px; color: var(--steel); font-style: italic;">Note on attribution: The development pause and recompete involved many stakeholders and decision-makers across the DoD. The research contributed a user-grounded evidence base and strategic framework that informed those decisions. It is not claimed as the sole cause.</p>
+    <p style="margin-top: 24px; font-size: 14px; color: var(--steel); font-style: normal;">Note on attribution: The development pause and recompete involved many stakeholders and decision-makers across the DoD. The research contributed a user-grounded evidence base and strategic framework that informed those decisions. It is not claimed as the sole cause.</p>
   </section>
 
 
   <section class="section">
-    <div class="section-label">06 &nbsp; What I'd Do Differently</div>
+    <div class="section-label">What I'd Do Differently</div>
     <h2 class="section-heading">Three things I would<br><em>change in retrospect</em></h2>
 
 
@@ -1238,7 +1610,7 @@
 
 
   <section class="section">
-    <div class="section-label">07 &nbsp; Reflection</div>
+    <div class="section-label">Reflection</div>
     <h2 class="section-heading">What this project<br><em>was really about</em></h2>
 
 
