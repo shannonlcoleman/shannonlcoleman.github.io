@@ -2,7 +2,7 @@ name: Update Writing page
 
 on:
   schedule:
-    - cron: "17 11 * * *" # daily, about 7am Eastern
+    - cron: "17 17 * * *" # daily, about 1pm Eastern (noon in winter)
   workflow_dispatch: # adds a "Run workflow" button in the Actions tab
 
 permissions:
