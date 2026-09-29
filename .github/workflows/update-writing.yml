@@ -1,10 +1,8 @@
 name: Update Writing page
 
 on:
-  # Daily schedule paused until the Cloudflare Worker relay is confirmed working.
-  # To resume, remove the "#" from the next two lines.
-  # schedule:
-  #   - cron: "17 11 * * *" # daily, about 7am Eastern
+  schedule:
+    - cron: "17 17 * * *" # daily, about 1pm Eastern (noon in winter)
   workflow_dispatch: # adds a "Run workflow" button in the Actions tab
 
 permissions:
@@ -27,7 +25,7 @@ jobs:
 
       - name: Add new Substack posts
         env:
-          SUBSTACK_FEED_URL: "" # the Cloudflare Worker address goes here
+          SUBSTACK_FEED_URL: "https://ground-truth-feed.4slcole.workers.dev" # Cloudflare Worker relay (scripts/substack-feed-worker.js)
         run: python scripts/update_writing.py
 
       - name: Publish if anything changed
