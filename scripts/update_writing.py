@@ -1,0 +1,180 @@
+"""Add new Ground Truth posts from the Substack feed to writing.html.
+
+Runs daily from .github/workflows/update-writing.yml. Rules:
+- Only posts dated on or after the newest article already on the page are considered,
+  and a post whose link is already on the page is never added twice.
+- A post titled "Introducing ..." starts a new series section at the top.
+- Any other post goes into the newest series, and that series' date label is
+  extended to cover it.
+- A post missing a title, link, or date is skipped rather than published.
+
+Usage: python scripts/update_writing.py [--feed FILE] [--page FILE]
+"""
+import argparse
+import html
+import re
+import sys
+import urllib.request
+import xml.etree.ElementTree as ET
+from datetime import datetime
+from email.utils import parsedate_to_datetime
+
+FEED_URL = "https://byshannoncoleman.substack.com/feed"
+UTM = "utm_source=portfolio&amp;utm_medium=writing-page&amp;utm_campaign=site&amp;utm_content="
+SEP = " &nbsp;&bull;&nbsp; "
+MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December"]
+
+
+def fetch_feed(path):
+    if path:
+        with open(path, "rb") as f:
+            return f.read()
+    req = urllib.request.Request(FEED_URL, headers={"User-Agent": "Mozilla/5.0 (writing-page updater)"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return r.read()
+
+
+def parse_feed(data):
+    posts = []
+    for item in ET.fromstring(data).iter("item"):
+        title = (item.findtext("title") or "").strip()
+        link = (item.findtext("link") or "").strip()
+        subtitle = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", item.findtext("description") or ""))).strip()
+        m = re.search(r"substack\.com/p/([A-Za-z0-9-]+)", link)
+        try:
+            date = parsedate_to_datetime(item.findtext("pubDate") or "")
+        except (TypeError, ValueError):
+            date = None
+        if not (title and m and date):
+            print(f"Skipping incomplete feed item: {title or link or '(untitled)'}")
+            continue
+        posts.append({"title": title, "slug": m.group(1), "subtitle": subtitle, "date": date.date()})
+    return sorted(posts, key=lambda p: p["date"])
+
+
+def esc(text):
+    return html.escape(text, quote=False)
+
+
+def fmt_date(d):
+    return f"{d.strftime('%b')} {d.day}, {d.year}"
+
+
+def article_html(post, intro):
+    meta = fmt_date(post["date"]) + (SEP + "Series Introduction" if intro else "")
+    desc = f'\n          <div class="article-desc">{esc(post["subtitle"])}</div>' if post["subtitle"] else ""
+    return (
+        f'      <a href="https://byshannoncoleman.substack.com/p/{post["slug"]}?{UTM}{post["slug"]}" '
+        f'class="article-link{" is-intro" if intro else ""}" target="_blank" rel="noopener">\n'
+        f'        <div class="article-body">\n'
+        f'          <div class="article-meta">{meta}</div>\n'
+        f'          <div class="article-title">{esc(post["title"])}</div>{desc}\n'
+        f'        </div>\n'
+        f'        <div class="article-arrow" aria-hidden="true">Read &rarr;</div>\n'
+        f'      </a>\n'
+    )
+
+
+def split_title(name):
+    """Break a series name over two lines like the existing headings."""
+    if ":" in name:
+        head, tail = name.split(":", 1)
+        return f"{esc(head)}:", esc(tail.strip())
+    words = name.split()
+    if len(words) < 2:
+        return esc(name), ""
+    best = None
+    for i in range(1, len(words)):
+        a, b = " ".join(words[:i]), " ".join(words[i:])
+        if len(a) >= len(b) and (best is None or len(a) - len(b) < best[0]):
+            best = (len(a) - len(b), a, b)
+    if best is None:
+        best = (0, " ".join(words[:-1]), words[-1])
+    return esc(best[1]), esc(best[2])
+
+
+def month_range(start, end):
+    if (start.year, start.month) == (end.year, end.month):
+        return f"{MONTHS[end.month - 1]} {end.year}"
+    if start.year == end.year:
+        return f"{MONTHS[start.month - 1]} &ndash; {MONTHS[end.month - 1]} {end.year}"
+    return f"{MONTHS[start.month - 1]} {start.year} &ndash; {MONTHS[end.month - 1]} {end.year}"
+
+
+def series_html(number, post):
+    name = re.sub(r"^introducing\s+", "", post["title"], flags=re.I).strip()
+    line1, line2 = split_title(name)
+    heading = f"{line1}<br><em>{line2}</em>" if line2 else line1
+    desc = f'\n      <p class="series-desc">{esc(post["subtitle"])}</p>' if post["subtitle"] else ""
+    return (
+        f"  <!-- SERIES {number} -->\n"
+        f'  <div class="series-block">\n'
+        f'    <div class="series-header">\n'
+        f'      <div class="series-label">Series {number}{SEP}{month_range(post["date"], post["date"])}</div>\n'
+        f'      <h2 class="series-title">{heading}</h2>{desc}\n'
+        f"    </div>\n"
+        f'    <div class="article-list">\n'
+        f"{article_html(post, intro=True)}"
+        f"    </div>\n"
+        f"  </div>\n"
+    )
+
+
+def page_dates(block):
+    return [datetime.strptime(d, "%b %d, %Y").date()
+            for d in re.findall(r'<div class="article-meta">([A-Z][a-z]{2} \d{1,2}, \d{4})', block)]
+
+
+def newest_block_span(page):
+    """Return (start, end) offsets of the first (newest) series block."""
+    start = page.index('<div class="series-block">')
+    nxt = page.find("<!-- SERIES", start)
+    return start, nxt if nxt != -1 else page.index("</main>")
+
+
+def add_post(page, post):
+    if post["title"].lower().startswith("introducing "):
+        numbers = [int(n) for n in re.findall(r'<div class="series-label">Series (\d+)', page)]
+        number = max(numbers, default=0) + 1
+        anchor = page.index("  <!-- SERIES")
+        return page[:anchor] + series_html(number, post) + page[anchor:], f"Series {number}"
+    start, end = newest_block_span(page)
+    block = page[start:end]
+    marker = '<div class="article-list">\n'
+    i = block.index(marker) + len(marker)
+    block = block[:i] + article_html(post, intro=False) + block[i:]
+    dates = page_dates(block)
+    block = re.sub(r'(<div class="series-label">Series \d+) &nbsp;&bull;&nbsp; [^<]*',
+                   lambda m: m.group(1) + SEP + month_range(min(dates), max(dates)), block, count=1)
+    return page[:start] + block + page[end:], "newest series"
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--feed", help="read the feed from a file instead of Substack")
+    ap.add_argument("--page", default="writing.html")
+    args = ap.parse_args()
+
+    with open(args.page, encoding="utf-8") as f:
+        page = f.read()
+    on_page = set(re.findall(r"substack\.com/p/([A-Za-z0-9-]+)", page))
+    newest = max(page_dates(page))
+
+    added = 0
+    for post in parse_feed(fetch_feed(args.feed)):
+        if post["slug"] in on_page or post["date"] < newest:
+            continue
+        page, where = add_post(page, post)
+        on_page.add(post["slug"])
+        added += 1
+        print(f"Added {post['title']} ({fmt_date(post['date'])}) to {where}")
+
+    if added:
+        with open(args.page, "w", encoding="utf-8") as f:
+            f.write(page)
+    print(f"{added} new post(s)")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
