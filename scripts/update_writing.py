@@ -8,13 +8,16 @@ Runs daily from .github/workflows/update-writing.yml. Rules:
   extended to cover it.
 - A post missing a title, link, or date is skipped rather than published.
 
-If the RSS feed is refused, Substack's archive data is tried next.
+Substack refuses requests from GitHub's servers, so the feed is read through a
+Cloudflare Worker relay (SUBSTACK_FEED_URL, see scripts/substack-feed-worker.js)
+when one is set, then directly from the RSS feed, then from Substack's archive data.
 
 Usage: python scripts/update_writing.py [--feed FILE] [--page FILE]
 """
 import argparse
 import html
 import json
+import os
 import re
 import sys
 import urllib.request
@@ -50,7 +53,11 @@ def get_posts(feed_path):
         with open(feed_path, "rb") as f:
             return parse_feed(f.read())
     errors = []
-    for url, parse in ((FEED_URL, parse_feed), (ARCHIVE_URL, parse_archive)):
+    sources = [(FEED_URL, parse_feed), (ARCHIVE_URL, parse_archive)]
+    relay = os.environ.get("SUBSTACK_FEED_URL", "").strip()
+    if relay:  # the Cloudflare Worker relay, tried first
+        sources.insert(0, (relay, parse_feed))
+    for url, parse in sources:
         try:
             return parse(download(url))
         except Exception as e:  # try the next source
