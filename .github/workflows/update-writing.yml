@@ -1,10 +1,8 @@
 name: Update Writing page
 
 on:
-  # Daily schedule paused until the Cloudflare Worker relay is confirmed working.
-  # To resume, remove the "#" from the next two lines.
-  # schedule:
-  #   - cron: "17 11 * * *" # daily, about 7am Eastern
+  schedule:
+    - cron: "17 11 * * *" # daily, about 7am Eastern
   workflow_dispatch: # adds a "Run workflow" button in the Actions tab
 
 permissions:
