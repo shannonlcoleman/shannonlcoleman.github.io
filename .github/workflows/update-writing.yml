@@ -1,8 +1,10 @@
 name: Update Writing page
 
 on:
-  schedule:
-    - cron: "17 11 * * *" # daily, about 7am Eastern
+  # Daily schedule paused until the Cloudflare Worker relay is confirmed working.
+  # To resume, remove the "#" from the next two lines.
+  # schedule:
+  #   - cron: "17 11 * * *" # daily, about 7am Eastern
   workflow_dispatch: # adds a "Run workflow" button in the Actions tab
 
 permissions:
@@ -17,13 +19,15 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
       - name: Add new Substack posts
+        env:
+          SUBSTACK_FEED_URL: "" # the Cloudflare Worker address goes here
         run: python scripts/update_writing.py
 
       - name: Publish if anything changed
