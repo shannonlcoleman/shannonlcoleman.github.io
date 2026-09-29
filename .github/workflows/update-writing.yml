@@ -27,7 +27,7 @@ jobs:
 
       - name: Add new Substack posts
         env:
-          SUBSTACK_FEED_URL: "" # the Cloudflare Worker address goes here
+          SUBSTACK_FEED_URL: "https://ground-truth-feed.4slcole.workers.dev" # Cloudflare Worker relay (scripts/substack-feed-worker.js)
         run: python scripts/update_writing.py
 
       - name: Publish if anything changed
