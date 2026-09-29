@@ -8,10 +8,13 @@ Runs daily from .github/workflows/update-writing.yml. Rules:
   extended to cover it.
 - A post missing a title, link, or date is skipped rather than published.
 
+If the RSS feed is refused, Substack's archive data is tried next.
+
 Usage: python scripts/update_writing.py [--feed FILE] [--page FILE]
 """
 import argparse
 import html
+import json
 import re
 import sys
 import urllib.request
@@ -20,19 +23,40 @@ from datetime import datetime
 from email.utils import parsedate_to_datetime
 
 FEED_URL = "https://byshannoncoleman.substack.com/feed"
+ARCHIVE_URL = "https://byshannoncoleman.substack.com/api/v1/archive?sort=new&limit=25"
 UTM = "utm_source=portfolio&amp;utm_medium=writing-page&amp;utm_campaign=site&amp;utm_content="
 SEP = " &nbsp;&bull;&nbsp; "
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 
 
-def fetch_feed(path):
-    if path:
-        with open(path, "rb") as f:
-            return f.read()
-    req = urllib.request.Request(FEED_URL, headers={"User-Agent": "Mozilla/5.0 (writing-page updater)"})
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/140.0 Safari/537.36",
+    "Accept": "application/rss+xml, application/xml;q=0.9, application/json;q=0.9, */*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
+
+def download(url):
+    req = urllib.request.Request(url, headers=BROWSER_HEADERS)
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read()
+
+
+def get_posts(feed_path):
+    """Read posts from a local file, the RSS feed, or Substack's archive data."""
+    if feed_path:
+        with open(feed_path, "rb") as f:
+            return parse_feed(f.read())
+    errors = []
+    for url, parse in ((FEED_URL, parse_feed), (ARCHIVE_URL, parse_archive)):
+        try:
+            return parse(download(url))
+        except Exception as e:  # try the next source
+            errors.append(f"{url}: {e}")
+            print(f"Could not read {url}: {e}")
+    raise SystemExit("Substack could not be reached:\n" + "\n".join(errors))
 
 
 def parse_feed(data):
@@ -50,6 +74,23 @@ def parse_feed(data):
             print(f"Skipping incomplete feed item: {title or link or '(untitled)'}")
             continue
         posts.append({"title": title, "slug": m.group(1), "subtitle": subtitle, "date": date.date()})
+    return sorted(posts, key=lambda p: p["date"])
+
+
+def parse_archive(data):
+    posts = []
+    for item in json.loads(data):
+        title = (item.get("title") or "").strip()
+        slug = item.get("slug") or ""
+        try:
+            date = datetime.fromisoformat((item.get("post_date") or "").replace("Z", "+00:00"))
+        except ValueError:
+            date = None
+        if not (title and re.fullmatch(r"[A-Za-z0-9-]+", slug) and date):
+            print(f"Skipping incomplete archive item: {title or slug or '(untitled)'}")
+            continue
+        subtitle = re.sub(r"\s+", " ", item.get("subtitle") or "").strip()
+        posts.append({"title": title, "slug": slug, "subtitle": subtitle, "date": date.date()})
     return sorted(posts, key=lambda p: p["date"])
 
 
@@ -162,7 +203,7 @@ def main():
     newest = max(page_dates(page))
 
     added = 0
-    for post in parse_feed(fetch_feed(args.feed)):
+    for post in get_posts(args.feed):
         if post["slug"] in on_page or post["date"] < newest:
             continue
         page, where = add_post(page, post)
