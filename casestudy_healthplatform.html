@@ -1043,6 +1043,14 @@
     .glance-row { grid-template-columns: 1fr; gap: 4px; }
     .glance-row dd { font-size: 16px; }
   }
+
+  /* Participant quotes */
+  .pq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; margin: 36px 0; }
+  .pq { margin: 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent); }
+  .pq blockquote { margin: 0; padding: 0; border: 0; background: none; }
+  .content .pq p, .pq p { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; max-width: none; font-style: normal; }
+  .pq figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 10px; }
+  @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1189,6 +1197,12 @@
       </div>
     </div>
 
+    <div class="pq-grid">
+      <figure class="pq"><blockquote><p>&ldquo;I totally get why someone with a chronic illness or like an elderly parent would need this. It would actually be really great for my nana, but personally, I&rsquo;m super healthy so I don&rsquo;t need it.&rdquo;</p></blockquote><figcaption>Research participant, on the &ldquo;Not for Me&rdquo; Paradox</figcaption></figure>
+      <figure class="pq"><blockquote><p>&ldquo;If my primary told me, &lsquo;Hey, download this app before our next visit,&rsquo; I would probably do it. But just finding it on my own? I&rsquo;d assume it&rsquo;s for people with way more complex medical histories.&rdquo;</p></blockquote><figcaption>Research participant, on who the product is for</figcaption></figure>
+      <figure class="pq"><blockquote><p>&ldquo;I saw the page says it&rsquo;s HIPAA compliant, but nowadays everyone says they&rsquo;re secure until a data breach happens. I&rsquo;m just uncomfortable uploading my full medical records to a startup I&rsquo;ve never heard of.&rdquo;</p></blockquote><figcaption>Research participant, on trust</figcaption></figure>
+    </div>
+
     <div class="insight-card">
       <div class="callout-label">Core Insight</div>
       <div class="insight-title">"Between the 'Not for Me' Paradox and the Trust Gap, these hesitations create high friction for a purely direct-to-consumer launch, creating risk of substantial acquisition costs fighting psychology one person at a time."</div>
@@ -1229,7 +1243,7 @@
         <div class="slc-tn out"><span class="slc-tni">📉</span><div class="slc-tnn">Lowers Acquisition Cost</div><div class="slc-tns">Stops fighting psychology one person at a time. Lets the product prove itself at scale.</div></div>
       </div>
     </div>
-    <div class="slc-tins">This is not a sales pivot. It is a <strong>psychological solve</strong> — routing users through the trust infrastructure they already have.</div>
+    <div class="slc-tins">This is not a sales pivot. It is a <strong>psychological solve</strong> that routes users through the trust infrastructure they already have.</div>
   </div>
 </div>
 <div class="strategy-item">
