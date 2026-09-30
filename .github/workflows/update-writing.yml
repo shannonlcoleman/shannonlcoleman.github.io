@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pages: write
+  issues: write
 
 concurrency:
   group: update-writing
@@ -25,6 +26,7 @@ jobs:
           python-version: "3.12"
 
       - name: Add new Substack posts
+        id: update
         env:
           SUBSTACK_FEED_URL: "https://ground-truth-feed.4slcole.workers.dev" # Cloudflare Worker relay (scripts/substack-feed-worker.js)
         run: python scripts/update_writing.py
@@ -44,3 +46,14 @@ jobs:
           git push
           # Make sure GitHub Pages rebuilds after a push made by this workflow.
           gh api --method POST "repos/${{ github.repository }}/pages/builds" || echo "Pages build request skipped; the push will still deploy normally."
+
+      - name: Ask for a description for any new series
+        if: steps.update.outputs.new_series != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEW_SERIES: ${{ steps.update.outputs.new_series }}
+        run: |
+          gh issue create --repo "${{ github.repository }}" \
+            --title "Add a description for ${NEW_SERIES}" \
+            --body "The Writing page has a new series section. Its description is a placeholder copied from the intro post's subtitle. Write a two- or three-sentence description to replace it, then close this issue. (Opened automatically by the Update Writing page job.)" \
+            || echo "Could not open a reminder issue."

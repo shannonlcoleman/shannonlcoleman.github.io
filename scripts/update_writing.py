@@ -220,19 +220,27 @@ def main():
     on_page = set(re.findall(r"substack\.com/p/([A-Za-z0-9-]+)", page))
     newest = max(page_dates(page))
 
-    added = 0
+    added, new_series = 0, []
     for post in get_posts(args.feed):
         if post["slug"] in on_page or post["date"] < newest:
             continue
         page, where = add_post(page, post)
         on_page.add(post["slug"])
         added += 1
+        if where != "newest series":
+            name = re.sub(r"^introducing\s+", "", post["title"], flags=re.I).strip()
+            new_series.append(f"{where}: {name}")
         print(f"Added {post['title']} ({fmt_date(post['date'])}) to {where}")
 
     if added:
         with open(args.page, "w", encoding="utf-8") as f:
             f.write(page)
     print(f"{added} new post(s)")
+
+    # Tell the workflow about new series so it can ask for a description.
+    if new_series and os.environ.get("GITHUB_OUTPUT"):
+        with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+            f.write(f"new_series={'; '.join(new_series)}\n")
 
 
 if __name__ == "__main__":
