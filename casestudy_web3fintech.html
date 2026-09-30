@@ -1278,6 +1278,67 @@
   .content .pq p, .pq p { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; max-width: none; font-style: normal; }
   .pq figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 10px; }
   @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
+
+  /* Web3 audit visuals */
+  .w3x-fig { position: relative; margin: 40px 0; padding-top: 22px; border-top: 1px solid var(--rule); }
+  .w3x-tag { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+  .w3x-heading { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin: 0 0 8px; }
+  .content .w3x-sub, .w3x-sub { font-family: var(--sans); font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0 0 20px; max-width: 68ch; }
+  .w3x-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .w3x-f { font-family: var(--sans); font-size: 14px; padding: 7px 14px; border: 1px solid var(--rule); border-radius: 2px; background: var(--paper); color: var(--ink-2); cursor: pointer; }
+  .w3x-f:hover { border-color: var(--ink-3); }
+  .w3x-f.is-on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .w3x-f:focus-visible, .w3x-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .w3x-table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 15px; }
+  .w3x-table th { text-align: left; font-size: 13px; font-weight: 600; color: var(--ink-3); padding: 8px 12px 8px 0; border-bottom: 1px solid var(--ink); }
+  .w3x-table td { padding: 11px 12px 11px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); vertical-align: top; }
+  .w3x-table .w3x-id { color: var(--ink-3); font-variant-numeric: tabular-nums; width: 36px; }
+  .w3x-table .w3x-fp { color: var(--ink); }
+  .w3x-table tr:target td { background: #f6f4f1; }
+  .w3x-sev { display: inline-flex; gap: 3px; margin-right: 8px; vertical-align: 1px; }
+  .w3x-sev i { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--accent); display: block; }
+  .w3x-sev i.on { background: var(--accent); }
+  .w3x-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 28px; }
+  .w3x-state { position: relative; padding-top: 14px; border-top: 3px solid var(--rule); }
+  .w3x-state.is-key { border-top-color: var(--accent); }
+  .w3x-state:not(:last-child)::after { content: '\2192'; position: absolute; right: -21px; top: 6px; font-family: var(--sans); font-size: 16px; color: var(--ink-3); }
+  .w3x-sname { font-family: var(--serif); font-size: 22px; color: var(--ink); }
+  .w3x-dur { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--accent); margin: 2px 0 12px; }
+  .w3x-k { font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--ink-3); margin-top: 10px; }
+  .content .w3x-v, .w3x-v { font-family: var(--sans); font-size: 14.5px; line-height: 1.5; color: var(--ink-2); margin: 2px 0 0; max-width: none; }
+  .content .w3x-q, .w3x-q { font-family: var(--serif); font-size: 16px; color: var(--ink); }
+  .w3x-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .w3x-chip { font-family: var(--sans); font-size: 13px; padding: 2px 8px; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-2); text-decoration: none !important; font-variant-numeric: tabular-nums; }
+  .w3x-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .w3x-mm { display: grid; grid-template-columns: 28px repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+  .w3x-mh { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink-3); padding: 10px 16px 10px 0; border-bottom: 1px solid var(--rule); }
+  .w3x-mh.is-new { color: var(--accent); }
+  .w3x-mn { font-family: var(--sans); font-size: 14px; color: var(--ink-3); padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .w3x-mc { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--rule); }
+  .w3x-mc.is-new { padding-left: 14px; border-left: 2px solid var(--accent); }
+  .content .w3x-mc p, .w3x-mc p { font-family: var(--sans); font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; max-width: none; }
+  .content .w3x-mc p.w3x-q, .w3x-mc p.w3x-q { font-family: var(--serif); font-size: 17px; color: var(--ink); margin-bottom: 6px; }
+  .content .w3x-mc p.w3x-why, .w3x-mc p.w3x-why { font-size: 13.5px; color: var(--ink-3); }
+  .w3x-ml { display: none; }
+  @media (max-width: 800px) {
+    .w3x-table thead { display: none; }
+    .w3x-table, .w3x-table tbody, .w3x-table tr, .w3x-table td { display: block; width: 100%; }
+    .w3x-table tr { padding: 12px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 36px 1fr; column-gap: 4px; }
+    .w3x-table tr[hidden] { display: none; }
+    .w3x-table td { border: 0; padding: 0; }
+    .w3x-table td.w3x-id { grid-row: span 4; }
+    .w3x-table td[data-label] { font-size: 13.5px; color: var(--ink-3); margin-top: 3px; }
+    .w3x-table td[data-label]::before { content: attr(data-label) ': '; font-weight: 600; }
+    .w3x-flow { grid-template-columns: 1fr; gap: 28px; }
+    .w3x-state:not(:last-child)::after { content: '\2193'; right: auto; top: auto; left: 0; bottom: -24px; }
+    .w3x-mm { grid-template-columns: 1fr; }
+    .w3x-mh { display: none; }
+    .w3x-mn { border-bottom: 0; padding: 16px 0 0; font-weight: 600; color: var(--ink); }
+    .w3x-mc { border-bottom: 0; padding: 8px 0; }
+    .w3x-mc.is-new { padding: 8px 0 16px 14px; border-bottom: 1px solid var(--rule); }
+    .w3x-ml { display: block; font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--ink-3); margin-bottom: 2px; }
+    .w3x-mc.is-new .w3x-ml { color: var(--accent); }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1477,6 +1538,43 @@
       <figure class="pq"><blockquote><p>&ldquo;It was weird when it asked me to link a Web3 wallet before explaining how the underlying tokenized asset actually generates yield. It felt backward. I wanted to understand the financial product before dealing with the tech setup.&rdquo;</p></blockquote><figcaption>Research participant, on onboarding</figcaption></figure>
     </div>
 
+    <figure class="w3x-fig">
+      <div class="w3x-tag">Transaction-state flow</div>
+      <div class="w3x-heading">Where the interface lost people</div>
+      <p class="w3x-sub">Each state as users experienced it before the redesign. Friction numbers link to the audit matrix below.</p>
+      <div class="w3x-flow">
+        <div class="w3x-state">
+          <div class="w3x-sname">Submitted</div>
+          <div class="w3x-dur">0 to 30 seconds</div>
+          <div class="w3x-k">Screen showed</div><p class="w3x-v">A confirmation screen with a &ldquo;Submitted&rdquo; checkmark.</p>
+          <div class="w3x-k">Users thought</div><p class="w3x-v w3x-q">&ldquo;My money has been transferred and my position is active.&rdquo;</p>
+          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-12">#12</a><a class="w3x-chip" href="#fp-14">#14</a></div>
+        </div>
+        <div class="w3x-state is-key">
+          <div class="w3x-sname">Pending</div>
+          <div class="w3x-dur">2 to 15 minutes</div>
+          <div class="w3x-k">Screen showed</div><p class="w3x-v">A loading spinner labeled &ldquo;Processing&hellip;&rdquo; with no timer.</p>
+          <div class="w3x-k">Users thought</div><p class="w3x-v w3x-q">&ldquo;The page froze, or my transaction failed and my funds are lost.&rdquo;</p>
+          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-01">#01</a><a class="w3x-chip" href="#fp-02">#02</a><a class="w3x-chip" href="#fp-05">#05</a><a class="w3x-chip" href="#fp-11">#11</a></div>
+        </div>
+        <div class="w3x-state">
+          <div class="w3x-sname">Settling</div>
+          <div class="w3x-dur">1 to 24 hours</div>
+          <div class="w3x-k">Screen showed</div><p class="w3x-v">The dashboard, still showing the balance from before the transaction.</p>
+          <div class="w3x-k">Users thought</div><p class="w3x-v w3x-q">&ldquo;It didn&rsquo;t go through. My balance hasn&rsquo;t changed.&rdquo;</p>
+          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-04">#04</a><a class="w3x-chip" href="#fp-06">#06</a><a class="w3x-chip" href="#fp-08">#08</a><a class="w3x-chip" href="#fp-10">#10</a></div>
+        </div>
+        <div class="w3x-state">
+          <div class="w3x-sname">Completed</div>
+          <div class="w3x-dur">Final</div>
+          <div class="w3x-k">Screen showed</div><p class="w3x-v">A quiet balance update in the transaction history.</p>
+          <div class="w3x-k">Users thought</div><p class="w3x-v w3x-q">&ldquo;I guess it worked, but I&rsquo;m not sure when it finished or what fees were taken.&rdquo;</p>
+          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-07">#07</a></div>
+        </div>
+      </div>
+    </figure>
+
+
     <p>This failure mode gets worse as the stakes increase. A user who cannot tell if their grocery order went through hits refresh. A user who cannot tell if their asset position is processing or lost does something more costly: they abandon the transaction, contact support, or do not come back. The cost of the same information gap scales with what the user believes is at risk.</p>
   </section>
 
@@ -1503,39 +1601,52 @@
 
     <p>The 17 friction points broke across three categories. The concentration in transaction state legibility was not a random distribution. It reflected a product that had invested heavily in building a technically sound system and had not yet invested in making that system legible to users who arrived without blockchain-native experience.</p>
 
-    <div class="friction-grid">
-      <div class="friction-category">
-        <div class="friction-cat-label">Transaction State Legibility</div>
-        <div class="friction-cat-count">11 <span style="font-size:13px; color: var(--steel); font-family: var(--sans); letter-spacing: 0.01em; text-transform: none;">of 17</span></div>
-        <div class="friction-item">Pending deposit states used TradFi language ("processing") without mapping to blockchain settlement stages</div>
-        <div class="friction-item">Settlement window duration not communicated at transaction initiation</div>
-        <div class="friction-item">"Processing" and "pending" used interchangeably for distinct system states</div>
-        <div class="friction-item">No differentiation between blockchain confirmation pending and platform-level processing</div>
-        <div class="friction-item">Failed and in-progress transaction interfaces near-identical visually</div>
-        <div class="friction-item">No proactive notification on extended settlement beyond the expected window</div>
-        <div class="friction-item">Position balance during settlement showed pre-transaction value without contextual explanation</div>
-        <div class="friction-item">Transaction history compressed state data, making past pending states unverifiable retroactively</div>
-        <div class="friction-item">Network delay errors indistinguishable from rejected transaction errors</div>
-        <div class="friction-item">Session re-entry mid-flow provided no state summary</div>
-        <div class="friction-item">Withdrawal initiation did not surface the position lock during the processing window</div>
+    <figure class="w3x-fig w3x-matrix">
+      <div class="w3x-tag">The audit matrix</div>
+      <div class="w3x-heading">All 17 friction points, by severity</div>
+      <p class="w3x-sub">8 high, 6 medium, and 3 low. Product owned 10, content 4, and compliance 3.</p>
+      <div class="w3x-filters" role="group" aria-label="Filter by area">
+        <button type="button" class="w3x-f is-on" data-f="all" aria-pressed="true">All 17</button>
+        <button type="button" class="w3x-f" data-f="Transaction" aria-pressed="false">Transaction 11</button>
+        <button type="button" class="w3x-f" data-f="Onboarding" aria-pressed="false">Onboarding 4</button>
+        <button type="button" class="w3x-f" data-f="Regulatory" aria-pressed="false">Regulatory 2</button>
       </div>
-
-      <div class="friction-category secondary">
-        <div class="friction-cat-label">Onboarding Flow</div>
-        <div class="friction-cat-count">4 <span style="font-size:13px; color: var(--steel); font-family: var(--sans); letter-spacing: 0.01em; text-transform: none;">of 17</span></div>
-        <div class="friction-item">Wallet creation and account creation presented as a single flow without distinguishing their different functions</div>
-        <div class="friction-item">Tokenized asset explainer sequenced after wallet creation, when user comprehension needed it most</div>
-        <div class="friction-item">First deposit flow assumed a TradFi mental model without bridging to blockchain settlement expectations</div>
-        <div class="friction-item">Progressive disclosure not applied to regulatory consent, creating friction and likely incomplete comprehension</div>
-      </div>
-
-      <div class="friction-category tertiary">
-        <div class="friction-cat-label">Regulatory Communication</div>
-        <div class="friction-cat-count">2 <span style="font-size:13px; color: var(--steel); font-family: var(--sans); letter-spacing: 0.01em; text-transform: none;">of 17</span></div>
-        <div class="friction-item">Risk disclosure language used regulatory boilerplate not calibrated to tokenized asset-specific risk profiles</div>
-        <div class="friction-item">Regulatory status of tokenized positions not clearly distinguished from conventional securities in interface copy</div>
-      </div>
-    </div>
+      <table class="w3x-table">
+        <thead><tr><th scope="col">#</th><th scope="col">Friction point</th><th scope="col">Area</th><th scope="col">Severity</th><th scope="col">Owner</th></tr></thead>
+        <tbody>
+          <tr id="fp-01" data-area="Transaction"><td class="w3x-id">01</td><td class="w3x-fp">Ambiguous &ldquo;Processing&rdquo; vs. &ldquo;Pending&rdquo; terminology</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</td><td data-label="Owner">Content</td></tr>
+          <tr id="fp-02" data-area="Transaction"><td class="w3x-id">02</td><td class="w3x-fp">Settlement window duration never communicated</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-03" data-area="Transaction"><td class="w3x-id">03</td><td class="w3x-fp">Same visual design for final and temporary errors</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-04" data-area="Transaction"><td class="w3x-id">04</td><td class="w3x-fp">Balance display hides locked positions during settlement</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-05" data-area="Transaction"><td class="w3x-id">05</td><td class="w3x-fp">Network delay indistinguishable from a rejected transaction</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-12" data-area="Onboarding"><td class="w3x-id">12</td><td class="w3x-fp">Wallet creation conflated with account registration</td><td data-label="Area">Onboarding</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-13" data-area="Onboarding"><td class="w3x-id">13</td><td class="w3x-fp">Asset explainer comes after wallet connection</td><td data-label="Area">Onboarding</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-16" data-area="Regulatory"><td class="w3x-id">16</td><td class="w3x-fp">Risk boilerplate not calibrated to tokenized assets</td><td data-label="Area">Regulatory</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High</td><td data-label="Owner">Compliance</td></tr>
+          <tr id="fp-06" data-area="Transaction"><td class="w3x-id">06</td><td class="w3x-fp">No proactive notice when settlement runs long</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span>Medium</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-07" data-area="Transaction"><td class="w3x-id">07</td><td class="w3x-fp">Compressed transaction history hides past pending details</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span>Medium</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-08" data-area="Transaction"><td class="w3x-id">08</td><td class="w3x-fp">Withdrawal flow hides how long a position stays locked</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span>Medium</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-09" data-area="Transaction"><td class="w3x-id">09</td><td class="w3x-fp">Returning mid-flow shows no summary of where things stand</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span>Medium</td><td data-label="Owner">Product</td></tr>
+          <tr id="fp-14" data-area="Onboarding"><td class="w3x-id">14</td><td class="w3x-fp">First deposit assumes TradFi settlement expectations</td><td data-label="Area">Onboarding</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span>Medium</td><td data-label="Owner">Content</td></tr>
+          <tr id="fp-17" data-area="Regulatory"><td class="w3x-id">17</td><td class="w3x-fp">Regulatory status of a position unclear before confirming</td><td data-label="Area">Regulatory</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span>Medium</td><td data-label="Owner">Compliance</td></tr>
+          <tr id="fp-10" data-area="Transaction"><td class="w3x-id">10</td><td class="w3x-fp">Unexplained gap between on-chain and platform status</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span>Low</td><td data-label="Owner">Content</td></tr>
+          <tr id="fp-11" data-area="Transaction"><td class="w3x-id">11</td><td class="w3x-fp">No guidance during peak settlement times</td><td data-label="Area">Transaction</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span>Low</td><td data-label="Owner">Content</td></tr>
+          <tr id="fp-15" data-area="Onboarding"><td class="w3x-id">15</td><td class="w3x-fp">Consent disclosures lack progressive disclosure</td><td data-label="Area">Onboarding</td><td data-label="Severity"><span class="w3x-sev" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span>Low</td><td data-label="Owner">Compliance</td></tr>
+        </tbody>
+      </table>
+    </figure>
+    <script>
+      (function () {
+        var fig = document.currentScript.previousElementSibling;
+        var btns = fig.querySelectorAll('.w3x-f');
+        btns.forEach(function (b) {
+          b.addEventListener('click', function () {
+            var f = b.getAttribute('data-f');
+            btns.forEach(function (x) { var on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+            fig.querySelectorAll('tbody tr').forEach(function (r) { r.hidden = !(f === 'all' || r.getAttribute('data-area') === f); });
+          });
+        });
+      })();
+    </script>
   </section>
 
   <section class="section">
@@ -1615,6 +1726,12 @@
     <p>Leadership and engineering implemented the prioritized findings. Once transaction states said what was actually happening, users stopped mistaking normal settlement delays for lost funds and walking away. Ninety-day retention rose 22%, and support tickets dropped by about half.</p>
 
     <p>The bigger change was how the team worked. UX and compliance became one workstream with a shared backlog, so compliance saw onboarding and transaction changes early instead of at the end. Regulatory approval went from <span class="nowrap">6&ndash;8 weeks</span> to <span class="nowrap">3&ndash;5 weeks</span>, and the late-stage rework that used to follow every compliance review went away.</p>
+
+    <figure class="w3x-fig">
+      <div class="w3x-tag">Before and after</div>
+      <div class="w3x-heading">Closing the gap between what users expected and how the product works</div>
+      <div class="w3x-mm"><div class="w3x-mh"></div><div class="w3x-mh">What users assumed</div><div class="w3x-mh">How it actually works</div><div class="w3x-mh is-new">What the redesign changed</div><div class="w3x-mn">1</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;Pending for more than a few seconds means something went wrong.&rdquo;</p><p class="w3x-why">Card payments and bank logins feel instant, so a delay reads as a dropped connection or lost funds.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Blockchain validation and compliant custodial clearing take minutes to hours.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>A progress bar showing the three phases (network confirmation, compliance check, minting) with estimated time ranges.</p></div><div class="w3x-mn">2</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;If my balance hasn&rsquo;t updated, the transaction didn&rsquo;t happen.&rdquo;</p><p class="w3x-why">Balances change the moment you click Submit.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Funds sit locked in escrow while the underlying real-world asset rails settle.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>An &ldquo;In settlement&rdquo; balance showing locked and available funds right after the transaction starts.</p></div><div class="w3x-mn">3</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;I need to set up my wallet before I understand the investment.&rdquo;</p><p class="w3x-why">Security setup always comes before the details of what you&rsquo;re buying.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Technical setup up front drove people away before they understood the product.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Onboarding re-sequenced to explain yield structure and asset backing before asking for a wallet connection or KYC.</p></div><div class="w3x-mn">4</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;The legal fine print is generic boilerplate I can skip.&rdquo;</p><p class="w3x-why">Disclosures are standard FDIC and FINRA language that protects the platform.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Smart contract interactions and tokenized holdings carry specific, non-reversible risks.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Short disclosures placed at the point of decision, such as the lockup period shown right on the submit button.</p></div></div>
+    </figure>
   </section>
 
   <section class="section">
