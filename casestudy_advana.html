@@ -1147,6 +1147,19 @@
   --red:   #9b3a22;
   color:   #1c1b19;
 }
+
+  /* At a glance summary */
+  .glance { padding-top: 56px; }
+  .glance-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 6px; }
+  .glance-list { margin: 0; padding: 0; }
+  .glance-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .glance-row dt { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); padding-top: 3px; }
+  .glance-row dd { margin: 0; font-family: var(--sans); font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 68ch; }
+  @media (max-width: 700px) {
+    .glance { padding-top: 40px; }
+    .glance-row { grid-template-columns: 1fr; gap: 4px; }
+    .glance-row dd { font-size: 16px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1206,7 +1219,7 @@
       </div>
       <div class="meta-item">
         <span class="meta-label">Organization</span>
-        <span class="meta-value">Isobar Public Sector (subcontractor)</span>
+        <span class="meta-value">Isobar Public Sector</span>
       </div>
     </div>
   </div>
@@ -1215,17 +1228,30 @@
 
 <main class="content">
 
+  <section class="glance" aria-labelledby="glance-label">
+    <h2 class="glance-label" id="glance-label">At a glance</h2>
+    <dl class="glance-list">
+      <div class="glance-row"><dt>Goal</dt><dd>Find out why a DoD analytics platform used by more than 100,000 people was getting harder to use as it grew, and what to change.</dd></div>
+      <div class="glance-row"><dt>Methods</dt><dd>Segmentation survey (1,382 respondents), SUS and CX surveys, interviews (8+ per user segment), two rounds of usability testing, and a card sort and tree test. 20 deliverables across six workstreams.</dd></div>
+      <div class="glance-row"><dt>My role</dt><dd>Lead Researcher and Platform Strategist. I designed the research and set its direction, working with a project manager, UX designer, experience strategist, developer, and business analyst.</dd></div>
+      <div class="glance-row"><dt>Key insight</dt><dd>The platform hadn't failed. It had grown faster than the architecture, interface, and support model built for it, and 36% of users had trouble finding content.</dd></div>
+      <div class="glance-row"><dt>Impact</dt><dd>DoD paused development in June 2024 to fix infrastructure, and the $15B recompete centered on the modular, multi-vendor architecture the research surfaced.</dd></div>
+    </dl>
+  </section>
+
 
   <section class="section">
     <div class="section-label">Context</div>
     <h2 class="section-heading">The Pentagon's most important<br><em>data platform had a user problem</em></h2>
 
 
-    <p>Advana is the Department of Defense's enterprise-wide AI and analytics platform, originally developed to help the comptroller's office manage financial data across thousands of disparate systems. By 2023, it had grown into something far more expansive: a platform relied on daily by decision-makers from the Secretary of Defense down, integrating data from over 400 business systems and serving a user base that had grown to roughly 100,000 people across every branch of the military and the civilian defense workforce.</p>
+    <p>Advana is the Department of Defense's enterprise-wide AI and analytics platform, originally developed to help the comptroller's office manage financial data across thousands of disparate systems. By 2023, it had grown into something far more expansive: a platform relied on daily by decision-makers from the Secretary of Defense down, integrating data from over 400 business systems and serving a user base that had grown to more than 100,000 people across every branch of the military and the civilian defense workforce.</p>
 
 
     <p>That growth was both the platform's greatest achievement and its most pressing challenge. CDAO leadership described Advana publicly as "a victim of its own success." The platform had scaled faster than its architecture, its user experience, and its understanding of who was actually using it and why.</p>
 
+
+    <p>The platform's own feedback data showed the strain before we arrived in April 2023. Of about 220 scored responses collected from August 2020 to April 2023, only 38% of users said they fully accomplished what they came to do. Another 32% said &ldquo;kind of,&rdquo; and 30% said no. Analysts made up the largest group of respondents.</p>
 
     <div class="context-box">
       <div class="context-label">The Presenting Problem</div>
@@ -1364,7 +1390,7 @@
     <p>The second, revised roadmap came later in the engagement, after the full research picture had emerged. It incorporated both what the research had surfaced and what CDAO leadership had validated or pushed back on in interim briefings. The revision was not cosmetic. The six simultaneous failure modes the research identified changed what sequencing made sense, which infrastructure work had to come before which experience improvements, and which user segments needed to be prioritized first to unlock broader adoption.</p>
 
 
-    <p>Contributing to a product roadmap at this scale, for a platform used by 100,000 people across the entire Department of Defense, required holding the research findings and the organizational constraints in the same frame at the same time. That is a different kind of work than producing a findings report and handing it over.</p>
+    <p>Contributing to a product roadmap at this scale, for a platform used by more than 100,000 people across the entire Department of Defense, required holding the research findings and the organizational constraints in the same frame at the same time. That is a different kind of work than producing a findings report and handing it over.</p>
 
 
   </section>
@@ -1595,7 +1621,7 @@
       <div class="rec-tag">Continuous Listening</div>
       <div>
         <div class="rec-title">Advocate earlier for ongoing measurement rather than a point-in-time study</div>
-        <p class="rec-text">A platform with 100,000 users and a major contract decision approaching deserved ongoing measurement, not a single research engagement. I would push earlier and more forcefully for standing up a lightweight continuous listening infrastructure: regular pulse surveys, a feedback mechanism embedded in the platform itself, so that findings could be tracked longitudinally rather than treated as a snapshot.</p>
+        <p class="rec-text">A platform with more than 100,000 users and a major contract decision approaching deserved ongoing measurement, not a single research engagement. I would push earlier and more forcefully for standing up a lightweight continuous listening infrastructure: regular pulse surveys, a feedback mechanism embedded in the platform itself, so that findings could be tracked longitudinally rather than treated as a snapshot.</p>
       </div>
     </div>
 

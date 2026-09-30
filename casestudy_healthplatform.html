@@ -1030,6 +1030,19 @@
   --red:   #9b3a22;
   color:   #1c1b19;
 }
+
+  /* At a glance summary */
+  .glance { padding-top: 56px; }
+  .glance-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 6px; }
+  .glance-list { margin: 0; padding: 0; }
+  .glance-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .glance-row dt { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); padding-top: 3px; }
+  .glance-row dd { margin: 0; font-family: var(--sans); font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 68ch; }
+  @media (max-width: 700px) {
+    .glance { padding-top: 40px; }
+    .glance-row { grid-template-columns: 1fr; gap: 4px; }
+    .glance-row dd { font-size: 16px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1069,8 +1082,8 @@
 <header class="masthead">
   <div class="masthead-inner">
     <div class="byline">AI Health Platform (NDA) &nbsp;|&nbsp; Coleman Advisory &nbsp;|&nbsp; 2025&ndash;2026</div>
-   <h1 class="case-title">The Product Was Not Broken.<br><em>The Entry Point Was.</em></h1>
-    <p class="deck">A mixed-methods research engagement uncovering the psychological barriers blocking adoption of an AI-powered personal health platform, and the strategic framework built to address them.</p>
+   <h1 class="case-title">Why a Product People Liked<br><em>Still Felt &ldquo;Not for Me&rdquo;</em></h1>
+    <p class="deck">A mixed methods research engagement uncovering the psychological barriers blocking adoption of an AI-powered personal health platform, and the strategic framework built to address them.</p>
     <div class="meta-strip">
       <div class="meta-item">
         <span class="meta-label">Client</span>
@@ -1093,6 +1106,17 @@
 </header>
 
 <main class="content">
+
+  <section class="glance" aria-labelledby="glance-label">
+    <h2 class="glance-label" id="glance-label">At a glance</h2>
+    <dl class="glance-list">
+      <div class="glance-row"><dt>Goal</dt><dd>Find out where and why people dropped off before becoming active users of an early-stage AI health platform.</dd></div>
+      <div class="glance-row"><dt>Methods</dt><dd>Screener survey, 8 moderated think-aloud sessions, post-session interviews, and analysis of people who refused to try the product, over about five months.</dd></div>
+      <div class="glance-row"><dt>My role</dt><dd>Solo researcher and strategist, from recruiting through strategy.</dd></div>
+      <div class="glance-row"><dt>Key insight</dt><dd>The product wasn't broken. The entry point was. People saw its value but decided it was “not for me,” and a trust gap made direct-to-consumer growth expensive.</dd></div>
+      <div class="glance-row"><dt>Impact</dt><dd>The founders added outreach to employers, unions, AARP, and NAACP, started re-engagement emails for trial users, and extended the engagement for months of planning built on the Trust-Transfer Model.</dd></div>
+    </dl>
+  </section>
 
   <section class="section">
     <div class="section-label">Context</div>
