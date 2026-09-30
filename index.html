@@ -734,6 +734,17 @@
     .btn-primary, .btn-secondary { justify-content: center; }
     .contact-strip .btn-primary { font-size: 14px; }
   }
+
+  /* The Ground Truth ruler, as on the Writing page */
+  .gt-ruler {
+    height: 13px;
+    margin: 8px 0 0;
+    background:
+      linear-gradient(var(--accent), var(--accent)) left top / 100% 2px no-repeat,
+      linear-gradient(90deg, var(--accent) 2px, transparent 2px) left top / calc((100% - 2px) / 4) 13px repeat-x,
+      linear-gradient(90deg, var(--accent) 2px, transparent 2px) left top / calc((100% - 2px) / 20) 7px repeat-x;
+  }
+  .gt-ruler + .writing-link, .gt-ruler ~ .writing-link:first-of-type { border-top: 0; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1216,7 +1227,7 @@
   <!-- WRITING -->
   <section class="section" id="writing">
     <div class="section-label">Writing</div>
-    <h2 class="section-heading">Ground Truth on Substack:<br><em>rigorous AI product practice</em></h2>
+    <h2 class="section-heading">Ground Truth on Substack:<br><em>AI product practice, examined.</em></h2>
 
 
 
@@ -1226,6 +1237,11 @@
 
 
 
+    <div class="gt-ruler" aria-hidden="true"></div>
+    <a href="https://byshannoncoleman.substack.com/p/introducing-whos-actually-running-this?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content=introducing-whos-actually-running-this" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
+      <div class="writing-pub">Series 6 &nbsp;&bull;&nbsp; Who&#x27;s Actually Running This</div>
+      <div class="writing-title">Introducing Who&#x27;s Actually Running This</div>
+    </a>
     <a href="https://byshannoncoleman.substack.com/p/the-interview-at-scale?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content=the-interview-at-scale" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
       <div class="writing-pub">Series 5 &nbsp;&bull;&nbsp; The Approval Question</div>
       <div class="writing-title">The Interview at Scale</div>

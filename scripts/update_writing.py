@@ -3,7 +3,8 @@
 Runs daily from .github/workflows/update-writing.yml. Rules:
 - Only posts dated on or after the newest article already on the page are considered,
   and a post whose link is already on the page is never added twice.
-- A post titled "Introducing ..." starts a new series section at the top.
+- A post titled "Introducing ..." starts a new series section at the top, and
+  adds a row for the series to the homepage Writing list.
 - Any other post goes into the newest series, and that series' date label is
   extended to cover it.
 - A post missing a title, link, or date is skipped rather than published.
@@ -209,10 +210,29 @@ def add_post(page, post):
     return page[:start] + block + page[end:], "newest series"
 
 
+def home_row(post, number, name):
+    slug = post["slug"]
+    return (
+        f'    <a href="https://byshannoncoleman.substack.com/p/{slug}?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content={slug}" class="writing-link writing-link-viewall" target="_blank" rel="noopener">\n'
+        f'      <div class="writing-pub">Series {number}{SEP}{esc(name)}</div>\n'
+        f'      <div class="writing-title">{esc(post["title"])}</div>\n'
+        f'    </a>\n'
+    )
+
+
+def add_home_row(home, post, number, name):
+    """Put a new series at the top of the homepage Writing list."""
+    if f"/p/{post['slug']}?" in home:
+        return home
+    anchor = home.index('    <a href="https://byshannoncoleman.substack.com/p/', home.index('id="writing"'))
+    return home[:anchor] + home_row(post, number, name) + home[anchor:]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--feed", help="read the feed from a file instead of Substack")
     ap.add_argument("--page", default="writing.html")
+    ap.add_argument("--home", default="index.html")
     args = ap.parse_args()
 
     with open(args.page, encoding="utf-8") as f:
@@ -220,7 +240,7 @@ def main():
     on_page = set(re.findall(r"substack\.com/p/([A-Za-z0-9-]+)", page))
     newest = max(page_dates(page))
 
-    added, new_series = 0, []
+    added, new_series, home_changes = 0, [], []
     for post in get_posts(args.feed):
         if post["slug"] in on_page or post["date"] < newest:
             continue
@@ -230,11 +250,19 @@ def main():
         if where != "newest series":
             name = re.sub(r"^introducing\s+", "", post["title"], flags=re.I).strip()
             new_series.append(f"{where}: {name}")
+            home_changes.append((post, int(where.split()[-1]), name))
         print(f"Added {post['title']} ({fmt_date(post['date'])}) to {where}")
 
     if added:
         with open(args.page, "w", encoding="utf-8") as f:
             f.write(page)
+    if home_changes and os.path.exists(args.home):
+        with open(args.home, encoding="utf-8") as f:
+            home = f.read()
+        for post, number, name in home_changes:
+            home = add_home_row(home, post, number, name)
+        with open(args.home, "w", encoding="utf-8") as f:
+            f.write(home)
     print(f"{added} new post(s)")
 
     # Tell the workflow about new series so it can ask for a description.
