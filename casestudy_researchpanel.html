@@ -1003,6 +1003,61 @@
     .glance-row { grid-template-columns: 1fr; gap: 4px; }
     .glance-row dd { font-size: 16px; }
   }
+
+  /* Diagrams */
+  .dg-fig { position: relative; margin: 40px 0; padding-top: 22px; border-top: 1px solid var(--rule); }
+  .dg-tag { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+  .dg-heading { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin: 0 0 8px; }
+  .dg-desc { font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--ink-2); max-width: 68ch; margin: 0 0 24px; }
+  .dg-caption { font-family: var(--sans); font-size: 13px; line-height: 1.55; color: var(--ink-3); margin-top: 16px; max-width: 68ch; }
+  .dg-closing { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin-top: 22px; max-width: 60ch; }
+  /* unit chart */
+  .dg-units { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 48px; }
+  .dg-dots { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .dg-dots span { width: 16px; height: 16px; border-radius: 50%; display: block; }
+  .dg-count { font-family: var(--sans); font-size: 36px; line-height: 1; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+  .dg-glabel { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); margin: 6px 0 4px; }
+  .dg-gtext { font-family: var(--sans); font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+  /* comparison */
+  .dg-cmp { display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid var(--ink); }
+  .dg-cmp > div { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--rule); font-family: var(--sans); font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+  .dg-cmp .dg-rl { font-weight: 600; color: var(--ink); font-size: 14px; }
+  .dg-cmp .dg-ch { font-weight: 600; font-size: 14px; color: var(--ink-3); padding-top: 12px; }
+  .dg-cmp .dg-ch strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 20px; color: var(--ink); margin-top: 2px; }
+  .dg-cmp .dg-tt { padding-left: 16px; border-left: 2px solid var(--accent); }
+  .dg-cmp .dg-dtc { padding-left: 16px; border-left: 2px solid var(--rule); }
+  .dg-cmp .dg-ch.dg-tt { color: var(--accent); }
+  .dg-cmp .dg-q { font-family: var(--serif); font-size: 18px; color: var(--ink); }
+  .dg-cmp .dg-lab { display: none; }
+  /* flow */
+  .dg-flow { display: grid; grid-template-columns: 1.15fr 1.2fr 0.8fr 1.1fr; gap: 0 36px; align-items: stretch; }
+  .dg-col { position: relative; display: flex; flex-direction: column; gap: 10px; }
+  .dg-col:not(:last-child)::after { content: ''; position: absolute; right: -28px; top: 50%; width: 20px; border-top: 2px solid var(--ink-3); }
+  .dg-col:not(:last-child)::before { content: ''; position: absolute; right: -29px; top: calc(50% - 5px); border: 6px solid transparent; border-left: 7px solid var(--ink-3); border-right: 0; }
+  .dg-coltitle { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink-3); }
+  .dg-node { border: 1px solid var(--rule); padding: 12px 14px; background: var(--paper); flex: 1; }
+  .dg-node.dg-key { border: 1px solid var(--accent); border-top-width: 3px; }
+  .dg-node.dg-no { border-style: dashed; color: var(--ink-3); flex: 0 0 auto; }
+  .dg-node.dg-no .dg-nn { text-decoration: line-through; color: var(--ink-3); }
+  .dg-nn { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .dg-ns { font-family: var(--sans); font-size: 13.5px; line-height: 1.5; color: var(--ink-2); }
+  .dg-big { font-family: var(--sans); font-size: 34px; color: var(--accent); line-height: 1.1; font-variant-numeric: lining-nums tabular-nums; }
+  /* growth sketch */
+  .dg-growth { display: block; width: 100%; max-width: 640px; height: auto; overflow: visible; }
+  .dg-growth text { font-family: var(--sans); font-size: 13px; fill: var(--ink-3); }
+  .dg-growth .dg-gl { fill: var(--ink); font-weight: 600; }
+  @media (max-width: 800px) {
+    .dg-units { grid-template-columns: 1fr; }
+    .dg-cmp { grid-template-columns: 1fr; }
+    .dg-cmp .dg-rl { border-bottom: 0; padding-bottom: 2px; padding-top: 16px; }
+    .dg-cmp .dg-ch { display: none; }
+    .dg-cmp .dg-lab { display: block; font-size: 13px; font-weight: 600; color: var(--ink-3); margin-bottom: 2px; }
+    .dg-cmp .dg-tt .dg-lab { color: var(--accent); }
+    .dg-cmp .dg-dtc { border-bottom: 0; padding-bottom: 8px; }
+    .dg-flow { grid-template-columns: 1fr; gap: 34px; }
+    .dg-col:not(:last-child)::after { right: auto; left: 50%; top: auto; bottom: -26px; width: 0; height: 18px; border-top: 0; border-left: 2px solid var(--ink-3); }
+    .dg-col:not(:last-child)::before { right: auto; left: calc(50% - 5px); top: auto; bottom: -32px; border: 6px solid transparent; border-top: 7px solid var(--ink-3); border-bottom: 0; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1158,6 +1213,49 @@
         <p class="build-text">I built the compliance architecture in direct collaboration with the legal team, treating it as a design constraint that shaped every data handling decision rather than a post-hoc review. The resulting framework covered international and domestic requirements, including GDPR, the EU-U.S. Data Privacy Framework, APEC CBPR, and HIPAA-adjacent practices appropriate for research involving health-related data. I also worked to achieve TRUSTe certification and align the panel's data governance with ISO 27001:2022 standards. This compliance layer was not decorative; it was the thing that made the panel useful to the clients who most needed it.</p>
       </div>
     </div>
+
+    <figure class="dg-fig">
+      <div class="dg-tag">How the panel worked</div>
+      <div class="dg-heading">Every participant came in through a channel that could be audited</div>
+      <div class="dg-flow">
+        <div class="dg-col">
+          <div class="dg-coltitle">Sources</div>
+          <div class="dg-node"><div class="dg-nn">End-of-survey opt-in</div><div class="dg-ns">Built in Qualtrics. Separate from the study, never a condition of finishing it.</div></div>
+          <div class="dg-node"><div class="dg-nn">Referral program</div><div class="dg-ns">Unique codes with custom attribution, rewards through Giftbit.</div></div>
+          <div class="dg-node dg-no"><div class="dg-nn">Purchased email lists</div><div class="dg-ns">The shortcut, turned down.</div></div>
+        </div>
+        <div class="dg-col">
+          <div class="dg-coltitle">Checks</div>
+          <div class="dg-node dg-key"><div class="dg-nn">Compliance stack, built with legal</div><div class="dg-ns">Informed consent and a traceable source for every participant. Aligned with GDPR, the EU-U.S. Data Privacy Framework, APEC CBPR, ISO 27001:2022, and HIPAA-adjacent practices.</div></div>
+        </div>
+        <div class="dg-col">
+          <div class="dg-coltitle">Panel</div>
+          <div class="dg-node"><div class="dg-big">~1,000</div><div class="dg-ns">Participants, built from zero in about a year</div></div>
+        </div>
+        <div class="dg-col">
+          <div class="dg-coltitle">Used for</div>
+          <div class="dg-node"><div class="dg-nn">Client research</div><div class="dg-ns">Studies for clients including Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, AbbVie, and M&amp;T Bank.</div></div>
+        </div>
+      </div>
+    </figure>
+
+    <figure class="dg-fig">
+      <div class="dg-tag">How it grew</div>
+      <div class="dg-heading">Slow at first, then it picked up</div>
+      <svg class="dg-growth" viewBox="0 0 640 230" role="img" aria-labelledby="dg-grow-t">
+        <title id="dg-grow-t">Illustrative growth curve: panel size rose slowly in the early months, then accelerated to about 1,000 participants by the end of the first year.</title>
+        <line x1="40" y1="190" x2="620" y2="190" stroke="#dcd8d2" stroke-width="1"/>
+        <line x1="40" y1="30" x2="40" y2="190" stroke="#dcd8d2" stroke-width="1"/>
+        <path d="M40 188 C 300 186, 470 160, 610 38" fill="none" stroke="#9b3a22" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="610" cy="38" r="5" fill="#9b3a22"/>
+        <text x="600" y="24" text-anchor="end" class="dg-gl">~1,000</text>
+        <text x="40" y="210">Start</text>
+        <text x="620" y="210" text-anchor="end">About a year</text>
+        <text x="150" y="172">Slow start</text>
+        <text x="512" y="150">Picked up</text>
+      </svg>
+      <figcaption class="dg-caption">The shape is illustrative, drawn from how growth unfolded rather than plotted counts. The endpoint, about 1,000 participants, is the measured figure.</figcaption>
+    </figure>
   </section>
 
   <section class="section">
