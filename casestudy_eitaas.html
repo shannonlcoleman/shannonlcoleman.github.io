@@ -631,6 +631,24 @@
     .glance-row { grid-template-columns: 1fr; gap: 4px; }
     .glance-row dd { font-size: 16px; }
   }
+
+  /* Measurement chart */
+  .db-figure { position: relative; margin: 36px 0 32px; padding: 24px 0 0; border-top: 1px solid var(--rule); }
+  .db-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-bottom: 8px; }
+  .db-heading { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); max-width: 46ch; line-height: 1.45; }
+  .db-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--sans); font-size: 14px; color: var(--ink-2); }
+  .db-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .db-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; }
+  .db-title { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink-2); margin: 16px 0 0; }
+  .dumbbell { display: block; width: 100%; height: auto; overflow: visible; }
+  .dumbbell .db-row { font-family: var(--sans); font-size: 14px; fill: var(--ink-2); }
+  .dumbbell .db-axis { font-family: var(--sans); font-size: 12px; fill: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .dumbbell .db-val { font-family: var(--sans); font-size: 13px; fill: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .dumbbell .db-val-after { fill: var(--ink); font-weight: 600; }
+  .dumbbell .db-pt { cursor: default; }
+  .db-caption { font-family: var(--sans); font-size: 13px; line-height: 1.55; color: var(--ink-3); margin-top: 16px; max-width: 68ch; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  @media (max-width: 700px) { .db-panels { grid-template-columns: 1fr; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -699,10 +717,10 @@
     <h2 class="glance-label" id="glance-label">At a glance</h2>
     <dl class="glance-list">
       <div class="glance-row"><dt>Goal</dt><dd>Understand the IT experience across nine Air Force pilot bases, then define the future state in terms specific enough to write into a contract.</dd></div>
-      <div class="glance-row"><dt>Methods</dt><dd>Interviews at all nine installations, baseline and follow-up surveys, moderated usability testing, service design and journey mapping, and persona development.</dd></div>
+      <div class="glance-row"><dt>Methods</dt><dd>Interviews at all nine installations, pre and post surveys with a control group (about 3,000 weighted responses pooled), moderated usability testing, service design and journey mapping, and persona development.</dd></div>
       <div class="glance-row"><dt>My role</dt><dd>Research Lead and Trusted Advisor. I led the research and UX strategy and built the persona framework and the Experience Level Agreement (XLA) model.</dd></div>
       <div class="glance-row"><dt>Key insight</dt><dd>Treating 800,000+ Airmen and Guardians as one user type caused both the cost problem and the experience problem. Five personas replaced it.</dd></div>
-      <div class="glance-row"><dt>Impact</dt><dd>The personas and XLAs went into the Wave 1 and Wave 2 solicitation requirements for a $5.7B contract. At the pilot base furthest along, satisfaction reached 73.6 out of 100, against the mid-40s elsewhere.</dd></div>
+      <div class="glance-row"><dt>Impact</dt><dd>The personas and XLAs went into the Wave 1 and Wave 2 solicitation requirements for a $5.7B contract. At Buckley, NIPR satisfaction rose 24 points and daily slow speeds fell from 55% to 25%.</dd></div>
     </dl>
   </section>
 
@@ -883,6 +901,44 @@
         <p class="rec-text">The persona framework and XLA model were not just internal deliverables. They informed the requirements that went into the Wave 1 and Wave 2 solicitations. The multi-vendor frontend strategy Isobar helped shape, specifically designed to prevent vendor lock-in by separating the delivery model into best-of-breed commercial components, drew directly on the persona-segmented service design work I led.</p>
       </div>
     </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Measurement</div>
+    <h2 class="section-heading">How we knew<br><em>the gains were real</em></h2>
+
+    <p>Satisfaction after a big IT migration is easy to over-read. Vendors have a good story to tell, and users often feel better simply because something changed. The program's survey design was built to resist that. Baselines went in long before the migration (June 2019 for the network, October 2019 for the service desk). Pre and post waves ran across the risk reduction bases, a base outside EITaaS served as a control group, and responses were weighted by status, role, and career family. The pooled base came to about 3,000 respondents.</p>
+
+    <p>The control group earned its keep at Offutt. After the first network migration, the share of Offutt users satisfied with NIPR fell from 28% to 15%. Buckley barely moved (14% to 16%), and the control base held flat (22% to 20%). Without the control and the weighting, that drop could have been blamed on anything: survey timing, a bad month, a change in who answered. With them, it pointed at the migration. After the base area network and Wi-Fi upgrades, Offutt recovered 14 points, and Buckley's satisfaction rose 24 points, close to double.</p>
+
+    <figure class="db-figure">
+      <div class="db-head">
+        <div class="db-heading">Share of users reporting network problems, before and after the base network and Wi-Fi upgrades</div>
+        <div class="db-legend" aria-hidden="true">
+          <span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5" fill="#fff" stroke="#2f5f6b" stroke-width="2.5"/></svg>Before</span>
+          <span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#9b3a22"/></svg>After (July to August 2022)</span>
+        </div>
+      </div>
+      <div class="db-panels">
+        <div class="db-panel"><div class="db-title">Slow speeds at least daily</div><svg class="dumbbell" viewBox="0 0 460 160" role="img" aria-labelledby="db1-t"><title id="db1-t">Slow speeds at least daily: Buckley 55% before, 25% after; Offutt 65% before, 38% after</title><line x1="96.0" y1="26" x2="96.0" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="96.0" y="154" text-anchor="middle" class="db-axis">0%</text><line x1="194.3" y1="26" x2="194.3" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="194.3" y="154" text-anchor="middle" class="db-axis">20%</text><line x1="292.6" y1="26" x2="292.6" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="292.6" y="154" text-anchor="middle" class="db-axis">40%</text><line x1="390.9" y1="26" x2="390.9" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="390.9" y="154" text-anchor="middle" class="db-axis">60%</text><text x="0" y="63" class="db-row">Buckley</text><line x1="225.9" y1="58" x2="359.3" y2="58" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Buckley, before: 55%</title><circle cx="366.3" cy="58" r="14" fill="transparent"/><circle cx="366.3" cy="58" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Buckley, after: 25%</title><circle cx="218.9" cy="58" r="14" fill="transparent"/><circle cx="218.9" cy="58" r="6.5" fill="#9b3a22"/></g><text x="366.3" y="44" text-anchor="middle" class="db-val">55%</text><text x="218.9" y="44" text-anchor="middle" class="db-val db-val-after">25%</text><text x="0" y="117" class="db-row">Offutt</text><line x1="289.7" y1="112" x2="408.4" y2="112" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Offutt, before: 65%</title><circle cx="415.4" cy="112" r="14" fill="transparent"/><circle cx="415.4" cy="112" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Offutt, after: 38%</title><circle cx="282.7" cy="112" r="14" fill="transparent"/><circle cx="282.7" cy="112" r="6.5" fill="#9b3a22"/></g><text x="415.4" y="98" text-anchor="middle" class="db-val">65%</text><text x="282.7" y="98" text-anchor="middle" class="db-val db-val-after">38%</text></svg></div>
+        <div class="db-panel"><div class="db-title">Outages at least weekly</div><svg class="dumbbell" viewBox="0 0 460 160" role="img" aria-labelledby="db2-t"><title id="db2-t">Outages at least weekly: Buckley 38% before, 21% after; Offutt 46% before, 39% after</title><line x1="96.0" y1="26" x2="96.0" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="96.0" y="154" text-anchor="middle" class="db-axis">0%</text><line x1="194.3" y1="26" x2="194.3" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="194.3" y="154" text-anchor="middle" class="db-axis">20%</text><line x1="292.6" y1="26" x2="292.6" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="292.6" y="154" text-anchor="middle" class="db-axis">40%</text><line x1="390.9" y1="26" x2="390.9" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="390.9" y="154" text-anchor="middle" class="db-axis">60%</text><text x="0" y="63" class="db-row">Buckley</text><line x1="206.2" y1="58" x2="275.7" y2="58" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Buckley, before: 38%</title><circle cx="282.7" cy="58" r="14" fill="transparent"/><circle cx="282.7" cy="58" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Buckley, after: 21%</title><circle cx="199.2" cy="58" r="14" fill="transparent"/><circle cx="199.2" cy="58" r="6.5" fill="#9b3a22"/></g><text x="282.7" y="44" text-anchor="middle" class="db-val">38%</text><text x="199.2" y="44" text-anchor="middle" class="db-val db-val-after">21%</text><text x="0" y="117" class="db-row">Offutt</text><line x1="294.7" y1="112" x2="315.1" y2="112" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Offutt, before: 46%</title><circle cx="322.1" cy="112" r="14" fill="transparent"/><circle cx="322.1" cy="112" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Offutt, after: 39%</title><circle cx="287.7" cy="112" r="14" fill="transparent"/><circle cx="287.7" cy="112" r="6.5" fill="#9b3a22"/></g><text x="322.1" y="98" text-anchor="middle" class="db-val">46%</text><text x="287.7" y="98" text-anchor="middle" class="db-val db-val-after">39%</text></svg></div>
+      </div>
+      <div class="sr-only">
+      <table>
+        <caption>Share of users reporting network problems, before and after the upgrades</caption>
+        <thead><tr><th scope="col">Base and measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Buckley, slow speeds at least daily</th><td>55%</td><td>25%</td></tr>
+          <tr><th scope="row">Offutt, slow speeds at least daily</th><td>65%</td><td>38%</td></tr>
+          <tr><th scope="row">Buckley, outages at least weekly</th><td>38%</td><td>21%</td></tr>
+          <tr><th scope="row">Offutt, outages at least weekly</th><td>46%</td><td>39%</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <figcaption class="db-caption">Post-period survey of 593 respondents (190 at Buckley, 403 at Offutt), fielded July to August 2022 on a 24-question instrument. Data weighted by status, role, and career family.</figcaption>
+    </figure>
+
+    <p>The same report didn't oversell the result. 88% of Buckley users still reported at least one issue that hurt their work. Wi-Fi awareness was only 54% at Buckley and 39% at Offutt. The report also flagged a likely bottleneck in core services, including DNS and the security layer, for further analysis. Those findings are part of why the good numbers were believable.</p>
   </section>
 
   <section class="section">
