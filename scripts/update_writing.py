@@ -25,7 +25,7 @@ import time
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 
 FEED_URL = "https://byshannoncoleman.substack.com/feed"
@@ -228,11 +228,26 @@ def add_home_row(home, post, number, name):
     return home[:anchor] + home_row(post, number, name) + home[anchor:]
 
 
+def bump_sitemap(path, pages):
+    """Set the lastmod date for the given pages to today (UTC)."""
+    if not os.path.exists(path):
+        return
+    today = datetime.now(timezone.utc).date().isoformat()
+    with open(path, encoding="utf-8") as f:
+        xml = f.read()
+    for page in pages:
+        loc = re.escape(f"https://shannonlcoleman.com/{page}")
+        xml = re.sub(rf"(<loc>{loc}</loc>\s*<lastmod>)[^<]*(</lastmod>)", rf"\g<1>{today}\g<2>", xml)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(xml)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--feed", help="read the feed from a file instead of Substack")
     ap.add_argument("--page", default="writing.html")
     ap.add_argument("--home", default="index.html")
+    ap.add_argument("--sitemap", default="sitemap.xml")
     args = ap.parse_args()
 
     with open(args.page, encoding="utf-8") as f:
@@ -256,6 +271,8 @@ def main():
     if added:
         with open(args.page, "w", encoding="utf-8") as f:
             f.write(page)
+    if added:
+        bump_sitemap(args.sitemap, ["writing.html"] + ([""] if home_changes else []))
     if home_changes and os.path.exists(args.home):
         with open(args.home, encoding="utf-8") as f:
             home = f.read()
