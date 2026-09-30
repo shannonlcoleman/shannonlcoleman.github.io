@@ -618,6 +618,19 @@
   .coin-label { color: var(--accent-on-ink) !important; }
   .coin-title { color: var(--paper) !important; font-size: 22px !important; }
   .content .coin-box p { color: var(--on-ink-2) !important; }
+
+  /* At a glance summary */
+  .glance { padding-top: 56px; }
+  .glance-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 6px; }
+  .glance-list { margin: 0; padding: 0; }
+  .glance-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .glance-row dt { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); padding-top: 3px; }
+  .glance-row dd { margin: 0; font-family: var(--sans); font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 68ch; }
+  @media (max-width: 700px) {
+    .glance { padding-top: 40px; }
+    .glance-row { grid-template-columns: 1fr; gap: 4px; }
+    .glance-row dd { font-size: 16px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -674,13 +687,24 @@
       </div>
       <div class="meta-item">
         <span class="meta-label">Organization</span>
-        <span class="meta-value">Isobar Public Sector (subcontractor)</span>
+        <span class="meta-value">Isobar Public Sector</span>
       </div>
     </div>
   </div>
 </header>
 
 <main class="content">
+
+  <section class="glance" aria-labelledby="glance-label">
+    <h2 class="glance-label" id="glance-label">At a glance</h2>
+    <dl class="glance-list">
+      <div class="glance-row"><dt>Goal</dt><dd>Understand the IT experience across nine Air Force pilot bases, then define the future state in terms specific enough to write into a contract.</dd></div>
+      <div class="glance-row"><dt>Methods</dt><dd>Interviews at all nine installations, baseline and follow-up surveys, moderated usability testing, service design and journey mapping, and persona development.</dd></div>
+      <div class="glance-row"><dt>My role</dt><dd>Research Lead and Trusted Advisor. I led the research and UX strategy and built the persona framework and the Experience Level Agreement (XLA) model.</dd></div>
+      <div class="glance-row"><dt>Key insight</dt><dd>Treating 800,000+ Airmen and Guardians as one user type caused both the cost problem and the experience problem. Five personas replaced it.</dd></div>
+      <div class="glance-row"><dt>Impact</dt><dd>The personas and XLAs went into the Wave 1 and Wave 2 solicitation requirements for a $5.7B contract. At the pilot base furthest along, satisfaction reached 73.6 out of 100, against the mid-40s elsewhere.</dd></div>
+    </dl>
+  </section>
 
   <section class="section">
     <div class="section-label">Context</div>

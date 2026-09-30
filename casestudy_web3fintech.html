@@ -1256,6 +1256,20 @@
   padding: 0;
   color: #1c1b19;
 }
+
+  /* At a glance summary */
+  .glance { padding-top: 56px; }
+  .glance-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 6px; }
+  .glance-list { margin: 0; padding: 0; }
+  .glance-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .glance-row dt { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); padding-top: 3px; }
+  .glance-row dd { margin: 0; font-family: var(--sans); font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 68ch; }
+  .nowrap { white-space: nowrap; }
+  @media (max-width: 700px) {
+    .glance { padding-top: 40px; }
+    .glance-row { grid-template-columns: 1fr; gap: 4px; }
+    .glance-row dd { font-size: 16px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1315,6 +1329,17 @@
 </header>
 
 <main class="content">
+
+  <section class="glance" aria-labelledby="glance-label">
+    <h2 class="glance-label" id="glance-label">At a glance</h2>
+    <dl class="glance-list">
+      <div class="glance-row"><dt>Goal</dt><dd>Find the friction points threatening retention in a tokenized asset platform's onboarding and transaction flow, before launch.</dd></div>
+      <div class="glance-row"><dt>Methods</dt><dd>Transaction flow audit, mental model mapping, onboarding journey analysis, and a review of regulatory communication.</dd></div>
+      <div class="glance-row"><dt>My role</dt><dd>Research Lead and Strategic Advisor.</dd></div>
+      <div class="glance-row"><dt>Key insight</dt><dd>The interface wasn't broken. Users brought a mental model from traditional finance, so “pending” read as lost money.</dd></div>
+      <div class="glance-row"><dt>Impact</dt><dd>90-day retention up 22%, support tickets down about half, and compliance approval cut from <span class="nowrap">6&ndash;8 weeks</span> to <span class="nowrap">3&ndash;5</span> by merging UX and compliance into one workstream.</dd></div>
+    </dl>
+  </section>
 
   
 <div style="background: var(--w3-pale); border-left: 4px solid var(--w3-accent); padding: 28px 36px; margin: 36px 0;">
@@ -1553,6 +1578,30 @@
       <p>Full friction audit documenting 17 friction points with severity ratings and primary ownership (product vs. compliance vs. content).</p>
       <p>Executive roadmap sequencing the 17 findings by combined UX and regulatory risk, with decision points and dependencies surfaced explicitly across both tracks.</p>
     </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Impact</div>
+    <h2 class="section-heading">Users stopped reading<br><em>pending as lost</em></h2>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num accent">+22%</div>
+        <div class="stat-desc">90-day retention</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">~50%</div>
+        <div class="stat-desc">Fewer support tickets</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3&ndash;5 wks</div>
+        <div class="stat-desc">Compliance approval, down from 6&ndash;8</div>
+      </div>
+    </div>
+
+    <p>Leadership and engineering implemented the prioritized findings. Once transaction states said what was actually happening, users stopped mistaking normal settlement delays for lost funds and walking away. Ninety-day retention rose 22%, and support tickets dropped by about half.</p>
+
+    <p>The bigger change was how the team worked. UX and compliance became one workstream with a shared backlog, so compliance saw onboarding and transaction changes early instead of at the end. Regulatory approval went from <span class="nowrap">6&ndash;8 weeks</span> to <span class="nowrap">3&ndash;5 weeks</span>, and the late-stage rework that used to follow every compliance review went away.</p>
   </section>
 
   <section class="section">

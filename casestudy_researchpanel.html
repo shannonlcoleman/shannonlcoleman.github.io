@@ -990,6 +990,19 @@
   .slc-hp .slc-tni { display: none !important; }
 
   .case-title, .section-heading { text-wrap: balance; }
+
+  /* At a glance summary */
+  .glance { padding-top: 56px; }
+  .glance-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 6px; }
+  .glance-list { margin: 0; padding: 0; }
+  .glance-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .glance-row dt { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); padding-top: 3px; }
+  .glance-row dd { margin: 0; font-family: var(--sans); font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 68ch; }
+  @media (max-width: 700px) {
+    .glance { padding-top: 40px; }
+    .glance-row { grid-template-columns: 1fr; gap: 4px; }
+    .glance-row dd { font-size: 16px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1053,6 +1066,17 @@
 </header>
 
 <main class="content">
+
+  <section class="glance" aria-labelledby="glance-label">
+    <h2 class="glance-label" id="glance-label">At a glance</h2>
+    <dl class="glance-list">
+      <div class="glance-row"><dt>Goal</dt><dd>Build a research panel that pharma and banking clients could trust, without the shortcut of buying email lists.</dd></div>
+      <div class="glance-row"><dt>Methods</dt><dd>A Qualtrics opt-in flow at the end of each survey, a referral program with its own attribution logic, and a compliance stack built with the legal team.</dd></div>
+      <div class="glance-row"><dt>My role</dt><dd>Solo researcher and panel architect.</dd></div>
+      <div class="glance-row"><dt>Key insight</dt><dd>For regulated clients, a panel that can't prove where its participants came from is a liability, not a research tool.</dd></div>
+      <div class="glance-row"><dt>Impact</dt><dd>About 1,000 participants, built from zero, used for research for clients including Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, AbbVie, and M&amp;T Bank.</dd></div>
+    </dl>
+  </section>
 
   <section class="section">
     <div class="section-label">Context</div>
