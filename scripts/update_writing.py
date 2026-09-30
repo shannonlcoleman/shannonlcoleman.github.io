@@ -20,6 +20,8 @@ import json
 import os
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime
@@ -41,10 +43,19 @@ BROWSER_HEADERS = {
 }
 
 
-def download(url):
-    req = urllib.request.Request(url, headers=BROWSER_HEADERS)
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read()
+def download(url, retries=0):
+    """Fetch a URL, retrying rate limits and server errors with growing waits."""
+    waits = [20, 60, 120][:retries]
+    for attempt in range(len(waits) + 1):
+        try:
+            req = urllib.request.Request(url, headers=BROWSER_HEADERS)
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 502, 503, 504) or attempt == len(waits):
+                raise
+            print(f"{url} returned {e.code}; retrying in {waits[attempt]} seconds")
+            time.sleep(waits[attempt])
 
 
 def get_posts(feed_path):
@@ -59,7 +70,7 @@ def get_posts(feed_path):
         sources.insert(0, (relay, parse_feed))
     for url, parse in sources:
         try:
-            return parse(download(url))
+            return parse(download(url, retries=3 if url == relay else 0))
         except Exception as e:  # try the next source
             errors.append(f"{url}: {e}")
             print(f"Could not read {url}: {e}")
