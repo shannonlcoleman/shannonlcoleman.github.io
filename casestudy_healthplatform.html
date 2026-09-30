@@ -1051,6 +1051,61 @@
   .content .pq p, .pq p { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; max-width: none; font-style: normal; }
   .pq figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 10px; }
   @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
+
+  /* Diagrams */
+  .dg-fig { position: relative; margin: 40px 0; padding-top: 22px; border-top: 1px solid var(--rule); }
+  .dg-tag { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+  .dg-heading { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin: 0 0 8px; }
+  .dg-desc { font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--ink-2); max-width: 68ch; margin: 0 0 24px; }
+  .dg-caption { font-family: var(--sans); font-size: 13px; line-height: 1.55; color: var(--ink-3); margin-top: 16px; max-width: 68ch; }
+  .dg-closing { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin-top: 22px; max-width: 60ch; }
+  /* unit chart */
+  .dg-units { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 48px; }
+  .dg-dots { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .dg-dots span { width: 16px; height: 16px; border-radius: 50%; display: block; }
+  .dg-count { font-family: var(--sans); font-size: 36px; line-height: 1; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+  .dg-glabel { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); margin: 6px 0 4px; }
+  .dg-gtext { font-family: var(--sans); font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+  /* comparison */
+  .dg-cmp { display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid var(--ink); }
+  .dg-cmp > div { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--rule); font-family: var(--sans); font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+  .dg-cmp .dg-rl { font-weight: 600; color: var(--ink); font-size: 14px; }
+  .dg-cmp .dg-ch { font-weight: 600; font-size: 14px; color: var(--ink-3); padding-top: 12px; }
+  .dg-cmp .dg-ch strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 20px; color: var(--ink); margin-top: 2px; }
+  .dg-cmp .dg-tt { padding-left: 16px; border-left: 2px solid var(--accent); }
+  .dg-cmp .dg-dtc { padding-left: 16px; border-left: 2px solid var(--rule); }
+  .dg-cmp .dg-ch.dg-tt { color: var(--accent); }
+  .dg-cmp .dg-q { font-family: var(--serif); font-size: 18px; color: var(--ink); }
+  .dg-cmp .dg-lab { display: none; }
+  /* flow */
+  .dg-flow { display: grid; grid-template-columns: 1.15fr 1.2fr 0.8fr 1.1fr; gap: 0 36px; align-items: stretch; }
+  .dg-col { position: relative; display: flex; flex-direction: column; gap: 10px; }
+  .dg-col:not(:last-child)::after { content: ''; position: absolute; right: -28px; top: 50%; width: 20px; border-top: 2px solid var(--ink-3); }
+  .dg-col:not(:last-child)::before { content: ''; position: absolute; right: -29px; top: calc(50% - 5px); border: 6px solid transparent; border-left: 7px solid var(--ink-3); border-right: 0; }
+  .dg-coltitle { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink-3); }
+  .dg-node { border: 1px solid var(--rule); padding: 12px 14px; background: var(--paper); flex: 1; }
+  .dg-node.dg-key { border: 1px solid var(--accent); border-top-width: 3px; }
+  .dg-node.dg-no { border-style: dashed; color: var(--ink-3); flex: 0 0 auto; }
+  .dg-node.dg-no .dg-nn { text-decoration: line-through; color: var(--ink-3); }
+  .dg-nn { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .dg-ns { font-family: var(--sans); font-size: 13.5px; line-height: 1.5; color: var(--ink-2); }
+  .dg-big { font-family: var(--sans); font-size: 34px; color: var(--accent); line-height: 1.1; font-variant-numeric: lining-nums tabular-nums; }
+  /* growth sketch */
+  .dg-growth { display: block; width: 100%; max-width: 640px; height: auto; overflow: visible; }
+  .dg-growth text { font-family: var(--sans); font-size: 13px; fill: var(--ink-3); }
+  .dg-growth .dg-gl { fill: var(--ink); font-weight: 600; }
+  @media (max-width: 800px) {
+    .dg-units { grid-template-columns: 1fr; }
+    .dg-cmp { grid-template-columns: 1fr; }
+    .dg-cmp .dg-rl { border-bottom: 0; padding-bottom: 2px; padding-top: 16px; }
+    .dg-cmp .dg-ch { display: none; }
+    .dg-cmp .dg-lab { display: block; font-size: 13px; font-weight: 600; color: var(--ink-3); margin-bottom: 2px; }
+    .dg-cmp .dg-tt .dg-lab { color: var(--accent); }
+    .dg-cmp .dg-dtc { border-bottom: 0; padding-bottom: 8px; }
+    .dg-flow { grid-template-columns: 1fr; gap: 34px; }
+    .dg-col:not(:last-child)::after { right: auto; left: 50%; top: auto; bottom: -26px; width: 0; height: 18px; border-top: 0; border-left: 2px solid var(--ink-3); }
+    .dg-col:not(:last-child)::before { right: auto; left: calc(50% - 5px); top: auto; bottom: -32px; border: 6px solid transparent; border-top: 7px solid var(--ink-3); border-bottom: 0; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1173,6 +1228,26 @@
 
     <p>Usability testing revealed a small number of interface-level friction points, but these were not the primary story. Near-universal concept acceptance among participants who completed the intake suggested the core product was sound. The more significant findings were psychological.</p>
 
+    <figure class="dg-fig">
+      <div class="dg-tag">Who the research heard from</div>
+      <div class="dg-heading">The people who said no outnumbered the people who tried it</div>
+      <div class="dg-units">
+        <div>
+          <div class="dg-dots" aria-hidden="true"><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span></div>
+          <div class="dg-count">8</div>
+          <div class="dg-glabel">Moderated think-aloud sessions</div>
+          <p class="dg-gtext">Near-universal concept acceptance. Many still saw the product as meant for someone else.</p>
+        </div>
+        <div>
+          <div class="dg-dots" aria-hidden="true"><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span></div>
+          <div class="dg-count">11</div>
+          <div class="dg-glabel">Declined to engage</div>
+          <p class="dg-gtext">Refused over privacy and trust, even after hearing about HIPAA and SOC 2 compliance.</p>
+        </div>
+      </div>
+      <figcaption class="dg-caption">Most protocols would have dropped the second group as non-completers. Here it was the larger group, and it surfaced the trust gap.</figcaption>
+    </figure>
+
     <div class="finding">
       <div class="finding-num">1</div>
       <div class="finding-body">
@@ -1217,35 +1292,13 @@
     <p>Based on the research findings, I developed a Trust-Transfer Model as the strategic response. The core logic: if individual users don't yet trust the platform on their own, route them through institutions they already trust. When a self-funded employer, union, or advocacy organization introduces the product as a benefit, they transfer their credibility to it. The user's internal question shifts from "Do I need to buy this?" to "This is something my organization already chose for me."</p>
 
     
-<div class="slc-hp">
-<!-- ══ VISUAL B: TRUST-TRANSFER MODEL — place in Strategic Framework ══ -->
-  <div class="slc-vtag">Strategic Framework</div>
-  <div class="slc-vtitle">The Trust-Transfer Model</div>
-  <div class="slc-vdesc">If individual users don't yet trust the platform on their own, route them through institutions they already trust. The user's internal question shifts from "Do I need to buy this?" to "My organization already chose this for me."</div>
-  <div class="slc-card">
-    <div class="slc-td-wrap">
-      <div class="slc-tt slc-tt1">
-        <div class="slc-tn"><span class="slc-tni">🏢</span><div class="slc-tnn">Self-Funded Employers</div><div class="slc-tns">Healthcare, manufacturing, professional services</div></div>
-        <div class="slc-tn"><span class="slc-tni">🤝</span><div class="slc-tnn">Unions &amp; Stop-Loss Carriers</div><div class="slc-tns">Benefits administrators, aggregators</div></div>
-        <div class="slc-tn"><span class="slc-tni">🎗</span><div class="slc-tnn">Advocacy Organizations</div><div class="slc-tns">AARP, Alzheimer's Assoc., NAACP health initiatives</div></div>
-      </div>
-      <div class="slc-tar"><div class="slc-tal"></div><span class="slc-tat">Institutional trust transfers to platform</span><div class="slc-tal"></div></div>
-      <div class="slc-tt" style="width:100%">
-        <div class="slc-tn pr" style="text-align:center;padding:22px">
-          <div class="slc-badge">B2B2C Entry Point</div>
-          <div class="slc-tnn" style="font-size:14px">AI Health Platform</div>
-          <div class="slc-tns" style="margin-top:6px">Subsidized or benefit-packaged access.<br>Credibility is borrowed before it is earned.</div>
-        </div>
-      </div>
-      <div class="slc-tar"><div class="slc-tal"></div><span class="slc-tat">Reduced psychological friction</span><div class="slc-tal"></div></div>
-      <div class="slc-tt slc-tt3" style="width:100%">
-        <div class="slc-tn out"><span class="slc-tni">💡</span><div class="slc-tnn">Shifts the Internal Question</div><div class="slc-tns">"Do I need to buy this?" → "My organization already chose this for me."</div></div>
-        <div class="slc-tn out"><span class="slc-tni">📉</span><div class="slc-tnn">Lowers Acquisition Cost</div><div class="slc-tns">Stops fighting psychology one person at a time. Lets the product prove itself at scale.</div></div>
-      </div>
-    </div>
-    <div class="slc-tins">This is not a sales pivot. It is a <strong>psychological solve</strong> that routes users through the trust infrastructure they already have.</div>
-  </div>
-</div>
+<figure class="dg-fig">
+      <div class="dg-tag">Strategic Framework</div>
+      <div class="dg-heading">The Trust-Transfer Model</div>
+      <p class="dg-desc">If individual users don&rsquo;t yet trust the platform on their own, route them through institutions they already trust.</p>
+      <div class="dg-cmp"><div class="dg-ch"></div><div class="dg-ch dg-dtc">Original approach<strong>Direct to consumer</strong></div><div class="dg-ch dg-tt">Research recommendation<strong>Trust transfer (B2B2C)</strong></div><div class="dg-rl">How people meet it</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>They find the product on their own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>A self-funded employer, union or stop-loss carrier, or advocacy organization (AARP, Alzheimer&rsquo;s Association, NAACP health initiatives) offers it as a benefit.</div><div class="dg-rl">The question they ask</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span><span class="dg-q">&ldquo;Do I need this? Should I trust it? Is this for me?&rdquo;</span></div><div class="dg-tt"><span class="dg-lab">Trust transfer</span><span class="dg-q">&ldquo;My organization already chose this for me.&rdquo;</span></div><div class="dg-rl">What carries trust</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Compliance badges and HIPAA and SOC 2 disclosures, which didn&rsquo;t move the people who refused to engage.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The institution&rsquo;s credibility, borrowed before the product has earned its own.</div><div class="dg-rl">The &ldquo;not for me&rdquo; paradox</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Every signup fights optimism bias, one person at a time.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The organization frames it as relevant, so the product can prove itself at population scale.</div><div class="dg-rl">What it costs</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>A valid path, with substantial acquisition cost.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>Lower acquisition cost and less psychological friction.</div></div>
+      <p class="dg-closing">This is not a sales pivot. It is a psychological solve that routes users through the trust infrastructure they already have.</p>
+    </figure>
 <div class="strategy-item">
       <div class="strategy-tag">Primary<br>Recommendation</div>
       <div class="strategy-content">
@@ -1281,22 +1334,6 @@
 
   
 
-<div class="slc-hp">
-<!-- ══ VISUAL C: DTC vs B2B2C — bridge between Findings and Framework ══ -->
-  <div class="slc-vtag">Findings → Strategy</div>
-  <div class="slc-vtitle">Direct-to-Consumer Path <em>vs. Trust-Transfer Path</em></div>
-  <div class="slc-vdesc">The DTC path wasn't broken. It was expensive. The research surfaced a different entry point that changes the psychological math entirely.</div>
-  <div class="slc-card">
-    <div class="slc-cg">
-      <div class="slc-ch dtc"><div class="slc-chl">Original approach</div><div class="slc-chn">Direct-to-Consumer</div></div>
-      <div class="slc-ch b2"><div class="slc-chl">Research recommendation</div><div class="slc-chn">B2B2C Trust-Transfer</div></div>
-    </div>
-    <div class="slc-crow"><div class="slc-cc"><div class="slc-cdim">User's starting question</div><div class="slc-cv bad">"Do I need this? Should I trust it? Is this for me?"</div></div><div class="slc-cc b2c"><div class="slc-cdim">User's starting question</div><div class="slc-cv good">"My organization already chose this for me."</div></div></div>
-    <div class="slc-crow"><div class="slc-cc"><div class="slc-cdim">Trust mechanism</div><div class="slc-cv bad">Compliance badges. HIPAA/SOC 2 disclosures. Did not move users who refused to engage.</div></div><div class="slc-cc b2c"><div class="slc-cdim">Trust mechanism</div><div class="slc-cv good">Institutional credibility borrowed before it is earned. Employer or advocacy org validates the platform.</div></div></div>
-    <div class="slc-crow"><div class="slc-cc"><div class="slc-cdim">The "Not for Me" paradox</div><div class="slc-cv bad">Every acquisition fights Optimism Bias individually. High cost, high attrition.</div></div><div class="slc-cc b2c"><div class="slc-cdim">The "Not for Me" paradox</div><div class="slc-cv good">Aggregator relationship reframes relevance. Product proves itself at population scale.</div></div></div>
-    <div class="slc-cverd"><div class="slc-vd dtcv"><div class="slc-vt">Valid path. Substantial acquisition cost fighting psychology one person at a time.</div></div><div class="slc-vd b2v"><div class="slc-vt">This is not a sales pivot. It is a psychological solve.</div></div></div>
-  </div>
-</div>
 <section class="section">
     <div class="section-label">Collaboration</div>
     <h2 class="section-heading">Working directly with<br><em>the people who had to act on it</em></h2>
