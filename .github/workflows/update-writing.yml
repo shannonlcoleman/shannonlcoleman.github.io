@@ -3,6 +3,7 @@ name: Update Writing page
 on:
   schedule:
     - cron: "17 17 * * *" # daily, about 1pm Eastern (noon in winter)
+    - cron: "47 20 * * *" # backup run, about 4:45pm Eastern, in case the first one can't reach Substack
   workflow_dispatch: # adds a "Run workflow" button in the Actions tab
 
 permissions:
