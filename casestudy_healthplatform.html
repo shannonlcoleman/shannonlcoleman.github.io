@@ -1043,6 +1043,14 @@
     .glance-row { grid-template-columns: 1fr; gap: 4px; }
     .glance-row dd { font-size: 16px; }
   }
+
+  /* Participant quotes */
+  .pq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; margin: 36px 0; }
+  .pq { margin: 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent); }
+  .pq blockquote { margin: 0; padding: 0; border: 0; background: none; }
+  .content .pq p, .pq p { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; max-width: none; font-style: normal; }
+  .pq figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 10px; }
+  @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1187,6 +1195,12 @@
         <div class="finding-title">Trust is a feeling, not a certificate</div>
         <p class="finding-text">A meaningful segment of potential users refused to engage with the product at all due to privacy concerns, even after being informed of HIPAA and SOC 2 compliance. Compliance badges did not move them. This finding, surfaced specifically through analysis of non-completers that a standard protocol would have excluded, revealed that trust in a health data context is an emotional state, not an information problem. Telling people the product is safe is not the same as making them feel safe.</p>
       </div>
+    </div>
+
+    <div class="pq-grid">
+      <figure class="pq"><blockquote><p>&ldquo;I totally get why someone with a chronic illness or like an elderly parent would need this. It would actually be really great for my nana, but personally, I&rsquo;m super healthy so I don&rsquo;t need it.&rdquo;</p></blockquote><figcaption>Research participant, on the &ldquo;Not for Me&rdquo; Paradox</figcaption></figure>
+      <figure class="pq"><blockquote><p>&ldquo;If my primary told me, &lsquo;Hey, download this app before our next visit,&rsquo; I would probably do it. But just finding it on my own? I&rsquo;d assume it&rsquo;s for people with way more complex medical histories.&rdquo;</p></blockquote><figcaption>Research participant, on who the product is for</figcaption></figure>
+      <figure class="pq"><blockquote><p>&ldquo;I saw the page says it&rsquo;s HIPAA compliant, but nowadays everyone says they&rsquo;re secure until a data breach happens. I&rsquo;m just uncomfortable uploading my full medical records to a startup I&rsquo;ve never heard of.&rdquo;</p></blockquote><figcaption>Research participant, on trust</figcaption></figure>
     </div>
 
     <div class="insight-card">

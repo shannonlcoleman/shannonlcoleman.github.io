@@ -1160,6 +1160,14 @@
     .glance-row { grid-template-columns: 1fr; gap: 4px; }
     .glance-row dd { font-size: 16px; }
   }
+
+  /* Participant quotes */
+  .pq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; margin: 36px 0; }
+  .pq { margin: 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent); }
+  .pq blockquote { margin: 0; padding: 0; border: 0; background: none; }
+  .content .pq p, .pq p { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; max-width: none; font-style: normal; }
+  .pq figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 10px; }
+  @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1252,6 +1260,15 @@
 
 
     <p>The platform's own feedback data showed the strain before we arrived in April 2023. Of about 220 scored responses collected from August 2020 to April 2023, only 38% of users said they fully accomplished what they came to do. Another 32% said &ldquo;kind of,&rdquo; and 30% said no. Analysts made up the largest group of respondents.</p>
+
+    <div class="pq-grid">
+      <figure class="pq"><blockquote><p>&ldquo;It has taken me two months attempting to get access. Account status is still inactive.&rdquo;</p></blockquote><figcaption>Advana feedback form, before the engagement</figcaption></figure>
+      <figure class="pq"><blockquote><p>&ldquo;I can&rsquo;t find what I want and can&rsquo;t figure out how to use what I&rsquo;ve been given access to.&rdquo;</p></blockquote><figcaption>Advana feedback form, before the engagement</figcaption></figure>
+      <figure class="pq"><blockquote><p>&ldquo;Navigating the site is painful. I would say more but you have restricted the input to 101 characters.&rdquo;</p></blockquote><figcaption>Advana feedback form, before the engagement</figcaption></figure>
+    </div>
+
+    <p>That last comment points at the instrument itself. The form capped answers at about 100 characters and often appeared before people had done anything on the site, so it could flag frustration but not explain it. Understanding the problem took research designed for it.</p>
+
 
     <div class="context-box">
       <div class="context-label">The Presenting Problem</div>

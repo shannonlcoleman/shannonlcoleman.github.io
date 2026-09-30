@@ -649,6 +649,14 @@
   .db-caption { font-family: var(--sans); font-size: 13px; line-height: 1.55; color: var(--ink-3); margin-top: 16px; max-width: 68ch; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
   @media (max-width: 700px) { .db-panels { grid-template-columns: 1fr; } }
+
+  /* Participant quotes */
+  .pq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; margin: 36px 0; }
+  .pq { margin: 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent); }
+  .pq blockquote { margin: 0; padding: 0; border: 0; background: none; }
+  .content .pq p, .pq p { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; max-width: none; font-style: normal; }
+  .pq figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 10px; }
+  @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -940,10 +948,15 @@
 
     <p>The same report didn't oversell the result. 88% of Buckley users still reported at least one issue that hurt their work. Wi-Fi awareness was only 54% at Buckley and 39% at Offutt. The report also flagged a likely bottleneck in core services, including DNS and the security layer, for further analysis. Those findings are part of why the good numbers were believable.</p>
 
+    <div class="pq-grid">
+      <figure class="pq"><blockquote><p>&ldquo;The ability to take a laptop around the base and have access to all your needs has been a game-changer.&rdquo;</p></blockquote><figcaption>Survey respondent, Logistics, Buckley</figcaption></figure>
+      <figure class="pq"><blockquote><p>&ldquo;Outlook spins constantly and it takes 10-15 minutes to logon and load Outlook in the morning.&rdquo;</p></blockquote><figcaption>Survey respondent, Operations</figcaption></figure>
+    </div>
+
     <p>Surveys were one layer of the program&rsquo;s measurement framework. The rest tied what users said to what their systems recorded: survey responses linked to ServiceNow tickets, Aternity monitoring on 896 endpoints, and Dynatrace, with pulse, milestone, and touchpoint surveys timed to different moments in the user&rsquo;s experience. Between May and September 2021 that covered 12,348 service desk incidents. Centralized intake routed 98% of them correctly and resolved 87%, yet 52% took seven days or more. A satisfaction score alone would have hidden that.</p>
 
     <div class="stats-row">
-      <div class="stat"><div class="stat-num">12,348</div><div class="stat-desc">Service desk incidents analyzed</div></div>
+      <div class="stat"><div class="stat-num">12,348</div><div class="stat-desc">Service desk incidents tracked, May to September 2021</div></div>
       <div class="stat"><div class="stat-num">98%</div><div class="stat-desc">Routed correctly under centralized intake</div></div>
       <div class="stat"><div class="stat-num gold">52%</div><div class="stat-desc">Took seven days or more to resolve</div></div>
       <div class="stat"><div class="stat-num">896</div><div class="stat-desc">Endpoints monitored alongside the surveys</div></div>

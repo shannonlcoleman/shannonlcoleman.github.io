@@ -1270,6 +1270,14 @@
     .glance-row { grid-template-columns: 1fr; gap: 4px; }
     .glance-row dd { font-size: 16px; }
   }
+
+  /* Participant quotes */
+  .pq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; margin: 36px 0; }
+  .pq { margin: 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent); }
+  .pq blockquote { margin: 0; padding: 0; border: 0; background: none; }
+  .content .pq p, .pq p { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; max-width: none; font-style: normal; }
+  .pq figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 10px; }
+  @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1462,6 +1470,11 @@
     <div class="insight-box">
       <div class="insight-label">Core Finding</div>
       <p>The interface was not broken. The mental model users arrived with was built for a different product category entirely, and nothing in the flow told them otherwise.</p>
+    </div>
+
+    <div class="pq-grid">
+      <figure class="pq"><blockquote><p>&ldquo;I refreshed the page three times because I thought the transaction errored out. There was no progress bar or estimated time, so I assumed I had mistyped something and lost my funds. I was really starting to freak out!&rdquo;</p></blockquote><figcaption>Research participant, on a pending transaction</figcaption></figure>
+      <figure class="pq"><blockquote><p>&ldquo;Asking me to link a Web3 wallet before explaining how the underlying tokenized asset actually generates yield felt backward. I wanted to understand the financial product before dealing with the tech setup.&rdquo;</p></blockquote><figcaption>Research participant, on onboarding</figcaption></figure>
     </div>
 
     <p>This failure mode gets worse as the stakes increase. A user who cannot tell if their grocery order went through hits refresh. A user who cannot tell if their asset position is processing or lost does something more costly: they abandon the transaction, contact support, or do not come back. The cost of the same information gap scales with what the user believes is at risk.</p>
