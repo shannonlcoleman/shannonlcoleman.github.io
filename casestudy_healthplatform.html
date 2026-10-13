@@ -918,6 +918,27 @@
   .slc-hp .slc-tni { display: none !important; }
 
   .case-title, .section-heading { text-wrap: balance; }
+
+  /* TL;DR and collapsed full study */
+  .tldr { border-top: 1px solid var(--ink); padding-top: 14px; margin-top: 8px; }
+  .tldr-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); margin: 0 0 8px; }
+  .tldr-list { margin: 0; }
+  .tldr-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); column-gap: 40px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .tldr-row dt { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .tldr-row dd { margin: 0; font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 66ch; }
+  .key-visual { padding-top: 56px; }
+  .full-study { margin-top: 72px; border-top: 1px solid var(--ink); }
+  .full-study > summary { list-style: none; cursor: pointer; padding: 20px 0; }
+  .full-study > summary::-webkit-details-marker { display: none; }
+  .full-study > summary span { display: inline-flex; align-items: center; min-height: 46px; padding: 12px 18px; border: 1px solid var(--ink); border-radius: 2px; font: 500 15px/1.2 var(--sans); color: var(--ink); }
+  .full-study > summary span::after { content: "+"; margin-left: 10px; color: var(--accent); }
+  .full-study[open] > summary span::after { content: "\2212"; }
+  .full-study > summary:hover span { border-color: var(--accent); color: var(--accent); }
+  .full-study > summary:focus-visible { outline: none; }
+  .full-study > summary:focus-visible span { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .cs-nav-linkedin { font-size: 14px; font-weight: 500; color: var(--ink-3); text-decoration: none; margin-right: auto; margin-left: 16px; }
+  .cs-nav-linkedin:hover { color: var(--accent); }
+  @media (max-width: 700px) { .tldr-row { grid-template-columns: 1fr; row-gap: 4px; } }
 </style>
 <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"></noscript>
@@ -1120,6 +1141,7 @@
 
 <nav class="cs-nav">
   <a href="index.html" class="cs-nav-back">Portfolio</a>
+  <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
     <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
@@ -1145,53 +1167,59 @@
 <header class="masthead">
   <div class="masthead-inner">
     <div class="byline">AI Health Platform (NDA) &nbsp;|&nbsp; Coleman Advisory &nbsp;|&nbsp; 2025&ndash;2026</div>
-   <h1 class="case-title">Why a Product People Liked<br><em>Still Felt &ldquo;Not for Me&rdquo;</em></h1>
-    <p class="deck">A mixed methods research engagement uncovering the psychological barriers blocking adoption of an AI-powered personal health platform, and the strategic framework built to address them.</p>
-    <div class="meta-strip">
-      <div class="meta-item">
-        <span class="meta-label">Client</span>
-        <span class="meta-value">Early-stage AI health platform (NDA)</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Duration</span>
-        <span class="meta-value">~5 months</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">My Role</span>
-        <span class="meta-value">Solo researcher and strategist</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Methods</span>
-        <span class="meta-value">Mixed methods</span>
-      </div>
-    </div>
+    <h1 class="case-title">Why a Product People Liked Still Felt &ldquo;Not for Me&rdquo;</h1>
+    <p class="deck">Usability research for an early-stage AI health platform that people liked but weren&rsquo;t signing up for.</p>
   </div>
 </header>
 
 <main class="content">
 
-  <section class="glance" aria-labelledby="glance-label">
-    <h2 class="glance-label" id="glance-label">At a glance</h2>
-    <dl class="glance-list">
-      <div class="glance-row"><dt>Goal</dt><dd>Find out where and why people dropped off before becoming active users of an early-stage AI health platform.</dd></div>
-      <div class="glance-row"><dt>Methods</dt><dd>Screener survey, 8 moderated think-aloud sessions, post-session interviews, and analysis of people who refused to try the product, over about five months.</dd></div>
-      <div class="glance-row"><dt>My role</dt><dd>Solo researcher and strategist, from recruiting through strategy.</dd></div>
-      <div class="glance-row"><dt>Key insight</dt><dd>The product wasn't broken. The entry point was. People saw its value but decided it was “not for me,” and a trust gap made direct-to-consumer growth expensive.</dd></div>
-      <div class="glance-row"><dt>Impact</dt><dd>The founders added outreach to employers, unions, AARP, and NAACP, started re-engagement emails for trial users, and extended the engagement for months of planning built on the Trust-Transfer Model.</dd></div>
+  <section class="tldr" aria-labelledby="tldr-label">
+    <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
+    <dl class="tldr-list">
+      <div class="tldr-row"><dt>What changed</dt><dd>The founders added employer and union channels alongside direct-to-consumer, and started re-engagement emails for trial users who never converted. Outreach to advocacy groups such as AARP and NAACP was underway when the engagement ended.</dd></div>
+      <div class="tldr-row"><dt>My role</dt><dd>Solo researcher and strategist working directly with the founders, from recruiting participants through recommendations</dd></div>
+      <div class="tldr-row"><dt>Timeline</dt><dd>About 5 months: 2 of research and synthesis, 3 of advisory</dd></div>
+      <div class="tldr-row"><dt>Why it mattered</dt><dd>The company needed growth beyond early adopters. The research showed that selling direct to consumers meant paying to overcome distrust one person at a time, so the go-to-market plan shifted toward partners people already trust.</dd></div>
     </dl>
   </section>
 
+  <section class="section key-visual">
+<figure class="dg-fig">
+      <div class="dg-tag">Who the research heard from</div>
+      <div class="dg-heading">The people who said no outnumbered the people who tried it</div>
+      <div class="dg-units">
+        <div>
+          <div class="dg-dots" aria-hidden="true"><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span></div>
+          <div class="dg-count">8</div>
+          <div class="dg-glabel">Moderated think-aloud sessions</div>
+          <p class="dg-gtext">Near-universal concept acceptance. Many still saw the product as meant for someone else.</p>
+        </div>
+        <div>
+          <div class="dg-dots" aria-hidden="true"><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span></div>
+          <div class="dg-count">11</div>
+          <div class="dg-glabel">Declined to engage</div>
+          <p class="dg-gtext">Refused over privacy and trust, even after hearing about HIPAA and SOC 2 compliance.</p>
+        </div>
+      </div>
+      <figcaption class="dg-caption">Most protocols would have dropped the second group as non-completers. Here it was the larger group, and it surfaced the trust gap.</figcaption>
+    </figure>
+  </section>
+
+  <details class="full-study">
+    <summary><span>Read the full case study</span></summary>
+
   <section class="section">
-    <div class="section-label">Context</div>
-    <h2 class="section-heading">A product with strong fundamentals,<br><em>and a growth problem</em></h2>
-    <p>The client was an early-stage AI health platform designed to act as a personal medical command center, helping patients consolidate their health history, prepare for appointments, and catch potential diagnostic errors before they happen. The founders had validated the core technology and had early clinical backing, but were struggling to convert awareness into active users at scale.</p>
-    <p>I was brought in to conduct usability research and help the team understand where and why users were dropping off. What I found was more fundamental than a UX friction problem.</p>
+    <div class="section-label">The situation</div>
+    <h2 class="section-heading">A product that worked and a growth problem</h2>
+    <p>The client was an early-stage AI health platform built to work like a personal medical command center: one place for your health history, appointment prep, and a check on possible diagnostic errors. The technology worked and had early clinical backing. Getting people to sign up and stay was the problem.</p>
+    <p>I was brought in to run usability research and find out where people were dropping off. I worked directly with the founders, with no PM or design team in between, and presented findings that challenged the go-to-market plan they had built.</p>
   </section>
 
   <section class="section">
     <div class="section-label">Approach</div>
-    <h2 class="section-heading">A multi-method study designed to<br><em>follow the real story</em></h2>
-    <p>I recruited and screened participants independently, targeting a range of ages, health engagement levels, and tech comfort. Sessions were conducted remotely via moderated Zoom. Critically, I also documented and analyzed conversations with individuals who refused to engage with the product at all, a group most research protocols would simply exclude as non-completers.</p>
+    <h2 class="section-heading">Following the people who said no</h2>
+    <p>I recruited and screened everyone myself, across a range of ages, health engagement, and comfort with technology, and ran the sessions over Zoom. I also kept careful notes on the people who refused to try the product at all. Most studies drop that group as non-completers. Here they turned out to be the most useful people in the study.</p>
 
     <div class="methods-grid">
       <div class="method-card">
@@ -1224,51 +1252,30 @@
 
   <section class="section">
     <div class="section-label">Findings</div>
-    <h2 class="section-heading">The product wasn't broken.<br><em>The entry point was.</em></h2>
-
-    <p>Usability testing revealed a small number of interface-level friction points, but these were not the primary story. Near-universal concept acceptance among participants who completed the intake suggested the core product was sound. The more significant findings were psychological.</p>
-
-    <figure class="dg-fig">
-      <div class="dg-tag">Who the research heard from</div>
-      <div class="dg-heading">The people who said no outnumbered the people who tried it</div>
-      <div class="dg-units">
-        <div>
-          <div class="dg-dots" aria-hidden="true"><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span><span style="background:#2f5f6b"></span></div>
-          <div class="dg-count">8</div>
-          <div class="dg-glabel">Moderated think-aloud sessions</div>
-          <p class="dg-gtext">Near-universal concept acceptance. Many still saw the product as meant for someone else.</p>
-        </div>
-        <div>
-          <div class="dg-dots" aria-hidden="true"><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span><span style="background:#9b3a22"></span></div>
-          <div class="dg-count">11</div>
-          <div class="dg-glabel">Declined to engage</div>
-          <p class="dg-gtext">Refused over privacy and trust, even after hearing about HIPAA and SOC 2 compliance.</p>
-        </div>
-      </div>
-      <figcaption class="dg-caption">Most protocols would have dropped the second group as non-completers. Here it was the larger group, and it surfaced the trust gap.</figcaption>
-    </figure>
+    <h2 class="section-heading">People liked it. Many decided it wasn&rsquo;t for them.</h2>
+    <p>The interface had a few rough spots, but nothing that explained the drop-off. Everyone who finished the intake understood what the product did and why it mattered. The bigger findings were about how people saw themselves.</p>
 
     <div class="finding">
       <div class="finding-num">1</div>
       <div class="finding-body">
-        <div class="finding-title">Near-universal concept acceptance</div>
-        <p class="finding-text">Every participant who completed the intake understood the value proposition clearly. There was no confusion about what the product does or why it matters. Usability, at the feature level, was solid.</p>
+        <div class="finding-title">Strong concept acceptance</div>
+        <p class="finding-text">Every participant who completed the intake understood what the product does and why it matters. Usability at the feature level held up.</p>
       </div>
     </div>
 
     <div class="finding">
       <div class="finding-num">2</div>
       <div class="finding-body">
-        <div class="finding-title">The "Not for Me" Paradox</div>
-        <p class="finding-text">Users consistently recognized the product as genuinely valuable, but for other people. They described it as "something impactful" and "something I'd use if my doctor told me to," while not yet seeing themselves as the primary user. This is a clinical application of Optimism Bias: the tendency to believe health risks and health management needs apply more to others than to oneself. I named this the <strong>"Not for Me" Paradox</strong>, a personal relevance gap that creates adoption inertia even in the presence of genuine product understanding.</p>
+        <div class="finding-title">The &ldquo;Not for Me&rdquo; Paradox</div>
+        <p class="finding-text">People called the product valuable for someone else: a parent, a grandparent, a friend with a chronic illness. Some said they would use it if their doctor told them to. That&rsquo;s optimism bias, the belief that health risks apply more to other people, and I named it the &ldquo;Not for Me&rdquo; Paradox so the founders had a handle for it.</p>
       </div>
     </div>
 
     <div class="finding">
       <div class="finding-num">3</div>
       <div class="finding-body">
-        <div class="finding-title">Trust is a feeling, not a certificate</div>
-        <p class="finding-text">A meaningful segment of potential users refused to engage with the product at all due to privacy concerns, even after being informed of HIPAA and SOC 2 compliance. Compliance badges did not move them. This finding, surfaced specifically through analysis of non-completers that a standard protocol would have excluded, revealed that trust in a health data context is an emotional state, not an information problem. Telling people the product is safe is not the same as making them feel safe.</p>
+        <div class="finding-title">Compliance badges didn&rsquo;t build trust</div>
+        <p class="finding-text">Eleven people refused to try the product over privacy, even after hearing it was HIPAA and SOC 2 compliant. For them, feeling safe was something the product hadn&rsquo;t earned yet, and a badge on the page couldn&rsquo;t supply it.</p>
       </div>
     </div>
 
@@ -1279,139 +1286,86 @@
     </div>
 
     <div class="insight-card">
-      <div class="callout-label">Core Insight</div>
-      <div class="insight-title">"Between the 'Not for Me' Paradox and the Trust Gap, these hesitations create high friction for a purely direct-to-consumer launch, creating risk of substantial acquisition costs fighting psychology one person at a time."</div>
-      <p>The implication was clear: the direct-to-consumer path wasn't broken, but it was expensive. A different entry point could change the psychological math entirely.</p>
+      <div class="callout-label">What it meant for growth</div>
+      <div class="insight-title">Selling direct to consumers would mean paying to overcome distrust and optimism bias one person at a time.</div>
     </div>
   </section>
 
   <section class="section">
-    <div class="section-label">Strategic Framework</div>
-    <h2 class="section-heading">Don't change the product.<br><em>Change the context in which people meet it.</em></h2>
+    <div class="section-label">Recommendations</div>
+    <h2 class="section-heading">Meet people through someone they already trust</h2>
+    <p>I built the Trust-Transfer Model around one idea. If people don&rsquo;t trust a new health startup yet, introduce it through an institution they already trust, like their employer or union. The question in their head changes from &ldquo;Do I need this?&rdquo; to &ldquo;My organization already picked this for me.&rdquo;</p>
 
-    <p>Based on the research findings, I developed a Trust-Transfer Model as the strategic response. The core logic: if individual users don't yet trust the platform on their own, route them through institutions they already trust. When a self-funded employer, union, or advocacy organization introduces the product as a benefit, they transfer their credibility to it. The user's internal question shifts from "Do I need to buy this?" to "This is something my organization already chose for me."</p>
-
-    
-<figure class="dg-fig">
+    <figure class="dg-fig">
       <div class="dg-tag">Strategic Framework</div>
       <div class="dg-heading">The Trust-Transfer Model</div>
       <p class="dg-desc">If individual users don&rsquo;t yet trust the platform on their own, route them through institutions they already trust.</p>
       <div class="dg-cmp"><div class="dg-ch"></div><div class="dg-ch dg-dtc">Original approach<strong>Direct to consumer</strong></div><div class="dg-ch dg-tt">Research recommendation<strong>Trust transfer (B2B2C)</strong></div><div class="dg-rl">How people meet it</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>They find the product on their own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>A self-funded employer, union or stop-loss carrier, or advocacy organization (AARP, Alzheimer&rsquo;s Association, NAACP health initiatives) offers it as a benefit.</div><div class="dg-rl">The question they ask</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span><span class="dg-q">&ldquo;Do I need this? Should I trust it? Is this for me?&rdquo;</span></div><div class="dg-tt"><span class="dg-lab">Trust transfer</span><span class="dg-q">&ldquo;My organization already chose this for me.&rdquo;</span></div><div class="dg-rl">What carries trust</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Compliance badges and HIPAA and SOC 2 disclosures, which didn&rsquo;t move the people who refused to engage.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The institution&rsquo;s credibility, borrowed before the product has earned its own.</div><div class="dg-rl">The &ldquo;not for me&rdquo; paradox</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Every signup fights optimism bias, one person at a time.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The organization frames it as relevant, so the product can prove itself at population scale.</div><div class="dg-rl">What it costs</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>A valid path, with substantial acquisition cost.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>Lower acquisition cost and less psychological friction.</div></div>
-      <p class="dg-closing">This is not a sales pivot. It is a psychological solve that routes users through the trust infrastructure they already have.</p>
     </figure>
-<div class="strategy-item">
+    <div class="strategy-item">
       <div class="strategy-tag">Primary<br>Recommendation</div>
       <div class="strategy-content">
-        <div class="strategy-title">B2B2C Trust-Transfer Model</div>
-        <p class="finding-text">Partner with self-funded employers, stop-loss carriers, unions, and other high-trust aggregators to offer subsidized or benefit-packaged access. Target verticals where the value proposition is immediately legible to the employer: burnout reduction for healthcare workers, billable hour protection for professionals in the sandwich generation, absenteeism reduction in manufacturing. This is not a sales pivot. It is a psychological solve.</p>
+        <div class="strategy-title">Offer it through employers and unions</div>
+        <p class="finding-text">Partner with self-funded employers, stop-loss carriers, unions, and other trusted groups to offer the product as a benefit. Start where the value is easy for the employer to see: burnout among healthcare workers, time lost by professionals caring for aging parents, and absenteeism in manufacturing.</p>
       </div>
     </div>
 
     <div class="strategy-item">
       <div class="strategy-tag">Complementary<br>Channel</div>
       <div class="strategy-content">
-        <div class="strategy-title">Patient and Caretaker Advocacy Alignment</div>
-        <p class="finding-text">Endorsements from established advocacy organizations (e.g., Alzheimer's Association, caretaker alliances, AARP, NAACP health initiatives) function as trust validators at the top of the funnel, lowering the "Not for Me" barrier for organic direct-to-consumer users without requiring subsidized access.</p>
+        <div class="strategy-title">Borrow trust from advocacy groups</div>
+        <p class="finding-text">Seek endorsements from groups like the Alzheimer&rsquo;s Association, caregiver alliances, AARP, and NAACP health initiatives, so people who find the product on their own see a name they already trust.</p>
       </div>
     </div>
 
     <div class="strategy-item">
       <div class="strategy-tag">Validation<br>Before Scale</div>
       <div class="strategy-content">
-        <div class="strategy-title">30-Day Signal-First Learning Plan</div>
-        <p class="finding-text">Rather than recommending a full go-to-market shift, I proposed a lightweight 30-day pilot designed to test whether the trust-transfer entry point actually reduces the friction observed in research. The goal was signal, not scale, with a clear stop condition if the signal was not there.</p>
+        <div class="strategy-title">Run a 30-day pilot first</div>
+        <p class="finding-text">Test the partner approach with a 30-day pilot before shifting the whole go-to-market plan, with a clear point to stop if it didn&rsquo;t reduce the friction we saw in research.</p>
       </div>
     </div>
 
     <div class="strategy-item">
       <div class="strategy-tag">Retention<br>Quick Win</div>
       <div class="strategy-content">
-        <div class="strategy-title">Free Trial Re-Engagement</div>
-        <p class="finding-text">Web analytics identified a gap in follow-up with users who completed free trial signup but did not convert. I recommended a structured re-engagement email sequence targeting this segment, a low-cost, high-ROI intervention given the acquisition cost already spent to reach them.</p>
+        <div class="strategy-title">Follow up with trial users</div>
+        <p class="finding-text">Analytics showed no follow-up with people who started a free trial and didn&rsquo;t subscribe. I recommended a short re-engagement email sequence for them, since the cost of reaching them had already been spent.</p>
       </div>
     </div>
-  </section>
-
-  
-
-<section class="section">
-    <div class="section-label">Collaboration</div>
-    <h2 class="section-heading">Working directly with<br><em>the people who had to act on it</em></h2>
-
-    <p>This engagement had a fundamentally different collaboration structure than large institutional projects. There was no PM layer, no approval chain, no separate product or design team sitting between research and decision-making. I worked directly with the founders, which meant findings landed immediately with the people who had both the authority and the motivation to act on them.</p>
-
-    <p>That directness is a double-edged thing. It accelerates impact but also means the researcher carries more responsibility for how findings are framed. There is no internal advocate to translate the work before it reaches leadership. I presented the research myself, fielded questions myself, and navigated the moment when findings challenged assumptions the founders had built their go-to-market strategy around. Doing that without losing the relationship, and in fact extending it into several months of ongoing strategic conversations, required as much communication skill as research skill.</p>
-
-    <p>I recruited and screened all research participants independently, which added coordination work but also gave me full control over sample composition and ensured the participant pool genuinely reflected the range of users the product needed to reach.</p>
 
   </section>
 
   <section class="section">
-    <div class="section-label">What I'd Do Differently</div>
-    <h2 class="section-heading">Three things I would<br><em>change in retrospect</em></h2>
-
+    <div class="section-label">What I&rsquo;d do differently</div>
+    <h2 class="section-heading">Three changes in hindsight</h2>
     <div class="finding">
       <div class="finding-num">1</div>
       <div class="finding-body">
-        <div class="finding-title">Test the onboarding flow specifically, not just the product</div>
-        <p>The research surfaced that the entry point was the core problem, but the usability sessions were designed around the product as a whole rather than isolating the onboarding sequence as its own test object. A dedicated onboarding study, with tasks and scenarios built specifically around first-time activation, would have produced more granular and immediately actionable findings about exactly where trust broke down and why.</p>
+        <div class="finding-title">Test onboarding on its own</div>
+        <p class="finding-text">The research pointed to the entry point as the problem, but the sessions covered the whole product. A study built only around first-time activation would have shown exactly where trust broke down.</p>
       </div>
     </div>
 
     <div class="finding">
       <div class="finding-num">2</div>
       <div class="finding-body">
-        <div class="finding-title">Push harder for a follow-up study after implementation</div>
-        <p>The founders implemented several recommendations, but the primary actions were strategic and channel-level rather than interface-level, which meant there was no redesigned onboarding flow to bring back into a usability lab. I would advocate earlier and more explicitly for prioritizing at least one interface change alongside the strategic ones, specifically to the onboarding sequence, so that a follow-up study had something concrete to test and the research loop could close with measured evidence rather than staying open.</p>
+        <div class="finding-title">Push for one interface change to measure</div>
+        <p class="finding-text">The founders&rsquo; changes were about channels, not the interface, so there was nothing new to bring back into testing. I would push for one onboarding change alongside the strategy work, so a follow-up study could measure the result.</p>
       </div>
     </div>
 
     <div class="finding">
       <div class="finding-num">3</div>
       <div class="finding-body">
-        <div class="finding-title">Include caregivers as a formal participant segment from the start</div>
-        <p>The research surfaced caregivers as a high-potential user segment during analysis, but they were not explicitly recruited as part of the original study design. Including them as a named segment upfront, with dedicated screener criteria and tailored interview questions, would have produced richer findings about that group and potentially accelerated the B2B2C channel recommendation that came out of the engagement.</p>
+        <div class="finding-title">Recruit caregivers from the start</div>
+        <p class="finding-text">Caregivers came up during analysis as a strong segment, but I hadn&rsquo;t recruited them on purpose. Building them into the screener from day one would have given that group its own findings and likely sped up the partner recommendation.</p>
       </div>
     </div>
 
   </section>
 
-  <section class="section">
-    <div class="section-label">Impact</div>
-    <h2 class="section-heading">The founders <em>acted on it.</em></h2>
-
-    <p>Following the research presentation, the founders continued the engagement for several months of strategic planning conversations, a signal that the findings landed with credibility and utility. Concrete organizational changes included:</p>
-
-    <div class="impact-grid">
-      <div class="impact-item">
-        <div class="impact-label">Channel Expansion</div>
-        <p class="impact-text">Added B2B2C outreach to employers, unions, AARP, and NAACP alongside existing direct-to-consumer efforts</p>
-      </div>
-      <div class="impact-item">
-        <div class="impact-label">Retention Activation</div>
-        <p class="impact-text">Implemented free trial re-engagement email sequences for users who signed up but did not subscribe</p>
-      </div>
-      <div class="impact-item">
-        <div class="impact-label">Strategic Clarity</div>
-        <p class="impact-text">Founders gained a named framework (Trust-Transfer Model) to anchor go-to-market decisions going forward</p>
-      </div>
-      <div class="impact-item">
-        <div class="impact-label">Extended Engagement</div>
-        <p class="impact-text">Research engagement extended into ongoing strategic advisory conversations over several additional months</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">Reflection</div>
-    <h2 class="section-heading">What this project<br><em>was really about</em></h2>
-
-    <div class="reflection">
-      <p>The most important methodological decision in this project was treating the people who refused to participate as data. A standard usability protocol would have screened them out or noted them as non-completers and moved on. Instead, I documented those conversations carefully, and they became the foundation of the Trust Gap finding, and arguably the most strategically significant insight in the study.</p>
-      <p>The "Not for Me" Paradox framing came from recognizing that what looked like a product problem was actually a psychological positioning problem. Optimism Bias is well-documented in health behavior research; applying it to digital health platform adoption and naming it in a way founders could act on was the translation work that made the research useful rather than just interesting.</p>
-      <p style="margin-bottom:0;">The broader lesson: research that stops at findings is only half the job. The value is in what happens next.</p>
-    </div>
-  </section>
+  </details>
 
 </main>
 
