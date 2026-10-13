@@ -449,8 +449,9 @@
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    object-position: center 20%;
     margin: 16px 0 4px;
   }
 
@@ -472,7 +473,8 @@
 
   .about-text p strong { color: var(--ink); font-weight: 600; }
 
-  .about-sidebar { border-top: 1px solid var(--ink); }
+  .about-sidebar { border-top: none; }
+  .about-sidebar .about-photo { margin-top: 0; }
 
   .sidebar-block {
     padding: 16px 0 22px;
@@ -745,6 +747,30 @@
       linear-gradient(90deg, var(--accent) 2px, transparent 2px) left top / calc((100% - 2px) / 20) 7px repeat-x;
   }
   .gt-ruler + .writing-link, .gt-ruler ~ .writing-link:first-of-type { border-top: 0; }
+
+  /* Header: name with LinkedIn beside it */
+  .site-id { display: flex; align-items: baseline; gap: 14px; }
+  .site-linkedin { font-size: 14px; font-weight: 500; color: var(--ink-3); text-decoration: none; border-bottom: 1px solid transparent; }
+  .site-linkedin:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Case study TL;DR */
+  .cs-tldr { margin: 0; }
+  .cs-tldr > div { padding: 0 0 14px; }
+  .cs-tldr > div + div { border-top: 1px solid var(--rule); padding-top: 12px; }
+  .cs-tldr dt { font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); margin-bottom: 4px; }
+  .cs-tldr dd { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+
+  /* About: early field notes callout */
+  .field-notes { margin-top: 24px; border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 18px 20px 6px; background: var(--paper); }
+  .field-notes-head { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 20px; color: var(--ink); margin-bottom: 14px; }
+  .field-notes-icon { color: var(--accent); flex: none; }
+  .field-notes dl { margin: 0; }
+  .field-notes dl > div { margin-bottom: 12px; }
+  .field-notes dt { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); }
+  .field-notes dd { margin: 2px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+  .field-notes-box { width: 12px; height: 12px; border: 1.25px solid var(--accent); border-radius: 1px; display: inline-block; }
+
+  .writing-intro { font-size: 17px; color: var(--ink-2); line-height: 1.7; margin-bottom: 32px; max-width: 62ch; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -762,7 +788,10 @@
 
 <!-- HEADER -->
 <header class="site-header">
-  <a href="#" class="site-logo">Shannon L. Coleman</a>
+  <div class="site-id">
+    <a href="#" class="site-logo">Shannon L. Coleman</a>
+    <a href="https://linkedin.com/in/shannonlcoleman" class="site-linkedin" target="_blank" rel="noopener" aria-label="Shannon Coleman on LinkedIn">LinkedIn&nbsp;&#8599;</a>
+  </div>
   <nav class="site-nav">
     <a href="#work">Work</a>
     <a href="#about">About</a>
@@ -782,11 +811,9 @@
     <h1 class="hero-name">Shannon L.<br><em>Coleman</em></h1>
     <div class="hero-credential">PhD &nbsp;&bull;&nbsp; Secret Clearance (Inactive)</div>
     <p class="hero-title">Principal Mixed Methods Researcher and Strategist with 10+ years of qualitative and quantitative research shaping product roadmaps, go-to-market strategy, and AI platforms.</p>
-    <p class="hero-bio">I know when a regression model answers the question and when you need to sit with a person for an hour and just listen. <strong>The best product decisions are built on both.</strong></p>
+    <p class="hero-bio">I know when a question needs a regression model and when it needs an hour of sitting with someone and just listening.</p>
     <div class="hero-links">
       <a href="#work" class="btn-primary">View Case Studies</a>
-      <a href="https://linkedin.com/in/shannonlcoleman" class="btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://byshannoncoleman.substack.com/?utm_source=portfolio&amp;utm_medium=homepage-hero&amp;utm_campaign=site" class="btn-secondary" target="_blank" rel="noopener">Ground Truth</a>
       <a href="https://shannonlcoleman.com/capability-measurement-tool" class="btn-secondary" target="_blank" rel="noopener">Capability Tool</a>
       <a href="resume.html" class="btn-secondary">Resume</a>
     </div>
@@ -805,105 +832,21 @@
 
 
 
-    <div class="impact-strip">
-      <div class="impact-stat">
-        <div class="impact-stat-num"><em>$15B</em></div>
-        <div class="impact-stat-label">Contract value<br>informed</div>
-      </div>
-      <div class="impact-stat">
-        <div class="impact-stat-num"><em>100K+</em></div>
-        <div class="impact-stat-label">Enterprise AI<br>analytics users</div>
-      </div>
-      <div class="impact-stat">
-        <div class="impact-stat-num"><em>~1,000</em></div>
-        <div class="impact-stat-label">Research panel<br>participants</div>
-      </div>
-      <div class="impact-stat">
-        <div class="impact-stat-num"><em>800K+</em></div>
-        <div class="impact-stat-label">Air Force<br>personnel served</div>
-      </div>
-      <div class="impact-stat">
-        <div class="impact-stat-num"><em>28%</em></div>
-        <div class="impact-stat-label">Lift in<br>screener conversions</div>
-      </div>
-    </div>
-
-
-
-
     <div class="case-studies">
-
-
-
-
-      <!-- EITaaS -->
-      <a href="casestudy_eitaas.html" class="cs-card">
-        <div class="cs-bar"></div>
-        <div class="cs-body">
-          <div class="cs-meta">Department of the Air Force &nbsp;&bull;&nbsp; 2022&ndash;2023 &nbsp;&bull;&nbsp; Enterprise IT Transformation</div>
-          <div class="cs-title">When the Measure of Success<br><em>Is Whether Airmen Can Do Their Jobs</em></div>
-          <img class="cs-thumb" src="images/thumb-eitaas.jpg" alt="Challenge coin from the U.S. Air Force Chief Experience Officer, awarded for the EITaaS research" width="800" height="400" loading="lazy" decoding="async">
-          <div class="cs-side">
-            <p class="cs-desc">Persona development, XLA framework design, and pre/post satisfaction research for the Air Force's enterprise IT transformation program. Research findings shaped contract requirements and provisioning strategy across nine pilot installations.</p>
-            <div class="cs-tags">
-              <span class="cs-tag">Persona Development</span>
-              <span class="cs-tag">XLA Framework</span>
-              <span class="cs-tag">Survey Research</span>
-              <span class="cs-tag">GovTech</span>
-              <span class="cs-tag">Strategic Advisory</span>
-            </div>
-          </div>
-        </div>
-        <div class="cs-arrow-wrap">
-          <div class="cs-arrow">Read &rarr;</div>
-        </div>
-      </a>
-
-
-
-
-      <!-- Advana -->
-      <a href="casestudy_advana.html" class="cs-card">
-        <div class="cs-bar"></div>
-        <div class="cs-body">
-          <div class="cs-meta">DoD CDAO &nbsp;&bull;&nbsp; 2023&ndash;2024 &nbsp;&bull;&nbsp; Enterprise AI &amp; Analytics Platform</div>
-          <div class="cs-title">When a Platform Becomes<br><em>a Victim of Its Own Success</em></div>
-          <img class="cs-thumb" src="images/thumb-advana.jpg" alt="Bar chart from the Advana CX survey: 36% of users found content difficult to find, and 20% found it very or extremely easy" width="800" height="400" loading="lazy" decoding="async">
-          <div class="cs-side">
-            <p class="cs-desc">Enterprise-scale user research, persona validation, and product roadmap development for Advana, the Department of Defense's AI and analytics platform serving 100,000+ users. Research informed a $15 billion recompete and a program-level development pause.</p>
-            <div class="cs-tags">
-              <span class="cs-tag">Mixed Methods</span>
-              <span class="cs-tag">Product Roadmap</span>
-              <span class="cs-tag">Persona Validation</span>
-              <span class="cs-tag">Information Architecture</span>
-              <span class="cs-tag">GovTech</span>
-            </div>
-          </div>
-        </div>
-        <div class="cs-arrow-wrap">
-          <div class="cs-arrow">Read &rarr;</div>
-        </div>
-      </a>
-
-
-
 
       <!-- Health Platform -->
       <a href="casestudy_healthplatform.html" class="cs-card">
         <div class="cs-bar"></div>
         <div class="cs-body">
-          <div class="cs-meta">Early-Stage Startup &nbsp;&bull;&nbsp; 2025&ndash;2026 &nbsp;&bull;&nbsp; AI Health Platform</div>
-          <div class="cs-title">Why a Product People Liked<br><em>Still Felt &ldquo;Not for Me&rdquo;</em></div>
+          <div class="cs-meta">AI Health Platform (NDA) &nbsp;&bull;&nbsp; 2025&ndash;2026</div>
+          <div class="cs-title">Why a Product People Liked Still Felt &ldquo;Not for Me&rdquo;</div>
           <img class="cs-thumb" src="images/thumb-healthplatform.jpg" alt="16,000+ users, grown from a few" width="800" height="400" loading="lazy" decoding="async">
           <div class="cs-side">
-            <p class="cs-desc">Usability research and strategic framework development for an AI-powered personal health platform struggling to convert awareness into active users. Research surfaced a trust gap at onboarding and produced the Trust-Transfer Model that reoriented the founders' go-to-market strategy.</p>
-            <div class="cs-tags">
-              <span class="cs-tag">Usability Research</span>
-              <span class="cs-tag">Strategic Framework</span>
-              <span class="cs-tag">HealthTech</span>
-              <span class="cs-tag">Go-to-Market</span>
-              <span class="cs-tag">Early Stage</span>
-            </div>
+            <dl class="cs-tldr">
+              <div><dt>What changed</dt><dd>The founders added employer, union, AARP, and NAACP channels alongside direct-to-consumer, and started re-engagement emails for trial users who never converted.</dd></div>
+              <div><dt>My role</dt><dd>Solo researcher and strategist, from recruiting through recommendations.</dd></div>
+              <div><dt>Timeline</dt><dd>About 2 months of research and synthesis, then about 3 months of advisory.</dd></div>
+            </dl>
           </div>
         </div>
         <div class="cs-arrow-wrap">
@@ -911,29 +854,19 @@
         </div>
       </a>
 
-
-
-
-
-
-
-
-      <!-- Research Panel -->
-      <a href="casestudy_researchpanel.html" class="cs-card">
+      <!-- Advana -->
+      <a href="casestudy_advana.html" class="cs-card">
         <div class="cs-bar"></div>
         <div class="cs-body">
-          <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022 &nbsp;&bull;&nbsp; Research Operations</div>
-          <div class="cs-title">Building Research Infrastructure<br><em>Regulated Industries Will Actually Trust</em></div>
-          <img class="cs-thumb" src="images/thumb-researchpanel.jpg" alt="~1,000 participant panel, built from zero" width="800" height="400" loading="lazy" decoding="async">
+          <div class="cs-meta">DoD CDAO &nbsp;&bull;&nbsp; 2023&ndash;2024</div>
+          <div class="cs-title">When a Platform Becomes a Victim of Its Own Success</div>
+          <img class="cs-thumb" src="images/thumb-advana.jpg" alt="Bar chart from the Advana CX survey: 36% of users found content difficult to find, and 20% found it very or extremely easy" width="800" height="400" loading="lazy" decoding="async">
           <div class="cs-side">
-            <p class="cs-desc">Solo build of a ~1,000 participant proprietary research panel under HIPAA-adjacent and FDIC-regulated constraints, serving F100 pharma clients including Pfizer, Eli Lilly, Merck, J&amp;J, and AbbVie, and M&amp;T Bank. Includes compliance stack design, referral attribution logic, and the decision to refuse a shortcut that would have compromised the whole thing.</p>
-            <div class="cs-tags">
-              <span class="cs-tag">Research Operations</span>
-              <span class="cs-tag">Panel Development</span>
-              <span class="cs-tag">Compliance Architecture</span>
-              <span class="cs-tag">HealthTech</span>
-              <span class="cs-tag">FinTech</span>
-            </div>
+            <dl class="cs-tldr">
+              <div><dt>What changed</dt><dd>A redesigned navigation, content model, and clickable prototype for a 100,000+ user AI and analytics platform. DoD paused development in June 2024 to fix infrastructure, as recommended, and the $15B recompete centered on a modular architecture.</dd></div>
+              <div><dt>My role</dt><dd>Lead researcher and platform strategist on a cross-functional team.</dd></div>
+              <div><dt>Timeline</dt><dd>About a year, April 2023 to April 2024.</dd></div>
+            </dl>
           </div>
         </div>
         <div class="cs-arrow-wrap">
@@ -941,61 +874,86 @@
         </div>
       </a>
 
-
-
-
-      <!-- Web3 Fintech -->
-      <a href="casestudy_web3fintech.html" class="cs-card">
+      <!-- EITaaS -->
+      <a href="casestudy_eitaas.html" class="cs-card">
         <div class="cs-bar"></div>
         <div class="cs-body">
-          <div class="cs-meta">Tokenized Asset Platform (NDA) &nbsp;&bull;&nbsp; Consumer FinTech</div>
-          <div class="cs-title">When &ldquo;Pending&rdquo;<br><em>Looked Like Lost Money</em></div>
-          <img class="cs-thumb" src="images/thumb-web3fintech.jpg" alt="Friction map: 11 of 17 friction points in transaction state legibility, 4 in onboarding flow, and 2 in regulatory communication" width="800" height="400" loading="lazy" decoding="async">
+          <div class="cs-meta">Department of the Air Force &nbsp;&bull;&nbsp; 2022&ndash;2023</div>
+          <div class="cs-title">When the Measure of Success Is Whether Airmen Can Do Their Jobs</div>
+          <img class="cs-thumb" src="images/thumb-eitaas.jpg" alt="Challenge coin from the U.S. Air Force Chief Experience Officer, awarded for the EITaaS research" width="800" height="400" loading="lazy" decoding="async">
           <div class="cs-side">
-            <p class="cs-desc">UX audit and friction mapping for a consumer-facing tokenized asset platform navigating the intersection of TradFi compliance and DeFi mechanics. Research identified 17 distinct friction points concentrated in transaction state legibility, and produced an executive roadmap that reframed a UX problem and a regulatory communication failure as a single unified challenge.</p>
-            <div class="cs-tags">
-              <span class="cs-tag">UX Audit</span>
-              <span class="cs-tag">Friction Mapping</span>
-              <span class="cs-tag">FinTech</span>
-              <span class="cs-tag">Web3</span>
-              <span class="cs-tag">Strategic Advisory</span>
-            </div>
+            <dl class="cs-tldr">
+              <div><dt>What changed</dt><dd>Five personas and a set of Experience Level Agreements went into the requirements for a $5.7B contract. At one pilot base, network satisfaction rose 24 points after the upgrades.</dd></div>
+              <div><dt>My role</dt><dd>Research lead and advisor to Air Force program leadership.</dd></div>
+              <div><dt>Timeline</dt><dd>2022 to 2023, across nine pilot installations.</dd></div>
+            </dl>
           </div>
         </div>
         <div class="cs-arrow-wrap">
           <div class="cs-arrow">Read &rarr;</div>
         </div>
       </a>
-
-
-
-
-
-
-
 
       <!-- Funnel Performance -->
       <a href="casestudy_funnelperformance.html" class="cs-card">
         <div class="cs-bar"></div>
         <div class="cs-body">
-          <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022 &nbsp;&bull;&nbsp; Campaign &amp; Funnel Performance</div>
-          <div class="cs-title">When the Best&#8209;Performing Channel<br><em>Converted Almost No One</em></div>
+          <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022</div>
+          <div class="cs-title">When the Best&#8209;Performing Channel Converted Almost No One</div>
           <img class="cs-thumb" src="images/thumb-funnelperformance.jpg" alt="Bar chart comparing click-through rate and screener conversion rate for Google paid search, Bing and Yahoo paid search, and paid social" width="800" height="400" loading="lazy" decoding="async">
           <div class="cs-side">
-            <p class="cs-desc">Full-funnel tracking across concurrent F100 pharmaceutical trial recruitment programs surfaced a persistent Engagement-Conversion Gap, channels winning on clicks but losing on completed screeners. Applying that lens to message testing and budget decisions drove an average 28% lift in screener conversions across Pfizer, Eli Lilly, Merck, J&amp;J, and AbbVie campaigns.</p>
-            <div class="cs-tags">
-              <span class="cs-tag">Funnel Performance</span><span class="cs-tag">Media Analytics</span>
-              <span class="cs-tag">Campaign Analytics</span>
-              <span class="cs-tag">Segmentation</span>
-              <span class="cs-tag">Consumer Research</span>
-              <span class="cs-tag">Pharma</span>
-            </div>
+            <dl class="cs-tldr">
+              <div><dt>What changed</dt><dd>Budget moved off channels that won clicks but not screeners, and messages that earned clicks but not trust were rewritten. Screener conversions rose 28% on average.</dd></div>
+              <div><dt>My role</dt><dd>Researcher and strategist across concurrent F100 pharma trial recruitment programs.</dd></div>
+              <div><dt>Timeline</dt><dd>Ongoing tracking, compared month over month and quarter over quarter.</dd></div>
+            </dl>
           </div>
         </div>
         <div class="cs-arrow-wrap">
           <div class="cs-arrow">Read &rarr;</div>
         </div>
       </a>
+
+      <!-- Research Panel -->
+      <a href="casestudy_researchpanel.html" class="cs-card">
+        <div class="cs-bar"></div>
+        <div class="cs-body">
+          <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022</div>
+          <div class="cs-title">Building Research Infrastructure Regulated Industries Will Actually Trust</div>
+          <img class="cs-thumb" src="images/thumb-researchpanel.jpg" alt="~1,000 participant panel, built from zero" width="800" height="400" loading="lazy" decoding="async">
+          <div class="cs-side">
+            <dl class="cs-tldr">
+              <div><dt>What changed</dt><dd>A proprietary panel of about 1,000 opted-in participants, each with a traceable source, used for pharma and banking client research in place of third-party vendors.</dd></div>
+              <div><dt>My role</dt><dd>Solo researcher and panel architect.</dd></div>
+              <div><dt>Timeline</dt><dd>About a year, from zero.</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="cs-arrow-wrap">
+          <div class="cs-arrow">Read &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Web3 Fintech -->
+      <a href="casestudy_web3fintech.html" class="cs-card">
+        <div class="cs-bar"></div>
+        <div class="cs-body">
+          <div class="cs-meta">Tokenized Asset Platform (NDA) &nbsp;&bull;&nbsp; 2022</div>
+          <div class="cs-title">When &ldquo;Pending&rdquo; Looked Like Lost Money</div>
+          <img class="cs-thumb" src="images/thumb-web3fintech.jpg" alt="Friction map: 11 of 17 friction points in transaction state legibility, 4 in onboarding flow, and 2 in regulatory communication" width="800" height="400" loading="lazy" decoding="async">
+          <div class="cs-side">
+            <dl class="cs-tldr">
+              <div><dt>What changed</dt><dd>The client relabeled its transaction states and reordered onboarding after an audit found 17 friction points, most of them in how pending transactions read.</dd></div>
+              <div><dt>My role</dt><dd>Research lead and strategic advisor.</dd></div>
+              <div><dt>Timeline</dt><dd>2022.</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="cs-arrow-wrap">
+          <div class="cs-arrow">Read &rarr;</div>
+        </div>
+      </a>
+
     </div>
 
 
@@ -1048,32 +1006,6 @@
 
 
 
-    <!-- RESUME CARD -->
-    <div style="margin-top: 48px;">
-      <div class="section-label" style="margin-bottom: 20px;">Resume</div>
-      <a href="resume.html" class="cs-card" style="display: grid; grid-template-columns: 3px 1fr auto; text-decoration: none;">
-        <div class="cs-bar"></div>
-        <div class="cs-body">
-          <div class="cs-meta">Principal Mixed Methods Researcher and Strategist</div>
-          <div class="cs-title">Full Resume, <em>Skills &amp; Tools</em></div>
-          <p class="cs-desc">Mixed methods research and product strategy for DoD and the US Air Force, Crowley Webb/Praxis, and Fisher-Price, plus Coleman Advisory, a consulting practice setting research and product strategy directly with founders and executives. Includes complete work history, education, leadership qualities, skills, and tools, plus a downloadable PDF.</p>
-          <div class="cs-tags">
-            <span class="cs-tag">Mixed Methods</span>
-            <span class="cs-tag">Product Strategy</span>
-            <span class="cs-tag">AI Evaluation</span>
-            <span class="cs-tag">Research Operations</span>
-            <span class="cs-tag">Secret Clearance</span>
-          </div>
-        </div>
-        <div class="cs-arrow-wrap">
-          <div class="cs-arrow">View &rarr;</div>
-        </div>
-      </a>
-    </div>
-
-
-
-
   </section>
 
 
@@ -1082,17 +1014,17 @@
   <!-- ABOUT -->
   <section class="section" id="about">
     <div class="section-label">About</div>
-    <h2 class="section-heading">The research background,<br><em>the strategy orientation</em></h2>
+
 
 
 
 
     <div class="about-grid">
       <div class="about-text">
-        <p>My path has not been linear. I started in marketing intelligence and child development research, spent years at the PhD level in quantitative methods and psychology, and moved through applied research and strategy roles. Most of that work had a common thread: figuring out how to measure things that resist easy measurement, and building systems honest about what they do not know.</p>
-        <p>Most of my work happens where qualitative and quantitative research meet a product decision. I've built segmentation surveys on factor analysis and clustering, and I've sat through usability sessions where one person's hesitation told me more than the survey did. Most of the job is knowing which one a question needs. Lately a lot of those questions are about AI, but I'm not interested in output that only looks impressive. What I want to know is whether the system actually improves the decisions users are trying to make, for which users, under what conditions, and how you would know if those decisions started getting worse again.</p>
-        <p><strong>I am skeptical of demos. I am interested in what happens six months after launch.</strong> I think trust is a measurement problem and that most AI products are solving the wrong version of it.</p>
-        <p>I've worked at Fisher-Price, on DoD programs (Secret clearance, now inactive), and at Crowley Webb/Praxis, where clients included AAA, AbbVie, and M&amp;T Bank. At Praxis I built a consumer and clinical trial recruitment research panel from zero to ~1,000 participants, an infrastructure project that shaped how I think about research operations and the conditions that make good research possible at scale. The scale of the work changes; the discipline does not.</p>
+        <h2 class="section-heading">The research background,<br>the strategy orientation</h2>
+        <p>I&rsquo;ve wanted to know how things work for as long as I can remember. Mostly that meant taking them apart, and my dad still hasn&rsquo;t fully forgiven me for the pool filter. It also meant sorting the world into categories, from backyard insects to wrapping paper patterns. The question that fascinated me longest, though, was about people. Why did adults say one thing and then do something else? Just resting their eyes while snoring loud enough to rattle the windows, or promising they knew a shortcut right before making three U-turns in a row.</p>
+        <p>I&rsquo;ve been chasing some version of that ever since. After starting in marketing intelligence, I moved into product research at Fisher-Price, where the end users were kids. Then I earned a PhD in psychology and quantitative methods and went on to lead research for agency and consulting clients, including pharma and healthtech companies, a bank, and the Department of Defense. Behavioral data shows what people do, and talking with them shows what they say. I still go looking for the places where those don&rsquo;t match.</p>
+        <p>These days a lot of my questions are about when people trust what AI tells them, when they check, and what happens to that trust the first time it&rsquo;s wrong.</p>
       </div>
 
 
@@ -1100,31 +1032,18 @@
 
       <div class="about-sidebar">
         <img class="about-photo" src="images/headshot.jpg" alt="Shannon L. Coleman" width="800" height="1000" loading="lazy" decoding="async">
-        <div class="sidebar-block">
-          <div class="sidebar-label">Credentials</div>
-          <div class="sidebar-item"><strong>PhD in Psychology and Quantitative Methods</strong></div>
-          <div class="sidebar-item"><strong>Secret Clearance (Inactive)</strong></div>
-        </div>
-        <div class="sidebar-block">
-          <div class="sidebar-label">Recognition</div>
-          <div class="sidebar-item">Air Force Challenge Coin, awarded for research contributions to the EITaaS program</div>
-        </div>
-        <div class="sidebar-block">
-          <div class="sidebar-label">Domain Experience</div>
-          <div class="sidebar-item">Brand &amp; Consumer</div>
-          <div class="sidebar-item">FinTech</div>
-          <div class="sidebar-item">HealthTech</div>
-          <div class="sidebar-item">GovTech / Defense</div>
-          <div class="sidebar-item">Enterprise Analytics</div>
-          <div class="sidebar-item">AI Products</div>
-        </div>
-        <div class="sidebar-block">
-          <div class="sidebar-label">Open To</div>
-          <div class="sidebar-item">Principal Mixed Methods Researcher</div>
-          <div class="sidebar-item">Principal Researcher and Strategist</div>
-          <div class="sidebar-item">Director, Research Strategy</div>
-          <div class="sidebar-item">AI Enablement Researcher</div>
-        </div>
+        <aside class="field-notes" aria-label="Early field notes">
+          <div class="field-notes-head">
+            <svg class="field-notes-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M5 7H3.5M5 12H3.5M5 17H3.5M9 8h6M9 11.5h6M9 15h4"/></svg>
+            <span>Early field notes</span>
+          </div>
+          <dl>
+            <div><dt>Items dismantled</dt><dd>1 landline, 1 VCR, 1 pool filter (sorry, Dad)</dd></div>
+            <div><dt>First taxonomies</dt><dd>rocks, library books, backyard insects, wrapping paper patterns</dd></div>
+            <div><dt>Open question</dt><dd>why do people say one thing and do another?</dd></div>
+            <div><dt><span class="field-notes-box" aria-hidden="true"></span>Status</dt><dd>still investigating</dd></div>
+          </dl>
+        </aside>
       </div>
     </div>
 
@@ -1140,85 +1059,6 @@
         Senior Director of Enablement Architecture &nbsp;&bull;&nbsp; Northwestern Mutual
       </div>
     </div>
-    <!-- METHODS -->
-    <div class="methods-full">
-      <div class="sidebar-label">Methods</div>
-      <div class="methods-full-grid">
-
-
-
-
-        <div class="method-col">
-          <div class="method-col-header">Generative Research</div>
-          <div class="method-col-item">In-depth interviews and qualitative synthesis</div>
-          <div class="method-col-item">Ethnographic and observational research</div>
-          <div class="method-col-item">Contextual inquiry</div>
-          <div class="method-col-item">Focus groups and diary studies</div>
-          <div class="method-col-item">Jobs-to-be-done and journey mapping</div>
-          <div class="method-col-item">Social listening</div>
-
-
-
-
-          <div class="method-col-header">Evaluative Research</div>
-          <div class="method-col-item">Moderated usability, concept, and copy testing</div>
-          <div class="method-col-item">A/B testing</div>
-          <div class="method-col-item">Information architecture, card sorting, and tree testing</div>
-          <div class="method-col-item">Persona and segmentation</div>
-        </div>
-
-
-
-
-        <div class="method-col">
-          <div class="method-col-header">Quantitative &amp; Behavioral Analysis</div>
-          <div class="method-col-item">Large-scale survey design and analysis</div>
-          <div class="method-col-item">Predictive modeling, regression, and survival analysis</div>
-          <div class="method-col-item">Factor analysis and cluster-based segmentation</div>
-          <div class="method-col-item">Web, behavioral, and full-funnel analytics</div>
-          <div class="method-col-item">XLA and CX measurement</div>
-          <div class="method-col-item">Decision analysis</div>
-
-
-
-
-          <div class="method-col-header">Mixed Methods Research</div>
-          <div class="method-col-item">Longitudinal studies</div>
-          <div class="method-col-item">Integrated qualitative/quantitative synthesis for AI and complex systems</div>
-        </div>
-
-
-
-
-        <div class="method-col">
-          <div class="method-col-header">Research Leadership</div>
-          <div class="method-col-item">Research operations and participant panel management</div>
-          <div class="method-col-item">Research synthesis and stakeholder workshop facilitation</div>
-          <div class="method-col-item">Continuous VOC and experience measurement programs</div>
-          <div class="method-col-item">Strategic risk mitigation and data governance</div>
-
-
-
-
-          <div class="method-col-header">AI Research &amp; Evaluation</div>
-          <div class="method-col-item">AI evaluation and model calibration</div>
-          <div class="method-col-item">AI capability measurement</div>
-          <div class="method-col-item">AI-forward research and synthesis</div>
-          <div class="method-col-header">Governance &amp; Compliance</div>
-          <div class="method-col-item">Data privacy frameworks (HIPAA, GDPR, ISO/IEC 27001)</div>
-          <div class="method-col-item">Ethical recruitment in HIPAA-adjacent and regulated environments</div>
-        </div>
-
-
-
-
-      </div>
-    </div>
-
-
-
-
-    
   </section>
 
 
@@ -1227,49 +1067,22 @@
   <!-- WRITING -->
   <section class="section" id="writing">
     <div class="section-label">Writing</div>
-    <h2 class="section-heading">Ground Truth on Substack:<br><em>AI product practice, examined.</em></h2>
+    <h2 class="section-heading">Ground Truth on Substack</h2>
 
 
 
 
-    <p style="font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 32px; max-width: 620px;">Most AI products are optimized for output impressiveness rather than decision quality. Ground Truth is where I work through what rigorous AI product practice actually looks like: from evaluation frameworks and measurement strategy to the organizational conditions that determine whether good research ever changes anything.</p>
-
-
-
+    <p class="writing-intro">Where I write about research rigor in AI products, and the gap between AI output that sounds confident and output that&rsquo;s confident and accurate.</p>
 
     <div class="gt-ruler" aria-hidden="true"></div>
-    <a href="https://byshannoncoleman.substack.com/p/introducing-whos-actually-running-this?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content=introducing-whos-actually-running-this" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
-      <div class="writing-pub">Series 6 &nbsp;&bull;&nbsp; Who&#x27;s Actually Running This</div>
-      <div class="writing-title">Introducing Who&#x27;s Actually Running This</div>
-    </a>
-    <a href="https://byshannoncoleman.substack.com/p/the-interview-at-scale?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content=the-interview-at-scale" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
-      <div class="writing-pub">Series 5 &nbsp;&bull;&nbsp; The Approval Question</div>
-      <div class="writing-title">The Interview at Scale</div>
-    </a>
     <a href="https://byshannoncoleman.substack.com/p/why-standard-ux-research-methods?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content=why-standard-ux-research-methods" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
-      <div class="writing-pub">Series 4 &nbsp;&bull;&nbsp; How to Do User Research on AI Products</div>
+      <div class="writing-pub">Most read &nbsp;&bull;&nbsp; How to Do User Research on AI Products</div>
       <div class="writing-title">Why Standard UX Research Methods Break on AI Products</div>
-    </a>
-    <a href="https://byshannoncoleman.substack.com/p/ai-confidence-calibration-problem?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content=ai-confidence-calibration-problem" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
-      <div class="writing-pub">Series 3 &nbsp;&bull;&nbsp; The Capability Question</div>
-      <div class="writing-title">The Confidence Problem</div>
-    </a>
-    <a href="https://byshannoncoleman.substack.com/p/the-quant-default?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content=the-quant-default" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
-      <div class="writing-pub">Series 2 &nbsp;&bull;&nbsp; The Measurement Traps</div>
-      <div class="writing-title">The Quant Default</div>
-    </a>
-    <a href="https://byshannoncoleman.substack.com/p/a-practical-ai-evaluation-framework?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content=a-practical-ai-evaluation-framework" class="writing-link writing-link-viewall" target="_blank" rel="noopener">
-      <div class="writing-pub">Series 1 &nbsp;&bull;&nbsp; Evaluation, Metrics &amp; Governance</div>
-      <div class="writing-title">A Practical AI Evaluation Framework for Consumer Products</div>
     </a>
     <a href="writing.html" class="writing-link writing-link-viewall">
       <div class="writing-pub">Ground Truth &nbsp;&bull;&nbsp; All Writing</div>
       <div class="writing-title">View all articles</div>
     </a>
-
-
-
-
   </section>
 
 
@@ -1285,7 +1098,7 @@
   <div class="contact-left">
     <div class="contact-label">Get In Touch</div>
     <div class="contact-heading">Open to the right<br><em>conversation.</em></div>
-    <div class="contact-status">Open to full-time Principal research and strategy roles.</div>
+    <div class="contact-status">Open to full-time Principal research and product strategy roles.</div>
   </div>
   <div class="contact-links">
     <a href="mailto:shannon@shannonlcoleman.com" class="btn-primary">shannon@shannonlcoleman.com</a>
