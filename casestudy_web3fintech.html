@@ -1339,6 +1339,100 @@
     .w3x-ml { display: block; font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--ink-3); margin-bottom: 2px; }
     .w3x-mc.is-new .w3x-ml { color: var(--accent); }
   }
+
+  /* TL;DR and collapsed full study */
+  .tldr { border-top: 1px solid var(--ink); padding-top: 14px; margin-top: 8px; }
+  .tldr-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); margin: 0 0 8px; }
+  .tldr-list { margin: 0; }
+  .tldr-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); column-gap: 40px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .tldr-row dt { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .tldr-row dd { margin: 0; font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 66ch; }
+  .key-visual { padding-top: 56px; }
+  .full-study { margin-top: 72px; border-top: 1px solid var(--ink); }
+  .full-study > summary { list-style: none; cursor: pointer; padding: 20px 0; }
+  .full-study > summary::-webkit-details-marker { display: none; }
+  .full-study > summary span { display: inline-flex; align-items: center; min-height: 46px; padding: 12px 18px; border: 1px solid var(--ink); border-radius: 2px; font: 500 15px/1.2 var(--sans); color: var(--ink); }
+  .full-study > summary span::after { content: "+"; margin-left: 10px; color: var(--accent); }
+  .full-study[open] > summary span::after { content: "\2212"; }
+  .full-study > summary:hover span { border-color: var(--accent); color: var(--accent); }
+  .full-study > summary:focus-visible { outline: none; }
+  .full-study > summary:focus-visible span { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .cs-nav-linkedin { font-size: 14px; font-weight: 500; color: var(--ink-3); text-decoration: none; margin-right: auto; margin-left: 16px; }
+  .cs-nav-linkedin:hover { color: var(--accent); }
+  .plain-list { margin: 0 0 20px 1.2em; padding: 0; color: var(--ink-2); font-size: 17px; line-height: 1.7; }
+  @media (max-width: 700px) { .tldr-row { grid-template-columns: 1fr; row-gap: 4px; } }
+.wf{margin:0}
+.wf-pair{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.wf-label{font:600 14px/1.2 var(--sans);letter-spacing:.02em;color:var(--ink-3);margin-bottom:6px}
+.wf-after .wf-label{color:var(--accent)}
+.wf-title{font:400 22px/1.25 var(--serif);color:var(--ink);margin-bottom:14px}
+.wf-screen{border:1px solid var(--ink);border-radius:2px;background:var(--paper);padding:0 0 14px}
+.wf-bar{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.wf-logo{width:44px;height:10px;background:var(--ink)}
+.wf-navs{display:flex;gap:5px;flex:1;flex-wrap:nowrap;overflow:hidden}
+.wf-nav{height:8px;flex:1;background:#eeece8}
+.wf-navlab{font:500 11px/1 var(--sans);color:var(--ink-2);padding:3px 0;border-bottom:1.5px solid transparent;white-space:nowrap}
+.wf-navlab.on{color:var(--accent);border-color:var(--accent)}
+.wf-body{padding:12px}
+.wf-search{height:22px;border:1px solid var(--rule);margin-bottom:10px;display:flex;align-items:center;padding:0 8px;font:400 11px var(--sans);color:var(--ink-3)}
+.wf-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.wf-tile{min-height:34px;border:1px solid var(--rule);padding:6px}
+.wf-tile i{display:block;height:6px;background:#eeece8;margin-bottom:5px;width:80%}
+.wf-tile i+i{width:55%}
+.wf-tile span{font:400 9.5px/1 var(--sans);color:var(--ink-3)}
+.wf-fb{margin-top:10px;border:1px solid var(--rule);padding:6px 8px;display:flex;justify-content:space-between;font:400 10.5px var(--sans);color:var(--ink-3)}
+.wf-roles{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.wf-roles-h{font:500 11px var(--sans);color:var(--ink);margin-bottom:6px}
+.wf-role{font:500 10.5px/1 var(--sans);color:var(--ink);border:1px solid var(--ink);padding:5px 8px;border-radius:2px}
+.wf-role.on{border-color:var(--accent);color:var(--accent)}
+.wf-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.wf-col{border-top:1.5px solid var(--ink);padding-top:6px}
+.wf-col b{display:block;font:600 10.5px/1.2 var(--sans);color:var(--ink);margin-bottom:6px}
+.wf-col i{display:block;height:6px;background:#eeece8;margin-bottom:5px}
+.wf-col i:nth-child(3){width:70%}.wf-col i:nth-child(4){width:85%}
+.wf-help{margin-top:10px;border:1px solid var(--rule);border-left:3px solid var(--accent);padding:6px 8px;font:400 10.5px/1.3 var(--sans);color:var(--ink-2)}
+.wf-mark{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--accent);color:#fff;font:600 10px/1 var(--sans);flex:none}
+.wf-pin{position:relative}
+.wf-pin>.wf-mark{position:absolute;right:-8px;top:-8px}
+.wf-bar.wf-pin>.wf-mark{right:8px;top:50%;margin-top:-8px}
+.wf-bar.wf-pin{padding-right:32px}
+.wf-notes{list-style:none;margin:14px 0 0;padding:0}
+.wf-notes li{display:flex;gap:10px;align-items:flex-start;font:400 15px/1.5 var(--sans);color:var(--ink-2);margin-bottom:8px}
+.wf-before .wf-mark{background:var(--ink-3)}
+.wf-cap{margin-top:16px;font:400 14px/1.5 var(--sans);color:var(--ink-3);border-top:1px solid var(--rule);padding-top:10px}
+@media (max-width:700px){.wf-pair{grid-template-columns:1fr;gap:28px}}
+.wf-notes li{font-size:15px}
+.wf-pair>div{min-width:0}
+.wf-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
+.wf-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+.wf-navs{min-width:0}
+@media (max-width:700px){.wf-after .wf-navs{flex-wrap:wrap;row-gap:4px} .wf-tile span{font-size:9px}}
+.content .slc-adv .slc-fc .slc-fname{font-family:var(--sans) !important;font-size:14px !important;font-weight:600 !important;color:var(--ink) !important}
+.content .slc-adv .slc-fc .slc-fdesc{font-family:var(--sans) !important;font-size:15px !important;line-height:1.55 !important;color:var(--ink-2) !important}
+
+.tx-row{display:flex;align-items:center;gap:10px;padding:10px 0 12px;border-bottom:1px solid var(--rule);margin-bottom:10px}
+.tx-spin{width:16px;height:16px;border:2px solid #eeece8;border-top-color:var(--ink-3);border-radius:50%}
+.tx-big{font:500 13px var(--sans);color:var(--ink)}
+.tx-bal{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0 10px;border-bottom:1px solid var(--rule);margin-bottom:8px}
+.tx-k{font:400 11px var(--sans);color:var(--ink-3)}
+.tx-v{font:500 14px var(--sans);color:var(--ink)}
+.tx-hist{display:flex;justify-content:space-between;font:400 11px var(--sans);color:var(--ink-2);padding:5px 0}
+.tx-tag{border:1px solid var(--rule);padding:1px 6px;font-size:10px;color:var(--ink-3)}
+.tx-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:6px 0 12px;border-bottom:1px solid var(--rule);margin-bottom:10px}
+.tx-step b{display:block;height:4px;background:#eeece8;margin-bottom:6px}
+.tx-step.done b{background:var(--ink)}
+.tx-step.now b{background:var(--accent)}
+.tx-step span{display:block;font:500 10.5px/1.25 var(--sans);color:var(--ink-3)}
+.tx-step.done span{color:var(--ink)}
+.tx-step.now span{color:var(--accent)}
+.tx-step em{display:block;font:400 10px/1.3 var(--sans);font-style:normal;color:var(--ink-2);margin-top:2px}
+.tx-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:2px 0 10px;border-bottom:1px solid var(--rule);margin-bottom:10px}
+.tx-split>div{display:flex;flex-direction:column;gap:2px}
+.tx-note{border:1px solid var(--rule);border-left:3px solid var(--accent);padding:6px 8px;font:400 10.5px/1.35 var(--sans);color:var(--ink-2)}
+.tx-row.wf-pin,.tx-bal.wf-pin,.tx-hist.wf-pin,.tx-steps.wf-pin,.tx-split.wf-pin{padding-right:26px}
+.tx-row.wf-pin>.wf-mark,.tx-bal.wf-pin>.wf-mark,.tx-hist.wf-pin>.wf-mark,.tx-steps.wf-pin>.wf-mark,.tx-split.wf-pin>.wf-mark{right:0;top:50%;margin-top:-8px}
+.tx-note.wf-pin{margin-right:26px}
+.tx-note.wf-pin>.wf-mark{right:-26px;top:50%;margin-top:-8px}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1353,6 +1447,7 @@
 
 <nav class="cs-nav">
   <a href="index.html" class="cs-nav-back">Portfolio</a>
+  <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
     <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
@@ -1377,167 +1472,107 @@
 
 <header class="masthead">
   <div class="masthead-inner">
-    <div class="program-tag">Tokenized Asset Platform (NDA) &nbsp;|&nbsp; Coleman Advisory</div>
-    <h1 class="case-title">When &ldquo;Pending&rdquo;<br>Looked Like<br><em>Lost Money</em></h1>
-    <p class="deck">Research lead and strategic advisor on an engagement with a tokenized asset platform navigating the intersection of TradFi compliance and DeFi mechanics. The audit identified 17 distinct friction points, the majority tied to transaction state legibility, and produced an executive roadmap that treated regulatory communication and UX as a unified problem.</p>
-    <div class="meta-strip">
-      <div class="meta-item">
-        <span class="meta-label">Platform</span>
-        <span class="meta-value">Tokenized Asset Platform (NDA)</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">My Role</span>
-        <span class="meta-value">Research Lead and Strategic Advisor</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Organization</span>
-        <span class="meta-value">Coleman Advisory</span>
-      </div>
-    </div>
+    <div class="program-tag">Tokenized Asset Platform (NDA) &nbsp;&bull;&nbsp; Coleman Advisory &nbsp;&bull;&nbsp; 2022</div>
+    <h1 class="case-title">When &ldquo;Pending&rdquo; Looked Like Lost Money</h1>
+    <p class="deck">A UX and regulatory audit of a platform for investing in real-world assets through blockchain-based tokens, before launch.</p>
   </div>
 </header>
 
 <main class="content">
 
-  <section class="glance" aria-labelledby="glance-label">
-    <h2 class="glance-label" id="glance-label">At a glance</h2>
-    <dl class="glance-list">
-      <div class="glance-row"><dt>Goal</dt><dd>Find the friction points threatening retention in a tokenized asset platform's onboarding and transaction flow, before launch.</dd></div>
-      <div class="glance-row"><dt>Methods</dt><dd>Transaction flow audit, mental model mapping, onboarding journey analysis, and a review of regulatory communication.</dd></div>
-      <div class="glance-row"><dt>My role</dt><dd>Research Lead and Strategic Advisor.</dd></div>
-      <div class="glance-row"><dt>Key insight</dt><dd>The interface wasn't broken. Users brought a mental model from traditional finance, so “pending” read as lost money.</dd></div>
-      <div class="glance-row"><dt>Impact</dt><dd>90-day retention up 22%, support tickets down about half, and compliance approval cut from <span class="nowrap">6&ndash;8 weeks</span> to <span class="nowrap">3&ndash;5</span> by merging UX and compliance into one workstream.</dd></div>
+  <section class="tldr" aria-labelledby="tldr-label">
+    <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
+    <dl class="tldr-list">
+      <div class="tldr-row"><dt>What changed</dt><dd>The client relabeled its transaction states, added a progress bar and an &ldquo;In settlement&rdquo; balance, and moved the product explainer ahead of wallet setup. UX and compliance also became one workstream, and compliance approval went from 6&ndash;8 weeks to 3&ndash;5.</dd></div>
+      <div class="tldr-row"><dt>Projected impact</dt><dd>The roadmap projected a 22% lift in 90-day retention and about half as many support tickets.</dd></div>
+      <div class="tldr-row"><dt>My role</dt><dd>Research lead and strategic advisor, from the audit through the executive roadmap and implementation support</dd></div>
+      <div class="tldr-row"><dt>Timeline</dt><dd>6 weeks: 1 of discovery, 2 of research, 1 of synthesis, 2 of readout and implementation support</dd></div>
+      <div class="tldr-row"><dt>Why it mattered</dt><dd>Users who think their money is gone don&rsquo;t wait around. They call support or leave, right when a new financial product most needs their trust.</dd></div>
     </dl>
   </section>
 
-  
-<div style="background: var(--w3-pale); border-left: 4px solid var(--w3-accent); padding: 28px 36px; margin: 36px 0;">
-  <p style="font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: normal; color: var(--ink); line-height: 1.6; margin: 0;">Helping innovators move fast without breaking the things that matter most requires knowing <em style="color: var(--w3-accent); font-style: normal;">which things matter most</em> before moving.</p>
-</div>
-<section class="section">
-    <div class="section-label">Context</div>
-    <h2 class="section-heading">A product at the edge<br><em>of two financial worlds</em></h2>
-
-    <p>The client built a tokenized asset platform that let users invest in real-world assets through blockchain-based instruments, under a compliant and regulated framework. The pitch was genuine: DeFi-level accessibility with the structural rigor of traditional finance. What nobody had tested was whether users could tell which world they were in at any given moment.</p>
-
-    <p>Tokenized asset platforms occupy a specific and strange middle space. They carry the design conventions of traditional finance: clean account dashboards, familiar transaction flows, recognizable compliance disclosures. But the mechanics are blockchain-native, which means settlement is asynchronous, states change in layers the interface does not expose, and the timeline for a "completed" transaction has no equivalent in anything a typical user has encountered before.</p>
-
-    <p>In a conventional banking app, that ambiguity is minor. Users have cognitive frameworks for navigating it. In a platform where real money moves into positions that do not carry the familiar backstop of traditional financial infrastructure, the same ambiguity becomes a different category of problem entirely.</p>
-
-    <div class="context-box">
-      <div class="context-label">The Brief</div>
-      <p>Audit the onboarding experience and full transaction flow. Identify the friction points threatening user retention and document failure modes before launch.</p>
-      <p>The engagement was scoped as a research and advisory project, with deliverables including a friction audit and an executive roadmap prioritizing findings by combined UX and regulatory risk.</p>
+  <section class="section key-visual">
+    <figure class="wf" aria-label="Before and after wireframe of a transaction in progress">
+  <div class="wf-pair">
+    <div class="wf-before">
+      <div class="wf-label">Before</div>
+      <div class="wf-title">A spinner and an unchanged balance</div>
+      <div class="wf-screen" aria-hidden="true">
+        <div class="wf-bar"><div class="wf-logo"></div><div class="wf-navs"><i class="wf-nav"></i><i class="wf-nav"></i><i class="wf-nav"></i></div></div>
+        <div class="wf-body">
+          <div class="tx-row wf-pin"><span class="tx-spin"></span><span class="tx-big">Processing&hellip;</span><span class="wf-mark">1</span></div>
+          <div class="tx-bal wf-pin"><span class="tx-k">Balance</span><span class="tx-v">$10,000.00</span><span class="wf-mark">2</span></div>
+          <div class="tx-hist wf-pin"><span>Purchase</span><span class="tx-tag">Pending</span><span class="wf-mark">3</span></div>
+          <div class="tx-hist"><span>Purchase</span><span class="tx-tag">Pending</span></div>
+        </div>
+      </div>
+      <ol class="wf-notes">
+        <li><span class="wf-mark">1</span>&ldquo;Processing&rdquo; with no steps or time estimate, so a normal 2 to 15 minute wait looked like a frozen page</li>
+        <li><span class="wf-mark">2</span>The balance didn&rsquo;t move during settlement, which read as &ldquo;it didn&rsquo;t go through&rdquo;</li>
+        <li><span class="wf-mark">3</span>&ldquo;Pending&rdquo; and &ldquo;Processing&rdquo; used for different states, and failed and in-progress looked nearly the same</li>
+      </ol>
     </div>
+    <div class="wf-after">
+      <div class="wf-label">After</div>
+      <div class="wf-title">Each step named, with time and money accounted for</div>
+      <div class="wf-screen" aria-hidden="true">
+        <div class="wf-bar"><div class="wf-logo"></div><div class="wf-navs"><i class="wf-nav"></i><i class="wf-nav"></i><i class="wf-nav"></i></div></div>
+        <div class="wf-body">
+          <div class="tx-steps wf-pin">
+            <div class="tx-step done"><b></b><span>Network confirmation</span></div>
+            <div class="tx-step now"><b></b><span>Compliance check</span><em>About 2&ndash;15 min</em></div>
+            <div class="tx-step"><b></b><span>Minting</span></div>
+            <span class="wf-mark">1</span>
+          </div>
+          <div class="tx-split wf-pin">
+            <div><span class="tx-k">Available</span><span class="tx-v">$7,500.00</span></div>
+            <div><span class="tx-k">In settlement</span><span class="tx-v">$2,500.00</span></div>
+            <span class="wf-mark">2</span>
+          </div>
+          <div class="tx-note wf-pin">Funds stay locked until settlement finishes, usually within 24 hours.<span class="wf-mark">3</span></div>
+        </div>
+      </div>
+      <ol class="wf-notes">
+        <li><span class="wf-mark">1</span>A progress bar with the three real phases and an estimated time</li>
+        <li><span class="wf-mark">2</span>An &ldquo;In settlement&rdquo; balance, so locked money stays visible</li>
+        <li><span class="wf-mark">3</span>Plain-language notes at the moment of uncertainty</li>
+      </ol>
+    </div>
+  </div>
+  <figcaption class="wf-cap">Simplified wireframe redrawn for this portfolio. Labels, amounts, and layout are approximate, not the production interface.</figcaption>
+</figure>
+  </section>
+
+  <details class="full-study">
+    <summary><span>Read the full case study</span></summary>
+
+  <section class="section">
+    <div class="section-label">The situation</div>
+    <h2 class="section-heading">Traditional finance on the surface, blockchain underneath</h2>
+    <p>The client let people invest in real-world assets through blockchain-based tokens, inside a regulated framework. The interface looked like a familiar banking app. Underneath, settlement happened in stages over minutes to hours, and the screen didn&rsquo;t show those stages.</p>
+    <p>I was brought in before launch to audit onboarding and the full transaction flow, find the friction most likely to hurt retention, and deliver a roadmap ranked by both UX and regulatory risk.</p>
   </section>
 
   <section class="section">
     <div class="section-label">Approach</div>
-    <h2 class="section-heading">Mapping the experience against<br><em>the mental model users actually had</em></h2>
-
-    <p>The research started with a deliberate reframe. This was not primarily a usability problem. The interface was technically well-built: buttons did what they were supposed to do, navigation was clear, nothing was visually broken. A usability-first audit would have generated a list of minor UI improvements and left the underlying problem completely intact.</p>
-
-    <p>The audit focused instead on the gap between what the interface communicated and what users interpreted. That distinction shaped both the methods and the framing of findings. Fixing the wrong thing, in this context, would have made the problem invisible rather than solved.</p>
-
-    <div class="methods-grid">
-      <div class="method-card">
-        <div class="method-num">1</div>
-        <div class="method-name">Transaction Flow Audit</div>
-        <div class="method-detail">End-to-end walkthrough of every state a user encounters from initial deposit through position management and withdrawal, documenting what each state communicated and what a user without blockchain experience would plausibly interpret.</div>
-      </div>
-      <div class="method-card">
-        <div class="method-num">2</div>
-        <div class="method-name">Mental Model Mapping</div>
-        <div class="method-detail">Structured research surfacing the prior frameworks users brought from traditional financial products and identifying the specific points where those frameworks would fail to map onto how this product actually worked.</div>
-      </div>
-      <div class="method-card">
-        <div class="method-num">3</div>
-        <div class="method-name">Onboarding Journey Analysis</div>
-        <div class="method-detail">Step-by-step analysis of the onboarding flow with attention to sequencing, disclosure placement, and cognitive load at each stage, assessed against what users needed to understand before making their first transaction.</div>
-      </div>
-      <div class="method-card">
-        <div class="method-num">4</div>
-        <div class="method-name">Regulatory Communication Review</div>
-        <div class="method-detail">Assessment of disclosure language and compliance messaging against user comprehension, with specific attention to where regulatory boilerplate introduced ambiguity rather than reducing it.</div>
-      </div>
-    </div>
+    <h2 class="section-heading">Comparing what the screen said with what people understood</h2>
+    <p>The interface worked. Buttons did what they should, and nothing was visually broken. So instead of a standard usability review, I looked at the gap between what each screen communicated and what someone used to a bank app would take from it:</p>
+    <ul class="plain-list">
+      <li>A walkthrough of every state from first deposit through withdrawal</li>
+      <li>Mapping the expectations people brought from traditional finance</li>
+      <li>A step-by-step review of onboarding order and disclosures</li>
+      <li>A review of the regulatory language against what users actually understood</li>
+    </ul>
   </section>
 
   <section class="section">
-    <div class="section-label">The Diagnostic</div>
-    <h2 class="section-heading">Pending didn't mean pending<br><em>to the people using it</em></h2>
-
-    <div class="stats-row">
-      <div class="stat">
-        <div class="stat-num">17</div>
-        <div class="stat-desc">Friction points identified</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num accent">11</div>
-        <div class="stat-desc">Transaction state failures</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">1</div>
-        <div class="stat-desc">Central finding that reframed the rest</div>
-      </div>
-    </div>
-
-    
-<div class="slc-w3r">
-<!-- ════════════════════════════════════
-       VISUAL A — FRICTION MAP
-  ════════════════════════════════════ -->
-  <div class="w3-vtag">Findings: Friction Distribution</div>
-  <div class="w3-title">17 Friction Points. <em>65% in One Category.</em></div>
-  <div class="w3-desc">The audit identified 17 discrete friction points across the onboarding and transaction flow. The concentration was itself a finding: one systemic failure with a clear name, rather than risk spread across the product.</div>
-  <div class="w3-card">
-    <div class="w3-fm-wrap">
-      <div class="w3-fm-cat txn">
-        <div>
-          <div class="w3-fm-label">Transaction State Legibility</div>
-          <div class="w3-fm-count">11</div>
-          <div class="w3-fm-sub">Pending states, settlement windows, failed vs. in-progress states, balance display during settlement, network errors indistinguishable from rejections</div>
-        </div>
-        <div class="w3-fm-pct">11 of 17 &nbsp;·&nbsp; 65%</div>
-      </div>
-      <div class="w3-fm-cat onb">
-        <div>
-          <div class="w3-fm-label">Onboarding Flow</div>
-          <div class="w3-fm-count">4</div>
-          <div class="w3-fm-sub">Wallet and account creation conflated; asset explainer sequenced after wallet creation; TradFi mental model assumed at first deposit</div>
-        </div>
-        <div class="w3-fm-pct">4 of 17 &nbsp;·&nbsp; 24%</div>
-      </div>
-      <div class="w3-fm-cat reg">
-        <div>
-          <div class="w3-fm-label">Regulatory Communication</div>
-          <div class="w3-fm-count">2</div>
-          <div class="w3-fm-sub">Generic boilerplate not calibrated to tokenized assets; regulatory status of tokenized positions not distinguished from conventional securities</div>
-        </div>
-        <div class="w3-fm-pct">2 of 17 &nbsp;·&nbsp; 12%</div>
-      </div>
-    </div>
-    <div class="w3-fm-total">
-      <div class="w3-fm-tnum">17</div>
-      <div class="w3-fm-tlbl">friction points with severity ratings and ownership classification</div>
-    </div>
-    <div class="w3-callout">The interface was not broken. The <strong>mental model users arrived with was built for a different product category entirely</strong>, and nothing in the flow told them otherwise.</div>
-  </div>
-</div>
-<p>Seventeen distinct friction points emerged from the audit. The distribution was striking. Eleven of the seventeen were concentrated in a single area: transaction state legibility. The interface was technically accurate at every step. The problem was that accuracy and comprehensibility are not the same thing.</p>
-
-    <p>The central finding: users consistently interpreted pending transaction states as evidence of asset loss. A transaction in settlement, processing normally and on schedule, looked to users like a failed transaction. Or one that had simply disappeared. The interface was showing exactly what was happening. Users understood something different.</p>
-
-    <div class="insight-box">
-      <div class="insight-label">Core Finding</div>
-      <p>The interface was not broken. The mental model users arrived with was built for a different product category entirely, and nothing in the flow told them otherwise.</p>
-    </div>
-
+    <div class="section-label">Findings</div>
+    <h2 class="section-heading">11 of 17 friction points came from one place</h2>
+    <p>The audit found 17 friction points. Eleven were about transaction states: what the screen showed while money was moving. Every state was technically accurate, and people still read a normal settlement delay as lost money.</p>
     <div class="pq-grid">
       <figure class="pq"><blockquote><p>&ldquo;I refreshed the page three times because I thought the transaction errored out. There was no progress bar or estimated time, so I assumed I had mistyped something and lost my funds. I was really starting to freak out!&rdquo;</p></blockquote><figcaption>Research participant, on a pending transaction</figcaption></figure>
       <figure class="pq"><blockquote><p>&ldquo;It was weird when it asked me to link a Web3 wallet before explaining how the underlying tokenized asset actually generates yield. It felt backward. I wanted to understand the financial product before dealing with the tech setup.&rdquo;</p></blockquote><figcaption>Research participant, on onboarding</figcaption></figure>
     </div>
-
     <figure class="w3x-fig">
       <div class="w3x-tag">Transaction-state flow</div>
       <div class="w3x-heading">Where the interface lost people</div>
@@ -1573,34 +1608,6 @@
         </div>
       </div>
     </figure>
-
-
-    <p>This failure mode gets worse as the stakes increase. A user who cannot tell if their grocery order went through hits refresh. A user who cannot tell if their asset position is processing or lost does something more costly: they abandon the transaction, contact support, or do not come back. The cost of the same information gap scales with what the user believes is at risk.</p>
-  </section>
-
-  <section class="section">
-    <div class="section-label">The Stakes</div>
-    <h2 class="section-heading">The same finding costs more<br><em>in some contexts than others</em></h2>
-
-    <p>In most products, a confusing loading state is a minor annoyance. Users have mental frameworks for navigating uncertainty during a transaction. In a tokenized asset platform, the same ambiguity activates a different category of concern entirely.</p>
-
-    <p>Traditional financial infrastructure has spent decades building cognitive safety nets that users have absorbed without realizing it. FDIC coverage, monthly statements, customer service lines, the ability to walk into a branch and speak to someone. None of these protect a user against a confusing interface in any direct sense. What they provide is a backdrop of institutional accountability that quietly mutes anxiety during moments of uncertainty. Users do not think "I am protected." They feel protected, without thinking about it at all.</p>
-
-    <p>That infrastructure does not exist in DeFi-native products, and users know it, even if they cannot articulate it. A tokenized asset platform may carry legitimate regulatory standing, but users bring their associations from the broader DeFi landscape: irreversible transactions, no customer recourse, self-custody risk, the familiar stories about assets lost to a mistyped address or a wallet that cannot be recovered. When a pending state appears and the interface offers no context for how long, why, or what it means, the worst interpretation fills the space immediately.</p>
-
-    <div class="dark-callout">
-      <div class="dark-callout-label">The Gap</div>
-      <p>The finding was not novel as a UX observation. Mental model mismatches between product mechanics and user expectations are common. What made this finding consequential was the context it landed in.</p>
-      <p>This was a platform where that specific gap, users misreading a normal pending state as asset loss, could translate directly into permanent user attrition, support volume the team was not staffed for, and reputational risk at exactly the moment a new product most needs positive word of mouth.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">The Friction Map</div>
-    <h2 class="section-heading">What the audit<br><em>surfaced</em></h2>
-
-    <p>The 17 friction points broke across three categories. The concentration in transaction state legibility was not a random distribution. It reflected a product that had invested heavily in building a technically sound system and had not yet invested in making that system legible to users who arrived without blockchain-native experience.</p>
-
     <figure class="w3x-fig w3x-matrix">
       <div class="w3x-tag">The audit matrix</div>
       <div class="w3x-heading">All 17 friction points, by severity</div>
@@ -1650,83 +1657,9 @@
   </section>
 
   <section class="section">
-    <div class="section-label">The Roadmap</div>
-    <h2 class="section-heading">Two problems that<br><em>turned out to be one</em></h2>
-
-    <p>The executive deliverable was a prioritized roadmap covering both product changes and regulatory sequencing. The framing was deliberate. It was a departure from how the leadership team had been thinking about the work.</p>
-
-    <p>Most product teams in this space treat UX design and regulatory compliance as separate workstreams. Different owners, different timelines, different definitions of what "done" looks like. The audit produced evidence that they could not be separated here. The specific communication gaps making pending states feel like asset loss were the same gaps that would create regulatory exposure if users misunderstood the nature of their positions. Fixing the interface without fixing the disclosure language would paper over the problem. Fixing the disclosures without improving the interface would bury the solution in legal text nobody reads.</p>
-
-    <p>The roadmap gave the leadership team a sequenced plan: 17 friction points ordered by combined UX and regulatory risk, with clear ownership and decision points across both tracks. The single most important output of the engagement was the reframe itself. This was not a UX problem with a compliance annex. It was a user trust problem that happened to have both UX and regulatory dimensions, and it needed to be solved as one thing.</p>
-
-    
-<div class="slc-w3r">
-<!-- ════════════════════════════════════
-       VISUAL D — TWO TRACKS, ONE PROBLEM
-  ════════════════════════════════════ -->
-  <div class="w3-vtag">The Reframe: Core Finding</div>
-  <div class="w3-title">Two Tracks. <em>One Problem.</em></div>
-  <div class="w3-desc">UX design and regulatory compliance had been treated as separate workstreams. The research showed they were the same problem, and had to be solved as one thing.</div>
-  <div class="w3-card">
-    <div class="w3-two-tracks">
-      <div class="w3-track ux">
-        <div class="w3-track-label">UX Track</div>
-        <div class="w3-track-name">Communication gaps made pending states feel like asset loss</div>
-        <div class="w3-track-items">
-          <div class="w3-track-item">Ambiguous state labels mapped onto worst-case interpretations</div>
-          <div class="w3-track-item">Balance display during settlement read as balance gone</div>
-          <div class="w3-track-item">No contextual guidance at the moment of confusion</div>
-          <div class="w3-track-item">Visual design could not distinguish recoverable from terminal states</div>
-        </div>
-      </div>
-      <div class="w3-track reg">
-        <div class="w3-track-label">Regulatory Track</div>
-        <div class="w3-track-name">The same gaps created regulatory exposure if users misunderstood their positions</div>
-        <div class="w3-track-items">
-          <div class="w3-track-item">Generic risk disclosures not calibrated to tokenized asset risk profile</div>
-          <div class="w3-track-item">Regulatory status of positions undefined at point of decision</div>
-          <div class="w3-track-item">Consent architecture did not match the complexity of what users were agreeing to</div>
-          <div class="w3-track-item">Misunderstood positions = misunderstood exposure</div>
-        </div>
-      </div>
-    </div>
-    <div class="w3-convergence">
-      <div class="w3-conv-label">Where they converge</div>
-      <div class="w3-conv-title">A User Trust Problem with <em>Both UX and Regulatory Dimensions</em></div>
-      <div class="w3-conv-desc">The deliverable reframed this as a single problem requiring a single roadmap, sequencing both tracks together by combined UX and regulatory risk, with explicit decision points and dependencies across both.</div>
-    </div>
-  </div>
-</div>
-<div class="context-box">
-      <div class="context-label">Deliverables</div>
-      <p>Full friction audit documenting 17 friction points with severity ratings and primary ownership (product vs. compliance vs. content).</p>
-      <p>Executive roadmap sequencing the 17 findings by combined UX and regulatory risk, with decision points and dependencies surfaced explicitly across both tracks.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">Impact</div>
-    <h2 class="section-heading">Users stopped reading<br><em>pending as lost</em></h2>
-
-    <div class="stats-row">
-      <div class="stat">
-        <div class="stat-num accent">+22%</div>
-        <div class="stat-desc">90-day retention</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">~50%</div>
-        <div class="stat-desc">Fewer support tickets</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3&ndash;5 wks</div>
-        <div class="stat-desc">Compliance approval, down from 6&ndash;8</div>
-      </div>
-    </div>
-
-    <p>Leadership and engineering implemented the prioritized findings. Once transaction states said what was actually happening, users stopped mistaking normal settlement delays for lost funds and walking away. Ninety-day retention rose 22%, and support tickets dropped by about half.</p>
-
-    <p>The bigger change was how the team worked. UX and compliance became one workstream with a shared backlog, so compliance saw onboarding and transaction changes early instead of at the end. Regulatory approval went from <span class="nowrap">6&ndash;8 weeks</span> to <span class="nowrap">3&ndash;5 weeks</span>, and the late-stage rework that used to follow every compliance review went away.</p>
-
+    <div class="section-label">Recommendations</div>
+    <h2 class="section-heading">Fix the product and the disclosures together</h2>
+    <p>The gaps that made &ldquo;pending&rdquo; feel like lost money were the same gaps that created regulatory risk when people misunderstood their positions. So the roadmap ranked all 17 findings by combined UX and regulatory risk, with owners in product, content, and compliance, instead of splitting them into separate workstreams.</p>
     <figure class="w3x-fig">
       <div class="w3x-tag">Before and after</div>
       <div class="w3x-heading">Closing the gap between what users expected and how the product works</div>
@@ -1735,34 +1668,27 @@
   </section>
 
   <section class="section">
-    <div class="section-label">What I'd Do Differently</div>
-    <h2 class="section-heading">The methodology choices<br><em>worth revisiting</em></h2>
-
-    <div class="rec-item">
-      <div class="rec-tag">Parallel analysis</div>
-      <div>
-        <div class="rec-title">Run the onboarding and transaction analyses simultaneously from day one</div>
-        <p class="rec-text">The onboarding finding arrived later in the process than it should have. I prioritized the transaction flow because that is where the retention signals pointed, and it was the right call for urgency. But the onboarding sequencing failures had downstream effects on how users interpreted everything that came after. Users who arrived at a transaction without the right mental model were more likely to read a pending state as failure than users who had been properly oriented. Running both analyses in parallel and sharing findings between them earlier would have surfaced that connection sooner.</p>
+    <div class="section-label">What I&rsquo;d do differently</div>
+    <h2 class="section-heading">Two changes in hindsight</h2>
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div class="finding-content">
+        <div class="finding-title">Run the onboarding and transaction reviews at the same time</div>
+        <p class="finding-text">I started with transactions because that&rsquo;s where the retention risk pointed. But people who skipped the explainer during onboarding were the ones most likely to panic at a pending state. Running both reviews together would have connected those findings sooner.</p>
       </div>
     </div>
 
-    <div class="rec-item">
-      <div class="rec-tag">Depth on disclosure</div>
-      <div>
-        <div class="rec-title">Go deeper on the regulatory communication finding</div>
-        <p class="rec-text">Two points in the friction map does not reflect how important the regulatory communication finding actually was to the overall problem. The boilerplate disclosure issue was flagged clearly in the roadmap, but a more thorough review, including comprehension testing of the disclosure language specifically, would have strengthened the recommendation considerably. That was a resource constraint more than a judgment call, but it is worth naming. The finding deserved more evidentiary support than it got.</p>
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div class="finding-content">
+        <div class="finding-title">Test the disclosure language directly</div>
+        <p class="finding-text">The regulatory findings mattered more than their count of two suggests. Comprehension testing on the disclosure language would have given that recommendation stronger evidence. Time and budget didn&rsquo;t allow it, and it&rsquo;s the piece I&rsquo;d add first.</p>
       </div>
     </div>
+
   </section>
 
-  <section class="section">
-    <div class="section-label">Reflection</div>
-    <div class="reflection">
-      <p>Research in high-stakes financial contexts is different not because the methods change but because the cost of a wrong interpretation is higher and faster. The core challenge here was a familiar one: users arrive with mental models built for a different product, and the interface has to bridge that gap or they leave. Every research engagement I have worked on involves some version of that problem.</p>
-      <p>What made this one distinct was that "they leave" meant something more consequential than a bounced session. On a platform where user trust is the actual moat (not the technology, not the compliance infrastructure, not the asset selection), a UX finding is also a business continuity finding. The two are the same thing, even if the teams responsible for each one are not used to thinking that way.</p>
-      <p><strong>That reframe was the real deliverable.</strong> The roadmap documented it. But getting a leadership team to see a user trust problem as a unified product and regulatory challenge, rather than two separate workstreams that occasionally overlap, is the harder and more durable outcome.</p>
-    </div>
-  </section>
+  </details>
 
 </main>
 
