@@ -1092,6 +1092,8 @@
 .wf-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
 .wf-navs{min-width:0}
 @media (max-width:700px){.wf-after .wf-navs{flex-wrap:wrap;row-gap:4px} .wf-tile span{font-size:9px}}
+.content .slc-adv .slc-fc .slc-fname{font-family:var(--sans) !important;font-size:14px !important;font-weight:600 !important;color:var(--ink) !important}
+.content .slc-adv .slc-fc .slc-fdesc{font-family:var(--sans) !important;font-size:15px !important;line-height:1.55 !important;color:var(--ink-2) !important}
 </style>
 <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"></noscript>
@@ -1290,7 +1292,8 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
-      <div class="tldr-row"><dt>What changed</dt><dd>DoD paused Advana development in June 2024 to fix its infrastructure, as I recommended, and the $15B recompete that followed centered on a modular, multi-vendor architecture. I also delivered a redesigned navigation, content model, and clickable prototype.</dd></div>
+      <div class="tldr-row"><dt>What changed</dt><dd>A redesigned navigation, content model, and clickable prototype.</dd></div>
+      <div class="tldr-row"><dt>Result</dt><dd>DoD paused development in June 2024 to fix its infrastructure, as I recommended, and the $15B recompete that followed centered on a modular, multi-vendor architecture.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Lead researcher and platform strategist, directing a cross-functional team of about 7 from study design through the prototype and roadmap</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 16 months, April 2023&ndash;July 2024</dd></div>
       <div class="tldr-row"><dt>Why it mattered</dt><dd>A major contract decision was coming. Leadership needed to know who used the platform, how, and why it was getting harder to use as it grew.</dd></div>
@@ -1359,7 +1362,7 @@
       <figure class="pq"><blockquote><p>&ldquo;I can&rsquo;t find what I want and can&rsquo;t figure out how to use what I&rsquo;ve been given access to.&rdquo;</p></blockquote><figcaption>Advana feedback form, before the engagement</figcaption></figure>
       <figure class="pq"><blockquote><p>&ldquo;Navigating the site is painful. I would say more but you have restricted the input to 101 characters.&rdquo;</p></blockquote><figcaption>Advana feedback form, before the engagement</figcaption></figure>
     </div>
-    <p>Booz Allen Hamilton had already built a set of personas. Our job was to test them against real users and find what they missed. I presented findings and recommendations directly to the CDAO&rsquo;s Chief Experience Architect and Chief Product Officer throughout the engagement.</p>
+    <p>An earlier contractor had already built a set of personas. Our job was to test them against real users and refine them. I presented findings and recommendations directly to the CDAO&rsquo;s Chief Experience Architect and Chief Product Officer throughout the engagement.</p>
   </section>
 
   <section class="section">
@@ -1378,7 +1381,7 @@
   <section class="section">
     <div class="section-label">Findings</div>
     <h2 class="section-heading">The platform had grown faster than everything supporting it</h2>
-    <p>No single root cause explained the drop in usability. Six problems were compounding at once.</p>
+    <p>No single root cause explained the drop in usability.</p>
     <div class="slc-adv">
 <!-- ══ VISUAL A: SIX FAILURE MODES — place in Findings ══ -->
   <div class="slc-vtag">Root causes</div>
@@ -1386,12 +1389,12 @@
   
   <div class="slc-card">
     <div class="slc-fg">
-      <div class="slc-fc"><div class="slc-fn">1</div><div class="slc-fname">Segmented Needs</div><div class="slc-fdesc">Financial analysts, logistics officers, intelligence staff, and command leadership used the platform in structurally different ways. One architecture could not serve all of them.</div></div>
-      <div class="slc-fc"><div class="slc-fn">2</div><div class="slc-fname">Infrastructure Strain</div><div class="slc-fdesc">A major influx of users had strained the underlying architecture. Users were building workflows on a foundation that could not support them at scale. This was structural, not perceptual.</div></div>
-      <div class="slc-fc"><div class="slc-fn">3</div><div class="slc-fname">Literacy Gap</div><div class="slc-fdesc">The platform assumed a level of data literacy not uniformly present across the user base. Users who needed it most were least equipped to use it independently.</div></div>
-      <div class="slc-fc"><div class="slc-fn">4</div><div class="slc-fname">Unintended Use Patterns</div><div class="slc-fdesc">Workflow mapping revealed significant divergence between designed and actual use. Users had developed workarounds invisible to platform leadership.</div></div>
-      <div class="slc-fc"><div class="slc-fn">5</div><div class="slc-fname">Expectation Misalignment</div><div class="slc-fdesc">What leadership believed users needed and what users actually reported diverged in ways shaping roadmap decisions without either side recognizing the gap.</div></div>
-      <div class="slc-fc"><div class="slc-fn">6</div><div class="slc-fname">Mandate without adoption</div><div class="slc-fdesc">Even with a formal DoD mandate, voluntary active engagement remained lower than expected. Enterprise mandate alone cannot substitute for a platform users find genuinely useful.</div></div>
+      <div class="slc-fc"><div class="slc-fn">1</div><div class="slc-fname">Segmented needs</div><div class="slc-fdesc">Financial analysts, logistics officers, intelligence staff, and command leadership used the platform in different ways. One architecture couldn&rsquo;t serve all of them.</div></div>
+      <div class="slc-fc"><div class="slc-fn">2</div><div class="slc-fname">Infrastructure strain</div><div class="slc-fdesc">A surge of new users had strained the architecture. People were building workflows on a foundation that couldn&rsquo;t support them at scale, and no interface change would fix that.</div></div>
+      <div class="slc-fc"><div class="slc-fn">3</div><div class="slc-fname">Literacy gap</div><div class="slc-fdesc">The platform assumed a level of data literacy many users didn&rsquo;t have. The people who needed it most were the least able to use it on their own.</div></div>
+      <div class="slc-fc"><div class="slc-fn">4</div><div class="slc-fname">Unintended use patterns</div><div class="slc-fdesc">Workflow mapping showed people using the platform differently than it was designed. They had built workarounds leadership couldn&rsquo;t see.</div></div>
+      <div class="slc-fc"><div class="slc-fn">5</div><div class="slc-fname">Expectation misalignment</div><div class="slc-fdesc">What leadership thought users needed and what users reported were different, and roadmap decisions were being made without either side seeing the gap.</div></div>
+      <div class="slc-fc"><div class="slc-fn">6</div><div class="slc-fname">Mandate without adoption</div><div class="slc-fdesc">Even with a formal DoD mandate, voluntary engagement stayed lower than leadership expected.</div></div>
     </div>
   </div>
 </div>
