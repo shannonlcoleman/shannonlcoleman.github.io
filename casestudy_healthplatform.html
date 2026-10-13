@@ -1172,6 +1172,37 @@
   .hs-num { font-family: var(--sans); font-size: 28px; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
   .hs-title { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
   .hs-text { font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 66ch; }
+
+  /* Hypotheses: what we believed going in vs. what the research showed */
+  .hyp-list { margin-top: 8px; border-top: 1px solid var(--ink); }
+  .hyp-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 56px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  .hyp-k { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .content p.hyp-q { font-family: var(--serif); font-weight: 400; font-size: 23px; line-height: 1.3; color: var(--ink); margin: 0; }
+  .content p.hyp-a { font-size: 17px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 60ch; }
+  @media (max-width: 700px) {
+    .hyp-row { grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+    .content p.hyp-q { font-size: 21px; }
+    .content p.hyp-a { font-size: 16px; }
+  }
+
+  /* Time allocation: bar width is the time each phase got */
+  .tl { margin: 36px 0 8px; padding: 28px 32px 22px; border: 1px solid var(--ink); border-radius: 2px; }
+  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); }
+  .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 22px; }
+  .tl-grid { display: grid; grid-template-columns: repeat(var(--tl-cols), minmax(0, 1fr)); row-gap: 14px; }
+  .tl-week { font: 500 13px/1.4 var(--sans); color: var(--ink-3); padding: 0 0 8px 8px; border-left: 1px solid var(--rule); }
+  .tl-row { padding-right: 8px; }
+  .tl-bar { height: 34px; display: flex; align-items: center; padding: 0 12px; border-radius: 2px; background: var(--accent); color: #fff; font: 500 15px/1.2 var(--sans); white-space: nowrap; overflow: hidden; }
+  .tl-bar.is-idle { background: #eeece8; color: var(--ink-3); }
+  .tl-meta { font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 6px; }
+  .tl-meta b { font-weight: 500; color: var(--ink-2); }
+  .content p.tl-note { font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 66ch; margin: 22px 0 0; }
+  @media (max-width: 700px) {
+    .tl { padding: 22px 20px 18px; }
+    .tl-week { display: none; }
+    .tl-row { grid-column: 1 / -1 !important; padding-right: 0; }
+    .tl-bar { white-space: normal; height: auto; min-height: 34px; padding: 6px 12px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1223,7 +1254,7 @@
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
       <div class="tldr-row"><dt>What changed</dt><dd>The founders added employer and union channels alongside direct-to-consumer, and started re-engagement emails for trial users who never converted. Outreach to advocacy groups such as AARP and NAACP was underway when the engagement ended.</dd></div>
-      <div class="tldr-row"><dt>Result</dt><dd>The platform grew from a handful of users to more than 16,000, past the 10,000-user target, and signed its first six-figure service agreement.</dd></div>
+      <div class="tldr-row"><dt>Result</dt><dd>The new channel strategy led directly to the platform&rsquo;s first six-figure service agreement and to growth from a handful of users to more than 16,000, past the 10,000-user target.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Solo researcher and strategist for the founders, from study design and recruiting through sessions, behavioral analytics, and recommendations</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 5 months: 2 of research and synthesis, 3 of advisory</dd></div>
       <div class="tldr-row"><dt>Why it mattered</dt><dd>The company needed growth beyond early adopters. The research showed the trust problem was bigger than the interface, so the go-to-market plan shifted toward employers and unions.</dd></div>
@@ -1261,6 +1292,59 @@
 
   <details class="full-study">
     <summary><span>Read the full case study</span></summary>
+
+  <section class="section">
+    <div class="section-label">Recommendations</div>
+    <h2 class="section-heading">Meet people through someone they already trust</h2>
+    <p>The Trust-Transfer Model introduces the product through an institution people already trust, like their employer or union. The question in their head changes from &ldquo;Do I need this?&rdquo; to &ldquo;My organization already chose this for me.&rdquo;</p>
+
+    <figure class="dg-fig">
+      <div class="dg-tag">Strategic Framework</div>
+      <div class="dg-heading">The Trust-Transfer Model</div>
+      <div class="dg-cmp"><div class="dg-ch"></div><div class="dg-ch dg-dtc">Original approach<strong>Direct to consumer</strong></div><div class="dg-ch dg-tt">Research recommendation<strong>Trust transfer (B2B2C)</strong></div><div class="dg-rl">How people meet it</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>They find the product on their own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>A self-funded employer, union, stop-loss carrier, or advocacy organization (AARP, Alzheimer&rsquo;s Association, NAACP health initiatives) offers it as a benefit.</div><div class="dg-rl">The question they ask</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span><span class="dg-q">&ldquo;Do I need this? Should I trust it? Is this for me?&rdquo;</span></div><div class="dg-tt"><span class="dg-lab">Trust transfer</span><span class="dg-q">&ldquo;My organization already chose this for me.&rdquo;</span></div><div class="dg-rl">What carries trust</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Compliance badges and HIPAA and SOC 2 disclosures, which didn&rsquo;t move the people who backed out.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The institution&rsquo;s credibility, borrowed before the product has earned its own.</div><div class="dg-rl">The &ldquo;Not for Me&rdquo; Paradox</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Every signup has to get past optimism bias on its own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The organization frames it as relevant, so the product can prove itself at population scale.</div><div class="dg-rl">What it costs</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>A valid path, with substantial acquisition cost.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>Lower acquisition cost and less psychological friction.</div></div>
+    </figure>
+    <div class="strategy-item">
+      <div class="strategy-tag">Primary<br>Recommendation</div>
+      <div class="strategy-content">
+        <div class="strategy-title">Offer it through employers and unions</div>
+        <p class="finding-text">Partner with self-funded employers, stop-loss carriers, unions, and other trusted groups to offer the product as a benefit. Start where the value is easy for the employer to see: burnout among healthcare workers, time lost by professionals caring for aging parents, and absenteeism in manufacturing.</p>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="strategy-tag">Complementary<br>Channel</div>
+      <div class="strategy-content">
+        <div class="strategy-title">Borrow trust from advocacy groups</div>
+        <p class="finding-text">Seek endorsements from groups like the Alzheimer&rsquo;s Association, caregiver alliances, AARP, and NAACP health initiatives, so people who find the product on their own see a name they recognize.</p>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="strategy-tag">Validation<br>Before Scale</div>
+      <div class="strategy-content">
+        <div class="strategy-title">Run a 30-day pilot first</div>
+        <p class="finding-text">Test the partner approach with a 30-day pilot before shifting the whole go-to-market plan, with a clear point to stop if it didn&rsquo;t reduce the friction I saw in research.</p>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="strategy-tag">Retention<br>Quick Win</div>
+      <div class="strategy-content">
+        <div class="strategy-title">Follow up with trial users</div>
+        <p class="finding-text">Behavioral analytics showed no follow-up with people who started a free trial and didn&rsquo;t subscribe. I recommended a short re-engagement email sequence for them, since the cost of reaching them had already been spent.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="section-label">Going in</div>
+    <h2 class="section-heading">The founders saw a product problem</h2>
+    <div class="hyp-list">
+      <div class="hyp-row"><div><div class="hyp-k">The founders&rsquo; hypothesis</div><p class="hyp-q">Adoption is a product or feature problem.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">It didn&rsquo;t hold up. The interface had a few rough spots, but people were leaving at the entry point, and 7 of 8 decided the product was meant for someone else.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">The people who backed out would know something the people who finished the sessions didn&rsquo;t.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">They did. Eleven people backed out over privacy, even after hearing about HIPAA and SOC 2 compliance, and their reasons became the trust finding.</p></div></div>
+    </div>
+  </section>
 
   <section class="section">
     <div class="section-label">The situation</div>
@@ -1356,49 +1440,6 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-label">Recommendations</div>
-    <h2 class="section-heading">Meet people through someone they already trust</h2>
-    <p>The Trust-Transfer Model introduces the product through an institution people already trust, like their employer or union. The question in their head changes from &ldquo;Do I need this?&rdquo; to &ldquo;My organization already chose this for me.&rdquo;</p>
-
-    <figure class="dg-fig">
-      <div class="dg-tag">Strategic Framework</div>
-      <div class="dg-heading">The Trust-Transfer Model</div>
-      <div class="dg-cmp"><div class="dg-ch"></div><div class="dg-ch dg-dtc">Original approach<strong>Direct to consumer</strong></div><div class="dg-ch dg-tt">Research recommendation<strong>Trust transfer (B2B2C)</strong></div><div class="dg-rl">How people meet it</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>They find the product on their own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>A self-funded employer, union, stop-loss carrier, or advocacy organization (AARP, Alzheimer&rsquo;s Association, NAACP health initiatives) offers it as a benefit.</div><div class="dg-rl">The question they ask</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span><span class="dg-q">&ldquo;Do I need this? Should I trust it? Is this for me?&rdquo;</span></div><div class="dg-tt"><span class="dg-lab">Trust transfer</span><span class="dg-q">&ldquo;My organization already chose this for me.&rdquo;</span></div><div class="dg-rl">What carries trust</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Compliance badges and HIPAA and SOC 2 disclosures, which didn&rsquo;t move the people who backed out.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The institution&rsquo;s credibility, borrowed before the product has earned its own.</div><div class="dg-rl">The &ldquo;Not for Me&rdquo; Paradox</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Every signup has to get past optimism bias on its own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The organization frames it as relevant, so the product can prove itself at population scale.</div><div class="dg-rl">What it costs</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>A valid path, with substantial acquisition cost.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>Lower acquisition cost and less psychological friction.</div></div>
-    </figure>
-    <div class="strategy-item">
-      <div class="strategy-tag">Primary<br>Recommendation</div>
-      <div class="strategy-content">
-        <div class="strategy-title">Offer it through employers and unions</div>
-        <p class="finding-text">Partner with self-funded employers, stop-loss carriers, unions, and other trusted groups to offer the product as a benefit. Start where the value is easy for the employer to see: burnout among healthcare workers, time lost by professionals caring for aging parents, and absenteeism in manufacturing.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-tag">Complementary<br>Channel</div>
-      <div class="strategy-content">
-        <div class="strategy-title">Borrow trust from advocacy groups</div>
-        <p class="finding-text">Seek endorsements from groups like the Alzheimer&rsquo;s Association, caregiver alliances, AARP, and NAACP health initiatives, so people who find the product on their own see a name they recognize.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-tag">Validation<br>Before Scale</div>
-      <div class="strategy-content">
-        <div class="strategy-title">Run a 30-day pilot first</div>
-        <p class="finding-text">Test the partner approach with a 30-day pilot before shifting the whole go-to-market plan, with a clear point to stop if it didn&rsquo;t reduce the friction I saw in research.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-tag">Retention<br>Quick Win</div>
-      <div class="strategy-content">
-        <div class="strategy-title">Follow up with trial users</div>
-        <p class="finding-text">Behavioral analytics showed no follow-up with people who started a free trial and didn&rsquo;t subscribe. I recommended a short re-engagement email sequence for them, since the cost of reaching them had already been spent.</p>
-      </div>
-    </div>
-
-  </section>
 
   <section class="section">
     <div class="section-label">What I&rsquo;d do differently</div>

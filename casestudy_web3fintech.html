@@ -1441,6 +1441,37 @@
   .hs-num { font-family: var(--sans); font-size: 28px; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
   .hs-title { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
   .hs-text { font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 66ch; }
+
+  /* Hypotheses: what we believed going in vs. what the research showed */
+  .hyp-list { margin-top: 8px; border-top: 1px solid var(--ink); }
+  .hyp-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 56px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  .hyp-k { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .content p.hyp-q { font-family: var(--serif); font-weight: 400; font-size: 23px; line-height: 1.3; color: var(--ink); margin: 0; }
+  .content p.hyp-a { font-size: 17px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 60ch; }
+  @media (max-width: 700px) {
+    .hyp-row { grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+    .content p.hyp-q { font-size: 21px; }
+    .content p.hyp-a { font-size: 16px; }
+  }
+
+  /* Time allocation: bar width is the time each phase got */
+  .tl { margin: 36px 0 8px; padding: 28px 32px 22px; border: 1px solid var(--ink); border-radius: 2px; }
+  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); }
+  .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 22px; }
+  .tl-grid { display: grid; grid-template-columns: repeat(var(--tl-cols), minmax(0, 1fr)); row-gap: 14px; }
+  .tl-week { font: 500 13px/1.4 var(--sans); color: var(--ink-3); padding: 0 0 8px 8px; border-left: 1px solid var(--rule); }
+  .tl-row { padding-right: 8px; }
+  .tl-bar { height: 34px; display: flex; align-items: center; padding: 0 12px; border-radius: 2px; background: var(--accent); color: #fff; font: 500 15px/1.2 var(--sans); white-space: nowrap; overflow: hidden; }
+  .tl-bar.is-idle { background: #eeece8; color: var(--ink-3); }
+  .tl-meta { font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 6px; }
+  .tl-meta b { font-weight: 500; color: var(--ink-2); }
+  .content p.tl-note { font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 66ch; margin: 22px 0 0; }
+  @media (max-width: 700px) {
+    .tl { padding: 22px 20px 18px; }
+    .tl-week { display: none; }
+    .tl-row { grid-column: 1 / -1 !important; padding-right: 0; }
+    .tl-bar { white-space: normal; height: auto; min-height: 34px; padding: 6px 12px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1491,7 +1522,8 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
-      <div class="tldr-row"><dt>What changed</dt><dd>The client relabeled its transaction states, added a progress bar and an &ldquo;In settlement&rdquo; balance, and moved the product explainer ahead of wallet setup. UX and compliance also became one workstream, and compliance approval went from 6&ndash;8 weeks to 3&ndash;5.</dd></div>
+      <div class="tldr-row"><dt>What changed</dt><dd>The client relabeled its transaction states, added a progress bar and an &ldquo;In settlement&rdquo; balance, and moved the product explainer ahead of wallet setup. UX and compliance also became one workstream.</dd></div>
+      <div class="tldr-row"><dt>Result</dt><dd>Compliance approval went from <span style="white-space: nowrap">6&ndash;8 weeks</span> to 3&ndash;5.</dd></div>
       <div class="tldr-row"><dt>Projected impact</dt><dd>The roadmap projected a 22% lift in 90-day retention and about half as many support tickets.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Research lead and strategic advisor, from the audit through the executive roadmap and implementation support</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>6 weeks: 1 of discovery, 2 of research, 1 of synthesis, 2 of readout and implementation support</dd></div>
@@ -1555,6 +1587,26 @@
     <summary><span>Read the full case study</span></summary>
 
   <section class="section">
+    <div class="section-label">Recommendations</div>
+    <h2 class="section-heading">Fix the product and the disclosures together</h2>
+    <p>The gaps that made &ldquo;pending&rdquo; feel like lost money were the same gaps that created regulatory risk when people misunderstood their positions. So the roadmap ranked all 17 findings by combined UX and regulatory risk, with owners in product, content, and compliance, instead of splitting them into separate workstreams.</p>
+    <figure class="w3x-fig">
+      <div class="w3x-tag">Before and after</div>
+      <div class="w3x-heading">Closing the gap between what users expected and how the product works</div>
+      <div class="w3x-mm"><div class="w3x-mh"></div><div class="w3x-mh">What users assumed</div><div class="w3x-mh">How it actually works</div><div class="w3x-mh is-new">What the redesign changed</div><div class="w3x-mn">1</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;Pending for more than a few seconds means something went wrong.&rdquo;</p><p class="w3x-why">Card payments and bank logins feel instant, so a delay reads as a dropped connection or lost funds.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Blockchain validation and compliant custodial clearing take minutes to hours.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>A progress bar showing the three phases (network confirmation, compliance check, minting) with estimated time ranges.</p></div><div class="w3x-mn">2</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;If my balance hasn&rsquo;t updated, the transaction didn&rsquo;t happen.&rdquo;</p><p class="w3x-why">Balances change the moment you click Submit.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Funds sit locked in escrow while the underlying real-world asset rails settle.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>An &ldquo;In settlement&rdquo; balance showing locked and available funds right after the transaction starts.</p></div><div class="w3x-mn">3</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;I need to set up my wallet before I understand the investment.&rdquo;</p><p class="w3x-why">Security setup always comes before the details of what you&rsquo;re buying.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Understanding the investment doesn&rsquo;t require a wallet. The wallet is only needed to transact.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Onboarding re-sequenced to explain yield structure and asset backing before asking for a wallet connection or KYC.</p></div><div class="w3x-mn">4</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;The legal fine print is generic boilerplate I can skip.&rdquo;</p><p class="w3x-why">Disclosures are standard FDIC and FINRA language that protects the platform.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Smart contract interactions and tokenized holdings carry specific, non-reversible risks.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Short disclosures placed at the point of decision, such as the lockup period shown right on the submit button.</p></div></div>
+    </figure>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Going in</div>
+    <h2 class="section-heading">The client expected onboarding to be the problem</h2>
+    <div class="hyp-list">
+      <div class="hyp-row"><div><div class="hyp-k">The client&rsquo;s hypothesis</div><p class="hyp-q">The main retention risk is in onboarding.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">It didn&rsquo;t hold up. Eleven of the 17 friction points were in how transaction states read, and only 4 were in onboarding.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People bring a banking mental model, so a normal settlement delay reads as lost money.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">The sessions bore it out. Participants expected money to move the moment they clicked Submit, and a spinner with no time estimate read as an error.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="section-label">The situation</div>
     <h2 class="section-heading">Traditional finance on the surface, blockchain underneath</h2>
     <p>The client let people invest in real-world assets through blockchain-based tokens, inside a regulated framework. The interface looked like a familiar banking app. Underneath, settlement happened in stages over minutes to hours, and the screen didn&rsquo;t show those stages.</p>
@@ -1572,6 +1624,19 @@
       <li>A review of the regulatory language against what users actually understood</li>
     </ul>
     <p>I also ran in-depth, contextual sessions with 9 people who matched the platform&rsquo;s target investor profile, to see where their expectations didn&rsquo;t match how the product worked.</p>
+    <figure class="tl" style="--tl-cols: 6" aria-label="Six-week timeline showing how time was split across phases">
+      <div class="tl-tag">Approach and time allocation</div>
+      <div class="tl-heading">Six weeks, weighted toward transactions</div>
+      <div class="tl-grid">
+        <div class="tl-week">Week 1</div><div class="tl-week">Week 2</div><div class="tl-week">Week 3</div><div class="tl-week">Week 4</div><div class="tl-week">Week 5</div><div class="tl-week">Week 6</div>
+        <div class="tl-row" style="grid-column: 1 / span 1"><div class="tl-bar">Discovery</div><div class="tl-meta"><b>Week 1.</b> Where is the retention risk?</div></div>
+        <div class="tl-row" style="grid-column: 2 / span 2"><div class="tl-bar">Research</div><div class="tl-meta"><b>Weeks 2&ndash;3.</b> What do people think is happening while their money moves?</div></div>
+        <div class="tl-row" style="grid-column: 4 / span 1"><div class="tl-bar">Synthesis</div><div class="tl-meta"><b>Week 4.</b> Which friction points carry both UX and regulatory risk?</div></div>
+        <div class="tl-row" style="grid-column: 5 / span 1"><div class="tl-bar">Readout</div><div class="tl-meta"><b>Week 5.</b> What ships first, and who owns it?</div></div>
+        <div class="tl-row" style="grid-column: 6 / span 1"><div class="tl-bar is-idle">Waiting</div><div class="tl-meta"><b>Week 6.</b> Mostly waiting on the founders</div></div>
+      </div>
+    </figure>
+    <p class="tl-note">Most of the research time went to transactions, because that&rsquo;s where the retention risk pointed. The last week was mostly waiting on the founders.</p>
   </section>
 
   <section class="section">
@@ -1665,22 +1730,12 @@
     </script>
   </section>
 
-  <section class="section">
-    <div class="section-label">Recommendations</div>
-    <h2 class="section-heading">Fix the product and the disclosures together</h2>
-    <p>The gaps that made &ldquo;pending&rdquo; feel like lost money were the same gaps that created regulatory risk when people misunderstood their positions. So the roadmap ranked all 17 findings by combined UX and regulatory risk, with owners in product, content, and compliance, instead of splitting them into separate workstreams.</p>
-    <figure class="w3x-fig">
-      <div class="w3x-tag">Before and after</div>
-      <div class="w3x-heading">Closing the gap between what users expected and how the product works</div>
-      <div class="w3x-mm"><div class="w3x-mh"></div><div class="w3x-mh">What users assumed</div><div class="w3x-mh">How it actually works</div><div class="w3x-mh is-new">What the redesign changed</div><div class="w3x-mn">1</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;Pending for more than a few seconds means something went wrong.&rdquo;</p><p class="w3x-why">Card payments and bank logins feel instant, so a delay reads as a dropped connection or lost funds.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Blockchain validation and compliant custodial clearing take minutes to hours.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>A progress bar showing the three phases (network confirmation, compliance check, minting) with estimated time ranges.</p></div><div class="w3x-mn">2</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;If my balance hasn&rsquo;t updated, the transaction didn&rsquo;t happen.&rdquo;</p><p class="w3x-why">Balances change the moment you click Submit.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Funds sit locked in escrow while the underlying real-world asset rails settle.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>An &ldquo;In settlement&rdquo; balance showing locked and available funds right after the transaction starts.</p></div><div class="w3x-mn">3</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;I need to set up my wallet before I understand the investment.&rdquo;</p><p class="w3x-why">Security setup always comes before the details of what you&rsquo;re buying.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Understanding the investment doesn&rsquo;t require a wallet. The wallet is only needed to transact.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Onboarding re-sequenced to explain yield structure and asset backing before asking for a wallet connection or KYC.</p></div><div class="w3x-mn">4</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;The legal fine print is generic boilerplate I can skip.&rdquo;</p><p class="w3x-why">Disclosures are standard FDIC and FINRA language that protects the platform.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Smart contract interactions and tokenized holdings carry specific, non-reversible risks.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Short disclosures placed at the point of decision, such as the lockup period shown right on the submit button.</p></div></div>
-    </figure>
-  </section>
 
   <section class="section">
     <div class="section-label">What I&rsquo;d do differently</div>
     <h2 class="section-heading">Two changes in hindsight</h2>
     <div class="hs-list">
-      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Run the onboarding and transaction reviews at the same time</div><p class="hs-text">I started with transactions because that&rsquo;s where the retention risk pointed. But people who skipped the explainer during onboarding were the ones most likely to panic at a pending state. Running both reviews together would have connected those findings sooner.</p></div></div>
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Run the onboarding and transaction reviews at the same time</div><p class="hs-text">Putting transactions first made sense for retention. But people who skipped the explainer during onboarding were the ones most likely to panic at a pending state. Running both reviews together would have connected those findings sooner.</p></div></div>
       <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Test the disclosure language directly</div><p class="hs-text">The regulatory findings mattered more than their count of two suggests. Comprehension testing on the disclosure language would have given that recommendation stronger evidence. Time and budget didn&rsquo;t allow it, and it&rsquo;s the piece I&rsquo;d add first.</p></div></div>
     </div>
   </section>

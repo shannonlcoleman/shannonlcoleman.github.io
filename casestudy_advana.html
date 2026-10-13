@@ -1249,6 +1249,37 @@
   .hs-num { font-family: var(--sans); font-size: 28px; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
   .hs-title { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
   .hs-text { font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 66ch; }
+
+  /* Hypotheses: what we believed going in vs. what the research showed */
+  .hyp-list { margin-top: 8px; border-top: 1px solid var(--ink); }
+  .hyp-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 56px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  .hyp-k { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .content p.hyp-q { font-family: var(--serif); font-weight: 400; font-size: 23px; line-height: 1.3; color: var(--ink); margin: 0; }
+  .content p.hyp-a { font-size: 17px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 60ch; }
+  @media (max-width: 700px) {
+    .hyp-row { grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+    .content p.hyp-q { font-size: 21px; }
+    .content p.hyp-a { font-size: 16px; }
+  }
+
+  /* Time allocation: bar width is the time each phase got */
+  .tl { margin: 36px 0 8px; padding: 28px 32px 22px; border: 1px solid var(--ink); border-radius: 2px; }
+  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); }
+  .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 22px; }
+  .tl-grid { display: grid; grid-template-columns: repeat(var(--tl-cols), minmax(0, 1fr)); row-gap: 14px; }
+  .tl-week { font: 500 13px/1.4 var(--sans); color: var(--ink-3); padding: 0 0 8px 8px; border-left: 1px solid var(--rule); }
+  .tl-row { padding-right: 8px; }
+  .tl-bar { height: 34px; display: flex; align-items: center; padding: 0 12px; border-radius: 2px; background: var(--accent); color: #fff; font: 500 15px/1.2 var(--sans); white-space: nowrap; overflow: hidden; }
+  .tl-bar.is-idle { background: #eeece8; color: var(--ink-3); }
+  .tl-meta { font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 6px; }
+  .tl-meta b { font-weight: 500; color: var(--ink-2); }
+  .content p.tl-note { font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 66ch; margin: 22px 0 0; }
+  @media (max-width: 700px) {
+    .tl { padding: 22px 20px 18px; }
+    .tl-week { display: none; }
+    .tl-row { grid-column: 1 / -1 !important; padding-right: 0; }
+    .tl-bar { white-space: normal; height: auto; min-height: 34px; padding: 6px 12px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1305,7 +1336,7 @@
       <div class="tldr-row"><dt>Delivered</dt><dd>A redesigned navigation, content model, and clickable prototype</dd></div>
       <div class="tldr-row"><dt>What changed</dt><dd>DoD paused development in June 2024 to fix its infrastructure, as I recommended, and the $15B recompete that followed centered on a modular, multi-vendor architecture.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Lead researcher and platform strategist, directing a cross-functional team of about 7 from study design through the prototype and roadmap</dd></div>
-      <div class="tldr-row"><dt>Timeline</dt><dd>About 16 months, April 2023&ndash;July 2024</dd></div>
+      <div class="tldr-row"><dt>Timeline</dt><dd>About 15 months, April 2023&ndash;July 2024</dd></div>
       <div class="tldr-row"><dt>Why it mattered</dt><dd>A major contract decision was coming. Leadership needed to know who used the platform, how, and why it was getting harder to use as it grew.</dd></div>
     </dl>
     <p class="tldr-note">Many people at CDAO and across DoD shaped the pause and the recompete. The research gave those decisions a user-grounded evidence base; I don&rsquo;t claim it as the only cause.</p>
@@ -1361,6 +1392,45 @@
 
   <details class="full-study">
     <summary><span>Read the full case study</span></summary>
+
+  <section class="section">
+    <div class="section-label">Recommendations</div>
+    <h2 class="section-heading">Fix the foundation, then the front door</h2>
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div class="finding-content">
+        <div class="finding-title">Pause development and strengthen the infrastructure</div>
+        <p class="finding-text">Adding features on an unstable foundation would make every existing problem worse. I delivered this recommendation in writing and in a formal briefing to the Chief Experience Architect and Chief Product Officer. DoD paused development in June 2024 to make infrastructure improvements.</p>
+      </div>
+    </div>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div class="finding-content">
+        <div class="finding-title">Redesign the interface for a wider range of data experience</div>
+        <p class="finding-text">Make it clearer where to go and what to do for every role, and lower the effort for less technical users without limiting experienced ones. The card sort and tree test produced the new sitemap, navigation, and content model behind the prototype.</p>
+      </div>
+    </div>
+
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div class="finding-content">
+        <div class="finding-title">Build specialized components for distinct user groups</div>
+        <p class="finding-text">One interface could not serve every role well. The research supported modular components built around each group&rsquo;s data and workflows, which matches the modular, multi-vendor approach CDAO pursued in the recompete.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="section-label">Going in</div>
+    <h2 class="section-heading">What I expected to find</h2>
+    <div class="hyp-list">
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 1</div><p class="hyp-q">People needed the platform. Low engagement, even with a mandate, came from not being able to find things.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">36% said finding what they needed was difficult, and people described asking colleagues for directions instead of using the platform.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 2</div><p class="hyp-q">The experience problems sat downstream of the infrastructure, like slow performance and broken pipelines, so interface fixes alone wouldn&rsquo;t move satisfaction.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">Infrastructure strain turned up as one of six compounding root causes. It drove my first recommendation, to pause development and fix the foundation, and DoD paused in June 2024.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 3</div><p class="hyp-q">One interface couldn&rsquo;t serve the range of data literacy across financial analysts, logistics officers, intelligence staff, and command leadership.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">The four groups used the platform in different ways, and the people who needed it most were the least able to use it on their own. That became the role-based entry points in the prototype.</p></div></div>
+    </div>
+  </section>
 
   <section class="section">
     <div class="section-label">The situation</div>
@@ -1430,34 +1500,6 @@
 </div>
   </section>
 
-  <section class="section">
-    <div class="section-label">Recommendations</div>
-    <h2 class="section-heading">Fix the foundation, then the front door</h2>
-    <div class="finding-row">
-      <div class="finding-bar"></div>
-      <div class="finding-content">
-        <div class="finding-title">Pause development and strengthen the infrastructure</div>
-        <p class="finding-text">Adding features on an unstable foundation would make every existing problem worse. I delivered this recommendation in writing and in a formal briefing to the Chief Experience Architect and Chief Product Officer. DoD paused development in June 2024 to make infrastructure improvements.</p>
-      </div>
-    </div>
-
-    <div class="finding-row">
-      <div class="finding-bar"></div>
-      <div class="finding-content">
-        <div class="finding-title">Redesign the interface for a wider range of data experience</div>
-        <p class="finding-text">Make it clearer where to go and what to do for every role, and lower the effort for less technical users without limiting experienced ones. The card sort and tree test produced the new sitemap, navigation, and content model behind the prototype.</p>
-      </div>
-    </div>
-
-    <div class="finding-row">
-      <div class="finding-bar"></div>
-      <div class="finding-content">
-        <div class="finding-title">Build specialized components for distinct user groups</div>
-        <p class="finding-text">One interface could not serve every role well. The research supported modular components built around each group&rsquo;s data and workflows, which matches the modular, multi-vendor approach CDAO pursued in the recompete.</p>
-      </div>
-    </div>
-
-  </section>
 
   <section class="section">
     <div class="section-label">What I&rsquo;d do differently</div>
