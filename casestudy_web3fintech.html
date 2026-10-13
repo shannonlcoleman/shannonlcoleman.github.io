@@ -1433,6 +1433,14 @@
 .tx-row.wf-pin>.wf-mark,.tx-bal.wf-pin>.wf-mark,.tx-hist.wf-pin>.wf-mark,.tx-steps.wf-pin>.wf-mark,.tx-split.wf-pin>.wf-mark{right:0;top:50%;margin-top:-8px}
 .tx-note.wf-pin{margin-right:26px}
 .tx-note.wf-pin>.wf-mark{right:-26px;top:50%;margin-top:-8px}
+
+  /* Hindsight list, shared style across case studies */
+  .hs-list { margin-top: 8px; }
+  .hs-item { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 8px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .hs-item:last-child { border-bottom: 1px solid var(--rule); }
+  .hs-num { font-family: var(--sans); font-size: 28px; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+  .hs-title { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .hs-text { font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 66ch; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1556,7 +1564,7 @@
   <section class="section">
     <div class="section-label">Approach</div>
     <h2 class="section-heading">Comparing what the screen said with what people understood</h2>
-    <p>The interface worked. Buttons did what they should, and nothing was visually broken. So instead of a standard usability review, I looked at the gap between what each screen communicated and what someone used to a bank app would take from it:</p>
+    <p>The interface worked. Buttons did what they should, and nothing was visually broken. So rather than run a standard usability review, I looked at the gap between what each screen communicated and what someone used to a bank app would take from it:</p>
     <ul class="plain-list">
       <li>A walkthrough of every state from first deposit through withdrawal</li>
       <li>Mapping the expectations people brought from traditional finance</li>
@@ -1583,7 +1591,7 @@
           <div class="w3x-dur">0 to 30 seconds</div>
           <div class="w3x-k">Screen showed</div><p class="w3x-v">A confirmation screen with a &ldquo;Submitted&rdquo; checkmark.</p>
           <div class="w3x-k">Users thought</div><p class="w3x-v w3x-q">&ldquo;My money has been transferred and my position is active.&rdquo;</p>
-          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-12">#12</a><a class="w3x-chip" href="#fp-14">#14</a></div>
+          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-14">#14</a></div>
         </div>
         <div class="w3x-state is-key">
           <div class="w3x-sname">Pending</div>
@@ -1663,29 +1671,17 @@
     <figure class="w3x-fig">
       <div class="w3x-tag">Before and after</div>
       <div class="w3x-heading">Closing the gap between what users expected and how the product works</div>
-      <div class="w3x-mm"><div class="w3x-mh"></div><div class="w3x-mh">What users assumed</div><div class="w3x-mh">How it actually works</div><div class="w3x-mh is-new">What the redesign changed</div><div class="w3x-mn">1</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;Pending for more than a few seconds means something went wrong.&rdquo;</p><p class="w3x-why">Card payments and bank logins feel instant, so a delay reads as a dropped connection or lost funds.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Blockchain validation and compliant custodial clearing take minutes to hours.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>A progress bar showing the three phases (network confirmation, compliance check, minting) with estimated time ranges.</p></div><div class="w3x-mn">2</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;If my balance hasn&rsquo;t updated, the transaction didn&rsquo;t happen.&rdquo;</p><p class="w3x-why">Balances change the moment you click Submit.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Funds sit locked in escrow while the underlying real-world asset rails settle.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>An &ldquo;In settlement&rdquo; balance showing locked and available funds right after the transaction starts.</p></div><div class="w3x-mn">3</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;I need to set up my wallet before I understand the investment.&rdquo;</p><p class="w3x-why">Security setup always comes before the details of what you&rsquo;re buying.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Technical setup up front drove people away before they understood the product.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Onboarding re-sequenced to explain yield structure and asset backing before asking for a wallet connection or KYC.</p></div><div class="w3x-mn">4</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;The legal fine print is generic boilerplate I can skip.&rdquo;</p><p class="w3x-why">Disclosures are standard FDIC and FINRA language that protects the platform.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Smart contract interactions and tokenized holdings carry specific, non-reversible risks.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Short disclosures placed at the point of decision, such as the lockup period shown right on the submit button.</p></div></div>
+      <div class="w3x-mm"><div class="w3x-mh"></div><div class="w3x-mh">What users assumed</div><div class="w3x-mh">How it actually works</div><div class="w3x-mh is-new">What the redesign changed</div><div class="w3x-mn">1</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;Pending for more than a few seconds means something went wrong.&rdquo;</p><p class="w3x-why">Card payments and bank logins feel instant, so a delay reads as a dropped connection or lost funds.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Blockchain validation and compliant custodial clearing take minutes to hours.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>A progress bar showing the three phases (network confirmation, compliance check, minting) with estimated time ranges.</p></div><div class="w3x-mn">2</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;If my balance hasn&rsquo;t updated, the transaction didn&rsquo;t happen.&rdquo;</p><p class="w3x-why">Balances change the moment you click Submit.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Funds sit locked in escrow while the underlying real-world asset rails settle.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>An &ldquo;In settlement&rdquo; balance showing locked and available funds right after the transaction starts.</p></div><div class="w3x-mn">3</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;I need to set up my wallet before I understand the investment.&rdquo;</p><p class="w3x-why">Security setup always comes before the details of what you&rsquo;re buying.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Understanding the investment doesn&rsquo;t require a wallet. The wallet is only needed to transact.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Onboarding re-sequenced to explain yield structure and asset backing before asking for a wallet connection or KYC.</p></div><div class="w3x-mn">4</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;The legal fine print is generic boilerplate I can skip.&rdquo;</p><p class="w3x-why">Disclosures are standard FDIC and FINRA language that protects the platform.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Smart contract interactions and tokenized holdings carry specific, non-reversible risks.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Short disclosures placed at the point of decision, such as the lockup period shown right on the submit button.</p></div></div>
     </figure>
   </section>
 
   <section class="section">
     <div class="section-label">What I&rsquo;d do differently</div>
     <h2 class="section-heading">Two changes in hindsight</h2>
-    <div class="finding-row">
-      <div class="finding-bar"></div>
-      <div class="finding-content">
-        <div class="finding-title">Run the onboarding and transaction reviews at the same time</div>
-        <p class="finding-text">I started with transactions because that&rsquo;s where the retention risk pointed. But people who skipped the explainer during onboarding were the ones most likely to panic at a pending state. Running both reviews together would have connected those findings sooner.</p>
-      </div>
+    <div class="hs-list">
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Run the onboarding and transaction reviews at the same time</div><p class="hs-text">I started with transactions because that&rsquo;s where the retention risk pointed. But people who skipped the explainer during onboarding were the ones most likely to panic at a pending state. Running both reviews together would have connected those findings sooner.</p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Test the disclosure language directly</div><p class="hs-text">The regulatory findings mattered more than their count of two suggests. Comprehension testing on the disclosure language would have given that recommendation stronger evidence. Time and budget didn&rsquo;t allow it, and it&rsquo;s the piece I&rsquo;d add first.</p></div></div>
     </div>
-
-    <div class="finding-row">
-      <div class="finding-bar"></div>
-      <div class="finding-content">
-        <div class="finding-title">Test the disclosure language directly</div>
-        <p class="finding-text">The regulatory findings mattered more than their count of two suggests. Comprehension testing on the disclosure language would have given that recommendation stronger evidence. Time and budget didn&rsquo;t allow it, and it&rsquo;s the piece I&rsquo;d add first.</p>
-      </div>
-    </div>
-
   </section>
 
   </details>

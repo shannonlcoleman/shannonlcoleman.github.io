@@ -1241,6 +1241,14 @@
   @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
 .content .slc-adv .slc-card:has(> .slc-fg){border:none !important;padding:0 !important;background:none !important}
 .content .slc-adv .slc-card:has(> .slc-fg) .slc-fg{margin-bottom:0}
+
+  /* Hindsight list, shared style across case studies */
+  .hs-list { margin-top: 8px; }
+  .hs-item { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 8px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .hs-item:last-child { border-bottom: 1px solid var(--rule); }
+  .hs-num { font-family: var(--sans); font-size: 28px; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+  .hs-title { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .hs-text { font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 66ch; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1454,30 +1462,11 @@
   <section class="section">
     <div class="section-label">What I&rsquo;d do differently</div>
     <h2 class="section-heading">Three changes in hindsight</h2>
-    <div class="finding-row">
-      <div class="finding-bar"></div>
-      <div class="finding-content">
-        <div class="finding-title">Settle decision rights early</div>
-        <p class="finding-text">Some findings challenged existing assumptions about the personas and the platform&rsquo;s readiness to scale. Agreeing up front on who could act on which kinds of findings would have shortened the time between insight and action.</p>
-      </div>
+    <div class="hs-list">
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Settle decision rights early</div><p class="hs-text">Some findings challenged existing assumptions about the personas and the platform&rsquo;s readiness to scale. Agreeing up front on who could act on which kinds of findings would have shortened the time between insight and action.</p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Push for ongoing measurement</div><p class="hs-text">A platform this size, with a contract decision coming, needed continuous listening: short pulse surveys and feedback built into the platform, so changes could be tracked over time.</p></div></div>
+      <div class="hs-item"><div class="hs-num">3</div><div><div class="hs-title">Run the card sort sooner</div><p class="hs-text">The card sort turned out to be central to the new navigation. Scheduling it earlier would have given the navigation and content model a stronger base than interview synthesis alone.</p></div></div>
     </div>
-
-    <div class="finding-row">
-      <div class="finding-bar"></div>
-      <div class="finding-content">
-        <div class="finding-title">Push for ongoing measurement</div>
-        <p class="finding-text">A platform this size, with a contract decision coming, needed continuous listening: short pulse surveys and feedback built into the platform, so changes could be tracked over time.</p>
-      </div>
-    </div>
-
-    <div class="finding-row">
-      <div class="finding-bar"></div>
-      <div class="finding-content">
-        <div class="finding-title">Run the card sort sooner</div>
-        <p class="finding-text">The card sort turned out to be central to the new navigation. Scheduling it earlier would have given the navigation and content model a stronger base than interview synthesis alone.</p>
-      </div>
-    </div>
-
   </section>
 
   </details>
