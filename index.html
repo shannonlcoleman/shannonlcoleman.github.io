@@ -771,6 +771,13 @@
   .field-notes-box { width: 12px; height: 12px; border: 1.25px solid var(--accent); border-radius: 1px; display: inline-block; }
 
   .writing-intro { font-size: 17px; color: var(--ink-2); line-height: 1.7; margin-bottom: 32px; max-width: 62ch; }
+
+  /* Hero right column: positioning line and buttons as one block */
+  .hero-right { grid-column: 2; grid-row: 4 / span 2; align-self: start; }
+  .hero-right .hero-bio { font-family: var(--serif); font-size: clamp(21px, 2vw, 25px); line-height: 1.4; color: var(--ink); margin-bottom: 24px; }
+  .cs-viewall { display: inline-block; margin-top: 24px; font-size: 15px; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  .cs-viewall:hover { border-bottom-color: var(--accent); }
+  @media (max-width: 900px) { .hero-right { grid-column: 1; grid-row: auto; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -794,6 +801,7 @@
   </div>
   <nav class="site-nav">
     <a href="#work">Work</a>
+    <a href="#tools">Tools</a>
     <a href="#about">About</a>
     <a href="writing.html">Writing</a>
     <a href="#contact">Contact</a>
@@ -811,11 +819,13 @@
     <h1 class="hero-name">Shannon L.<br><em>Coleman</em></h1>
     <div class="hero-credential">PhD &nbsp;&bull;&nbsp; Secret Clearance (Inactive)</div>
     <p class="hero-title">Principal Mixed Methods Researcher and Strategist with 10+ years of qualitative and quantitative research shaping product roadmaps, go-to-market strategy, and AI platforms.</p>
+    <div class="hero-right">
     <p class="hero-bio">I know when a question needs a regression model and when it needs an hour of sitting with someone and just listening.</p>
     <div class="hero-links">
       <a href="#work" class="btn-primary">View Case Studies</a>
       <a href="https://shannonlcoleman.com/capability-measurement-tool" class="btn-secondary" target="_blank" rel="noopener">Capability Tool</a>
       <a href="resume.html" class="btn-secondary">Resume</a>
+    </div>
     </div>
   </div>
 </section>
@@ -844,8 +854,8 @@
           <div class="cs-side">
             <dl class="cs-tldr">
               <div><dt>What changed</dt><dd>The founders added employer, union, AARP, and NAACP channels alongside direct-to-consumer, and started re-engagement emails for trial users who never converted.</dd></div>
-              <div><dt>My role</dt><dd>Solo researcher and strategist, from recruiting through recommendations.</dd></div>
-              <div><dt>Timeline</dt><dd>About 2 months of research and synthesis, then about 3 months of advisory.</dd></div>
+              <div><dt>My role</dt><dd>Solo researcher and strategist, from recruiting through recommendations</dd></div>
+              <div><dt>Timeline</dt><dd>About 5 months: 2 of research and synthesis, 3 of advisory</dd></div>
             </dl>
           </div>
         </div>
@@ -864,68 +874,8 @@
           <div class="cs-side">
             <dl class="cs-tldr">
               <div><dt>What changed</dt><dd>A redesigned navigation, content model, and clickable prototype for a 100,000+ user AI and analytics platform. DoD paused development in June 2024 to fix infrastructure, as recommended, and the $15B recompete centered on a modular architecture.</dd></div>
-              <div><dt>My role</dt><dd>Lead researcher and platform strategist on a cross-functional team.</dd></div>
-              <div><dt>Timeline</dt><dd>About a year, April 2023 to April 2024.</dd></div>
-            </dl>
-          </div>
-        </div>
-        <div class="cs-arrow-wrap">
-          <div class="cs-arrow">Read &rarr;</div>
-        </div>
-      </a>
-
-      <!-- EITaaS -->
-      <a href="casestudy_eitaas.html" class="cs-card">
-        <div class="cs-bar"></div>
-        <div class="cs-body">
-          <div class="cs-meta">Department of the Air Force &nbsp;&bull;&nbsp; 2022&ndash;2023</div>
-          <div class="cs-title">When the Measure of Success Is Whether Airmen Can Do Their Jobs</div>
-          <img class="cs-thumb" src="images/thumb-eitaas.jpg" alt="Challenge coin from the U.S. Air Force Chief Experience Officer, awarded for the EITaaS research" width="800" height="400" loading="lazy" decoding="async">
-          <div class="cs-side">
-            <dl class="cs-tldr">
-              <div><dt>What changed</dt><dd>Five personas and a set of Experience Level Agreements went into the requirements for a $5.7B contract. At one pilot base, network satisfaction rose 24 points after the upgrades.</dd></div>
-              <div><dt>My role</dt><dd>Research lead and advisor to Air Force program leadership.</dd></div>
-              <div><dt>Timeline</dt><dd>2022 to 2023, across nine pilot installations.</dd></div>
-            </dl>
-          </div>
-        </div>
-        <div class="cs-arrow-wrap">
-          <div class="cs-arrow">Read &rarr;</div>
-        </div>
-      </a>
-
-      <!-- Funnel Performance -->
-      <a href="casestudy_funnelperformance.html" class="cs-card">
-        <div class="cs-bar"></div>
-        <div class="cs-body">
-          <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022</div>
-          <div class="cs-title">When the Best&#8209;Performing Channel Converted Almost No One</div>
-          <img class="cs-thumb" src="images/thumb-funnelperformance.jpg" alt="Bar chart comparing click-through rate and screener conversion rate for Google paid search, Bing and Yahoo paid search, and paid social" width="800" height="400" loading="lazy" decoding="async">
-          <div class="cs-side">
-            <dl class="cs-tldr">
-              <div><dt>What changed</dt><dd>Budget moved off channels that won clicks but not screeners, and messages that earned clicks but not trust were rewritten. Screener conversions rose 28% on average.</dd></div>
-              <div><dt>My role</dt><dd>Researcher and strategist across concurrent F100 pharma trial recruitment programs.</dd></div>
-              <div><dt>Timeline</dt><dd>Ongoing tracking, compared month over month and quarter over quarter.</dd></div>
-            </dl>
-          </div>
-        </div>
-        <div class="cs-arrow-wrap">
-          <div class="cs-arrow">Read &rarr;</div>
-        </div>
-      </a>
-
-      <!-- Research Panel -->
-      <a href="casestudy_researchpanel.html" class="cs-card">
-        <div class="cs-bar"></div>
-        <div class="cs-body">
-          <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022</div>
-          <div class="cs-title">Building Research Infrastructure Regulated Industries Will Actually Trust</div>
-          <img class="cs-thumb" src="images/thumb-researchpanel.jpg" alt="~1,000 participant panel, built from zero" width="800" height="400" loading="lazy" decoding="async">
-          <div class="cs-side">
-            <dl class="cs-tldr">
-              <div><dt>What changed</dt><dd>A proprietary panel of about 1,000 opted-in participants, each with a traceable source, used for pharma and banking client research in place of third-party vendors.</dd></div>
-              <div><dt>My role</dt><dd>Solo researcher and panel architect.</dd></div>
-              <div><dt>Timeline</dt><dd>About a year, from zero.</dd></div>
+              <div><dt>My role</dt><dd>Lead researcher and platform strategist on a cross-functional team</dd></div>
+              <div><dt>Timeline</dt><dd>One year, April 2023&ndash;April 2024</dd></div>
             </dl>
           </div>
         </div>
@@ -944,8 +894,8 @@
           <div class="cs-side">
             <dl class="cs-tldr">
               <div><dt>What changed</dt><dd>The client relabeled its transaction states and reordered onboarding after an audit found 17 friction points, most of them in how pending transactions read.</dd></div>
-              <div><dt>My role</dt><dd>Research lead and strategic advisor.</dd></div>
-              <div><dt>Timeline</dt><dd>2022.</dd></div>
+              <div><dt>My role</dt><dd>Research lead and strategic advisor</dd></div>
+              <div><dt>Timeline</dt><dd>2022</dd></div>
             </dl>
           </div>
         </div>
@@ -954,13 +904,33 @@
         </div>
       </a>
 
+      <!-- EITaaS -->
+      <a href="casestudy_eitaas.html" class="cs-card">
+        <div class="cs-bar"></div>
+        <div class="cs-body">
+          <div class="cs-meta">Department of the Air Force &nbsp;&bull;&nbsp; 2022&ndash;2023</div>
+          <div class="cs-title">When the Measure of Success Is Whether Airmen Can Do Their Jobs</div>
+          <img class="cs-thumb" src="images/thumb-eitaas.jpg" alt="Challenge coin from the U.S. Air Force Chief Experience Officer, awarded for the EITaaS research" width="800" height="400" loading="lazy" decoding="async">
+          <div class="cs-side">
+            <dl class="cs-tldr">
+              <div><dt>What changed</dt><dd>Five personas and a set of Experience Level Agreements went into the requirements for a $5.7B contract. At one pilot base, network satisfaction rose 24 points after the upgrades.</dd></div>
+              <div><dt>My role</dt><dd>Research lead and advisor to Air Force program leadership</dd></div>
+              <div><dt>Timeline</dt><dd>2022 to 2023, across nine pilot installations</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="cs-arrow-wrap">
+          <div class="cs-arrow">Read &rarr;</div>
+        </div>
+      </a>
     </div>
+    <a href="casestudies.html" class="cs-viewall">View all case studies &rarr;</a>
 
 
 
 
     <!-- TOOLS SECTION -->
-    <div style="margin-top: 48px;">
+    <div id="tools" style="margin-top: 48px;">
       <div class="section-label" style="margin-bottom: 20px;">Tools</div>
       <a href="https://shannonlcoleman.com/capability-measurement-tool" class="cs-card" target="_blank" rel="noopener" style="display: grid; grid-template-columns: 3px 1fr auto; text-decoration: none;">
         <div class="cs-bar"></div>
@@ -1021,7 +991,7 @@
 
     <div class="about-grid">
       <div class="about-text">
-        <h2 class="section-heading">The research background,<br>the strategy orientation</h2>
+        <h2 class="section-heading">Still asking the same question</h2>
         <p>I&rsquo;ve wanted to know how things work for as long as I can remember. Mostly that meant taking them apart, and my dad still hasn&rsquo;t fully forgiven me for the pool filter. It also meant sorting the world into categories, from backyard insects to wrapping paper patterns. The question that fascinated me longest, though, was about people. Why did adults say one thing and then do something else? Just resting their eyes while snoring loud enough to rattle the windows, or promising they knew a shortcut right before making three U-turns in a row.</p>
         <p>I&rsquo;ve been chasing some version of that ever since. After starting in marketing intelligence, I moved into product research at Fisher-Price, where the end users were kids. Then I earned a PhD in psychology and quantitative methods and went on to lead research for agency and consulting clients, including pharma and healthtech companies, a bank, and the Department of Defense. Behavioral data shows what people do, and talking with them shows what they say. I still go looking for the places where those don&rsquo;t match.</p>
         <p>These days a lot of my questions are about when people trust what AI tells them, when they check, and what happens to that trust the first time it&rsquo;s wrong.</p>
@@ -1053,7 +1023,7 @@
 <!-- TESTIMONIAL -->
     <div class="testimonial-block">
       <div class="testimonial-label">Colleague Recommendation</div>
-      <div class="testimonial-quote">"Shannon is a doctoral-level researcher who profoundly understands the dynamic processes of conducting qualitative and quantitative studies. We collaborated on several significant UX and CX projects where her expertise was critical in a wide range of efforts, from survey planning to data processing and thematic analysis. Dr. Coleman's diverse background sets her apart from other researchers, making her a valuable team member and leader in the experience strategy space. Working with her extensively, I can account for her acute sense of research direction and problem-solving skills toward successful outcomes. Shannon is also an outstanding company contributor, bringing character, expertise, and insights to any occasion, fostering camaraderie and well-being."</div>
+      <div class="testimonial-quote">&ldquo;Shannon is a doctoral-level researcher who profoundly understands the dynamic processes of conducting qualitative and quantitative studies. We collaborated on several significant UX and CX projects where her expertise was critical in a wide range of efforts, from survey planning to data processing and thematic analysis. Dr. Coleman&rsquo;s diverse background sets her apart from other researchers, making her a valuable team member and leader in the experience strategy space. Working with her extensively, I can account for her acute sense of research direction and problem-solving skills toward successful outcomes. Shannon is also an outstanding company contributor, bringing character, expertise, and insights to any occasion, fostering camaraderie and well-being.&rdquo;</div>
       <div class="testimonial-attribution">
         <strong>Damon Sanchez</strong>
         Senior Director of Enablement Architecture &nbsp;&bull;&nbsp; Northwestern Mutual
