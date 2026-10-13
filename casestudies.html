@@ -778,6 +778,12 @@
   .cs-viewall { display: inline-block; margin-top: 24px; font-size: 15px; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
   .cs-viewall:hover { border-bottom-color: var(--accent); }
   @media (max-width: 900px) { .hero-right { grid-column: 1; grid-row: auto; } }
+
+  /* Thumbnails drawn as live text and vector charts so they stay sharp */
+  .case-studies svg.cs-thumb, .case-studies .cs-thumb-stat { height: auto; }
+  .case-studies .cs-thumb-stat { display: flex; flex-direction: column; justify-content: center; padding: 0 40px; border-top: 3px solid var(--accent); box-sizing: border-box; }
+  .cs-stat-n { font-family: var(--sans); font-size: clamp(44px, 5vw, 64px); font-weight: 400; letter-spacing: -0.02em; font-variant-numeric: lining-nums tabular-nums; color: var(--accent); line-height: 1; }
+  .cs-stat-c { font-family: var(--serif); font-size: 19px; color: var(--ink-2); margin-top: 10px; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -824,7 +830,7 @@
         <div class="cs-body">
           <div class="cs-meta">AI Health Platform (NDA) &nbsp;&bull;&nbsp; 2025&ndash;2026</div>
           <div class="cs-title">Why a Product People Liked Still Felt &ldquo;Not for Me&rdquo;</div>
-          <img class="cs-thumb" src="images/thumb-healthplatform.jpg" alt="16,000+ users, grown from a few" width="800" height="400" loading="lazy" decoding="async">
+          <div class="cs-thumb cs-thumb-stat" role="img" aria-label="16,000+ users, grown from a few"><span class="cs-stat-n">16,000+</span><span class="cs-stat-c">users, grown from a few</span></div>
           <div class="cs-side">
             <dl class="cs-tldr">
               <div><dt>What changed</dt><dd>The founders added employer and union channels alongside direct-to-consumer, and started re-engagement emails for trial users who never converted.</dd></div>
@@ -844,7 +850,7 @@
         <div class="cs-body">
           <div class="cs-meta">DoD CDAO &nbsp;&bull;&nbsp; 2023&ndash;2024</div>
           <div class="cs-title">When a Platform Becomes a Victim of Its Own Success</div>
-          <img class="cs-thumb" src="images/thumb-advana.jpg" alt="Bar chart from the Advana CX survey: 36% of users found content difficult to find, and 20% found it very or extremely easy" width="800" height="400" loading="lazy" decoding="async">
+          <svg class="cs-thumb" viewBox="0 0 400 200" role="img" aria-label="Advana CX survey: 36% of users found content difficult to find, 44% neither easy nor difficult, and 20% easy" xmlns="http://www.w3.org/2000/svg"><text x="24" y="34" style="font-family:'Newsreader',Georgia,serif;font-size:19px" fill="#1c1b19">Finding content on Advana</text><text x="24" y="77" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px" fill="#55514b">Difficult</text><rect x="150" y="64" width="176" height="18" fill="#eeece8"/><path d="M150,64h122.7a4,4 0 0 1 4,4v10a4,4 0 0 1 -4,4h-122.7z" fill="#9b3a22"/><text x="336" y="78" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600" fill="#1c1b19">36%</text><text x="24" y="117" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px" fill="#55514b">Neither</text><rect x="150" y="104" width="176" height="18" fill="#eeece8"/><path d="M150,104h150.9a4,4 0 0 1 4,4v10a4,4 0 0 1 -4,4h-150.9z" fill="#b8b4ad"/><text x="336" y="118" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600" fill="#1c1b19">44%</text><text x="24" y="157" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px" fill="#55514b">Easy</text><rect x="150" y="144" width="176" height="18" fill="#eeece8"/><path d="M150,144h66.4a4,4 0 0 1 4,4v10a4,4 0 0 1 -4,4h-66.4z" fill="#00789a"/><text x="336" y="158" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600" fill="#1c1b19">20%</text></svg>
           <div class="cs-side">
             <dl class="cs-tldr">
               <div><dt>What changed</dt><dd>A redesigned navigation, content model, and clickable prototype for a 100,000+ user AI and analytics platform. DoD paused development in June 2024 to fix infrastructure, as recommended, and the $15B recompete centered on a modular architecture.</dd></div>
@@ -864,7 +870,7 @@
         <div class="cs-body">
           <div class="cs-meta">Tokenized Asset Platform (NDA) &nbsp;&bull;&nbsp; 2022</div>
           <div class="cs-title">When &ldquo;Pending&rdquo; Looked Like Lost Money</div>
-          <img class="cs-thumb" src="images/thumb-web3fintech.jpg" alt="Friction map: 11 of 17 friction points in transaction state legibility, 4 in onboarding flow, and 2 in regulatory communication" width="800" height="400" loading="lazy" decoding="async">
+          <svg class="cs-thumb" viewBox="0 0 400 200" role="img" aria-label="Friction map: 11 of 17 friction points in transaction state legibility, 4 in onboarding, and 2 in regulatory communication" xmlns="http://www.w3.org/2000/svg"><text x="24" y="34" style="font-family:'Newsreader',Georgia,serif;font-size:19px" fill="#1c1b19">17 friction points</text><text x="24" y="77" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px" fill="#55514b">Transaction states</text><rect x="150" y="64" width="176" height="18" fill="#eeece8"/><path d="M150,64h157.3a4,4 0 0 1 4,4v10a4,4 0 0 1 -4,4h-157.3z" fill="#9b3a22"/><text x="336" y="78" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600" fill="#1c1b19">11</text><text x="24" y="117" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px" fill="#55514b">Onboarding</text><rect x="150" y="104" width="176" height="18" fill="#eeece8"/><path d="M150,104h54.7a4,4 0 0 1 4,4v10a4,4 0 0 1 -4,4h-54.7z" fill="#b8b4ad"/><text x="336" y="118" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600" fill="#1c1b19">4</text><text x="24" y="157" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px" fill="#55514b">Regulatory copy</text><rect x="150" y="144" width="176" height="18" fill="#eeece8"/><path d="M150,144h25.3a4,4 0 0 1 4,4v10a4,4 0 0 1 -4,4h-25.3z" fill="#b8b4ad"/><text x="336" y="158" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600" fill="#1c1b19">2</text></svg>
           <div class="cs-side">
             <dl class="cs-tldr">
               <div><dt>What changed</dt><dd>The client relabeled its transaction states and reordered onboarding after an audit found 17 friction points, most of them in how pending transactions read. Retention at 90 days rose 22%, and support tickets fell by about half.</dd></div>
@@ -904,7 +910,7 @@
         <div class="cs-body">
           <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022</div>
           <div class="cs-title">When the Best&#8209;Performing Channel Converted Almost No One</div>
-          <img class="cs-thumb" src="images/thumb-funnelperformance.jpg" alt="Bar chart comparing click-through rate and screener conversion rate for Google paid search, Bing and Yahoo paid search, and paid social" width="800" height="400" loading="lazy" decoding="async">
+          <svg class="cs-thumb" viewBox="0 0 400 200" role="img" aria-label="Click-through rate versus screener conversion: Google paid search 2.69% and 5.51%, Bing and Yahoo 2.61% and 1.79%, paid social 4.55% and 0.06%" xmlns="http://www.w3.org/2000/svg"><rect x="24" y="20" width="10" height="10" rx="2" fill="#00789a"/><text x="40" y="29" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13px" fill="#55514b">Click-through rate</text><rect x="190" y="20" width="10" height="10" rx="2" fill="#9b3a22"/><text x="206" y="29" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13px" fill="#55514b">Screener conversion</text><path d="M55.0,158v-43.1a4,4 0 0 1 4,-4h16a4,4 0 0 1 4,4v43.1z" fill="#00789a"/><path d="M85.0,158v-92.4a4,4 0 0 1 4,-4h16a4,4 0 0 1 4,4v92.4z" fill="#9b3a22"/><text x="63.0" y="104.92500000000001" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:600" fill="#1c1b19">2.69%</text><text x="101.0" y="55.575" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:600" fill="#1c1b19">5.51%</text><text x="82" y="178" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13px" fill="#55514b">Google search</text><path d="M173.0,158v-41.7a4,4 0 0 1 4,-4h16a4,4 0 0 1 4,4v41.7z" fill="#00789a"/><path d="M203.0,158v-27.3a4,4 0 0 1 4,-4h16a4,4 0 0 1 4,4v27.3z" fill="#9b3a22"/><text x="181.0" y="106.325" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:600" fill="#1c1b19">2.61%</text><text x="219.0" y="120.675" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:600" fill="#1c1b19">1.79%</text><text x="200" y="178" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13px" fill="#55514b">Bing/Yahoo</text><path d="M291.0,158v-75.6a4,4 0 0 1 4,-4h16a4,4 0 0 1 4,4v75.6z" fill="#00789a"/><rect x="321.0" y="156" width="24" height="2" fill="#9b3a22"/><text x="299.0" y="72.375" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:600" fill="#1c1b19">4.55%</text><text x="337.0" y="150" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:600" fill="#1c1b19">0.06%</text><text x="318" y="178" text-anchor="middle" style="font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13px" fill="#55514b">Paid social</text><line x1="24" y1="158" x2="376" y2="158" stroke="#dcd8d2" stroke-width="1"/></svg>
           <div class="cs-side">
             <dl class="cs-tldr">
               <div><dt>What changed</dt><dd>Budget moved off channels that won clicks but not screeners, and messages that earned clicks but not trust were rewritten. Screener conversions rose 28% on average.</dd></div>
@@ -924,7 +930,7 @@
         <div class="cs-body">
           <div class="cs-meta">Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022</div>
           <div class="cs-title">Building Research Infrastructure Regulated Industries Will Actually Trust</div>
-          <img class="cs-thumb" src="images/thumb-researchpanel.jpg" alt="~1,000 participant panel, built from zero" width="800" height="400" loading="lazy" decoding="async">
+          <div class="cs-thumb cs-thumb-stat" role="img" aria-label="About 1,000 participant panel, built from zero"><span class="cs-stat-n">~1,000</span><span class="cs-stat-c">participant panel, built from zero</span></div>
           <div class="cs-side">
             <dl class="cs-tldr">
               <div><dt>What changed</dt><dd>A proprietary panel of about 1,000 opted-in participants, each with a traceable source, used for pharma and banking client research in place of third-party vendors.</dd></div>
