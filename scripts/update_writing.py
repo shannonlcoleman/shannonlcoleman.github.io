@@ -221,7 +221,14 @@ def home_row(post, number, name):
 
 
 def add_home_row(home, post, number, name):
-    """Put a new series at the top of the homepage Writing list."""
+    """Put a new series at the top of the homepage Writing list.
+
+    The homepage now shows one hand-picked article plus "View all articles",
+    so new series only go on writing.html. Add the marker comment
+    <!-- auto-writing-rows --> inside the homepage Writing section to turn this back on.
+    """
+    if "<!-- auto-writing-rows -->" not in home:
+        return home
     if f"/p/{post['slug']}?" in home:
         return home
     anchor = home.index('    <a href="https://byshannoncoleman.substack.com/p/', home.index('id="writing"'))
