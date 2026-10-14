@@ -1185,23 +1185,27 @@
     .content p.hyp-a { font-size: 16px; }
   }
 
-  /* Time allocation: bar width is the time each phase got */
-  .tl { margin: 36px 0 8px; padding: 28px 32px 22px; border: 1px solid var(--ink); border-radius: 2px; }
+  /* Time allocation: bar position and width are the time each phase got */
+  .tl { margin: 36px 0 8px; padding: 28px 32px 24px; border: 1px solid var(--ink); border-radius: 2px; }
   .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); }
-  .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 22px; }
-  .tl-grid { display: grid; grid-template-columns: repeat(var(--tl-cols), minmax(0, 1fr)); row-gap: 14px; }
-  .tl-week { font: 500 13px/1.4 var(--sans); color: var(--ink-3); padding: 0 0 8px 8px; border-left: 1px solid var(--rule); }
-  .tl-row { padding-right: 8px; }
-  .tl-bar { height: 34px; display: flex; align-items: center; padding: 0 12px; border-radius: 2px; background: var(--accent); color: #fff; font: 500 15px/1.2 var(--sans); white-space: nowrap; overflow: hidden; }
-  .tl-bar.is-idle { background: #eeece8; color: var(--ink-3); }
-  .tl-meta { font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 6px; }
-  .tl-meta b { font-weight: 500; color: var(--ink-2); }
-  .content p.tl-note { font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 66ch; margin: 22px 0 0; }
+  .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 24px; }
+  .tl-rows { display: flex; flex-direction: column; gap: 20px; }
+  .tl-track { position: relative; height: 12px; background: #eeece8; border-radius: 2px; }
+  .tl-track span { position: absolute; top: 0; bottom: 0; background: var(--accent); border-radius: 2px; }
+  .tl-lab { margin-top: 8px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+  .tl-lab b { font-weight: 600; color: var(--ink); }
+  .tl-lab .tl-dur { color: var(--ink-3); }
+  .tl-lab.is-right { text-align: right; }
+  /* AI in the workflow: time saved per step */
+  .ai-list { border-top: 1px solid var(--ink); margin-top: 8px; }
+  .ai-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); column-gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .ai-fig { font: 400 28px/1.1 var(--sans); color: var(--accent); letter-spacing: -0.02em; font-variant-numeric: lining-nums tabular-nums; }
+  .ai-fig small { display: block; font-size: 14px; letter-spacing: 0; color: var(--ink-3); margin-top: 4px; }
+  .content .ai-row p { margin: 0; font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 62ch; }
   @media (max-width: 700px) {
-    .tl { padding: 22px 20px 18px; }
-    .tl-week { display: none; }
-    .tl-row { grid-column: 1 / -1 !important; padding-right: 0; }
-    .tl-bar { white-space: normal; height: auto; min-height: 34px; padding: 6px 12px; }
+    .tl { padding: 22px 20px 20px; }
+    .tl-lab { padding: 0 !important; text-align: left !important; }
+    .ai-row { grid-template-columns: minmax(0, 1fr); row-gap: 8px; }
   }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -1257,7 +1261,7 @@
       <div class="tldr-row"><dt>Result</dt><dd>The new channel strategy led directly to the platform&rsquo;s first six-figure service agreement and to growth from a few users to more than 16,000, past the 10,000-user target.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Solo researcher and strategist for the founders, from study design and recruiting through sessions, behavioral analytics, and recommendations</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 3.5 months: 6 weeks of research through the January readout, then advisory through March</dd></div>
-      <div class="tldr-row"><dt>Why it mattered</dt><dd>The company needed growth beyond early adopters. The research showed the trust problem was bigger than the interface, so the go-to-market plan shifted toward employers and unions.</dd></div>
+      <div class="tldr-row"><dt>Why it mattered</dt><dd>The company needed growth beyond early adopters. Trust was in the way more than the interface was.</dd></div>
     </dl>
   </section>
 
@@ -1296,12 +1300,12 @@
   <section class="section">
     <div class="section-label">Recommendations</div>
     <h2 class="section-heading">Meet people through someone they already trust</h2>
-    <p>The Trust-Transfer Model introduces the product through an institution people already trust, like their employer or union. The question in their head changes from &ldquo;Do I need this?&rdquo; to &ldquo;My organization already chose this for me.&rdquo;</p>
+    <p>The Trust-Transfer Model introduces the product through an institution people already trust, like their employer or union.</p>
 
     <figure class="dg-fig">
       <div class="dg-tag">Strategic Framework</div>
       <div class="dg-heading">The Trust-Transfer Model</div>
-      <div class="dg-cmp"><div class="dg-ch"></div><div class="dg-ch dg-dtc">Original approach<strong>Direct to consumer</strong></div><div class="dg-ch dg-tt">Research recommendation<strong>Trust transfer (B2B2C)</strong></div><div class="dg-rl">How people meet it</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>They find the product on their own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>A self-funded employer, union, stop-loss carrier, or advocacy organization (AARP, Alzheimer&rsquo;s Association, NAACP health initiatives) offers it as a benefit.</div><div class="dg-rl">The question they ask</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span><span class="dg-q">&ldquo;Do I need this? Should I trust it? Is this for me?&rdquo;</span></div><div class="dg-tt"><span class="dg-lab">Trust transfer</span><span class="dg-q">&ldquo;My organization already chose this for me.&rdquo;</span></div><div class="dg-rl">What carries trust</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Compliance badges and HIPAA and SOC 2 disclosures, which didn&rsquo;t move the people who backed out.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The institution&rsquo;s credibility, borrowed before the product has earned its own.</div><div class="dg-rl">The &ldquo;Not for Me&rdquo; Paradox</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Every signup has to get past optimism bias on its own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The organization frames it as relevant, so the product can prove itself at population scale.</div><div class="dg-rl">What it costs</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>A valid path, with substantial acquisition cost.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>Lower acquisition cost and less psychological friction.</div></div>
+      <div class="dg-cmp"><div class="dg-ch"></div><div class="dg-ch dg-dtc">Original approach<strong>Direct to consumer</strong></div><div class="dg-ch dg-tt">Research recommendation<strong>Trust transfer (B2B2C)</strong></div><div class="dg-rl">How people meet it</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>They find the product on their own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>A self-funded employer, union, stop-loss carrier, or advocacy organization (AARP, Alzheimer&rsquo;s Association, NAACP health initiatives) offers it as a benefit.</div><div class="dg-rl">What carries trust</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Compliance badges and HIPAA and SOC 2 disclosures, which didn&rsquo;t move the people who backed out.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The institution&rsquo;s credibility, borrowed before the product has earned its own.</div><div class="dg-rl">The &ldquo;Not for Me&rdquo; Paradox</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>Every signup has to get past optimism bias on its own.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>The organization frames it as relevant, so the product can prove itself at population scale.</div><div class="dg-rl">What it costs</div><div class="dg-dtc"><span class="dg-lab">Direct to consumer</span>A valid path, with substantial acquisition cost.</div><div class="dg-tt"><span class="dg-lab">Trust transfer</span>Lower acquisition cost and less psychological friction.</div></div>
     </figure>
     <div class="strategy-item">
       <div class="strategy-tag">Primary<br>Recommendation</div>
@@ -1341,8 +1345,8 @@
     <div class="section-label">Going in</div>
     <h2 class="section-heading">The founders saw a product problem</h2>
     <div class="hyp-list">
-      <div class="hyp-row"><div><div class="hyp-k">The founders&rsquo; hypothesis</div><p class="hyp-q">Adoption is a product or feature problem.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">The interface had a few rough spots, but people were leaving at the entry point, and 7 of 8 decided the product was meant for someone else.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People who backed out of participating had something to add, even without trying the product.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">Eleven people backed out over privacy and trust, even after hearing the product was HIPAA and SOC 2 compliant. Their reasons became the trust finding.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">The founders&rsquo; hypothesis</div><p class="hyp-q">Adoption is a product or feature problem.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">The interface had a few rough spots, but nothing that explained the drop-off. People were leaving at the entry point.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People who backed out of participating had something to add, even without trying the product.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">The reasons people gave for backing out became the trust finding.</p></div></div>
     </div>
   </section>
 
@@ -1356,7 +1360,7 @@
   <section class="section">
     <div class="section-label">Approach</div>
     <h2 class="section-heading">Following the people who said no</h2>
-    <p>I recruited and screened everyone myself, across a range of ages, health engagement, and comfort with technology, and ran the sessions over Zoom. I also kept careful notes on the people who refused to try the product at all.</p>
+    <p>I recruited and screened everyone myself, across a range of ages, health engagement, and comfort with technology, and ran the sessions over Zoom.</p>
 
     <div class="methods-grid">
       <div class="method-card">
@@ -1377,7 +1381,7 @@
       <div class="method-card">
         <div class="method-icon">4</div>
         <div class="method-name">Non-completer analysis</div>
-        <div class="method-desc">Documented conversations with people who refused to try the product, and treated each refusal as data</div>
+        <div class="method-desc">Conversations with people who refused to try the product</div>
       </div>
       <div class="method-card">
         <div class="method-icon">5</div>
@@ -1385,25 +1389,35 @@
         <div class="method-desc">Analyzed site and in-product behavior to find drop-off points and check them against what people said</div>
       </div>
     </div>
-    <figure class="tl" style="--tl-cols: 7" aria-label="Timeline from December 16 to January 28 showing how time was split across phases">
+    <figure class="tl" aria-label="Six-week timeline showing how time was split across phases">
       <div class="tl-tag">Approach and time allocation</div>
-      <div class="tl-heading">Six weeks, planned around the holidays</div>
-      <div class="tl-grid">
-        <div class="tl-week">Dec 15</div><div class="tl-week">Dec 22</div><div class="tl-week">Dec 29</div><div class="tl-week">Jan 5</div><div class="tl-week">Jan 12</div><div class="tl-week">Jan 19</div><div class="tl-week">Jan 26</div>
-        <div class="tl-row" style="grid-column: 1 / span 1"><div class="tl-bar">Study design</div><div class="tl-meta"><b>Dec 16&ndash;19.</b> Research goals, discussion guide, and screener set with the founders</div></div>
-        <div class="tl-row" style="grid-column: 2 / span 2"><div class="tl-bar">Recruiting through the holidays</div><div class="tl-meta"><b>Dec 20&ndash;Jan 4.</b> Screener out before the holiday lull, so January had people lined up</div></div>
-        <div class="tl-row" style="grid-column: 4 / span 2"><div class="tl-bar">Sessions and behavioral data</div><div class="tl-meta"><b>Jan 5&ndash;18.</b> Pilot sessions first, then the core sessions, with usage data pulled alongside them</div></div>
-        <div class="tl-row" style="grid-column: 6 / span 1"><div class="tl-bar">Synthesis</div><div class="tl-meta"><b>Jan 19&ndash;24.</b> Themes tied back to the founders&rsquo; kickoff questions</div></div>
-        <div class="tl-row" style="grid-column: 7 / span 1"><div class="tl-bar">Readout</div><div class="tl-meta"><b>Jan 25&ndash;28.</b> Deck built and presented on January 28</div></div>
+      <div class="tl-heading">About six weeks, planned around the holidays</div>
+      <div class="tl-rows">
+        <div><div class="tl-track"><span style="left: 0.00%; width: 9.09%"></span></div><div class="tl-lab" style="padding-left: 0.00%"><b>Study design</b> <span class="tl-dur">&middot; 4 days</span><br>Research goals, discussion guide, and screener set with the founders.</div></div>
+        <div><div class="tl-track"><span style="left: 9.09%; width: 36.36%"></span></div><div class="tl-lab" style="padding-left: 9.09%"><b>Recruiting through the holidays</b> <span class="tl-dur">&middot; about 2 weeks</span><br>Screener out before the holiday lull, so January had people lined up.</div></div>
+        <div><div class="tl-track"><span style="left: 45.45%; width: 31.82%"></span></div><div class="tl-lab" style="padding-left: 45.45%"><b>Sessions and behavioral data</b> <span class="tl-dur">&middot; 2 weeks</span><br>Pilot sessions first, then the core sessions, with usage data alongside.</div></div>
+        <div><div class="tl-track"><span style="left: 77.27%; width: 13.64%"></span></div><div class="tl-lab is-right" style="padding-right: 9.09%"><b>Synthesis</b> <span class="tl-dur">&middot; 1 week</span><br>Themes tied back to the founders&rsquo; kickoff questions.</div></div>
+        <div><div class="tl-track"><span style="left: 90.91%; width: 9.09%"></span></div><div class="tl-lab is-right" style="padding-right: 0.00%"><b>Readout</b> <span class="tl-dur">&middot; 4 days</span><br>Deck built and presented.</div></div>
       </div>
     </figure>
-    <p class="tl-note">Sessions got the biggest block of time. I launched the screener before the holiday lull and let it collect responses, so sessions could start right after New Year&rsquo;s.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">AI in the workflow</div>
+    <h2 class="section-heading">About a week and a half saved in a six-week study</h2>
+    <div class="ai-list">
+      <div class="ai-row"><div class="ai-fig">~1 day<small>Discussion guide</small></div><p>Claude checked my discussion guide for leading questions and helped build a list of edge cases to probe.</p></div>
+      <div class="ai-row"><div class="ai-fig">3&ndash;4 days<small>Transcripts</small></div><p>Sessions were transcribed automatically. I exported the transcripts, converted them to .vtt files, and loaded them into Dovetail the same day, then checked them before coding.</p></div>
+      <div class="ai-row"><div class="ai-fig">~2 days<small>Coding</small></div><p>Dovetail&rsquo;s AI clustering did the first pass at grouping themes across sessions, which cut coding time about in half.</p></div>
+      <div class="ai-row"><div class="ai-fig">~1 day<small>Readout</small></div><p>Notion AI drafted slide copy from my theme notes, and I spent the saved day on the charts.</p></div>
+    </div>
+    <p style="margin-top: 22px">The rest of the saved time went into checking what people said in sessions against what the behavioral data showed.</p>
   </section>
 
   <section class="section">
     <div class="section-label">Findings</div>
     <h2 class="section-heading">People liked it. Most decided it wasn&rsquo;t for them.</h2>
-    <p>The interface had a few rough spots, but nothing that explained the drop-off. The behavioral analytics showed the same pattern the sessions did: people were leaving at the entry point, before they ever became active users. The bigger findings were about how people saw themselves.</p>
+    <p>The behavioral analytics and the sessions pointed the same way. The bigger findings were about how people saw themselves.</p>
 
     <figure class="dg-fig">
       <div class="dg-tag">Who the research heard from</div>
@@ -1429,7 +1443,7 @@
       <div class="finding-num">1</div>
       <div class="finding-body">
         <div class="finding-title">The &ldquo;Not for Me&rdquo; Paradox</div>
-        <p class="finding-text">Seven of the 8 called the product valuable for someone else: a parent, a grandparent, a friend with a chronic illness. Some said they would use it if their doctor told them to. That&rsquo;s optimism bias, the belief that health risks apply more to other people, and I named it the &ldquo;Not for Me&rdquo; Paradox so the founders had a handle for it.</p>
+        <p class="finding-text">Most named someone else it would help: a parent, a grandparent, a friend with a chronic illness. Some said they would use it if their doctor told them to. That&rsquo;s optimism bias, the belief that health risks apply more to other people, and I named it the &ldquo;Not for Me&rdquo; Paradox so the founders had a handle for it.</p>
       </div>
     </div>
 
@@ -1461,6 +1475,15 @@
       <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Test onboarding on its own</div><p class="hs-text">The research pointed to the entry point as the problem, but the sessions covered the whole product. A study built only around first-time activation would have shown exactly where trust broke down.</p></div></div>
       <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Push for one interface change to measure</div><p class="hs-text">The founders&rsquo; changes were about channels, not the interface, so there was nothing new to bring back into testing. I would push for one onboarding change alongside the strategy work, so a follow-up study could measure the result.</p></div></div>
       <div class="hs-item"><div class="hs-num">3</div><div><div class="hs-title">Recruit caregivers from the start</div><p class="hs-text">Caregivers came up during analysis as a strong segment, but I hadn&rsquo;t recruited them on purpose. Building them into the screener from day one would have given that group its own findings and likely sped up the partner recommendation.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Next steps</div>
+    <h2 class="section-heading">With two more weeks</h2>
+    <div class="hs-list">
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Study caregivers on their own</div><p class="hs-text">Recruit caregivers directly and give them their own sessions.</p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Test the pitch with benefits buyers</div><p class="hs-text">Employers decide through HR and benefits teams, so the partner pitch needs testing with them too.</p></div></div>
     </div>
   </section>
 
