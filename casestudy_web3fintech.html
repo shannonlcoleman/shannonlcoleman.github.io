@@ -1454,9 +1454,11 @@
     .content p.hyp-a { font-size: 16px; }
   }
 
+  .hyp-v { color: var(--ink); font-weight: 600; }
+  .hyp-v::before { content: "\00b7"; color: var(--ink-3); margin: 0 6px; font-weight: 400; }
   /* Time allocation: bar position and width are the time each phase got */
   .tl { margin: 36px 0 8px; padding: 28px 32px 24px; border: 1px solid var(--ink); border-radius: 2px; }
-  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); }
+  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 22px; }
   .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 24px; }
   .tl-rows { display: flex; flex-direction: column; gap: 20px; }
   .tl-track { position: relative; height: 12px; background: #eeece8; border-radius: 2px; }
@@ -1605,8 +1607,8 @@
     <div class="section-label">Going in</div>
     <h2 class="section-heading">The client expected onboarding to be the problem</h2>
     <div class="hyp-list">
-      <div class="hyp-row"><div><div class="hyp-k">The client&rsquo;s hypothesis</div><p class="hyp-q">The biggest risk of losing users is in onboarding.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">Transaction states held almost three times as many friction points as onboarding.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People bring a banking mental model, so a normal settlement delay reads as lost money.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">Participants expected money to move as soon as they clicked Submit, and a spinner with no time estimate looked like an error.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">The client&rsquo;s hypothesis</div><p class="hyp-q">The biggest risk of losing users is in onboarding.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Not supported</span></div><p class="hyp-a">Transaction states held almost three times as many friction points as onboarding.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People bring a banking mental model, so a normal settlement delay reads as lost money.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Participants expected money to move as soon as they clicked Submit, and a spinner with no time estimate looked like an error.</p></div></div>
     </div>
   </section>
 
@@ -1629,8 +1631,7 @@
     </ul>
     <p>I also ran in-depth, contextual sessions with 9 people who matched the platform&rsquo;s target investor profile, to see where their expectations didn&rsquo;t match how the product worked.</p>
     <figure class="tl" aria-label="Six-week timeline showing how time was split across phases">
-      <div class="tl-tag">Approach and time allocation</div>
-      <div class="tl-heading">Where the six weeks went</div>
+      <div class="tl-tag">Approach and time allocation &middot; 6 weeks</div>
       <div class="tl-rows">
         <div><div class="tl-track"><span style="left: 0.00%; width: 16.67%"></span></div><div class="tl-lab" style="padding-left: 0.00%"><b>Walkthrough and expectation mapping</b> <span class="tl-dur">&middot; 1 week</span><br>Pointed to transactions as the retention risk, so they got most of the research time.</div></div>
         <div><div class="tl-track"><span style="left: 16.67%; width: 33.33%"></span></div><div class="tl-lab" style="padding-left: 16.67%"><b>9 contextual sessions, plus onboarding and disclosure reviews</b> <span class="tl-dur">&middot; 2 weeks</span><br>Showed where people&rsquo;s expectations and the product split apart.</div></div>

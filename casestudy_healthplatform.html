@@ -1185,9 +1185,11 @@
     .content p.hyp-a { font-size: 16px; }
   }
 
+  .hyp-v { color: var(--ink); font-weight: 600; }
+  .hyp-v::before { content: "\00b7"; color: var(--ink-3); margin: 0 6px; font-weight: 400; }
   /* Time allocation: bar position and width are the time each phase got */
   .tl { margin: 36px 0 8px; padding: 28px 32px 24px; border: 1px solid var(--ink); border-radius: 2px; }
-  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); }
+  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 22px; }
   .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 24px; }
   .tl-rows { display: flex; flex-direction: column; gap: 20px; }
   .tl-track { position: relative; height: 12px; background: #eeece8; border-radius: 2px; }
@@ -1345,8 +1347,8 @@
     <div class="section-label">Going in</div>
     <h2 class="section-heading">The founders saw a product problem</h2>
     <div class="hyp-list">
-      <div class="hyp-row"><div><div class="hyp-k">The founders&rsquo; hypothesis</div><p class="hyp-q">Adoption is a product or feature problem.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">The interface had a few rough spots, but nothing that explained the drop-off. People were leaving at the entry point.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People who backed out of participating had something to add, even without trying the product.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">The reasons people gave for backing out became the trust finding.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">The founders&rsquo; hypothesis</div><p class="hyp-q">Adoption is a product or feature problem.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Not supported</span></div><p class="hyp-a">The interface had a few rough spots, but nothing that explained the drop-off. People were leaving at the entry point.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People who backed out of participating had something to add, even without trying the product.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">The reasons people gave for backing out became the trust finding.</p></div></div>
     </div>
   </section>
 
@@ -1390,23 +1392,21 @@
       </div>
     </div>
     <figure class="tl" aria-label="Six-week timeline showing how time was split across phases">
-      <div class="tl-tag">Approach and time allocation</div>
-      <div class="tl-heading">About six weeks, planned around the holidays</div>
+      <div class="tl-tag">Approach and time allocation &middot; about 6 weeks</div>
       <div class="tl-rows">
-        <div><div class="tl-track"><span style="left: 0.00%; width: 9.09%"></span></div><div class="tl-lab" style="padding-left: 0.00%"><b>Study design</b> <span class="tl-dur">&middot; 4 days</span><br>Research goals, discussion guide, and screener set with the founders.</div></div>
-        <div><div class="tl-track"><span style="left: 9.09%; width: 36.36%"></span></div><div class="tl-lab" style="padding-left: 9.09%"><b>Recruiting through the holidays</b> <span class="tl-dur">&middot; about 2 weeks</span><br>Screener out before the holiday lull, so January had people lined up.</div></div>
-        <div><div class="tl-track"><span style="left: 45.45%; width: 31.82%"></span></div><div class="tl-lab" style="padding-left: 45.45%"><b>Sessions and behavioral data</b> <span class="tl-dur">&middot; 2 weeks</span><br>Pilot sessions first, then the core sessions, with usage data alongside.</div></div>
-        <div><div class="tl-track"><span style="left: 77.27%; width: 13.64%"></span></div><div class="tl-lab is-right" style="padding-right: 9.09%"><b>Synthesis</b> <span class="tl-dur">&middot; 1 week</span><br>Themes tied back to the founders&rsquo; kickoff questions.</div></div>
-        <div><div class="tl-track"><span style="left: 90.91%; width: 9.09%"></span></div><div class="tl-lab is-right" style="padding-right: 0.00%"><b>Readout</b> <span class="tl-dur">&middot; 4 days</span><br>Deck built and presented.</div></div>
+        <div><div class="tl-track"><span style="left: 0.00%; width: 9.09%"></span></div><div class="tl-lab" style="padding-left: 0.00%"><b>Discussion guide and screener</b> <span class="tl-dur">&middot; 4 days</span></div></div>
+        <div><div class="tl-track"><span style="left: 9.09%; width: 36.36%"></span></div><div class="tl-lab" style="padding-left: 9.09%"><b>Recruiting</b> <span class="tl-dur">&middot; 2 weeks, over the holidays</span><br>The screener stayed open through the break, so sessions could start the first week of January.</div></div>
+        <div><div class="tl-track"><span style="left: 45.45%; width: 31.82%"></span></div><div class="tl-lab" style="padding-left: 45.45%"><b>Sessions, refusals, and behavioral data</b> <span class="tl-dur">&middot; 2 weeks</span><br>Moved the question from usability to who people thought the product was for.</div></div>
+        <div><div class="tl-track"><span style="left: 77.27%; width: 13.64%"></span></div><div class="tl-lab is-right" style="padding-right: 9.09%"><b>Synthesis</b> <span class="tl-dur">&middot; 1 week</span><br>Turned the findings into a channel recommendation.</div></div>
+        <div><div class="tl-track"><span style="left: 90.91%; width: 9.09%"></span></div><div class="tl-lab is-right" style="padding-right: 0.00%"><b>Readout</b> <span class="tl-dur">&middot; 4 days</span></div></div>
       </div>
     </figure>
   </section>
 
   <section class="section">
     <div class="section-label">AI in the workflow</div>
-    <h2 class="section-heading">About a week and a half saved in a six-week study</h2>
+    <h2 class="section-heading">More than a week saved in a six-week study</h2>
     <div class="ai-list">
-      <div class="ai-row"><div class="ai-fig">~1 day<small>Discussion guide</small></div><p>Claude checked my discussion guide for leading questions and helped build a list of edge cases to probe.</p></div>
       <div class="ai-row"><div class="ai-fig">3&ndash;4 days<small>Transcripts</small></div><p>Sessions were transcribed automatically. I exported the transcripts, converted them to .vtt files, and loaded them into Dovetail the same day, then checked them before coding.</p></div>
       <div class="ai-row"><div class="ai-fig">~2 days<small>Coding</small></div><p>Dovetail&rsquo;s AI clustering did the first pass at grouping themes across sessions, which cut coding time about in half.</p></div>
       <div class="ai-row"><div class="ai-fig">~1 day<small>Readout</small></div><p>Notion AI drafted slide copy from my theme notes, and I spent the saved day on the charts.</p></div>

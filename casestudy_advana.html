@@ -1262,9 +1262,11 @@
     .content p.hyp-a { font-size: 16px; }
   }
 
+  .hyp-v { color: var(--ink); font-weight: 600; }
+  .hyp-v::before { content: "\00b7"; color: var(--ink-3); margin: 0 6px; font-weight: 400; }
   /* Time allocation: bar position and width are the time each phase got */
   .tl { margin: 36px 0 8px; padding: 28px 32px 24px; border: 1px solid var(--ink); border-radius: 2px; }
-  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); }
+  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 22px; }
   .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 24px; }
   .tl-rows { display: flex; flex-direction: column; gap: 20px; }
   .tl-track { position: relative; height: 12px; background: #eeece8; border-radius: 2px; }
@@ -1430,9 +1432,9 @@
     <div class="section-label">Going in</div>
     <h2 class="section-heading">What I expected to find</h2>
     <div class="hyp-list">
-      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 1</div><p class="hyp-q">People needed the platform. Low engagement, even with a mandate, came from not being able to find things.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">People described finding workarounds and using outdated methods instead of the platform.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 2</div><p class="hyp-q">The experience problems sat downstream of the infrastructure, like slow performance and broken pipelines, so interface fixes alone wouldn&rsquo;t move satisfaction.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">Infrastructure strain was one of six root causes, and fixing it came first in the recommendations.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 3</div><p class="hyp-q">One interface couldn&rsquo;t serve the range of data literacy across the four main user groups.</p></div><div><div class="hyp-k">What the research showed</div><p class="hyp-a">Usage split by role, which led to the role-based entry points in the prototype.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 1</div><p class="hyp-q">People needed the platform. Low engagement, even with a mandate, came from not being able to find things.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">People described finding workarounds and using outdated methods instead of the platform.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 2</div><p class="hyp-q">The experience problems sat downstream of the infrastructure, like slow performance and broken pipelines, so interface fixes alone wouldn&rsquo;t move satisfaction.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Infrastructure strain was one of six root causes, and fixing it came first in the recommendations.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 3</div><p class="hyp-q">One interface couldn&rsquo;t serve the range of data literacy across the four main user groups.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Usage split by role, which led to the role-based entry points in the prototype.</p></div></div>
     </div>
   </section>
 
@@ -1519,7 +1521,7 @@
     <div class="section-label">Next steps</div>
     <h2 class="section-heading">With two more weeks</h2>
     <div class="hs-list">
-      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Test with the least experienced users</div><p class="hs-text">Run a focused round with the people who have the least data experience, since the redesign was built around them.</p></div></div>
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Test with the least experienced users</div><p class="hs-text">Run a focused round with the people who have the least data experience, since the redesign was largely built around them.</p></div></div>
       <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Finish the field observations</div><p class="hs-text">Go back to watching how people used or overrode the platform&rsquo;s AI recommendations, work that was cut short.</p></div></div>
     </div>
   </section>
