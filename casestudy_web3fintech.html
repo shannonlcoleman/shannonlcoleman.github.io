@@ -1478,6 +1478,43 @@
     .tl-lab { padding: 0 !important; text-align: left !important; }
     .ai-row { grid-template-columns: minmax(0, 1fr); row-gap: 8px; }
   }
+
+  /* Recommendation slide, 16:9, scales with its container */
+  .slide { margin: 0; container-type: inline-size; }
+  .slide-inner { aspect-ratio: 16 / 9; border: 1px solid var(--ink); border-radius: 2px; background: var(--paper); display: grid; grid-template-columns: 1fr 1.25fr; grid-template-rows: 1fr auto; column-gap: 5cqw; padding: 5cqw 5cqw 2.6cqw; box-sizing: border-box; }
+  .slide-left { align-self: center; }
+  .slide-label { font: 600 1.35cqw/1.2 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 1.6cqw; }
+  .slide-headline { font-family: var(--serif); font-size: 4cqw; line-height: 1.12; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 2cqw; }
+  .slide-support { font: 400 1.45cqw/1.5 var(--sans); color: var(--ink-2); margin: 0; max-width: 34ch; }
+  .slide-right { align-self: center; display: grid; grid-template-columns: 1fr auto 1fr; column-gap: 1.6cqw; row-gap: 2.2cqw; align-items: stretch; }
+  .slide-col { padding: 2cqw; border-top: 0.25cqw solid var(--rule); }
+  .slide-after { border-top-color: var(--accent); }
+  .slide-tag { font: 600 1.2cqw/1.2 var(--sans); color: var(--ink-3); margin-bottom: 1cqw; }
+  .slide-after .slide-tag { color: var(--accent); }
+  .slide-path { font-family: var(--serif); font-size: 2.1cqw; line-height: 1.2; color: var(--ink); margin-bottom: 0.8cqw; }
+  .slide-how { font: 400 1.3cqw/1.45 var(--sans); color: var(--ink-2); margin-bottom: 1.4cqw; text-wrap: balance; }
+  .slide-q { font-family: var(--serif); font-size: 1.6cqw; line-height: 1.35; color: var(--ink-2); }
+  .slide-after .slide-q { color: var(--ink); }
+  .slide-arrow { align-self: center; font: 400 2.4cqw/1 var(--sans); color: var(--accent); }
+  .slide-goal { grid-column: 1 / -1; font: 500 1.4cqw/1.3 var(--sans); color: var(--ink); border-top: 1px solid var(--rule); padding-top: 1.4cqw; }
+  .slide-goal span { color: var(--accent); font-weight: 600; margin-right: 0.8cqw; }
+  .slide-foot { grid-column: 1 / -1; display: flex; justify-content: space-between; font: 400 1.1cqw/1.2 var(--sans); color: var(--ink-3); border-top: 1px solid var(--rule); padding-top: 1.2cqw; align-self: end; }
+
+  @container (max-width: 640px) {
+    .slide-inner { aspect-ratio: auto; grid-template-columns: 1fr; row-gap: 24px; padding: 24px 20px 16px; }
+    .slide-label { font-size: 13px; margin-bottom: 10px; }
+    .slide-headline { font-size: 28px; margin-bottom: 12px; }
+    .slide-support { font-size: 15px; }
+    .slide-right { grid-template-columns: 1fr; row-gap: 14px; }
+    .slide-arrow { display: none; }
+    .slide-col { padding: 14px 0 0; }
+    .slide-tag { font-size: 13px; margin-bottom: 6px; }
+    .slide-path { font-size: 21px; margin-bottom: 4px; }
+    .slide-how { font-size: 14px; margin-bottom: 8px; }
+    .slide-q { font-size: 17px; }
+    .slide-goal { font-size: 15px; padding-top: 12px; }
+    .slide-foot { font-size: 12px; flex-direction: column; gap: 4px; padding-top: 10px; }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1538,6 +1575,34 @@
   </section>
 
   <section class="section key-visual">
+    <figure class="slide" aria-label="Recommendation slide: put UX and compliance fixes on one roadmap">
+      <div class="slide-inner">
+        <div class="slide-left">
+          <div class="slide-label">Recommendation</div>
+          <div class="slide-headline">Put UX and compliance fixes on one roadmap</div>
+          <div class="slide-support">The same unclear transaction states that confused people also created regulatory risk.</div>
+        </div>
+        <div class="slide-right">
+          <div class="slide-col slide-before">
+            <div class="slide-tag">Before</div>
+            <div class="slide-path">Two workstreams</div>
+            <div class="slide-how">UX and compliance reviewed changes separately</div>
+            <div class="slide-q">Fixes came back from compliance late, for rework.</div>
+          </div>
+          <div class="slide-arrow" aria-hidden="true">&rarr;</div>
+          <div class="slide-col slide-after">
+            <div class="slide-tag">After</div>
+            <div class="slide-path">One roadmap</div>
+            <div class="slide-how">Every fix ranked by UX and regulatory risk together</div>
+            <div class="slide-q">Product, content, and compliance worked from one list.</div>
+          </div>
+        </div>
+        <div class="slide-foot"><span>Tokenized Asset Platform (NDA)</span><span>Redrawn for this portfolio</span></div>
+      </div>
+    </figure>
+  </section>
+
+  <section class="section key-visual">
     <figure class="wf" aria-label="Before and after wireframe of a transaction in progress">
   <div class="wf-pair">
     <div class="wf-before">
@@ -1594,8 +1659,8 @@
 
   <section class="section">
     <div class="section-label">Recommendations</div>
-    <h2 class="section-heading">Fix the product and the disclosures together</h2>
-    <p>The gaps that confused people about pending transactions were the same gaps that created regulatory risk when people misunderstood their positions. So the roadmap ranked all 17 findings by combined UX and regulatory risk, with owners in product, content, and compliance, instead of splitting them into separate workstreams.</p>
+    <h2 class="section-heading">How the roadmap was built</h2>
+    <p>All 17 findings went on one list, ranked by combined risk, and each got an owner in product, content, or compliance.</p>
     <figure class="w3x-fig">
       <div class="w3x-tag">Before and after</div>
       <div class="w3x-heading">Closing the gap between what users expected and how the product works</div>
