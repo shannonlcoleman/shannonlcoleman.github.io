@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Case study: How Shannon L. Coleman built a proprietary research panel from the ground up for regulated-industry clients, enabling faster, higher-quality qualitative research at scale.">
+<meta name="description" content="Case study: How Shannon L. Coleman built a ~1,000-participant opt-in research panel from zero for pharma and banking clients, cutting external recruitment spend to $0.">
 <link rel="canonical" href="https://shannonlcoleman.com/casestudy_researchpanel.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="favicon-512.png">
-<meta property="og:title" content="Case Study: Research Panel | Shannon L. Coleman, PhD">
-<meta property="og:description" content="How Shannon L. Coleman built a proprietary research panel from the ground up for regulated-industry clients, enabling faster, higher-quality qualitative research at scale.">
+<meta property="og:title" content="Case Study: Research Panel / Crowley Webb | Shannon L. Coleman, PhD">
+<meta property="og:description" content="How Shannon L. Coleman built a ~1,000-participant opt-in research panel from zero for pharma and banking clients, cutting external recruitment spend to $0.">
 <meta property="og:url" content="https://shannonlcoleman.com/casestudy_researchpanel.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://shannonlcoleman.com/og-image-v3.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Case Study: Research Panel | Shannon L. Coleman, PhD">
-<meta name="twitter:description" content="How Shannon L. Coleman built a proprietary research panel for regulated-industry clients, enabling faster, higher-quality qualitative research at scale.">
+<meta name="twitter:title" content="Case Study: Research Panel / Crowley Webb | Shannon L. Coleman, PhD">
+<meta name="twitter:description" content="How Shannon L. Coleman built a ~1,000-participant opt-in research panel from zero for pharma and banking clients, cutting external recruitment spend to $0.">
 <meta name="twitter:image" content="https://shannonlcoleman.com/og-image-v3.jpg">
-<title>Case Study: Research Panel | Shannon L. Coleman, PhD</title>
+<title>Case Study: Research Panel / Crowley Webb | Shannon L. Coleman, PhD</title>
 <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"></noscript>
 <style>
@@ -57,18 +57,20 @@
 
 
   /* Old variable names, mapped to the new palette */
-  :root { --teal-dark: var(--ink); --teal-mid: var(--ink); --teal-light: var(--accent); --teal-pale: var(--paper); --copper: var(--accent); --copper-light: var(--accent); --copper-pale: var(--paper); --white: var(--paper); --ink-light: var(--ink-2); --paper-warm: var(--paper); --mono: var(--sans); }
+  :root { --navy: var(--ink); --navy-mid: var(--ink); --navy-light: var(--ink-2); --white: var(--paper); --gold: var(--accent); --gold-light: var(--accent); --gold-pale: var(--paper); --steel: var(--ink-3); --text: var(--ink); --text-light: var(--ink-2); --mono: var(--sans); }
+
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
   body {
     background: var(--paper);
-    color: var(--ink);
+    color: var(--text);
     font-family: var(--sans);
     font-weight: 400;
     line-height: 1.7;
-    min-height: 100vh;
   }
+
 
   /* CASE STUDY NAV */
   .cs-nav {
@@ -96,7 +98,7 @@
     align-items: center;
     gap: 8px;
     transition: color 0.2s; font-weight: 500;}
-  .cs-nav-back:hover { color: var(--teal-light); }
+  .cs-nav-back:hover { color: var(--gold-light); }
   .cs-nav-back::before { content: '←'; font-size: 12px; }
   .cs-nav-studies { display: flex; gap: 4px; align-items: center; }
   .cs-nav-study {
@@ -112,500 +114,528 @@
     transition: color 0.2s, border-color 0.2s;
     white-space: nowrap; font-weight: 500;}
   .cs-nav-study:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.15); }
-  .cs-nav-study.active { color: var(--teal-light); border-color: rgba(47,95,107,0.4); background: transparent; }
+  .cs-nav-study.active { color: var(--gold-light); border-color: rgba(155,58,34,0.4); background: transparent; }
   @media (max-width: 640px) {
     .cs-nav { padding: 0 16px; }
     .cs-nav-study { font-size: 8px; padding: 5px 8px; }
   }
 
-  /* MASTHEAD */
+
   .masthead {
-    background: var(--teal-dark);
-    color: var(--paper);
-    padding: 60px 0 0;
+    background: var(--navy);
+    color: var(--white);
+    padding: 64px 0 0;
     position: relative;
     overflow: hidden;
     margin-top: 52px;
   }
 
-  .masthead::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 420px; height: 420px;
-    border-radius: 50%;
-    background: none;
-  }
 
   .masthead::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--copper) 0%, var(--copper-light) 50%, var(--copper) 100%);
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
   }
+
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 600px; height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 41px
+    );
+    pointer-events: none;
+  }
+
 
   .masthead-inner {
-    max-width: 860px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 48px;
+    position: relative;
   }
 
-  .byline {
+
+  .classification {
     display: inline-flex;
     align-items: center;
     gap: 12px;
     font-family: var(--sans);
     font-size: 14px;
     letter-spacing: 0.01em;
-    color: var(--teal-light);
     text-transform: none;
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.1s; font-weight: 500;}
+    color: var(--gold-light);
+    margin-bottom: 32px; font-weight: 500;}
 
-  .byline::before {
+
+  .classification::before {
     content: '';
     display: inline-block;
     width: 24px;
     height: 1px;
-    background: var(--teal-light);
+    background: var(--gold-light);
     flex-shrink: 0;
   }
 
+
   .case-title {
     font-family: var(--serif);
-    font-size: clamp(34px, 5.5vw, 54px);
+    font-size: clamp(32px, 5.5vw, 54px);
     font-weight: 400;
-    line-height: 1.18;
+    line-height: 1.15;
+    margin-bottom: 20px;
     letter-spacing: -0.01em;
-    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+
+
+  .case-title em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+
+
+  .deck {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 52px;
     opacity: 0;
     animation: fadeUp 0.6s ease forwards 0.25s;
   }
 
-  .case-title em {
-    font-style: normal;
-    color: var(--copper-light);
-  }
-
-  .deck {
-    font-size: 17px;
-    font-weight: 400;
-    color: rgba(237,244,246,0.72);
-    max-width: 640px;
-    line-height: 1.65;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.4s;
-  }
 
   .meta-strip {
     display: flex;
     flex-wrap: wrap;
     gap: 0;
-    border-top: 1px solid rgba(237,244,246,0.12);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 4px;
     opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.55s;
-    padding-bottom: 8px;
+    animation: fadeUp 0.6s ease forwards 0.4s;
   }
 
+
   .meta-item {
-    padding: 20px 32px 20px 0;
-    margin-right: 32px;
-    border-right: 1px solid rgba(237,244,246,0.12);
+    padding: 18px 36px 18px 0;
+    margin-right: 36px;
+    border-right: 1px solid rgba(255,255,255,0.1);
   }
   .meta-item:last-child { border-right: none; }
+
 
   .meta-label {
     font-family: var(--sans);
     font-size: 14px;
     letter-spacing: 0.01em;
     text-transform: none;
-    color: var(--teal-light);
+    color: var(--gold-light);
     display: block;
     margin-bottom: 4px; font-weight: 500;}
 
+
   .meta-value {
-    font-size: 14px;
-    color: rgba(237,244,246,0.85);
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
     font-weight: 400;
   }
-
-  /* CONTENT */
-  .content {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 40px 100px;
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
   }
+
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+  }
+
 
   .section {
-    padding: 64px 0 0;
+    padding: 68px 0 0;
   }
+
 
   .section-label {
     font-family: var(--sans);
     font-size: 14px;
     letter-spacing: 0.01em;
     text-transform: none;
-    color: var(--teal-mid);
-    margin-bottom: 16px;
+    color: var(--gold);
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
-    gap: 12px; font-weight: 500;}
+    gap: 14px; font-weight: 500;}
+
+
   .section-label::after {
     content: '';
     flex: 1;
     height: 1px;
     background: var(--rule);
-    max-width: 60px;
+    max-width: 48px;
   }
+
 
   .section-heading {
     font-family: var(--serif);
-    font-size: clamp(26px, 4vw, 36px);
+    font-size: clamp(24px, 3.5vw, 34px);
     font-weight: 400;
-    line-height: 1.22;
+    line-height: 1.2;
     margin-bottom: 28px;
-    letter-spacing: -0.01em;
+    color: var(--navy);
   }
+
 
   .section-heading em {
     font-style: normal;
-    color: var(--teal-mid);
+    color: var(--gold);
   }
+
 
   p {
-    font-size: 16px;
-    line-height: 1.82;
-    color: var(--ink-light);
-    margin-bottom: 20px;
-    max-width: 680px;
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--text-light);
+    margin-bottom: 18px;
+    max-width: 700px;
   }
 
-  p strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
 
-  /* CALLOUT / PULLQUOTE */
-  .callout {
-    background: var(--teal-pale);
-    border-left: 3px solid var(--teal-mid);
-    padding: 28px 32px;
+  p strong { color: var(--text); font-weight: 500; }
+
+
+  .context-box {
+    background: var(--navy);
+    color: var(--white);
+    padding: 36px 40px;
     margin: 36px 0;
-    border-radius: 0 4px 4px 0;
-  }
-
-  .callout-label {
-    font-family: var(--sans);
-    font-size: 14px;
-    letter-spacing: 0.01em;
-    text-transform: none;
-    color: var(--teal-mid);
-    margin-bottom: 10px; font-weight: 500;}
-
-  .callout p {
-    font-family: var(--serif);
-    font-size: 19px;
-    font-style: normal;
-    line-height: 1.6;
-    color: var(--ink);
-    margin-bottom: 0;
-    max-width: 100%;
-  }
-
-  /* CONFLICT CARD — copper accent for tension */
-  .conflict-card {
-    background: var(--teal-dark);
-    color: var(--paper);
-    padding: 40px 44px;
-    margin: 40px 0;
-    border-radius: 4px;
+    border-radius: 2px;
     position: relative;
     overflow: hidden;
   }
 
-  .conflict-card::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 220px; height: 220px;
-    border-radius: 50%;
-    background: none;
-  }
 
-  .conflict-card::after {
+  .context-box::before {
     content: '';
     position: absolute;
     left: 0; top: 0; bottom: 0;
     width: 3px;
-    background: var(--copper);
+    background: var(--gold);
   }
 
-  .conflict-card .callout-label {
-    color: var(--copper-light);
-    margin-bottom: 14px;
-  }
 
-  .conflict-card .conflict-title {
-    font-family: var(--serif);
-    font-size: clamp(20px, 3vw, 26px);
-    font-weight: 400;
-    font-style: normal;
-    color: var(--copper-light);
-    margin-bottom: 18px;
-    line-height: 1.32;
-  }
-
-  .conflict-card p {
-    color: rgba(237,244,246,0.75);
-    max-width: 100%;
-    font-size: 15px;
-    line-height: 1.78;
-    margin-bottom: 14px;
-  }
-
-  .conflict-card p:last-child { margin-bottom: 0; }
-
-  /* TECH / COMPLIANCE STACKS */
-  .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 16px;
-    margin: 32px 0;
-  }
-
-  .stack-card {
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-top: 3px solid var(--teal-light);
-    padding: 22px 22px 20px;
-    border-radius: 0 0 4px 4px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .stack-card:hover { border-top-color: var(--teal-mid); transform: translateY(-2px); }
-
-  .stack-card.copper-top { border-top-color: var(--copper); }
-  .stack-card.copper-top:hover { border-top-color: var(--copper-light); }
-
-  .stack-icon {
+  .context-box .context-label {
     font-family: var(--sans);
     font-size: 14px;
-    color: var(--teal-mid);
     letter-spacing: 0.01em;
     text-transform: none;
-    margin-bottom: 10px; font-weight: 500;}
-  .stack-card.copper-top .stack-icon { color: var(--copper); }
+    color: var(--gold-light);
+    margin-bottom: 12px; font-weight: 500;}
 
-  .stack-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 7px;
-    line-height: 1.3;
+
+  .context-box p {
+    color: rgba(255,255,255,0.72);
+    max-width: 100%;
+    font-size: 14.5px;
+    margin-bottom: 10px;
   }
+  .context-box p:last-child { margin-bottom: 0; }
 
-  .stack-desc {
-    font-size: 12.5px;
-    color: var(--ink-light);
-    line-height: 1.55;
-  }
 
-  /* STATS ROW */
-  .stats-row {
+  .methods-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin: 28px 0;
+  }
+
+
+  .method-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--navy-light);
+    padding: 20px 22px;
+    border-radius: 0 0 2px 2px;
+  }
+
+
+  .method-num {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--steel);
+    letter-spacing: 0.01em;
+    margin-bottom: 8px; font-weight: 500;}
+
+
+  .method-name {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+
+  .method-detail {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+
+  .scale-stat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1px;
     background: var(--rule);
     border: 1px solid var(--rule);
     margin: 32px 0;
-    border-radius: 4px;
+    border-radius: 2px;
     overflow: hidden;
   }
 
-  .stat {
+
+  .stat-item {
     background: var(--white);
-    padding: 24px 18px;
+    padding: 24px 26px;
     text-align: center;
   }
 
-  .stat-num {
+
+  .stat-number {
     font-family: var(--serif);
-    font-size: clamp(28px, 4vw, 36px);
-    font-weight: 400;
-    color: var(--teal-dark);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--navy);
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
-  .stat-num.copper { color: var(--copper); }
 
-  .stat-desc {
+  .stat-label {
     font-family: var(--sans);
     font-size: 14px;
     letter-spacing: 0.01em;
     text-transform: none;
-    color: var(--ink-light);
-    line-height: 1.45; font-weight: 500;}
+    color: var(--steel); font-weight: 500;}
 
-  /* WHAT SHE BUILT — numbered build steps */
-  .build-step {
+
+  .finding-row {
     display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 22px;
-    margin-bottom: 40px;
+    grid-template-columns: 3px 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
     align-items: start;
   }
 
-  .build-num {
-    font-family: var(--serif);
-    font-size: 52px;
-    font-weight: 400;
-    color: var(--rule);
-    line-height: 1;
-    text-align: right;
-    padding-top: 2px;
+
+  .finding-bar {
+    background: var(--gold);
+    height: 100%;
+    min-height: 60px;
+    border-radius: 2px;
   }
 
-  .build-body {}
 
-  .build-title {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 8px;
-    font-family: var(--sans);
-  }
-
-  .build-text {
+  .finding-title {
     font-size: 15px;
-    color: var(--ink-light);
-    line-height: 1.78;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+
+  .finding-text {
+    font-size: 14.5px;
+    color: var(--text-light);
+    line-height: 1.75;
     margin-bottom: 0;
+    max-width: 100%;
   }
 
-  /* CLIENT ROW */
-  .client-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 24px 0;
+
+  .insight-card {
+    background: var(--gold-pale);
+    border: 1px solid rgba(155,58,34,0.25);
+    border-left: 3px solid var(--gold);
+    padding: 32px 36px;
+    margin: 36px 0;
+    border-radius: 0 2px 2px 0;
   }
 
-  .client-tag {
+
+  .insight-card .insight-label {
     font-family: var(--sans);
     font-size: 14px;
     letter-spacing: 0.01em;
     text-transform: none;
-    color: var(--teal-dark);
-    background: var(--teal-pale);
-    border: 1px solid var(--teal-light);
-    padding: 6px 14px;
-    border-radius: 2px; font-weight: 500;}
+    color: var(--gold);
+    margin-bottom: 12px; font-weight: 500;}
 
-  /* STRATEGY ITEMS */
-  .strategy-item {
+
+  .insight-card .insight-text {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.65;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+
+  .rec-item {
     padding: 28px 0;
     border-bottom: 1px solid var(--rule);
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 32px;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
     align-items: start;
   }
-  .strategy-item:last-child { border-bottom: none; }
+  .rec-item:last-child { border-bottom: none; }
 
-  .strategy-tag {
+
+  .rec-tag {
     font-family: var(--sans);
     font-size: 14px;
     letter-spacing: 0.01em;
     text-transform: none;
-    color: var(--teal-mid);
-    padding-top: 4px;
-    line-height: 1.5; font-weight: 500;}
+    color: var(--steel);
+    line-height: 1.6;
+    padding-top: 3px; font-weight: 500;}
 
-  .strategy-content .strategy-title {
-    font-size: 16px;
+
+  .rec-title {
+    font-size: 15px;
     font-weight: 500;
-    color: var(--ink);
+    color: var(--navy);
     margin-bottom: 8px;
   }
 
-  .strategy-content p {
+
+  .rec-text {
     font-size: 14.5px;
+    color: var(--text-light);
     margin-bottom: 0;
+    max-width: 100%;
+    line-height: 1.75;
   }
 
-  /* REFLECTION / CLOSING */
-  .reflection {
-    background: var(--paper-warm);
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+
+
+  .impact-card {
+    background: var(--white);
     border: 1px solid var(--rule);
-    border-left: 3px solid var(--copper);
-    padding: 36px 40px;
-    margin-top: 48px;
-    border-radius: 0 4px 4px 0;
+    padding: 22px 24px;
+    border-radius: 2px;
+    position: relative;
   }
 
-  .reflection .callout-label { color: var(--copper); }
 
-  /* FOOTER */
-  .footer {
-    background: var(--teal-dark);
-    color: rgba(237,244,246,0.45);
-    text-align: center;
-    padding: 32px;
+  .impact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--navy);
+  }
+
+
+  .impact-label {
     font-family: var(--sans);
     font-size: 14px;
-    letter-spacing: 0.01em; line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; font-weight: 500;}
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--steel);
+    margin-bottom: 10px; font-weight: 500;}
 
-  .footer p {
-    font-size: inherit;
-    color: inherit;
-    max-width: none;
-    line-height: 1.4;
-    margin-bottom: 0;
+
+  .impact-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 400;
   }
 
-  .footer a {
-    color: var(--teal-light);
-    text-decoration: none; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center;
+
+  .reflection {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 38px 42px;
+    margin-top: 44px;
+    border-radius: 2px;
   }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
 
-  /* RESPONSIVE */
+  .reflection p { max-width: 100%; }
+
+
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 28px 40px;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; font-weight: 500;}
+
+
+  .footer a { color: var(--gold-light); text-decoration: none; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
+
+
   @media (max-width: 700px) {
     .masthead { padding: 40px 0 0; }
     .masthead-inner, .content { padding-left: 20px; padding-right: 20px; }
-    .case-title { font-size: clamp(28px, 8vw, 44px); }
-    .deck { font-size: 14px; margin-bottom: 32px; }
+    .case-title { font-size: clamp(26px, 7vw, 42px); }
+    .deck { font-size: 14px; }
     .meta-strip { flex-direction: column; }
-    .meta-item { border-right: none; border-bottom: 1px solid rgba(237,244,246,0.12); padding: 12px 0; margin-right: 0; }
+    .meta-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 0; margin-right: 0; }
     .meta-item:last-child { border-bottom: none; }
     .section { padding-top: 48px; }
-    .section-heading { font-size: clamp(22px, 5.5vw, 30px); }
-    .stack-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .strategy-item { grid-template-columns: 1fr; gap: 6px; }
-    .strategy-tag { font-size: 9px; }
-    .build-step { grid-template-columns: 42px 1fr; gap: 14px; }
-    .build-num { font-size: 40px; }
-    .build-title { font-size: 15px; }
-    .conflict-card { padding: 28px 22px; }
-    .conflict-card .conflict-title { font-size: 18px; }
-    .reflection { padding: 24px 20px; }
-    p { font-size: 14.5px; max-width: 100%; }
+    .section-heading { font-size: clamp(20px, 5.5vw, 30px); }
+    .methods-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .rec-item { grid-template-columns: 1fr; gap: 6px; }
+    .rec-tag { font-size: 9px; padding-top: 0; }
+    .scale-stat { grid-template-columns: repeat(2, 1fr); }
+    .impact-grid { grid-template-columns: 1fr; }
+    .context-box { padding: 24px 20px; }
+    .insight-card { padding: 24px 20px; }
+    .reflection { padding: 28px 20px; }
+    .finding-row { gap: 16px; }
+    p { font-size: 14.5px; }
   }
   @media (max-width: 480px) {
     .masthead-inner, .content { padding-left: 16px; padding-right: 16px; }
-    .stack-grid { grid-template-columns: 1fr; }
-    .byline { font-size: 9px; gap: 8px; }
+    .methods-grid { grid-template-columns: 1fr; }
+    .scale-stat { grid-template-columns: 1fr 1fr; }
     .cs-nav { padding: 0 12px; }
     .cs-nav-study { font-size: 8px; padding: 4px 7px; letter-spacing: 0.08em; }
     .cs-nav-back { font-size: 9px; }
+    .stat-number { font-size: 28px; }
   }
+
+
 
 
   /* ── Mobile nav: two-row layout with scrollable study strip ── */
@@ -991,6 +1021,204 @@
 
   .case-title, .section-heading { text-wrap: balance; }
 
+  /* Findability chart: the "easy" bar uses the teal data color */
+  body .slc-adv .slc-fc-chart { --ac3: #2f5f6b; }
+
+  /* TL;DR and collapsed full study */
+  .tldr { border-top: 1px solid var(--ink); padding-top: 14px; margin-top: 8px; }
+  .tldr-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); margin: 0 0 8px; }
+  .tldr-list { margin: 0; }
+  .tldr-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); column-gap: 40px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .tldr-row dt { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .tldr-row dd { margin: 0; font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 66ch; }
+  .key-visual { padding-top: 56px; }
+  .full-study { margin-top: 72px; border-top: 1px solid var(--ink); }
+  .full-study > summary { list-style: none; cursor: pointer; padding: 20px 0; }
+  .full-study > summary::-webkit-details-marker { display: none; }
+  .full-study > summary span { display: inline-flex; align-items: center; min-height: 46px; padding: 12px 18px; border: 1px solid var(--ink); border-radius: 2px; font: 500 15px/1.2 var(--sans); color: var(--ink); }
+  .full-study > summary span::after { content: "+"; margin-left: 10px; color: var(--accent); }
+  .full-study[open] > summary span::after { content: "\2212"; }
+  .full-study > summary:hover span { border-color: var(--accent); color: var(--accent); }
+  .full-study > summary:focus-visible { outline: none; }
+  .full-study > summary:focus-visible span { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .cs-nav-linkedin { font-size: 14px; font-weight: 500; color: var(--ink-3); text-decoration: none; margin-right: auto; margin-left: 16px; }
+  .cs-nav-linkedin:hover { color: var(--accent); }
+  .tldr-note { font-size: 14px; line-height: 1.55; color: var(--ink-3); margin: 14px 0 0; max-width: 72ch; }
+  .plain-list { margin: 0 0 20px 1.2em; padding: 0; color: var(--ink-2); font-size: 17px; line-height: 1.7; }
+  @media (max-width: 700px) { .tldr-row { grid-template-columns: 1fr; row-gap: 4px; } }
+  .wf{margin:0}
+.wf-pair{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.wf-label{font:600 14px/1.2 var(--sans);letter-spacing:.02em;color:var(--ink-3);margin-bottom:6px}
+.wf-after .wf-label{color:var(--accent)}
+.wf-title{font:400 22px/1.25 var(--serif);color:var(--ink);margin-bottom:14px}
+.wf-screen{border:1px solid var(--ink);border-radius:2px;background:var(--paper);padding:0 0 14px}
+.wf-bar{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.wf-logo{width:44px;height:10px;background:var(--ink)}
+.wf-navs{display:flex;gap:5px;flex:1;flex-wrap:nowrap;overflow:hidden}
+.wf-nav{height:8px;flex:1;background:#eeece8}
+.wf-navlab{font:500 11px/1 var(--sans);color:var(--ink-2);padding:3px 0;border-bottom:1.5px solid transparent;white-space:nowrap}
+.wf-navlab.on{color:var(--accent);border-color:var(--accent)}
+.wf-body{padding:12px}
+.wf-search{height:22px;border:1px solid var(--rule);margin-bottom:10px;display:flex;align-items:center;padding:0 8px;font:400 11px var(--sans);color:var(--ink-3)}
+.wf-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.wf-tile{min-height:34px;border:1px solid var(--rule);padding:6px}
+.wf-tile i{display:block;height:6px;background:#eeece8;margin-bottom:5px;width:80%}
+.wf-tile i+i{width:55%}
+.wf-tile span{font:400 9.5px/1 var(--sans);color:var(--ink-3)}
+.wf-fb{margin-top:10px;border:1px solid var(--rule);padding:6px 8px;display:flex;justify-content:space-between;font:400 10.5px var(--sans);color:var(--ink-3)}
+.wf-roles{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.wf-roles-h{font:500 11px var(--sans);color:var(--ink);margin-bottom:6px}
+.wf-role{font:500 10.5px/1 var(--sans);color:var(--ink);border:1px solid var(--ink);padding:5px 8px;border-radius:2px}
+.wf-role.on{border-color:var(--accent);color:var(--accent)}
+.wf-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.wf-col{border-top:1.5px solid var(--ink);padding-top:6px}
+.wf-col b{display:block;font:600 10.5px/1.2 var(--sans);color:var(--ink);margin-bottom:6px}
+.wf-col i{display:block;height:6px;background:#eeece8;margin-bottom:5px}
+.wf-col i:nth-child(3){width:70%}.wf-col i:nth-child(4){width:85%}
+.wf-help{margin-top:10px;border:1px solid var(--rule);border-left:3px solid var(--accent);padding:6px 8px;font:400 10.5px/1.3 var(--sans);color:var(--ink-2)}
+.wf-mark{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--accent);color:#fff;font:600 10px/1 var(--sans);flex:none}
+.wf-pin{position:relative}
+.wf-pin>.wf-mark{position:absolute;right:-8px;top:-8px}
+.wf-bar.wf-pin>.wf-mark{right:8px;top:50%;margin-top:-8px}
+.wf-bar.wf-pin{padding-right:32px}
+.wf-notes{list-style:none;margin:14px 0 0;padding:0}
+.wf-notes li{display:flex;gap:10px;align-items:flex-start;font:400 15px/1.5 var(--sans);color:var(--ink-2);margin-bottom:8px}
+.wf-before .wf-mark{background:var(--ink-3)}
+.wf-cap{margin-top:16px;font:400 14px/1.5 var(--sans);color:var(--ink-3);border-top:1px solid var(--rule);padding-top:10px}
+@media (max-width:700px){.wf-pair{grid-template-columns:1fr;gap:28px}}
+.wf-notes li{font-size:15px}
+.wf-pair>div{min-width:0}
+.wf-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
+.wf-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+.wf-navs{min-width:0}
+@media (max-width:700px){.wf-after .wf-navs{flex-wrap:wrap;row-gap:4px} .wf-tile span{font-size:9px}}
+.content .slc-adv .slc-fc .slc-fname{font-family:var(--sans) !important;font-size:14px !important;font-weight:600 !important;color:var(--ink) !important}
+.content .slc-adv .slc-fc .slc-fdesc{font-family:var(--sans) !important;font-size:15px !important;line-height:1.55 !important;color:var(--ink-2) !important}
+</style>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"></noscript>
+<style>
+.slc-adv {
+  --bg-s: #1c1b19;
+  --bg-s2: #1c1b19;
+  --bg-s3: #1c1b19;
+  --bd: rgba(28,27,25,0.08);
+  --bd2: rgba(28,27,25,0.14);
+  --tx: #ffffff;
+  --tx2: #55514b;
+  --tx3: #6b665f;
+  --ac: #9b3a22;
+  --ac2: #2f5f6b;
+  --ac3: #3b6b45;
+  --red: #9b3a22;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--tx);
+}
+.slc-adv *, .slc-adv *::before, .slc-adv *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+/* shared */
+.slc-adv .slc-vtag { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; color: var(--ac); margin-bottom: 6px; }
+.slc-adv .slc-vtitle { font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 500; color: var(--tx); margin-bottom: 6px; line-height: 1.3; }
+.slc-adv .slc-vtitle em { font-style: normal; font-weight: 400; }
+.slc-adv .slc-vdesc { font-family: 'Newsreader', Georgia, serif; font-size: 15px; color: var(--tx2); margin-bottom: 24px; line-height: 1.6; }
+.slc-adv .slc-card { background: var(--bg-s); border: 1px solid var(--bd); border-radius: 4px; padding: 36px; margin-bottom: 56px; }
+.slc-adv .slc-divider { border: none; border-top: 1px solid var(--bd); margin: 56px 0; }
+
+
+/* ── VISUAL A: SIX FAILURE MODES ── */
+.slc-adv .slc-fg { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--bd); border: 1px solid var(--bd); margin-bottom: 24px; }
+.slc-adv .slc-fc { background: var(--bg-s); padding: 22px 20px; transition: background .2s; }
+.slc-adv .slc-fc:hover { background: var(--bg-s2); }
+.slc-adv .slc-fn { font-family: 'IBM Plex Sans', sans-serif; font-size: 34px; font-weight: 400; color: var(--bd); line-height: 1; margin-bottom: 8px; transition: color .2s; }
+.slc-adv .slc-fc:hover .slc-fn { color: var(--ac); }
+.slc-adv .slc-fname { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; color: var(--ac); margin-bottom: 7px; }
+.slc-adv .slc-fdesc { font-family: 'Newsreader', Georgia, serif; font-size: 13px; color: var(--tx2); line-height: 1.55; }
+.slc-adv .slc-fcon { text-align: center; padding: 18px; border-top: 1px solid var(--bd); }
+.slc-adv .slc-fcon p { font-family: 'Newsreader', Georgia, serif; font-style: normal; font-size: 15px; color: var(--tx2); max-width: 580px; margin: 0 auto; line-height: 1.6; }
+.slc-adv .slc-fcon strong { color: var(--ac); font-style: normal; font-weight: 500; }
+
+
+/* ── VISUAL B: METHOD → DELIVERABLE ── */
+.slc-adv .slc-fhd { display: grid; grid-template-columns: 1fr 24px 1fr; margin-bottom: 2px; }
+.slc-adv .slc-fhl { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; color: var(--tx2); padding-bottom: 10px; }
+.slc-adv .slc-fhl.r { text-align: right; }
+.slc-adv .slc-fr { display: grid; grid-template-columns: 1fr 24px 1fr; align-items: center; margin-bottom: 2px; }
+.slc-adv .slc-fm { background: var(--bg-s2); border: 1px solid var(--bd); padding: 13px 16px; border-radius: 3px 0 0 3px; }
+.slc-adv .slc-fmn { font-size: 12px; font-weight: 500; color: var(--tx); margin-bottom: 2px; }
+.slc-adv .slc-fms { font-family: 'Newsreader', Georgia, serif; font-size: 11px; color: var(--ac); font-style: normal; }
+.slc-adv .slc-far { text-align: center; color: var(--ac); font-size: 13px; opacity: .7; }
+.slc-adv .slc-fds { display: flex; flex-direction: column; gap: 2px; }
+.slc-adv .slc-fd { background: var(--bg-s); border: 1px solid var(--bd); border-left: 3px solid var(--ac2); padding: 7px 13px; font-size: 11px; color: var(--tx2); border-radius: 0 3px 3px 0; }
+.slc-adv .slc-fd.p { border-left-color: var(--ac); color: var(--tx); font-weight: 500; }
+.slc-adv .slc-ftot { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--bd); }
+.slc-adv .slc-ftnum { font-family: 'IBM Plex Sans', sans-serif; font-size: 40px; font-weight: 400; color: var(--ac); line-height: 1; }
+.slc-adv .slc-ftlbl { font-family: 'Newsreader', Georgia, serif; font-size: 16px; color: var(--tx2); font-style: normal; }
+
+
+/* ── VISUAL C: FINDABILITY CHART ── */
+.slc-adv .slc-fc-chart { display: flex; flex-direction: column; gap: 11px; }
+.slc-adv .slc-fcr { display: grid; grid-template-columns: 190px 1fr 50px; align-items: center; gap: 12px; }
+.slc-adv .slc-fcl { font-size: 12px; color: var(--tx2); text-align: right; }
+.slc-adv .slc-fcl.hi { color: var(--tx); font-weight: 500; }
+.slc-adv .slc-fct { height: 26px; background: var(--bg-s2); border-radius: 2px; overflow: hidden; }
+.slc-adv .slc-fcf { height: 100%; border-radius: 2px; }
+.slc-adv .slc-fcp { font-family: 'Newsreader', Georgia, serif; font-size: 15px; font-weight: 500; color: var(--tx); text-align: right; }
+.slc-adv .slc-fcp.m { color: var(--tx2); font-size: 12px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; }
+.slc-adv .slc-fcdiv { height: 1px; background: var(--bd); margin: 3px 0; }
+.slc-adv .slc-call { margin-top: 22px; padding: 16px 20px; background: var(--bg-s2); border-left: 3px solid var(--ac); font-family: 'Newsreader', Georgia, serif; font-size: 15px; color: var(--tx2); font-style: normal; line-height: 1.6; }
+.slc-adv .slc-call strong { color: var(--tx); font-style: normal; font-weight: 500; }
+
+
+/* ── VISUAL D: TIMELINE ── */
+.slc-adv .slc-tl { position: relative; padding-left: 26px; }
+.slc-adv .slc-tl::before { content:''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--bd2); }
+.slc-adv .slc-ti { position: relative; padding-bottom: 28px; }
+.slc-adv .slc-ti:last-child { padding-bottom: 0; }
+.slc-adv .slc-td { position: absolute; left: -22px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg-s2); border: 2px solid var(--tx3); }
+.slc-adv .slc-td.a { background: var(--ac); border-color: var(--ac); box-shadow: 0 0 0 3px rgba(155,58,34,.15); }
+.slc-adv .slc-td.i { background: var(--ac3); border-color: var(--ac3); box-shadow: 0 0 0 3px rgba(59,107,69,.15); }
+.slc-adv .slc-td.m { background: var(--ac2); border-color: var(--ac2); box-shadow: 0 0 0 3px rgba(47,95,107,.15); }
+.slc-adv .slc-tbadge { display: inline-block; font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; padding: 2px 7px; border-radius: 2px; margin-bottom: 5px; }
+.slc-adv .slc-tbadge.r { background: transparent; color: var(--ac); }
+.slc-adv .slc-tbadge.i { background: transparent; color: var(--ac3); }
+.slc-adv .slc-tbadge.m { background: transparent; color: var(--ac2); }
+.slc-adv .slc-tdate { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; color: var(--tx3); margin-bottom: 3px; }
+.slc-adv .slc-tev { font-size: 13px; font-weight: 500; color: var(--tx); margin-bottom: 4px; }
+.slc-adv .slc-tdet { font-family: 'Newsreader', Georgia, serif; font-size: 14px; color: var(--tx2); line-height: 1.55; }
+
+
+@media (max-width:680px) {
+  .slc-adv .slc-fg { grid-template-columns: 1fr 1fr; }
+  .slc-adv .slc-fr { grid-template-columns: 1fr; }
+  .slc-adv .slc-far { display: none; }
+  .slc-adv .slc-fcr { grid-template-columns: 120px 1fr 36px; }
+}
+
+
+/* above-card text: adapted to Advana page colours */
+.slc-adv .slc-vtag   { color: #9b3a22; }
+.slc-adv .slc-vtitle { color: #1c1b19; }
+.slc-adv .slc-vdesc  { color: #55514b; }
+
+
+/* Light retheme — Advana */
+.slc-adv {
+  --bg-s:  #ffffff;
+  --bg-s2: #ffffff;
+  --bg-s3: #e2dfda;
+  --bd:    rgba(28,27,25,0.12);
+  --bd2:   rgba(28,27,25,0.20);
+  --tx:    #1c1b19;
+  --tx2:   #55514b;
+  --tx3:   #6b665f;
+  --ac:    #9b3a22;
+  --ac2:   #2f5f6b;
+  --ac3:   #3b6b45;
+  --red:   #9b3a22;
+  color:   #1c1b19;
+}
+
   /* At a glance summary */
   .glance { padding-top: 56px; }
   .glance-label { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 6px; }
@@ -1004,6 +1232,131 @@
     .glance-row dd { font-size: 16px; }
   }
 
+  /* Participant quotes */
+  .pq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; margin: 36px 0; }
+  .pq { margin: 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent); }
+  .pq blockquote { margin: 0; padding: 0; border: 0; background: none; }
+  .content .pq p, .pq p { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; max-width: none; font-style: normal; }
+  .pq figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-3); margin-top: 10px; }
+  @media (max-width: 700px) { .content .pq p, .pq p { font-size: 18px; } }
+.content .slc-adv .slc-card:has(> .slc-fg){border:none !important;padding:0 !important;background:none !important}
+.content .slc-adv .slc-card:has(> .slc-fg) .slc-fg{margin-bottom:0}
+
+  /* Hindsight list, shared style across case studies */
+  .hs-list { margin-top: 8px; }
+  .hs-item { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 8px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .hs-item:last-child { border-bottom: 1px solid var(--rule); }
+  .hs-num { font-family: var(--sans); font-size: 28px; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+  .hs-title { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .hs-text { font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 66ch; }
+
+  /* Hypotheses: what we believed going in vs. what the research showed */
+  .hyp-list { margin-top: 8px; border-top: 1px solid var(--ink); }
+  .hyp-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 56px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  .hyp-k { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .content p.hyp-q { font-family: var(--serif); font-weight: 400; font-size: 23px; line-height: 1.3; color: var(--ink); margin: 0; }
+  .content p.hyp-a { font-size: 17px; line-height: 1.65; color: var(--ink-2); margin: 0; max-width: 60ch; }
+  @media (max-width: 700px) {
+    .hyp-row { grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+    .content p.hyp-q { font-size: 21px; }
+    .content p.hyp-a { font-size: 16px; }
+  }
+
+  .hyp-v { color: var(--ink); font-weight: 600; }
+  .hyp-v::before { content: "\00b7"; color: var(--ink-3); margin: 0 6px; font-weight: 400; }
+  /* Time allocation: bar position and width are the time each phase got */
+  .tl { margin: 36px 0 8px; padding: 28px 32px 24px; border: 1px solid var(--ink); border-radius: 2px; }
+  .tl-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 22px; }
+  .tl-heading { font-family: var(--serif); font-size: 23px; line-height: 1.25; color: var(--ink); margin: 4px 0 24px; }
+  .tl-rows { display: flex; flex-direction: column; gap: 20px; }
+  .tl-track { position: relative; height: 12px; background: #eeece8; border-radius: 2px; }
+  .tl-track span { position: absolute; top: 0; bottom: 0; background: var(--accent); border-radius: 2px; }
+  .tl-lab { margin-top: 8px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+  .tl-lab b { font-weight: 600; color: var(--ink); }
+  .tl-lab .tl-dur { color: var(--ink-3); }
+  .tl-lab.is-right { text-align: right; }
+  /* AI in the workflow: time saved per step */
+  .ai-list { border-top: 1px solid var(--ink); margin-top: 8px; }
+  .ai-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); column-gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .ai-fig { font: 400 28px/1.1 var(--sans); color: var(--accent); letter-spacing: -0.02em; font-variant-numeric: lining-nums tabular-nums; }
+  .ai-fig small { display: block; font-size: 14px; letter-spacing: 0; color: var(--ink-3); margin-top: 4px; }
+  .content .ai-row p { margin: 0; font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 62ch; }
+  @media (max-width: 700px) {
+    .tl { padding: 22px 20px 20px; }
+    .tl-lab { padding: 0 !important; text-align: left !important; }
+    .ai-row { grid-template-columns: minmax(0, 1fr); row-gap: 8px; }
+  }
+
+  /* Recommendation slide, 16:9, scales with its container */
+  .slide { margin: 0; container-type: inline-size; }
+  .slide-inner { aspect-ratio: 16 / 9; border: 1px solid var(--ink); border-radius: 2px; background: var(--paper); display: grid; grid-template-columns: 1fr 1.25fr; grid-template-rows: 1fr auto; column-gap: 5cqw; padding: 5cqw 5cqw 2.6cqw; box-sizing: border-box; }
+  .slide-left { align-self: center; }
+  .slide-label { font: 600 1.35cqw/1.2 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 1.6cqw; }
+  .slide-headline { font-family: var(--serif); font-size: 4cqw; line-height: 1.12; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 2cqw; }
+  .slide-support { font: 400 1.45cqw/1.5 var(--sans); color: var(--ink-2); margin: 0; max-width: 34ch; }
+  .slide-right { align-self: center; display: grid; grid-template-columns: 1fr auto 1fr; column-gap: 1.6cqw; row-gap: 2.2cqw; align-items: stretch; }
+  .slide-col { padding: 2cqw; border-top: 0.25cqw solid var(--rule); }
+  .slide-after { border-top-color: var(--accent); }
+  .slide-tag { font: 600 1.2cqw/1.2 var(--sans); color: var(--ink-3); margin-bottom: 1cqw; }
+  .slide-after .slide-tag { color: var(--accent); }
+  .slide-path { font-family: var(--serif); font-size: 2.1cqw; line-height: 1.2; color: var(--ink); margin-bottom: 0.8cqw; }
+  .slide-how { font: 400 1.3cqw/1.45 var(--sans); color: var(--ink-2); margin-bottom: 1.4cqw; text-wrap: balance; }
+  .slide-q { font-family: var(--serif); font-size: 1.6cqw; line-height: 1.35; color: var(--ink-2); }
+  .slide-after .slide-q { color: var(--ink); }
+  .slide-arrow { align-self: center; font: 400 2.4cqw/1 var(--sans); color: var(--accent); }
+  .slide-goal { grid-column: 1 / -1; font: 500 1.4cqw/1.3 var(--sans); color: var(--ink); border-top: 1px solid var(--rule); padding-top: 1.4cqw; }
+  .slide-goal span { color: var(--accent); font-weight: 600; margin-right: 0.8cqw; }
+  .slide-foot { grid-column: 1 / -1; display: flex; justify-content: space-between; font: 400 1.1cqw/1.2 var(--sans); color: var(--ink-3); border-top: 1px solid var(--rule); padding-top: 1.2cqw; align-self: end; }
+
+  @container (max-width: 640px) {
+    .slide-inner { aspect-ratio: auto; grid-template-columns: 1fr; row-gap: 24px; padding: 24px 20px 16px; }
+    .slide-label { font-size: 13px; margin-bottom: 10px; }
+    .slide-headline { font-size: 28px; margin-bottom: 12px; }
+    .slide-support { font-size: 15px; }
+    .slide-right { grid-template-columns: 1fr; row-gap: 14px; }
+    .slide-arrow { display: none; }
+    .slide-col { padding: 14px 0 0; }
+    .slide-tag { font-size: 13px; margin-bottom: 6px; }
+    .slide-path { font-size: 21px; margin-bottom: 4px; }
+    .slide-how { font-size: 14px; margin-bottom: 8px; }
+    .slide-q { font-size: 17px; }
+    .slide-goal { font-size: 15px; padding-top: 12px; }
+    .slide-foot { font-size: 12px; flex-direction: column; gap: 4px; padding-top: 10px; }
+  }
+  .db-figure { position: relative; margin: 36px 0 32px; padding: 24px 0 0; border-top: 1px solid var(--rule); }
+  .db-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-bottom: 8px; }
+  .db-heading { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); max-width: 46ch; line-height: 1.45; }
+  .db-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--sans); font-size: 14px; color: var(--ink-2); }
+  .db-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .db-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; }
+  .db-title { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink-2); margin: 16px 0 0; }
+  .dumbbell { display: block; width: 100%; height: auto; overflow: visible; }
+  .dumbbell .db-row { font-family: var(--sans); font-size: 14px; fill: var(--ink-2); }
+  .dumbbell .db-axis { font-family: var(--sans); font-size: 12px; fill: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .dumbbell .db-val { font-family: var(--sans); font-size: 13px; fill: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .dumbbell .db-val-after { fill: var(--ink); font-weight: 600; }
+  .dumbbell .db-pt { cursor: default; }
+  .db-caption { font-family: var(--sans); font-size: 13px; line-height: 1.55; color: var(--ink-3); margin-top: 16px; max-width: 68ch; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  @media (max-width: 700px) { .db-panels { grid-template-columns: 1fr; } }
+
+  /* Persona to XLA table */
+  .px { margin: 32px 0 8px; border-top: 1px solid var(--ink); }
+  .px-row { display: grid; grid-template-columns: 1fr 1.5fr 1.3fr; column-gap: 32px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .px-head { font: 600 14px/1.4 var(--sans); color: var(--accent); padding: 14px 0; }
+  .px-name { font-family: var(--serif); font-size: 21px; line-height: 1.2; color: var(--ink); }
+  .px-sub { font-size: 14px; color: var(--ink-3); margin-top: 4px; }
+  .px-cell { font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+  .px-metric { font-weight: 600; color: var(--ink); display: block; margin-bottom: 2px; }
+  .px-lab { display: none; }
+  @media (max-width: 700px) {
+    .px-head { display: none; }
+    .px-row { grid-template-columns: 1fr; row-gap: 10px; }
+    .px-lab { display: block; font: 600 13px/1.4 var(--sans); color: var(--accent); margin-bottom: 2px; }
+  }
+  .content h3.sub-heading { font-family: var(--serif); font-weight: 400; font-size: 27px; line-height: 1.2; color: var(--ink); margin: 48px 0 14px; }
+  .coin { display: flex; align-items: center; gap: 18px; }
+  .coin img { width: 64px; height: 64px; border-radius: 50%; flex: none; }
   /* Diagrams */
   .dg-fig { position: relative; margin: 40px 0; padding-top: 22px; border-top: 1px solid var(--rule); }
   .dg-tag { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
@@ -1070,8 +1423,10 @@
 </head>
 <body>
 
+
 <nav class="cs-nav">
   <a href="index.html" class="cs-nav-back">Portfolio</a>
+  <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
     <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
@@ -1090,128 +1445,83 @@
   </div>
 </details>
 
+
 </nav>
+
 
 <header class="masthead">
   <div class="masthead-inner">
-    <div class="byline">Research Panel Architecture &nbsp;|&nbsp; Crowley Webb / Praxis &nbsp;|&nbsp; 2020&ndash;2022</div>
-    <h1 class="case-title">Building Research Infrastructure<br><em>Regulated Industries Will Actually Trust</em></h1>
-    <p class="deck">How a solo researcher built a ~1,000 participant proprietary panel from zero, under HIPAA-adjacent and FDIC-regulated constraints, by refusing a shortcut that would have destroyed what she was building.</p>
-    <div class="meta-strip">
-      <div class="meta-item">
-        <span class="meta-label">Organization</span>
-        <span class="meta-value">Crowley Webb / Praxis</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Timeline</span>
-        <span class="meta-value">2020&ndash;2022</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">My Role</span>
-        <span class="meta-value">Solo researcher &amp; panel architect</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Panel Size</span>
-        <span class="meta-value">~1,000 participants</span>
-      </div>
-    </div>
+    <div class="classification">Research Panel &nbsp;&bull;&nbsp; Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022</div>
+    <h1 class="case-title">Building Research Infrastructure Regulated Industries Will Actually Trust</h1>
+    <p class="deck">A proprietary research panel of ~1,000 opted-in participants, built from zero for an agency whose pharma and banking clients answer to regulators.</p>
   </div>
 </header>
 
 <main class="content">
 
-  <section class="glance" aria-labelledby="glance-label">
-    <h2 class="glance-label" id="glance-label">At a glance</h2>
-    <dl class="glance-list">
-      <div class="glance-row"><dt>Goal</dt><dd>Build a research panel that pharma and banking clients could trust, without the shortcut of buying email lists.</dd></div>
-      <div class="glance-row"><dt>Methods</dt><dd>A Qualtrics opt-in flow at the end of each survey, a referral program with its own attribution logic, and a compliance stack built with the legal team.</dd></div>
-      <div class="glance-row"><dt>My role</dt><dd>Solo researcher and panel architect.</dd></div>
-      <div class="glance-row"><dt>Key insight</dt><dd>For regulated clients, a panel that can't prove where its participants came from is a liability, not a research tool.</dd></div>
-      <div class="glance-row"><dt>Impact</dt><dd>About 1,000 participants, built from zero, used for research for clients including Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, AbbVie, and M&amp;T Bank.</dd></div>
+  <section class="tldr" aria-labelledby="tldr-label">
+    <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
+    <dl class="tldr-list">
+      <div class="tldr-row"><dt>What changed</dt><dd>Studies drew from the agency&rsquo;s own panel instead of third-party vendors. External recruitment spend went to $0, and each study&rsquo;s recruitment took 2+ weeks less.</dd></div>
+      <div class="tldr-row"><dt>My role</dt><dd>Researcher and panel architect. I designed the panel on my own and built it primarily on my own.</dd></div>
+      <div class="tldr-row"><dt>Timeline</dt><dd>About a year</dd></div>
+      <div class="tldr-row"><dt>Why it mattered</dt><dd>Pharma and banking clients answer to regulators, and every study meant paying a vendor for participants the agency couldn&rsquo;t vouch for.</dd></div>
     </dl>
   </section>
 
-  <section class="section">
-    <div class="section-label">Context</div>
-    <h2 class="section-heading">F100 pharma clients. FDIC-regulated banks.<br><em>And no panel to run research on.</em></h2>
-    <p>Crowley Webb is a full-service advertising agency with a meaningful book of business in regulated industries. The agency also owns Praxis, a clinical trial recruitment firm, and I technically worked for both organizations. That dual role is how the pharmaceutical side of the panel work took shape: Praxis brought the clinical and pharma client relationships, and I built the research infrastructure those relationships required. The client base included <strong>Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, and AbbVie</strong> on the pharmaceutical side, and <strong>M&amp;T Bank</strong> in financial services. These are environments where research data carries real compliance weight and where participant provenance actually matters to clients.</p>
-    <p>The agency had no proprietary research panel. Every study that required a screened participant pool meant going to a third-party vendor, paying vendor rates on top of the research itself, accepting whatever panel quality they offered, and working within their timelines and constraints. That was the baseline when I started. The question of whether to build something better was still open.</p>
-
-    <div class="stats-row">
-      <div class="stat">
-        <div class="stat-num">~1,000</div>
-        <div class="stat-desc">Panel participants<br>recruited</div>
+  <section class="section key-visual">
+    <figure class="slide" aria-label="Recommendation slide: recruit the panel only through opt-in and referral">
+      <div class="slide-inner">
+        <div class="slide-left">
+          <div class="slide-label">Recommendation</div>
+          <div class="slide-headline">Recruit the panel only through opt-in and referral</div>
+          <div class="slide-support">Regulated clients need to know where every participant came from and that each one agreed to be contacted.</div>
+        </div>
+        <div class="slide-right">
+          <div class="slide-col slide-before">
+            <div class="slide-tag">Before</div>
+            <div class="slide-path">Purchased email lists</div>
+            <div class="slide-how">Fast volume, with no record of consent</div>
+          </div>
+          <div class="slide-arrow" aria-hidden="true">&rarr;</div>
+          <div class="slide-col slide-after">
+            <div class="slide-tag">After</div>
+            <div class="slide-path">Opt-in and referral</div>
+            <div class="slide-how">A traceable source and consent for every participant</div>
+          </div>
+        </div>
+        <div class="slide-foot"><span>Crowley Webb / Praxis</span><span>Adapted for this portfolio</span></div>
       </div>
-      <div class="stat">
-        <div class="stat-num copper">~1</div>
-        <div class="stat-desc">Year to build<br>from zero</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">Solo</div>
-        <div class="stat-desc">Researcher and<br>panel architect</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">F100</div>
-        <div class="stat-desc">pharma &amp; FinTech<br>client base</div>
-      </div>
-    </div>
+    </figure>
   </section>
 
-  <section class="section">
-    <div class="section-label">The Problem</div>
-    <h2 class="section-heading">What "trust" means when your clients<br><em>answer to regulators</em></h2>
-    <p>Building a research panel for a general consumer brand is one thing. Building one for clients whose industries are governed by HIPAA, FDA oversight, and FDIC regulation is something else. The participants need to be who they say they are. The data handling needs to hold up to scrutiny. The privacy architecture can't be an afterthought you patch later.</p>
-    <p>Third-party panels solve for scale and speed, and on the surface they look like the obvious move. But they come with two problems that mattered here: cost and credibility. Every study that required a screened panel meant paying a vendor premium on top of the research itself, which adds up fast across a roster of regulated-industry clients. More fundamentally, third-party panels don't solve for the kind of institutional credibility that lets a pharma client actually trust the data going to a medical affairs team. If the panel itself couldn't meet that bar, everything downstream was compromised: the research, the recommendations, and the client relationship.</p>
-    <p>That wasn't a research quality problem. That was a strategic infrastructure problem, and it needed to be treated like one.</p>
-
-    <div class="callout">
-      <div class="callout-label">The Core Constraint</div>
-      <p>A panel that can't prove its data lineage to a regulated-industry client isn't a research tool. It's a liability dressed up as a shortcut.</p>
-    </div>
-  </section>
+  <details class="full-study">
+    <summary><span>Read the full case study</span></summary>
 
   <section class="section">
-    <div class="section-label">The Conflict</div>
-    <h2 class="section-heading">The shortcut was available.<br><em>The consequences weren't worth it.</em></h2>
-
-    <div class="conflict-card">
-      <div class="callout-label">The Directive</div>
-      <div class="conflict-title">"Just buy email lists. It's faster."</div>
-      <p>When I proposed building a proprietary panel from organic recruitment, my manager pushed back. Purchasing email lists was the obvious shortcut: faster lead volume, lower upfront effort, results on a timeline the agency could sell to clients. It was a reasonable business instinct if you weren't thinking about what happens the moment a client asks how these participants were sourced.</p>
-      <p>I refused. Not because I wanted to make the project harder, but because I understood what a purchased list would actually cost us. A research panel is only as credible as its provenance. The moment you seed it with contacts who never opted in, you've introduced a contamination you can't remediate. With regulated-industry clients, that contamination doesn't stay theoretical. It surfaces during audits, in data governance reviews, and in the room when your client's legal team starts asking questions.</p>
-      <p>Refusing that shortcut meant I had to build the entire recruitment mechanism myself. There was no playbook for this, no existing infrastructure to inherit, and no timeline relief. What it did give me was a panel that could actually withstand scrutiny.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">What I Built</div>
-    <h2 class="section-heading">End-to-end recruitment infrastructure,<br><em>designed from scratch</em></h2>
-    <p>Without the option to buy contact lists, every participant had to be recruited through legitimate, auditable channels. That meant I needed multiple mechanisms that could generate volume while preserving consent and data integrity. I built three interlocking systems.</p>
-
-    <div class="build-step">
-      <div class="build-num">1</div>
-      <div class="build-body">
-        <div class="build-title">End-of-Survey Recruitment Flow</div>
-        <p class="build-text">I designed and built a post-completion opt-in experience directly inside Qualtrics. Participants who finished a study were presented with a clear, affirmative invitation to join the panel. The flow was sequenced so that consent was genuinely informed and separable from study participation. Joining the panel was never a condition of completing the survey, which mattered for both ethical and compliance reasons.</p>
+    <div class="section-label">What I built</div>
+    <h2 class="section-heading">Three pieces, built to hold up to scrutiny</h2>
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div class="finding-content">
+        <div class="finding-title">An opt-in at the end of every study</div>
+        <p class="finding-text">Built in Qualtrics. People who finished a study got a clear invitation to join the panel, kept separate from the study itself. Joining was never a condition of finishing.</p>
       </div>
     </div>
-
-    <div class="build-step">
-      <div class="build-num">2</div>
-      <div class="build-body">
-        <div class="build-title">Referral Program with Unique Code Attribution</div>
-        <p class="build-text">I designed a referral system from scratch, including the attribution logic. Each existing panel member received a unique referral code. Referrals were tracked through a custom logic layer I built, allowing me to attribute new participants to their source, verify chain of consent, and eventually incentivize referrers through Giftbit, the reward fulfillment platform I integrated into the workflow. The attribution model mattered not just for panel growth accounting but for proving to clients that participant sourcing was traceable and clean.</p>
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div class="finding-content">
+        <div class="finding-title">A referral program with traceable codes</div>
+        <p class="finding-text">Each member got a unique code, and attribution logic I designed tied every new participant to their source. Rewards ran through Amazon at first, then Giftbit.</p>
       </div>
     </div>
-
-    <div class="build-step">
-      <div class="build-num">3</div>
-      <div class="build-body">
-        <div class="build-title">Compliance Stack Built with Legal</div>
-        <p class="build-text">I built the compliance architecture in direct collaboration with the legal team, treating it as a design constraint that shaped every data handling decision rather than a post-hoc review. The resulting framework covered international and domestic requirements, including GDPR, the EU-U.S. Data Privacy Framework, APEC CBPR, and HIPAA-adjacent practices appropriate for research involving health-related data. I also worked to achieve TRUSTe certification and align the panel's data governance with ISO 27001:2022 standards. This compliance layer was not decorative; it was the thing that made the panel useful to the clients who most needed it.</p>
+    <div class="finding-row">
+      <div class="finding-bar"></div>
+      <div class="finding-content">
+        <div class="finding-title">Compliance built in from the start, with legal</div>
+        <p class="finding-text">It shaped every data handling decision from the first plan on. Participant data lived in Azure SQL.</p>
       </div>
     </div>
-
     <figure class="dg-fig">
       <div class="dg-tag">How the panel worked</div>
       <div class="dg-heading">Every participant came in through a channel that could be audited</div>
@@ -1219,12 +1529,12 @@
         <div class="dg-col">
           <div class="dg-coltitle">Sources</div>
           <div class="dg-node"><div class="dg-nn">End-of-survey opt-in</div><div class="dg-ns">Built in Qualtrics. Separate from the study, never a condition of finishing it.</div></div>
-          <div class="dg-node"><div class="dg-nn">Referral program</div><div class="dg-ns">Unique codes with custom attribution, rewards through Giftbit.</div></div>
+          <div class="dg-node"><div class="dg-nn">Referral program</div><div class="dg-ns">Unique codes with custom attribution. Rewards through Amazon, then Giftbit.</div></div>
           <div class="dg-node dg-no"><div class="dg-nn">Purchased email lists</div><div class="dg-ns">The shortcut, turned down.</div></div>
         </div>
         <div class="dg-col">
           <div class="dg-coltitle">Checks</div>
-          <div class="dg-node dg-key"><div class="dg-nn">Compliance stack, built with legal</div><div class="dg-ns">Informed consent and a traceable source for every participant. Aligned with GDPR, the EU-U.S. Data Privacy Framework, APEC CBPR, ISO 27001:2022, and HIPAA-adjacent practices.</div></div>
+          <div class="dg-node dg-key"><div class="dg-nn">Compliance stack, built with legal</div><div class="dg-ns">Informed consent and a traceable source for every participant. Aligned with GDPR, the EU-U.S. Data Privacy Framework, APEC CBPR, ISO 27001:2022, TRUSTe, and HIPAA-adjacent practices.</div></div>
         </div>
         <div class="dg-col">
           <div class="dg-coltitle">Panel</div>
@@ -1232,195 +1542,74 @@
         </div>
         <div class="dg-col">
           <div class="dg-coltitle">Used for</div>
-          <div class="dg-node"><div class="dg-nn">Client research</div><div class="dg-ns">Studies for clients including Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, AbbVie, and M&amp;T Bank.</div></div>
+          <div class="dg-node"><div class="dg-nn">Client research</div><div class="dg-ns">Studies for Pfizer, Eli Lilly, Merck, Johnson &amp; Johnson, AbbVie, M&amp;T Bank, and others.</div></div>
         </div>
       </div>
     </figure>
+  </section>
 
-    <figure class="dg-fig">
-      <div class="dg-tag">How it grew</div>
-      <div class="dg-heading">Slow at first, then it picked up</div>
-      <svg class="dg-growth" viewBox="0 0 640 230" role="img" aria-labelledby="dg-grow-t">
-        <title id="dg-grow-t">Illustrative growth curve: panel size rose slowly in the early months, then accelerated to about 1,000 participants by the end of the first year.</title>
-        <line x1="40" y1="190" x2="620" y2="190" stroke="#dcd8d2" stroke-width="1"/>
-        <line x1="40" y1="30" x2="40" y2="190" stroke="#dcd8d2" stroke-width="1"/>
-        <path d="M40 188 C 300 186, 470 160, 610 38" fill="none" stroke="#9b3a22" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="610" cy="38" r="5" fill="#9b3a22"/>
-        <text x="600" y="24" text-anchor="end" class="dg-gl">~1,000</text>
-        <text x="40" y="210">Start</text>
-        <text x="620" y="210" text-anchor="end">About a year</text>
-        <text x="150" y="172">Slow start</text>
-        <text x="512" y="150">Picked up</text>
-      </svg>
-      <figcaption class="dg-caption">The shape is illustrative, drawn from how growth unfolded rather than plotted counts. The endpoint, about 1,000 participants, is the measured figure.</figcaption>
+  <section class="section">
+    <div class="section-label">The decision</div>
+    <h2 class="section-heading">Buy a list, or build from opt-ins</h2>
+    <div class="hyp-list">
+      <div class="hyp-row"><div><div class="hyp-k">The shortcut</div><p class="hyp-q">Buy email lists.</p></div><div><div class="hyp-k">What it meant</div><p class="hyp-a">Volume sooner. A purchased list doesn&rsquo;t show where anyone came from or whether they agreed to be contacted.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">What I chose</div><p class="hyp-q">Build it from people who chose to join.</p></div><div><div class="hyp-k">What it meant</div><p class="hyp-a">Slower to start, with a traceable source and a consent record for every participant.</p></div></div>
+    </div>
+    <p>My manager wanted to buy email lists from the start. I knew during the research phase I wouldn&rsquo;t, and I raised it once the intake survey was built and we were close to fielding, so I had a working alternative to show. My manager came around.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">The situation</div>
+    <h2 class="section-heading">Regulated clients and no panel of our own</h2>
+    <p>Crowley Webb is an advertising agency that also owns Praxis, a clinical trial recruitment firm, and I worked for both. Praxis brought the pharma relationships, and the agency had banking clients too. Every study that needed screened participants went to a third-party vendor, which meant paying vendor rates on top of the research and accepting whatever panel quality they offered.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Approach</div>
+    <h2 class="section-heading">Research and compliance came first</h2>
+    <figure class="tl" aria-label="Twelve-month timeline showing how time was split across phases">
+      <div class="tl-tag">Approach and time allocation &middot; about a year</div>
+      <div class="tl-rows">
+        <div><div class="tl-track"><span style="left: 0.00%; width: 16.67%"></span></div><div class="tl-lab" style="padding-left: 0.00%"><b>Research and conversations</b> <span class="tl-dur">&middot; about 2 months</span><br>How panels get built, from people who had built them.</div></div>
+        <div><div class="tl-track"><span style="left: 16.67%; width: 8.33%"></span></div><div class="tl-lab" style="padding-left: 16.67%"><b>Plan and leadership approval</b> <span class="tl-dur">&middot; about 1 month</span><br>Recruitment, consent, and storage, approved before any build.</div></div>
+        <div><div class="tl-track"><span style="left: 25.00%; width: 16.67%"></span></div><div class="tl-lab" style="padding-left: 25.00%"><b>Compliance processes and the intake survey</b> <span class="tl-dur">&middot; about 2 months</span><br>Built with legal and compliance. The survey carried heavy branching logic.</div></div>
+        <div><div class="tl-track"><span style="left: 41.67%; width: 16.67%"></span></div><div class="tl-lab" style="padding-left: 41.67%"><b>Opt-in and referral programs</b> <span class="tl-dur">&middot; about 2 months</span></div></div>
+        <div><div class="tl-track"><span style="left: 58.33%; width: 41.67%"></span></div><div class="tl-lab is-right" style="padding-right: 0.00%"><b>Growth and client studies</b> <span class="tl-dur">&middot; about 5 months</span><br>Reached ~1,000 participants.</div></div>
+      </div>
     </figure>
+    <p class="tl-note">Research, planning, approval, and compliance took almost half the year before anyone could join, which is why growth started slow.</p>
   </section>
 
   <section class="section">
-    <div class="section-label">Tech Stack</div>
-    <h2 class="section-heading">Purpose-built infrastructure,<br><em>not repurposed tools</em></h2>
-    <p>The technology choices were driven by the compliance and audit requirements, not the other way around. Each platform was selected for what it could handle responsibly at the data layer, not just for feature convenience.</p>
-
-    <div class="stack-grid">
-      <div class="stack-card">
-        <div class="stack-icon">Survey &amp; Recruitment</div>
-        <div class="stack-name">Qualtrics</div>
-        <div class="stack-desc">Survey platform and recruitment flow host. Used for end-of-study opt-in flow, screener logic, and study delivery.</div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-icon">Cloud Infrastructure</div>
-        <div class="stack-name">Microsoft Azure</div>
-        <div class="stack-desc">Cloud environment for panel data infrastructure, chosen for enterprise compliance posture and regulated-industry familiarity.</div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-icon">Database</div>
-        <div class="stack-name">Azure SQL Database</div>
-        <div class="stack-desc">Structured participant data storage with auditability and access controls. Also used to track panel health metrics including response rates, demographic composition, and participant activity from early in the build.</div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-icon">Incentive Fulfillment</div>
-        <div class="stack-name">Giftbit</div>
-        <div class="stack-desc">Reward delivery platform integrated into the referral attribution flow. Enabled clean, traceable incentive disbursement without manual handling.</div>
-      </div>
+    <div class="section-label">What I&rsquo;d do differently</div>
+    <h2 class="section-heading">Two changes in hindsight</h2>
+    <div class="hs-list">
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Turn my process into a playbook sooner</div><p class="hs-text">I documented as I went, but around my own workflow. A playbook someone else could run would have made the panel easier to hand off and extend without me.</p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Plan the participant lifecycle up front</div><p class="hs-text">Recruitment got the attention because that&rsquo;s where the pressure was. Re-engagement for inactive members and a refresh plan were handled as they came up. Designing them in from the start would have cut attrition and kept the panel&rsquo;s makeup cleaner.</p></div></div>
     </div>
   </section>
 
   <section class="section">
-    <div class="section-label">Compliance Stack</div>
-    <h2 class="section-heading">The certifications are the evidence,<br><em>not the goal</em></h2>
-    <p>The compliance stack wasn't assembled to check boxes. It was built to answer the question that regulated-industry clients are always implicitly asking: <em>can we trust this data if someone scrutinizes it?</em> Each framework addressed a specific risk surface, and together they covered the international and domestic terrain of the client base.</p>
-
-    <div class="stack-grid">
-      <div class="stack-card copper-top">
-        <div class="stack-icon">Information Security</div>
-        <div class="stack-name">ISO 27001:2022</div>
-        <div class="stack-desc">International standard for information security management. Governs how data is handled, stored, and protected across the panel infrastructure.</div>
-      </div>
-      <div class="stack-card copper-top">
-        <div class="stack-icon">EU Data Protection</div>
-        <div class="stack-name">GDPR</div>
-        <div class="stack-desc">General Data Protection Regulation. Consent architecture, data minimization, and participant rights built into the panel from the ground up.</div>
-      </div>
-      <div class="stack-card copper-top">
-        <div class="stack-icon">EU–U.S. Transfer</div>
-        <div class="stack-name">EU-U.S. Data Privacy Framework</div>
-        <div class="stack-desc">Governs lawful transfer of personal data between the EU and U.S. Essential for pharma clients with international operations.</div>
-      </div>
-      <div class="stack-card copper-top">
-        <div class="stack-icon">Asia-Pacific</div>
-        <div class="stack-name">APEC CBPR</div>
-        <div class="stack-desc">Cross-Border Privacy Rules system for APEC economies. Extends compliance coverage to Pacific-region data transfers.</div>
-      </div>
-      <div class="stack-card copper-top">
-        <div class="stack-icon">Third-Party Certification</div>
-        <div class="stack-name">TRUSTe</div>
-        <div class="stack-desc">Independent privacy certification demonstrating accountability to participants and clients beyond internal self-assessment.</div>
-      </div>
-      <div class="stack-card copper-top">
-        <div class="stack-icon">Health Data</div>
-        <div class="stack-name">HIPAA-Adjacent Practices</div>
-        <div class="stack-desc">Applied HIPAA-informed data handling for research involving health-related participant information, without formal PHI collection.</div>
-      </div>
+    <div class="section-label">Next steps</div>
+    <h2 class="section-heading">With two more weeks</h2>
+    <div class="hs-list">
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Compare quality by source</div><p class="hs-text">Check response rates, completion, and screener pass rates for opt-in members against referrals.</p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Test the panel against a vendor</div><p class="hs-text">Run the same screener on both and compare quality and cost directly.</p></div></div>
+      <div class="hs-item"><div class="hs-num">3</div><div><div class="hs-title">Put a number on the savings</div><p class="hs-text">Turn $0 in external recruitment spend into a dollar figure based on past vendor rates.</p></div></div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-label">Clients Served</div>
-    <h2 class="section-heading">The panel's first real test<br><em>was the caliber of the client</em></h2>
-    <p>The panel wasn't built in anticipation of a theoretical future use case. It was built against the actual client roster: organizations whose compliance standards set the floor, not the ceiling. That the infrastructure held up across all of them was the validation.</p>
-
-    <div class="client-row">
-      <span class="client-tag">Pfizer</span>
-      <span class="client-tag">Eli Lilly</span>
-      <span class="client-tag">Merck</span>
-      <span class="client-tag">Johnson &amp; Johnson</span>
-      <span class="client-tag">AbbVie</span>
-      <span class="client-tag">M&amp;T Bank</span>
-    </div>
-
-    <p>These aren't clients that give you a pass on data governance questions. Pfizer, Lilly, Merck, J&amp;J, and AbbVie operate in an environment where a research practice that couldn't withstand regulatory scrutiny would simply not get used. M&amp;T Bank brought FDIC-regulated financial services constraints into the mix. The fact that the panel served all of them on their own terms, without diluting the compliance posture to fit a lower standard, was the proof of concept.</p>
-  </section>
-
-  <section class="section">
-    <div class="section-label">Strategic Framing</div>
-    <h2 class="section-heading">This wasn't a recruitment tool.<br><em>It was enablement infrastructure.</em></h2>
-    <p>The panel could have been scoped as a research operations efficiency play: faster studies, lower vendor spend, more control over timelines. That framing would have been accurate but incomplete. What actually got built was something more foundational: the infrastructure that let a mid-size agency credibly serve regulated-industry clients at a level typically reserved for shops with dedicated compliance teams.</p>
-
-    <div class="strategy-item">
-      <div class="strategy-tag">HealthTech Signal</div>
-      <div class="strategy-content">
-        <div class="strategy-title">Compliance fluency, not compliance awareness</div>
-        <p>Building GDPR, DPF, APEC CBPR, and HIPAA-adjacent practices into research infrastructure from the design phase rather than retrofitting them later is exactly the posture HealthTech companies need from researchers who will handle sensitive user and patient-adjacent data.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-tag">FinTech Signal</div>
-      <div class="strategy-content">
-        <div class="strategy-title">Research that can survive an audit</div>
-        <p>Financial services clients and their regulators care about data lineage. Building a panel where every participant's sourcing, consent, and data handling is traceable and documented is a fundamentally different capability than running studies through a third-party panel you can't fully audit.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-tag">Research Ops Signal</div>
-      <div class="strategy-content">
-        <div class="strategy-title">End-to-end ownership of the research ecosystem</div>
-        <p>Designing the recruitment mechanism, attribution logic, compliance stack, tech integration, and incentive fulfillment as a single coherent system, rather than stitching together vendor pieces, is exactly the operational scope that research ops roles inside product organizations actually require.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">What I'd Do Differently</div>
-    <h2 class="section-heading">Three things I'd approach<br><em>differently in retrospect</em></h2>
-
-    <div class="finding">
-      <div class="finding-num">1</div>
-      <div class="finding-body">
-        <div class="finding-title">Formalize the methodology into a handoff-ready playbook sooner</div>
-        <p class="finding-text">I documented decisions and built processes as I went, which meant the institutional knowledge existed. But most of it was organized around my own workflow rather than structured for someone else to operate without my context. Formalizing the methodology into a transferable playbook earlier would have made the panel easier to scale, easier to hand off, and easier for the agency to extend independently without me as the single point of continuity.</p>
-      </div>
-    </div>
-
-    <div class="finding">
-      <div class="finding-num">2</div>
-      <div class="finding-body">
-        <div class="finding-title">Establish a formal participant lifecycle protocol earlier</div>
-        <p class="finding-text">The recruitment side of the panel got a lot of architectural attention because that was where the immediate pressure was. The participant lifecycle after onboarding, including re-engagement cadences for inactive members, off-boarding logic for participants who aged out of target segments, and a structured refresh strategy, was something I addressed as it came up rather than designing upfront. Building that protocol into the initial architecture would have reduced attrition and kept the panel composition cleaner over time.</p>
-      </div>
-    </div>
-
-    <div class="finding">
-      <div class="finding-num">3</div>
-      <div class="finding-body">
-        <div class="finding-title">Get explicit written alignment on recruitment methodology at kickoff</div>
-        <p class="finding-text">The conflict with my manager over purchased email lists surfaced after the panel build was already in motion. Getting clear written alignment on the parameters and constraints of the recruitment approach at project kickoff, rather than mid-build, would have saved time, reduced friction, and put the rationale for organic recruitment on record from the start instead of having to defend it under pressure.</p>
-      </div>
-    </div>
-
-  </section>
-
-  <section class="section">
-    <div class="section-label">Takeaway</div>
-    <h2 class="section-heading">What this case study demonstrates</h2>
-
-    <div class="reflection">
-      <div class="callout-label">The Broader Point</div>
-      <p style="font-family: var(--serif); font-size: 19px; font-style: normal; color: var(--ink); max-width: 100%; line-height: 1.65; margin-bottom: 18px;">The decision that mattered most in this project was the one I made before I built anything.</p>
-      <p style="font-size: 15px; max-width: 100%;">Refusing to buy email lists was a research integrity decision, but it was also a strategic one. It forced me to invent infrastructure that turned out to be considerably more valuable than a faster path to a compromised outcome would have been. The panel that emerged from that refusal was something the agency couldn't have bought: a first-party, fully auditable, compliance-ready research asset that made a new category of client trust possible.</p>
-      <p style="font-size: 15px; max-width: 100%; margin-bottom: 0;">For organizations in HealthTech and FinTech where the research function touches sensitive data, the ability to build research infrastructure that can actually be trusted, not merely used, is the differentiator. That's what this project was about.</p>
-    </div>
-  </section>
+  </details>
 
 </main>
+
 
 <footer class="footer">
   <span>Shannon L. Coleman, PhD</span>
   <a href="mailto:shannon@shannonlcoleman.com">shannon@shannonlcoleman.com</a>
-  <a href="https://www.linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a>
-  <a href="https://byshannoncoleman.substack.com/?utm_source=portfolio&utm_medium=footer&utm_campaign=site">Ground Truth on Substack</a> <span>&copy; 2026</span>
-</footer>
+  <a href="https://linkedin.com/in/shannonlcoleman">linkedin.com/in/shannonlcoleman</a>
+  <a href="https://byshannoncoleman.substack.com/?utm_source=portfolio&utm_medium=footer&utm_campaign=site">Ground Truth on Substack</a> <span>&copy; 2026</span></footer>
+
 
 <script>
   document.querySelectorAll("a[href]").forEach(function(a) {
