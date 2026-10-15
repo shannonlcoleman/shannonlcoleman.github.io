@@ -235,6 +235,50 @@ def add_home_row(home, post, number, name):
     return home[:anchor] + home_row(post, number, name) + home[anchor:]
 
 
+LATEST_START, LATEST_END = "<!-- latest-start -->", "<!-- latest-end -->"
+
+
+def newest_article(page):
+    """Return (post, series name) for the newest article on writing.html."""
+    best = None
+    for block in re.findall(r'<div class="series-block">.*?(?=<!-- SERIES|</main>)', page, re.S):
+        title = re.search(r'<h2 class="series-title">(.*?)</h2>', block, re.S)
+        series = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", title.group(1)))).strip() if title else ""
+        for slug, date, name in re.findall(
+                r'substack\.com/p/([A-Za-z0-9-]+)\?.*?<div class="article-meta">([A-Z][a-z]{2} \d{1,2}, \d{4}).*?'
+                r'<div class="article-title">(.*?)</div>', block, re.S):
+            d = datetime.strptime(date, "%b %d, %Y").date()
+            if best is None or d > best[0]["date"]:
+                best = ({"slug": slug, "title": html.unescape(name), "date": d}, series)
+    return best
+
+
+def update_home_latest(home, page):
+    """Point the homepage "Most recent" row at the newest article.
+
+    The row lives between <!-- latest-start --> and <!-- latest-end --> in the
+    homepage Writing section. It stays empty when the newest article is the
+    one already shown as "Most read".
+    """
+    if LATEST_START not in home or LATEST_END not in home:
+        return home
+    found = newest_article(page)
+    row = ""
+    if found:
+        post, series = found
+        slug = post["slug"]
+        most_read = home[home.index(LATEST_END):]
+        if f"/p/{slug}?" not in most_read.split('class="writing-link writing-link-viewall">', 1)[0]:
+            row = (
+                f'\n    <a href="https://byshannoncoleman.substack.com/p/{slug}?utm_source=portfolio&amp;utm_medium=homepage-writing&amp;utm_campaign=site&amp;utm_content={slug}" class="writing-link writing-link-viewall" target="_blank" rel="noopener">\n'
+                f'      <div class="writing-pub">Most recent{SEP}{esc(series)}</div>\n'
+                f'      <div class="writing-title">{esc(post["title"])}</div>\n'
+                f'    </a>\n    '
+            )
+    start = home.index(LATEST_START) + len(LATEST_START)
+    return home[:start] + row + home[home.index(LATEST_END):]
+
+
 def bump_sitemap(path, pages):
     """Set the lastmod date for the given pages to today (UTC)."""
     if not os.path.exists(path):
@@ -280,13 +324,17 @@ def main():
             f.write(page)
     if added:
         bump_sitemap(args.sitemap, ["writing.html"] + ([""] if home_changes else []))
-    if home_changes and os.path.exists(args.home):
+    if os.path.exists(args.home):
         with open(args.home, encoding="utf-8") as f:
-            home = f.read()
+            original = f.read()
+        home = original
         for post, number, name in home_changes:
             home = add_home_row(home, post, number, name)
-        with open(args.home, "w", encoding="utf-8") as f:
-            f.write(home)
+        home = update_home_latest(home, page)
+        if home != original:
+            with open(args.home, "w", encoding="utf-8") as f:
+                f.write(home)
+            bump_sitemap(args.sitemap, [""])
     print(f"{added} new post(s)")
 
     # Tell the workflow about new series so it can ask for a description.
