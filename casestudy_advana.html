@@ -1329,6 +1329,65 @@
   .aha-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin-bottom: 18px; }
   .content p.aha-text { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.3; color: var(--ink); max-width: 34ch; margin: 0; }
   .content h3.sub-heading { font-family: var(--serif); font-weight: 400; font-size: 27px; line-height: 1.2; color: var(--ink); margin: 48px 0 14px; }
+
+  /* Oct 2026 additions: outcome strip, slide evidence, tension, hypothesis check, AI workflow */
+  .outcome { padding-top: 56px; }
+  .outcome-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 4px; }
+  .outcome-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+  .outcome-item { padding: 22px 28px 24px 0; }
+  .outcome-item + .outcome-item { border-left: 1px solid var(--rule); padding-left: 28px; }
+  .outcome-fig { font: 400 clamp(30px, 3.4vw, 42px)/1.05 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 10px; }
+  .outcome-item.is-shipped .outcome-fig { color: var(--ink); font-family: var(--serif); letter-spacing: -0.015em; }
+  .outcome-text { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 0; }
+  .outcome-text b { color: var(--ink); font-weight: 600; }
+  .outcome-note { font: 400 14px/1.5 var(--sans); color: var(--ink-3); margin: 12px 0 0; max-width: 72ch; }
+  @media (max-width: 700px) {
+    .outcome-row { grid-template-columns: 1fr; }
+    .outcome-item { padding: 18px 0; }
+    .outcome-item + .outcome-item { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; }
+  }
+
+  .slide-ev { margin-top: 2.4cqw; padding-top: 1.6cqw; border-top: 1px solid var(--rule); max-width: 34ch; }
+  .slide-ev-fig { font: 400 3.4cqw/1 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 0.8cqw; }
+  .slide-ev-text { font: 400 1.3cqw/1.45 var(--sans); color: var(--ink-2); }
+  .slide-ev-bar { display: flex; height: 0.9cqw; min-height: 6px; margin-bottom: 1cqw; background: #eeece8; }
+  .slide-ev-bar span { display: block; height: 100%; background: var(--accent); }
+  @media (max-width: 700px) {
+    .slide-ev { margin-top: 16px; padding-top: 12px; }
+    .slide-ev-fig { font-size: 30px; margin-bottom: 6px; }
+    .slide-ev-text { font-size: 14px; }
+    .slide-ev-bar { height: 8px; margin-bottom: 8px; }
+  }
+
+  .hyp-m { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 12px 0 0; padding-left: 14px; border-left: 2px solid var(--rule); }
+  .hyp-m span { display: block; font-weight: 600; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+
+  .tension { margin-top: 36px; padding: 24px 28px; background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  .tension-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .tension p { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--ink); max-width: 60ch; }
+  @media (max-width: 700px) { .tension { padding: 20px 18px; } .tension p { font-size: 19px; } }
+
+  .hs-then { display: block; margin-top: 6px; color: var(--ink); }
+  .hs-then::before { content: "Result: "; font-weight: 600; color: var(--accent); }
+
+  .aiflow { margin: 8px 0 0; border: 1px solid var(--ink); border-radius: 2px; padding: 28px 30px 24px; }
+  .aiflow-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 4px; }
+  .aiflow-total { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin-bottom: 22px; }
+  .aiflow-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0; counter-reset: aif; }
+  .aiflow-steps li { position: relative; padding: 14px 14px 0 0; border-top: 3px solid var(--rule); }
+  .aiflow-steps li.is-ai { border-top-color: var(--data-2); }
+  .aiflow-steps li.is-me { border-top-color: var(--accent); }
+  .aiflow-steps li.is-script { border-top-color: var(--ink-3); }
+  .aiflow-who { font: 600 12px/1.3 var(--sans); letter-spacing: 0.02em; color: var(--ink-3); margin-bottom: 6px; }
+  .aiflow-steps li.is-ai .aiflow-who { color: var(--data-2); }
+  .aiflow-steps li.is-me .aiflow-who { color: var(--accent); }
+  .aiflow-step { font-family: var(--serif); font-size: 19px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+  .aiflow-desc { font: 400 13.5px/1.5 var(--sans); color: var(--ink-2); }
+  .aiflow-saved { display: block; margin-top: 8px; font: 500 13.5px/1.3 var(--sans); color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+  .aiflow-key { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 13px/1.4 var(--sans); color: var(--ink-3); }
+  .aiflow-key i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+  @media (max-width: 900px) { .aiflow-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; } }
+  @media (max-width: 480px) { .aiflow { padding: 22px 18px; } .aiflow-steps { grid-template-columns: 1fr; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1358,9 +1417,9 @@
   <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-study active">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-study">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
   </div>
@@ -1368,9 +1427,9 @@
   <summary class="cs-nav-dropdown-btn">Case Studies &#9662;</summary>
   <div class="cs-nav-dropdown-list">
     <a href="casestudy_healthplatform.html" class="cs-nav-dropdown-item">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-dropdown-item active">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-dropdown-item">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-dropdown-item">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-dropdown-item">Research Panel</a>
   </div>
@@ -1384,7 +1443,7 @@
   <div class="masthead-inner">
     <div class="classification">Advana &nbsp;&bull;&nbsp; DoD CDAO &nbsp;&bull;&nbsp; 2023&ndash;2024</div>
     <h1 class="case-title">The AI Platform Became a Victim of Its Own Success</h1>
-    <p class="deck">User research and platform strategy for Advana, the Department of Defense&rsquo;s AI and analytics platform for more than 100,000 people</p>
+    <p class="deck">I led a team of about seven through a 14-month mixed methods program on why DoD&rsquo;s AI and analytics platform got harder to use as it grew. Leadership paused development to fix the infrastructure first.</p>
   </div>
 </header>
 
@@ -1393,13 +1452,22 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
-            <div class="tldr-row"><dt>What changed</dt><dd>Product teams designed against the research&rsquo;s statistically validated user archetypes, and CDAO&rsquo;s platform strategy shifted toward tools built for each persona, a more stable infrastructure, and more guidance in the interface.</dd></div>
-      <div class="tldr-row"><dt>Result</dt><dd>DoD paused development in June 2024 to fix its infrastructure, as I recommended, and the $15B recompete that followed centered on a modular, multi-vendor architecture.</dd></div>
+      <div class="tldr-row"><dt>What was at stake</dt><dd>DoD had invested millions in Advana, people weren&rsquo;t using it as much as expected, and a major contract decision was coming.</dd></div>
+            <div class="tldr-row"><dt>What changed</dt><dd>Product teams designed against the research&rsquo;s statistically validated user archetypes, and CDAO&rsquo;s platform strategy shifted toward tools built for each archetype, a more stable infrastructure, and more guidance in the interface.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Lead researcher and platform strategist, directing a cross-functional team of about 7 from study design through the prototype and roadmap</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 14 months</dd></div>
-      <div class="tldr-row"><dt>Why it mattered</dt><dd>DoD had invested millions in Advana, and people weren&rsquo;t using it as much as expected. The platform had to start earning that investment.</dd></div>
     </dl>
-    <p class="tldr-note">Many people at CDAO and across DoD shaped the pause and the recompete. The research gave those decisions a user-grounded evidence base; I don&rsquo;t claim it as the only cause.</p>
+    <p class="tldr-note">Many people at CDAO and across DoD shaped the pause and the recompete. My team&rsquo;s research set the user priorities those decisions drew on.</p>
+  </section>
+
+  <section class="outcome" aria-label="Measurable outcome">
+    <div class="outcome-label">Measurable outcome</div>
+    <div class="outcome-row">
+      <div class="outcome-item"><div class="outcome-fig">Paused</div><p class="outcome-text"><b>Development, in June 2024</b>, to fix the infrastructure before adding features, as I recommended.</p></div>
+      <div class="outcome-item"><div class="outcome-fig">$15B</div><p class="outcome-text"><b>Recompete that followed</b>, centered on a modular, multi-vendor architecture built around distinct groups of users.</p></div>
+      <div class="outcome-item is-shipped"><div class="outcome-fig">Delivered</div><p class="outcome-text">A redesigned navigation, content model, and clickable prototype, plus two product roadmaps.</p></div>
+    </div>
+    <p class="outcome-note">Baseline: of about 220 scored feedback responses before the engagement, 38% said people fully accomplished what they came to do.</p>
   </section>
 
   <section class="section key-visual">
@@ -1409,6 +1477,7 @@
           <div class="slide-label">Recommendation</div>
           <div class="slide-headline">Stabilize the infrastructure before redesigning the interface</div>
           <div class="slide-support">Adding features on an unstable foundation would make every existing problem worse.</div>
+          <div class="slide-ev"><div class="slide-ev-label slide-label">Evidence</div><div class="slide-ev-fig">38%</div><div class="slide-ev-bar" aria-hidden="true"><span style="width: 38%"></span></div><div class="slide-ev-text">of about 220 scored feedback responses said people fully accomplished what they came to do.</div></div>
         </div>
         <div class="slide-right">
           <div class="slide-col slide-before">
@@ -1471,7 +1540,7 @@
         </div>
       </div>
       <ol class="wf-notes">
-        <li><span class="wf-mark">1</span>Entry points for the user groups the research validated</li>
+        <li><span class="wf-mark">1</span>Entry points for the archetypes the research validated</li>
         <li><span class="wf-mark">2</span>Navigation built from a card sort and checked with a tree test</li>
         <li><span class="wf-mark">3</span>A clear starting point for people with less data experience</li>
       </ol>
@@ -1506,9 +1575,14 @@
     <div class="finding-row">
       <div class="finding-bar"></div>
       <div class="finding-content">
-        <div class="finding-title">Build specialized components for distinct user groups</div>
+        <div class="finding-title">Build specialized components for each archetype</div>
         <p class="finding-text">The research supported modular components built around each group&rsquo;s data and workflows, which matches the modular, multi-vendor approach CDAO pursued in the recompete.</p>
       </div>
+    </div>
+
+    <div class="tension">
+      <div class="tension-label">The tension</div>
+      <p>Pausing meant holding back changes that were already lined up to ship, and there was pushback. I recommended it anyway, because those changes would have landed on infrastructure that was already failing.</p>
     </div>
 
   </section>
@@ -1517,16 +1591,16 @@
     <div class="section-label">The hypothesis</div>
     <h2 class="section-heading">What I expected to find</h2>
     <div class="hyp-list">
-      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 1</div><p class="hyp-q">People needed the platform. Low engagement, even with a mandate, came from not being able to find things.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">People described finding workarounds and using outdated methods instead of the platform.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 2</div><p class="hyp-q">The experience problems sat downstream of the infrastructure, like slow performance and broken pipelines, so interface fixes alone wouldn&rsquo;t move satisfaction.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Infrastructure strain was one of six root causes, and fixing it came first in the recommendations.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 3</div><p class="hyp-q">One interface couldn&rsquo;t serve the range of data literacy across the four main user groups.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Usage split by role, which led to the role-based entry points in the prototype.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 1</div><p class="hyp-q">People needed the platform. Low engagement, even with a mandate, came from not being able to find things.</p><p class="hyp-m"><span>What would have changed my mind</span>If people who could find content still weren&rsquo;t using the platform, the problem would have been value, not navigation.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">People described finding workarounds and using outdated methods instead of the platform.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 2</div><p class="hyp-q">The experience problems sat downstream of the infrastructure, like slow performance and broken pipelines, so interface fixes alone wouldn&rsquo;t move satisfaction.</p><p class="hyp-m"><span>What would have changed my mind</span>If satisfaction had stayed low even for people with fast, stable sessions, I&rsquo;d have put the interface first.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Infrastructure strain was one of six root causes, and fixing it came first in the recommendations.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">Hypothesis 3</div><p class="hyp-q">One interface couldn&rsquo;t serve the range of data literacy across the four main archetypes.</p><p class="hyp-m"><span>What would have changed my mind</span>If the segmentation hadn&rsquo;t produced distinct groups, one redesigned interface would have been enough.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Usage split by role, which led to the role-based entry points in the prototype.</p></div></div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-label">The challenge</div>
     <h2 class="section-heading">A platform that had outgrown its own design</h2>
-    <p>A major contract decision was coming. Leadership needed to know who used the platform, how, and why it was getting harder to use as it grew.</p>
+    <p>Leadership needed to know who used the platform, how, and why it was getting harder to use as it grew.</p>
     <p>Advana started as a tool to help the comptroller&rsquo;s office manage financial data. By 2023 it pulled from more than 400 business systems and served more than 100,000 people across every branch, from analysts to senior leadership. CDAO leadership publicly called it a victim of its own success.</p>
     <p>The platform&rsquo;s own feedback showed the strain before we arrived. Of about 220 scored responses from August 2020 to April 2023, only 38% said they fully accomplished what they came to do. The feedback form capped answers at about 100 characters, so it could flag frustration but not explain it.</p>
     <div class="pq-grid">
@@ -1540,10 +1614,10 @@
   <section class="section">
     <div class="section-label">Approach</div>
     <h2 class="section-heading">A sample big enough to compare roles</h2>
-    <p>The four user groups used Advana in different ways, so a small study would only have caught the loudest problems. I started with a segmentation survey of 1,382 people. Its results defined the user groups, so every finding could be traced back to a specific kind of user. From there:</p>
+    <p>The four archetypes used Advana in different ways, so a small study would only have caught the loudest problems. I started with a segmentation survey of 1,382 people. Its results defined the archetypes, so every finding could be traced back to a specific kind of user. From there:</p>
     <ul class="plain-list">
       <li>System Usability Scale and CX surveys to measure the current experience</li>
-      <li>Interviews with at least 8 people per user group</li>
+      <li>Interviews with at least 8 people per archetype</li>
       <li>Two rounds of usability testing, on the current site and on the redesign</li>
       <li>A card sort to build the new navigation, then a tree test to check it</li>
     </ul>
@@ -1556,7 +1630,7 @@
         <div><div class="tl-track"><span style="left: 32.86%; width: 24.29%"></span></div><div class="tl-lab" style="padding-left: 32.86%"><b>Interviews and the first usability round</b> <span class="tl-dur">&middot; about 3 months</span><br>Ran side by side, with rolling debriefs as interviews came in.</div></div>
         <div><div class="tl-track"><span style="left: 57.14%; width: 14.29%"></span></div><div class="tl-lab is-right" style="padding-right: 28.57%"><b>Card sort and tree test</b> <span class="tl-dur">&middot; 2 months</span></div></div>
         <div><div class="tl-track"><span style="left: 71.43%; width: 21.43%"></span></div><div class="tl-lab is-right" style="padding-right: 7.14%"><b>Prototype and the second usability round</b> <span class="tl-dur">&middot; 3 months</span></div></div>
-        <div><div class="tl-track"><span style="left: 89.29%; width: 10.71%"></span></div><div class="tl-lab is-right" style="padding-right: -0.00%"><b>Second roadmap and recommendations</b> <span class="tl-dur">&middot; about 6 weeks</span><br>Put infrastructure fixes ahead of experience changes and set which user groups came first.</div></div>
+        <div><div class="tl-track"><span style="left: 89.29%; width: 10.71%"></span></div><div class="tl-lab is-right" style="padding-right: -0.00%"><b>Second roadmap and recommendations</b> <span class="tl-dur">&middot; about 6 weeks</span><br>Put infrastructure fixes ahead of experience changes and set which archetypes came first.</div></div>
       </div>
     </figure>
   </section>
@@ -1611,9 +1685,9 @@
     <p>Advana reinforced my habit of looking for the pattern across problems before proposing a fix for any one of them. For the team and CDAO leadership, the research gave them the evidence they needed to pause and fix the architecture before adding more features.</p>
     <h3 class="sub-heading">Hindsight</h3>
     <div class="hs-list">
-      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Settle decision rights early</div><p class="hs-text">Some findings challenged existing assumptions about the personas and the platform&rsquo;s readiness to scale. Agreeing up front on who could act on which kinds of findings would have shortened the time between insight and action.</p></div></div>
-      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Push for ongoing measurement</div><p class="hs-text">A platform this size, with a contract decision coming, needed continuous listening: short pulse surveys and feedback built into the platform, so changes could be tracked over time.</p></div></div>
-      <div class="hs-item"><div class="hs-num">3</div><div><div class="hs-title">Run the card sort sooner</div><p class="hs-text">The card sort turned out to be central to the new navigation. Scheduling it earlier would have given the navigation and content model a stronger base than interview synthesis alone.</p></div></div>
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Settle decision rights early</div><p class="hs-text">Some findings challenged existing assumptions about the personas and the platform&rsquo;s readiness to scale. Agreeing up front on who could act on which kinds of findings would have shortened the time between insight and action.<span class="hs-then">Findings that sat in review for weeks could have reached product teams within a sprint.</span></p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Push for ongoing measurement</div><p class="hs-text">A platform this size, with a contract decision coming, needed continuous listening: short pulse surveys and feedback built into the platform, so changes could be tracked over time.<span class="hs-then">Leadership would have gone into the recompete with a trend line, not one snapshot.</span></p></div></div>
+      <div class="hs-item"><div class="hs-num">3</div><div><div class="hs-title">Run the card sort sooner</div><p class="hs-text">The card sort turned out to be central to the new navigation. Scheduling it earlier would have given the navigation and content model a stronger base than interview synthesis alone.<span class="hs-then">The second usability round could have tested role-based entry points instead of basic findability.</span></p></div></div>
     </div>
   </section>
 

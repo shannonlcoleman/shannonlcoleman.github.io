@@ -1215,6 +1215,65 @@
   .aha-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin-bottom: 18px; }
   .content p.aha-text { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.3; color: var(--ink); max-width: 34ch; margin: 0; }
   .content h3.sub-heading { font-family: var(--serif); font-weight: 400; font-size: 27px; line-height: 1.2; color: var(--ink); margin: 48px 0 14px; }
+
+  /* Oct 2026 additions: outcome strip, slide evidence, tension, hypothesis check, AI workflow */
+  .outcome { padding-top: 56px; }
+  .outcome-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 4px; }
+  .outcome-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+  .outcome-item { padding: 22px 28px 24px 0; }
+  .outcome-item + .outcome-item { border-left: 1px solid var(--rule); padding-left: 28px; }
+  .outcome-fig { font: 400 clamp(30px, 3.4vw, 42px)/1.05 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 10px; }
+  .outcome-item.is-shipped .outcome-fig { color: var(--ink); font-family: var(--serif); letter-spacing: -0.015em; }
+  .outcome-text { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 0; }
+  .outcome-text b { color: var(--ink); font-weight: 600; }
+  .outcome-note { font: 400 14px/1.5 var(--sans); color: var(--ink-3); margin: 12px 0 0; max-width: 72ch; }
+  @media (max-width: 700px) {
+    .outcome-row { grid-template-columns: 1fr; }
+    .outcome-item { padding: 18px 0; }
+    .outcome-item + .outcome-item { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; }
+  }
+
+  .slide-ev { margin-top: 2.4cqw; padding-top: 1.6cqw; border-top: 1px solid var(--rule); max-width: 34ch; }
+  .slide-ev-fig { font: 400 3.4cqw/1 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 0.8cqw; }
+  .slide-ev-text { font: 400 1.3cqw/1.45 var(--sans); color: var(--ink-2); }
+  .slide-ev-bar { display: flex; height: 0.9cqw; min-height: 6px; margin-bottom: 1cqw; background: #eeece8; }
+  .slide-ev-bar span { display: block; height: 100%; background: var(--accent); }
+  @media (max-width: 700px) {
+    .slide-ev { margin-top: 16px; padding-top: 12px; }
+    .slide-ev-fig { font-size: 30px; margin-bottom: 6px; }
+    .slide-ev-text { font-size: 14px; }
+    .slide-ev-bar { height: 8px; margin-bottom: 8px; }
+  }
+
+  .hyp-m { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 12px 0 0; padding-left: 14px; border-left: 2px solid var(--rule); }
+  .hyp-m span { display: block; font-weight: 600; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+
+  .tension { margin-top: 36px; padding: 24px 28px; background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  .tension-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .tension p { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--ink); max-width: 60ch; }
+  @media (max-width: 700px) { .tension { padding: 20px 18px; } .tension p { font-size: 19px; } }
+
+  .hs-then { display: block; margin-top: 6px; color: var(--ink); }
+  .hs-then::before { content: "Result: "; font-weight: 600; color: var(--accent); }
+
+  .aiflow { margin: 8px 0 0; border: 1px solid var(--ink); border-radius: 2px; padding: 28px 30px 24px; }
+  .aiflow-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 4px; }
+  .aiflow-total { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin-bottom: 22px; }
+  .aiflow-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0; counter-reset: aif; }
+  .aiflow-steps li { position: relative; padding: 14px 14px 0 0; border-top: 3px solid var(--rule); }
+  .aiflow-steps li.is-ai { border-top-color: var(--data-2); }
+  .aiflow-steps li.is-me { border-top-color: var(--accent); }
+  .aiflow-steps li.is-script { border-top-color: var(--ink-3); }
+  .aiflow-who { font: 600 12px/1.3 var(--sans); letter-spacing: 0.02em; color: var(--ink-3); margin-bottom: 6px; }
+  .aiflow-steps li.is-ai .aiflow-who { color: var(--data-2); }
+  .aiflow-steps li.is-me .aiflow-who { color: var(--accent); }
+  .aiflow-step { font-family: var(--serif); font-size: 19px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+  .aiflow-desc { font: 400 13.5px/1.5 var(--sans); color: var(--ink-2); }
+  .aiflow-saved { display: block; margin-top: 8px; font: 500 13.5px/1.3 var(--sans); color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+  .aiflow-key { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 13px/1.4 var(--sans); color: var(--ink-3); }
+  .aiflow-key i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+  @media (max-width: 900px) { .aiflow-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; } }
+  @media (max-width: 480px) { .aiflow { padding: 22px 18px; } .aiflow-steps { grid-template-columns: 1fr; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1243,9 +1302,9 @@
   <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_healthplatform.html" class="cs-nav-study active">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-study">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
   </div>
@@ -1253,9 +1312,9 @@
   <summary class="cs-nav-dropdown-btn">Case Studies &#9662;</summary>
   <div class="cs-nav-dropdown-list">
     <a href="casestudy_healthplatform.html" class="cs-nav-dropdown-item active">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-dropdown-item">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-dropdown-item">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-dropdown-item">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-dropdown-item">Research Panel</a>
   </div>
@@ -1267,7 +1326,7 @@
   <div class="masthead-inner">
     <div class="byline">AI Health Platform (NDA) &nbsp;&bull;&nbsp; Coleman Advisory &nbsp;&bull;&nbsp; 2025&ndash;2026</div>
     <h1 class="case-title">Why a Product People Liked Still Felt &ldquo;Not for Me&rdquo;</h1>
-    <p class="deck">Usability and go-to-market research for an early-stage AI health platform that people liked but weren&rsquo;t signing up for</p>
+    <p class="deck">I was the founders&rsquo; only researcher, running six weeks of usability and non-completer research to learn why sign-ups had stalled. The channel strategy that came out of it took the platform from fewer than 20 users to more than 16,000.</p>
   </div>
 </header>
 
@@ -1276,12 +1335,20 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
+      <div class="tldr-row"><dt>What was at stake</dt><dd>The company needed to grow past friends and early adopters to a real user base before its runway ran out.</dd></div>
       <div class="tldr-row"><dt>What changed</dt><dd>The founders added employer and union channels alongside direct-to-consumer, and started re-engagement emails for trial users who never converted. Outreach to advocacy groups such as NAACP was underway when the engagement ended.</dd></div>
-      <div class="tldr-row"><dt>Result</dt><dd>The new channel strategy led directly to the platform&rsquo;s first six-figure service agreement and to growth from a few users to more than 16,000, past the 10,000-user target.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Solo researcher and strategist for the founders, from study design and recruiting through sessions, behavioral analytics, and recommendations</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 3.5 months: 6 weeks of research through the January readout, then advisory through March</dd></div>
-      <div class="tldr-row"><dt>Why it mattered</dt><dd>The company needed to grow past friends and early adopters to a real user base before its runway ran out.</dd></div>
     </dl>
+  </section>
+
+  <section class="outcome" aria-label="Measurable outcome">
+    <div class="outcome-label">Measurable outcome</div>
+    <div class="outcome-row">
+      <div class="outcome-item"><div class="outcome-fig">16,000+</div><p class="outcome-text">Users, up from fewer than 20, mostly friends and people paid to sign up. Past the founders&rsquo; 10,000-user target.</p></div>
+      <div class="outcome-item"><div class="outcome-fig">1st</div><p class="outcome-text">Six-figure service agreement, which came directly from the employer and union channel.</p></div>
+      <div class="outcome-item is-shipped"><div class="outcome-fig">Shipped</div><p class="outcome-text">Employer and union channels alongside direct-to-consumer, and re-engagement emails for trial users who never subscribed.</p></div>
+    </div>
   </section>
 
   <section class="section key-visual">
@@ -1291,6 +1358,7 @@
           <div class="slide-label">Recommendation</div>
           <div class="slide-headline">Introduce the product through institutions people already trust</div>
           <div class="slide-support">Some people saw its value but felt it was meant for someone else. Others didn&rsquo;t trust it enough to try it, and no compliance badge could change that.</div>
+          <div class="slide-ev"><div class="slide-ev-label slide-label">Evidence</div><div class="slide-ev-fig">11 of 19</div><div class="slide-ev-bar" aria-hidden="true"><span style="width: 58%"></span></div><div class="slide-ev-text">people backed out before trying the product, most of them over privacy and trust.</div></div>
         </div>
         <div class="slide-right">
           <div class="slide-col slide-before">
@@ -1315,7 +1383,7 @@
 
   <section class="section aha">
     <div class="aha-label">Aha moment</div>
-    <p class="aha-text">The founders wanted personas so they could target their ads. Partway through the research, I realized sharper targeting wouldn&rsquo;t fix anything, because people either didn&rsquo;t trust the product or didn&rsquo;t see it as something for them.</p>
+    <p class="aha-text">Partway through building personas, I realized sharper targeting wouldn&rsquo;t help. People either didn&rsquo;t trust the product or didn&rsquo;t think it was for them.</p>
   </section>
 
   <details class="full-study">
@@ -1363,6 +1431,11 @@
       </div>
     </div>
 
+    <div class="tension">
+      <div class="tension-label">The tension</div>
+      <p>The partner channel was the bigger bet, so I also recommended a 30-day pilot with a clear point to stop before the founders moved their whole go-to-market.</p>
+    </div>
+
   </section>
 
   <section class="section">
@@ -1370,14 +1443,13 @@
     <h2 class="section-heading">The founders saw a product problem</h2>
     <div class="hyp-list">
       <div class="hyp-row"><div><div class="hyp-k">The founders&rsquo; hypothesis</div><p class="hyp-q">Adoption is a product or feature problem.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Not supported</span></div><p class="hyp-a">The interface had a few rough spots, but nothing that explained the drop-off. People were leaving at the entry point.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People who backed out of participating had something to add, even without trying the product.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">The reasons people gave for backing out became the trust finding.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People who backed out of participating had something to add, even without trying the product.</p><p class="hyp-m"><span>What would have changed my mind</span>If the people who backed out had given usability reasons, like setup taking too long, I&rsquo;d have kept the focus on the product.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">The reasons people gave for backing out became the trust finding.</p></div></div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-label">The challenge</div>
     <h2 class="section-heading">A product that worked and a growth problem</h2>
-    <p>The platform had only a few users, mostly friends and early adopters.</p>
     <p>The client was an early-stage AI health platform built to work like a personal medical command center: one place for your health history, appointment prep, and a check on possible diagnostic errors. The technology worked and had early clinical backing. Getting people to sign up and stay was the problem.</p>
     <p>I was brought in to run usability research and find out where people were dropping off. I worked directly with the founders, with no PM or design team in between, and presented findings that challenged the go-to-market plan they had built.</p>
   </section>
@@ -1424,17 +1496,27 @@
         <div><div class="tl-track"><span style="left: 90.91%; width: 9.09%"></span></div><div class="tl-lab is-right" style="padding-right: 0.00%"><b>Readout</b> <span class="tl-dur">&middot; 4 days</span></div></div>
       </div>
     </figure>
+    <p class="tl-note">Eight sessions were enough once seven of them pointed the same way, and the 11 refusals gave the trust finding its own evidence.</p>
   </section>
 
   <section class="section">
     <div class="section-label">AI in the workflow</div>
-    <h2 class="section-heading">More than a week saved in a six-week study</h2>
-    <div class="ai-list">
-      <div class="ai-row"><div class="ai-fig">3&ndash;4 days<small>Transcripts</small></div><p>Sessions were transcribed automatically. I exported the transcripts, converted them to .vtt files, and loaded them into Dovetail the same day. The automated transcripts had errors, so I checked each one against its recording before coding.</p></div>
-      <div class="ai-row"><div class="ai-fig">~2 days<small>Coding</small></div><p>Dovetail&rsquo;s AI clustering did the first pass at grouping themes across sessions, which cut coding time about in half.</p></div>
-      <div class="ai-row"><div class="ai-fig">~1 day<small>Readout</small></div><p>Notion AI drafted slide copy from my theme notes, and I spent the saved day on the charts.</p></div>
-    </div>
-    <p style="margin-top: 22px">The rest of the saved time went into checking what people said in sessions against what the behavioral data showed.</p>
+    <h2 class="section-heading">A pipeline that saved 6 to 7 working days</h2>
+    <p>I set up the analysis as a chain, with AI doing the first pass at each stage and me checking its work before the next one started. A short script I wrote handled the file conversion, so transcripts went from recording to coding in a day.</p>
+    <figure class="aiflow" aria-label="Analysis pipeline showing which steps AI handled and which I checked, with days saved">
+      <div class="aiflow-tag">Analysis pipeline</div>
+      <div class="aiflow-total">6 to 7 working days saved in a six-week study</div>
+      <ol class="aiflow-steps">
+        <li class="is-ai"><div class="aiflow-who">AI</div><div class="aiflow-step">Transcribe</div><div class="aiflow-desc">Sessions transcribed automatically.</div></li>
+        <li class="is-script"><div class="aiflow-who">My script</div><div class="aiflow-step">Convert</div><div class="aiflow-desc">Transcripts converted to .vtt and loaded into Dovetail the same day.</div><span class="aiflow-saved">3&ndash;4 days saved</span></li>
+        <li class="is-me"><div class="aiflow-who">Me</div><div class="aiflow-step">Verify</div><div class="aiflow-desc">Every transcript checked against its recording, since the automated ones had errors.</div></li>
+        <li class="is-ai"><div class="aiflow-who">AI</div><div class="aiflow-step">Cluster</div><div class="aiflow-desc">Dovetail&rsquo;s AI grouped themes across sessions as a first pass.</div><span class="aiflow-saved">~2 days saved</span></li>
+        <li class="is-me"><div class="aiflow-who">Me</div><div class="aiflow-step">Code</div><div class="aiflow-desc">I did the coding from there, starting from the AI&rsquo;s groups.</div></li>
+        <li class="is-ai"><div class="aiflow-who">AI</div><div class="aiflow-step">Draft</div><div class="aiflow-desc">Notion AI drafted slide copy from my theme notes.</div><span class="aiflow-saved">~1 day saved</span></li>
+        <li class="is-me"><div class="aiflow-who">Me</div><div class="aiflow-step">Triangulate</div><div class="aiflow-desc">Saved time went into checking what people said against the behavioral data.</div></li>
+      </ol>
+      <div class="aiflow-key"><span><i style="background: var(--data-2)"></i>AI first pass</span><span><i style="background: var(--ink-3)"></i>Script I wrote</span><span><i style="background: var(--accent)"></i>My check</span></div>
+    </figure>
   </section>
 
   <section class="section">
@@ -1494,12 +1576,12 @@
   <section class="section">
     <div class="section-label">Reflection</div>
     <h2 class="section-heading">Impact</h2>
-    <p>This was the first time I delivered something other than what a client asked for. Partway through building personas, I could see they wouldn&rsquo;t solve the founders&rsquo; problem, so I brought them a channel strategy instead, knowing it might not be welcome. For the founders, it replaced guesswork about who to target with a clear reason people weren&rsquo;t signing up.</p>
+    <p>This was the first time I delivered something other than what a client asked for, knowing it might not be welcome. For the founders, it replaced guesswork about who to target with a clear reason people weren&rsquo;t signing up.</p>
     <h3 class="sub-heading">Hindsight</h3>
     <div class="hs-list">
-      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Test onboarding on its own</div><p class="hs-text">The research pointed to the entry point as the problem, but the sessions covered the whole product. A study built only around first-time activation would have shown exactly where trust broke down.</p></div></div>
-      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Push for one interface change to measure</div><p class="hs-text">The founders&rsquo; changes were about channels, not the interface, so there was nothing new to bring back into testing. I would push for one onboarding change alongside the strategy work, so a follow-up study could measure the result.</p></div></div>
-      <div class="hs-item"><div class="hs-num">3</div><div><div class="hs-title">Recruit caregivers from the start</div><p class="hs-text">Caregivers came up during analysis as a strong segment, but I hadn&rsquo;t recruited them on purpose. Building them into the screener from day one would have given that group its own findings and likely sped up the partner recommendation.</p></div></div>
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Test onboarding on its own</div><p class="hs-text">The research pointed to the entry point as the problem, but the sessions covered the whole product. A study built only around first-time activation would have shown exactly where trust broke down.<span class="hs-then">The founders would have had a specific screen to fix alongside the channel change.</span></p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Push for one interface change to measure</div><p class="hs-text">The founders&rsquo; changes were about channels, not the interface, so there was nothing new to bring back into testing. I would push for one onboarding change alongside the strategy work, so a follow-up study could measure the result.<span class="hs-then">The founders would have had a before-and-after number to bring to partners, not just user growth.</span></p></div></div>
+      <div class="hs-item"><div class="hs-num">3</div><div><div class="hs-title">Recruit caregivers from the start</div><p class="hs-text">Caregivers came up during analysis as a strong segment, but I hadn&rsquo;t recruited them on purpose. Building them into the screener from day one would have given that group its own findings and likely sped up the partner recommendation.<span class="hs-then">The advocacy outreach could have started weeks sooner, with findings behind it.</span></p></div></div>
     </div>
   </section>
 

@@ -1411,6 +1411,65 @@
     .dg-col:not(:last-child)::after { right: auto; left: 50%; top: auto; bottom: -26px; width: 0; height: 18px; border-top: 0; border-left: 2px solid var(--ink-3); }
     .dg-col:not(:last-child)::before { right: auto; left: calc(50% - 5px); top: auto; bottom: -32px; border: 6px solid transparent; border-top: 7px solid var(--ink-3); border-bottom: 0; }
   }
+
+  /* Oct 2026 additions: outcome strip, slide evidence, tension, hypothesis check, AI workflow */
+  .outcome { padding-top: 56px; }
+  .outcome-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 4px; }
+  .outcome-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+  .outcome-item { padding: 22px 28px 24px 0; }
+  .outcome-item + .outcome-item { border-left: 1px solid var(--rule); padding-left: 28px; }
+  .outcome-fig { font: 400 clamp(30px, 3.4vw, 42px)/1.05 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 10px; }
+  .outcome-item.is-shipped .outcome-fig { color: var(--ink); font-family: var(--serif); letter-spacing: -0.015em; }
+  .outcome-text { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 0; }
+  .outcome-text b { color: var(--ink); font-weight: 600; }
+  .outcome-note { font: 400 14px/1.5 var(--sans); color: var(--ink-3); margin: 12px 0 0; max-width: 72ch; }
+  @media (max-width: 700px) {
+    .outcome-row { grid-template-columns: 1fr; }
+    .outcome-item { padding: 18px 0; }
+    .outcome-item + .outcome-item { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; }
+  }
+
+  .slide-ev { margin-top: 2.4cqw; padding-top: 1.6cqw; border-top: 1px solid var(--rule); max-width: 34ch; }
+  .slide-ev-fig { font: 400 3.4cqw/1 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 0.8cqw; }
+  .slide-ev-text { font: 400 1.3cqw/1.45 var(--sans); color: var(--ink-2); }
+  .slide-ev-bar { display: flex; height: 0.9cqw; min-height: 6px; margin-bottom: 1cqw; background: #eeece8; }
+  .slide-ev-bar span { display: block; height: 100%; background: var(--accent); }
+  @media (max-width: 700px) {
+    .slide-ev { margin-top: 16px; padding-top: 12px; }
+    .slide-ev-fig { font-size: 30px; margin-bottom: 6px; }
+    .slide-ev-text { font-size: 14px; }
+    .slide-ev-bar { height: 8px; margin-bottom: 8px; }
+  }
+
+  .hyp-m { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 12px 0 0; padding-left: 14px; border-left: 2px solid var(--rule); }
+  .hyp-m span { display: block; font-weight: 600; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+
+  .tension { margin-top: 36px; padding: 24px 28px; background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  .tension-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .tension p { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--ink); max-width: 60ch; }
+  @media (max-width: 700px) { .tension { padding: 20px 18px; } .tension p { font-size: 19px; } }
+
+  .hs-then { display: block; margin-top: 6px; color: var(--ink); }
+  .hs-then::before { content: "Result: "; font-weight: 600; color: var(--accent); }
+
+  .aiflow { margin: 8px 0 0; border: 1px solid var(--ink); border-radius: 2px; padding: 28px 30px 24px; }
+  .aiflow-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 4px; }
+  .aiflow-total { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin-bottom: 22px; }
+  .aiflow-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0; counter-reset: aif; }
+  .aiflow-steps li { position: relative; padding: 14px 14px 0 0; border-top: 3px solid var(--rule); }
+  .aiflow-steps li.is-ai { border-top-color: var(--data-2); }
+  .aiflow-steps li.is-me { border-top-color: var(--accent); }
+  .aiflow-steps li.is-script { border-top-color: var(--ink-3); }
+  .aiflow-who { font: 600 12px/1.3 var(--sans); letter-spacing: 0.02em; color: var(--ink-3); margin-bottom: 6px; }
+  .aiflow-steps li.is-ai .aiflow-who { color: var(--data-2); }
+  .aiflow-steps li.is-me .aiflow-who { color: var(--accent); }
+  .aiflow-step { font-family: var(--serif); font-size: 19px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+  .aiflow-desc { font: 400 13.5px/1.5 var(--sans); color: var(--ink-2); }
+  .aiflow-saved { display: block; margin-top: 8px; font: 500 13.5px/1.3 var(--sans); color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+  .aiflow-key { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 13px/1.4 var(--sans); color: var(--ink-3); }
+  .aiflow-key i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+  @media (max-width: 900px) { .aiflow-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; } }
+  @media (max-width: 480px) { .aiflow { padding: 22px 18px; } .aiflow-steps { grid-template-columns: 1fr; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1440,9 +1499,9 @@
   <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-study">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-study active">Research Panel</a>
   </div>
@@ -1450,9 +1509,9 @@
   <summary class="cs-nav-dropdown-btn">Case Studies &#9662;</summary>
   <div class="cs-nav-dropdown-list">
     <a href="casestudy_healthplatform.html" class="cs-nav-dropdown-item">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-dropdown-item">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-dropdown-item">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-dropdown-item">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-dropdown-item active">Research Panel</a>
   </div>
@@ -1466,7 +1525,7 @@
   <div class="masthead-inner">
     <div class="classification">Research Panel &nbsp;&bull;&nbsp; Crowley Webb / Praxis &nbsp;&bull;&nbsp; 2020&ndash;2022</div>
     <h1 class="case-title">Building a Research Panel Regulated Clients Could Trust</h1>
-    <p class="deck">A proprietary research panel of ~1,000 opted-in participants, built from zero for an agency whose pharma and banking clients answer to regulators</p>
+    <p class="deck">I designed and built a 1,000-person research panel from opt-ins and referrals so the agency could stop paying recruitment vendors. External recruitment spend went to $0, and study recruitment time was reduced by more than two weeks.</p>
   </div>
 </header>
 
@@ -1475,12 +1534,20 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
+      <div class="tldr-row"><dt>What was at stake</dt><dd>The agency needed to win and keep regulated pharma and banking clients, and to run studies faster and for less.</dd></div>
       <div class="tldr-row"><dt>What changed</dt><dd>Studies drew from the agency&rsquo;s own panel instead of third-party vendors.</dd></div>
-      <div class="tldr-row"><dt>Result</dt><dd>External recruitment spend went to $0, and each study&rsquo;s recruitment took 2+ weeks less.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Researcher and panel architect. I designed the panel solo and built it primarily on my own.</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About a year</dd></div>
-      <div class="tldr-row"><dt>Why it mattered</dt><dd>The agency needed to win and keep regulated pharma and banking clients, and to run studies faster and for less.</dd></div>
     </dl>
+  </section>
+
+  <section class="outcome" aria-label="Measurable outcome">
+    <div class="outcome-label">Measurable outcome</div>
+    <div class="outcome-row">
+      <div class="outcome-item"><div class="outcome-fig">$0</div><p class="outcome-text"><b>External recruitment spend</b>, down from vendor rates on every study that needed screened participants.</p></div>
+      <div class="outcome-item"><div class="outcome-fig">2+ weeks</div><p class="outcome-text"><b>Less recruitment time per study</b>, because participants were already on hand.</p></div>
+      <div class="outcome-item is-shipped"><div class="outcome-fig">Built</div><p class="outcome-text">About 1,000 opted-in participants, each with a traceable source and consent record, used for studies for Pfizer, Eli Lilly, Merck, J&amp;J, AbbVie, M&amp;T Bank, and others.</p></div>
+    </div>
   </section>
 
   <section class="section key-visual">
@@ -1514,7 +1581,7 @@
 
   <section class="section">
     <div class="section-label">What I built</div>
-    <h2 class="section-heading">Three pieces, built to hold up to scrutiny</h2>
+    <h2 class="section-heading">An opt-in, a referral program, and compliance from day one</h2>
     <div class="finding-row">
       <div class="finding-bar"></div>
       <div class="finding-content">
@@ -1544,11 +1611,11 @@
           <div class="dg-coltitle">Sources</div>
           <div class="dg-node"><div class="dg-nn">End-of-survey opt-in</div><div class="dg-ns">Built in Qualtrics and offered after each study.</div></div>
           <div class="dg-node"><div class="dg-nn">Referral program</div><div class="dg-ns">Unique codes with custom attribution. Rewards through Amazon, then Giftbit.</div></div>
-          <div class="dg-node dg-no"><div class="dg-nn">Purchased email lists</div><div class="dg-ns">The shortcut, turned down.</div></div>
+          <div class="dg-node dg-no"><div class="dg-nn">Purchased email lists</div><div class="dg-ns">Considered and rejected.</div></div>
         </div>
         <div class="dg-col">
           <div class="dg-coltitle">Checks</div>
-          <div class="dg-node dg-key"><div class="dg-nn">Compliance stack, built with legal</div><div class="dg-ns">Informed consent and a traceable source for every participant. Aligned with GDPR, the EU-U.S. Data Privacy Framework, APEC CBPR, ISO 27001:2022, TRUSTe, and HIPAA-adjacent practices.</div></div>
+          <div class="dg-node dg-key"><div class="dg-nn">Compliance stack, built with legal</div><div class="dg-ns">Informed consent and a traceable source for every participant. Aligned with GDPR, ISO 27001, and HIPAA practices, plus FDIC requirements for banking clients.</div></div>
         </div>
         <div class="dg-col">
           <div class="dg-coltitle">Panel</div>
@@ -1575,7 +1642,6 @@
   <section class="section">
     <div class="section-label">The challenge</div>
     <h2 class="section-heading">Regulated clients and no panel of our own</h2>
-    <p>Pharma and banking clients answer to regulators, so the agency needed participants it could vouch for.</p>
     <p>Crowley Webb is an advertising agency that also owns Praxis, a clinical trial recruitment firm, and I worked for both. Praxis brought the pharma relationships, and the agency had banking clients too. Every study that needed screened participants went to a third-party vendor, which meant paying vendor rates on top of the research and accepting whatever panel quality they offered.</p>
   </section>
 
@@ -1598,10 +1664,10 @@
   <section class="section">
     <div class="section-label">Reflection</div>
     <h2 class="section-heading">Impact</h2>
-    <p>Building the panel from scratch convinced me that consent and compliance have to be designed in from the start, because they can&rsquo;t be added later. For the agency, studies could move at the pace pharma and banking clients expected, with participants we could vouch for.</p>
+    <p>Building the panel from scratch convinced me that consent and compliance have to be designed in from the start. For the agency, studies could move at the pace pharma and banking clients expected, with participants we could vouch for.</p>
     <h3 class="sub-heading">Hindsight</h3>
     <div class="hs-list">
-      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Turn my process into a playbook sooner</div><p class="hs-text">I documented as I went, but around my own workflow. A playbook someone else could run would have made the panel easier to hand off and extend without me.</p></div></div>
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Turn my process into a playbook sooner</div><p class="hs-text">I documented as I went, but around my own workflow. A playbook someone else could run would have made the panel easier to hand off and extend without me.<span class="hs-then">The panel could have kept growing after I left for Isobar.</span></p></div></div>
       <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Plan the participant lifecycle up front</div><p class="hs-text">Recruitment got the attention because that&rsquo;s where the pressure was. Re-engagement for inactive members and a refresh plan were handled as they came up. Designing them in from the start would have cut attrition and kept the panel&rsquo;s makeup cleaner.</p></div></div>
     </div>
   </section>

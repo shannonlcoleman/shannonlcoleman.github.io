@@ -1539,6 +1539,65 @@
   .aha-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin-bottom: 18px; }
   .content p.aha-text { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.3; color: var(--ink); max-width: 34ch; margin: 0; }
   .content h3.sub-heading { font-family: var(--serif); font-weight: 400; font-size: 27px; line-height: 1.2; color: var(--ink); margin: 48px 0 14px; }
+
+  /* Oct 2026 additions: outcome strip, slide evidence, tension, hypothesis check, AI workflow */
+  .outcome { padding-top: 56px; }
+  .outcome-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 4px; }
+  .outcome-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+  .outcome-item { padding: 22px 28px 24px 0; }
+  .outcome-item + .outcome-item { border-left: 1px solid var(--rule); padding-left: 28px; }
+  .outcome-fig { font: 400 clamp(30px, 3.4vw, 42px)/1.05 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 10px; }
+  .outcome-item.is-shipped .outcome-fig { color: var(--ink); font-family: var(--serif); letter-spacing: -0.015em; }
+  .outcome-text { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 0; }
+  .outcome-text b { color: var(--ink); font-weight: 600; }
+  .outcome-note { font: 400 14px/1.5 var(--sans); color: var(--ink-3); margin: 12px 0 0; max-width: 72ch; }
+  @media (max-width: 700px) {
+    .outcome-row { grid-template-columns: 1fr; }
+    .outcome-item { padding: 18px 0; }
+    .outcome-item + .outcome-item { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; }
+  }
+
+  .slide-ev { margin-top: 2.4cqw; padding-top: 1.6cqw; border-top: 1px solid var(--rule); max-width: 34ch; }
+  .slide-ev-fig { font: 400 3.4cqw/1 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 0.8cqw; }
+  .slide-ev-text { font: 400 1.3cqw/1.45 var(--sans); color: var(--ink-2); }
+  .slide-ev-bar { display: flex; height: 0.9cqw; min-height: 6px; margin-bottom: 1cqw; background: #eeece8; }
+  .slide-ev-bar span { display: block; height: 100%; background: var(--accent); }
+  @media (max-width: 700px) {
+    .slide-ev { margin-top: 16px; padding-top: 12px; }
+    .slide-ev-fig { font-size: 30px; margin-bottom: 6px; }
+    .slide-ev-text { font-size: 14px; }
+    .slide-ev-bar { height: 8px; margin-bottom: 8px; }
+  }
+
+  .hyp-m { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 12px 0 0; padding-left: 14px; border-left: 2px solid var(--rule); }
+  .hyp-m span { display: block; font-weight: 600; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+
+  .tension { margin-top: 36px; padding: 24px 28px; background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  .tension-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .tension p { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--ink); max-width: 60ch; }
+  @media (max-width: 700px) { .tension { padding: 20px 18px; } .tension p { font-size: 19px; } }
+
+  .hs-then { display: block; margin-top: 6px; color: var(--ink); }
+  .hs-then::before { content: "Result: "; font-weight: 600; color: var(--accent); }
+
+  .aiflow { margin: 8px 0 0; border: 1px solid var(--ink); border-radius: 2px; padding: 28px 30px 24px; }
+  .aiflow-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 4px; }
+  .aiflow-total { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin-bottom: 22px; }
+  .aiflow-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0; counter-reset: aif; }
+  .aiflow-steps li { position: relative; padding: 14px 14px 0 0; border-top: 3px solid var(--rule); }
+  .aiflow-steps li.is-ai { border-top-color: var(--data-2); }
+  .aiflow-steps li.is-me { border-top-color: var(--accent); }
+  .aiflow-steps li.is-script { border-top-color: var(--ink-3); }
+  .aiflow-who { font: 600 12px/1.3 var(--sans); letter-spacing: 0.02em; color: var(--ink-3); margin-bottom: 6px; }
+  .aiflow-steps li.is-ai .aiflow-who { color: var(--data-2); }
+  .aiflow-steps li.is-me .aiflow-who { color: var(--accent); }
+  .aiflow-step { font-family: var(--serif); font-size: 19px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+  .aiflow-desc { font: 400 13.5px/1.5 var(--sans); color: var(--ink-2); }
+  .aiflow-saved { display: block; margin-top: 8px; font: 500 13.5px/1.3 var(--sans); color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+  .aiflow-key { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 13px/1.4 var(--sans); color: var(--ink-3); }
+  .aiflow-key i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+  @media (max-width: 900px) { .aiflow-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; } }
+  @media (max-width: 480px) { .aiflow { padding: 22px 18px; } .aiflow-steps { grid-template-columns: 1fr; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1567,9 +1626,9 @@
   <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-study active">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-study">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-study active">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
   </div>
@@ -1577,9 +1636,9 @@
   <summary class="cs-nav-dropdown-btn">Case Studies &#9662;</summary>
   <div class="cs-nav-dropdown-list">
     <a href="casestudy_healthplatform.html" class="cs-nav-dropdown-item">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item active">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-dropdown-item">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-dropdown-item">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item active">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-dropdown-item">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-dropdown-item">Research Panel</a>
   </div>
@@ -1591,7 +1650,7 @@
   <div class="masthead-inner">
     <div class="program-tag">AI Resume Feedback Tool (NDA) &nbsp;&bull;&nbsp; Coleman Advisory &nbsp;&bull;&nbsp; 2025</div>
     <h1 class="case-title">The Score Overshadowed the Advice</h1>
-    <p class="deck">A rapid usability test of an AI resume feedback tool, about two sprints before engineering would have built it</p>
+    <p class="deck">In two weeks, I tested an AI resume tool&rsquo;s prototype with six job seekers and found the score was undercutting the AI&rsquo;s advice. The team rebuilt the flow before engineering started.</p>
   </div>
 </header>
 
@@ -1600,12 +1659,20 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
+      <div class="tldr-row"><dt>What was at stake</dt><dd>The client was betting that AI feedback would make the tool worth using for job seekers.</dd></div>
       <div class="tldr-row"><dt>What changed</dt><dd>The team rebuilt the flow around specific recommendations with AI-generated before-and-after examples, and moved the score to a secondary, explained role.</dd></div>
-      <div class="tldr-row"><dt>Result</dt><dd>Avoided about 2 sprints, or roughly $50,000&ndash;$65,000, of misdirected engineering work. In follow-up testing, task completion confidence rose for 5 of 6 participants.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Solo researcher and strategist, from study design through recommendations</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 2 weeks to recommendations, then a readout and follow-up test</dd></div>
-      <div class="tldr-row"><dt>Why it mattered</dt><dd>The client was betting that AI feedback would make the tool worth using for job seekers.</dd></div>
     </dl>
+  </section>
+
+  <section class="outcome" aria-label="Measurable outcome">
+    <div class="outcome-label">Measurable outcome</div>
+    <div class="outcome-row">
+      <div class="outcome-item"><div class="outcome-fig">$50K&ndash;$65K</div><p class="outcome-text">Engineering cost avoided. A four-person team for two sprints is about 640 hours, at fully loaded salary rates.</p></div>
+      <div class="outcome-item"><div class="outcome-fig">5 of 6</div><p class="outcome-text">Participants more confident they could revise their resume in the follow-up test, measured on the same pre and post scale.</p></div>
+      <div class="outcome-item is-shipped"><div class="outcome-fig">Rebuilt</div><p class="outcome-text">Recommendations first, with AI before-and-after examples, and the score moved below them with an explanation.</p></div>
+    </div>
   </section>
 
   <section class="section key-visual">
@@ -1636,7 +1703,7 @@
 
   <section class="section aha">
     <div class="aha-label">Aha moment</div>
-    <p class="aha-text">The team expected the score to motivate people to use the feedback. In reality, it was a deterrent.</p>
+    <p class="aha-text">A score nobody could explain made people doubt the advice under it.</p>
   </section>
 
   <section class="section key-visual">
@@ -1713,6 +1780,11 @@
         <p class="finding-text">Move it below the recommendations and show what it measures, so it reads as context.</p>
       </div>
     </div>
+
+    <div class="tension">
+      <div class="tension-label">The tension</div>
+      <p>The team wanted to keep the score because it gave people something concrete to watch go up, or down, as they made changes. I&rsquo;d have tested dropping it. It stayed, explained, and moved below the advice.</p>
+    </div>
   </section>
 
   <section class="section">
@@ -1720,7 +1792,7 @@
     <h2 class="section-heading">Two views of the score</h2>
     <div class="hyp-list">
       <div class="hyp-row"><div><div class="hyp-k">The team&rsquo;s hypothesis</div><p class="hyp-q">A score up front would make people want to raise it, so they&rsquo;d engage with the feedback.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Not supported</span></div><p class="hyp-a">People fixated on the number. When it felt arbitrary, they did not trust the suggestions under it.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">The tool might not need a score at all.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Partly supported</span></div><p class="hyp-a">The score stayed, but only as context below the recommendations.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">The tool might not need a score at all.</p><p class="hyp-m"><span>What would have changed my mind</span>If people had used the score as a target and revised more, I&rsquo;d have dropped the idea of cutting it.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Partly supported</span></div><p class="hyp-a">The score stayed, but only as context below the recommendations.</p></div></div>
     </div>
   </section>
 
@@ -1759,11 +1831,11 @@
   <section class="section">
     <div class="section-label">Reflection</div>
     <h2 class="section-heading">Impact</h2>
-    <p>This project reinforced how much a small, well-aimed usability test can do. Six sessions were enough to change the design two engineers were about to build, so the team shipped a version people found useful.</p>
+    <p>This project changed how I think about scores in AI products. The number looked authoritative, but there was no explanation for how it was calculated, and people stopped trusting the advice underneath it. For the team, this meant building the recommendation-first version from the start, instead of reworking a score-first one after launch.</p>
     <h3 class="sub-heading">Hindsight</h3>
     <div class="hs-list">
-      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Measure the revisions, too</div><p class="hs-text">Confidence was self-reported. Having someone rate the before and after resumes would show whether people&rsquo;s revisions actually got better.</p></div></div>
-      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Check the score against expert ratings</div><p class="hs-text">Participants judged whether the score felt fair. Comparing it with recruiter ratings would show whether it was accurate.</p></div></div>
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Measure the revisions, too</div><p class="hs-text">Confidence was self-reported. Having someone rate the before and after resumes would show whether people&rsquo;s revisions actually got better.<span class="hs-then">I could say the redesign produced better resumes, not only more confident users.</span></p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Check the score against expert ratings</div><p class="hs-text">Participants judged whether the score felt fair. Running it against recruiter ratings with my <a href="https://github.com/shannonlcoleman/calibration-audit">calibration audit</a> would show whether a high score actually meant a strong resume.<span class="hs-then">The team would have known whether to fix the score or drop it, instead of only moving it down the page.</span></p></div></div>
     </div>
   </section>
 

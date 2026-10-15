@@ -1362,6 +1362,65 @@
   .aha { padding-top: 64px; }
   .aha-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin-bottom: 18px; }
   .content p.aha-text { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.3; color: var(--ink); max-width: 34ch; margin: 0; }
+
+  /* Oct 2026 additions: outcome strip, slide evidence, tension, hypothesis check, AI workflow */
+  .outcome { padding-top: 56px; }
+  .outcome-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 4px; }
+  .outcome-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+  .outcome-item { padding: 22px 28px 24px 0; }
+  .outcome-item + .outcome-item { border-left: 1px solid var(--rule); padding-left: 28px; }
+  .outcome-fig { font: 400 clamp(30px, 3.4vw, 42px)/1.05 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 10px; }
+  .outcome-item.is-shipped .outcome-fig { color: var(--ink); font-family: var(--serif); letter-spacing: -0.015em; }
+  .outcome-text { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 0; }
+  .outcome-text b { color: var(--ink); font-weight: 600; }
+  .outcome-note { font: 400 14px/1.5 var(--sans); color: var(--ink-3); margin: 12px 0 0; max-width: 72ch; }
+  @media (max-width: 700px) {
+    .outcome-row { grid-template-columns: 1fr; }
+    .outcome-item { padding: 18px 0; }
+    .outcome-item + .outcome-item { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; }
+  }
+
+  .slide-ev { margin-top: 2.4cqw; padding-top: 1.6cqw; border-top: 1px solid var(--rule); max-width: 34ch; }
+  .slide-ev-fig { font: 400 3.4cqw/1 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 0.8cqw; }
+  .slide-ev-text { font: 400 1.3cqw/1.45 var(--sans); color: var(--ink-2); }
+  .slide-ev-bar { display: flex; height: 0.9cqw; min-height: 6px; margin-bottom: 1cqw; background: #eeece8; }
+  .slide-ev-bar span { display: block; height: 100%; background: var(--accent); }
+  @media (max-width: 700px) {
+    .slide-ev { margin-top: 16px; padding-top: 12px; }
+    .slide-ev-fig { font-size: 30px; margin-bottom: 6px; }
+    .slide-ev-text { font-size: 14px; }
+    .slide-ev-bar { height: 8px; margin-bottom: 8px; }
+  }
+
+  .hyp-m { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 12px 0 0; padding-left: 14px; border-left: 2px solid var(--rule); }
+  .hyp-m span { display: block; font-weight: 600; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+
+  .tension { margin-top: 36px; padding: 24px 28px; background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  .tension-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .tension p { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--ink); max-width: 60ch; }
+  @media (max-width: 700px) { .tension { padding: 20px 18px; } .tension p { font-size: 19px; } }
+
+  .hs-then { display: block; margin-top: 6px; color: var(--ink); }
+  .hs-then::before { content: "Result: "; font-weight: 600; color: var(--accent); }
+
+  .aiflow { margin: 8px 0 0; border: 1px solid var(--ink); border-radius: 2px; padding: 28px 30px 24px; }
+  .aiflow-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 4px; }
+  .aiflow-total { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin-bottom: 22px; }
+  .aiflow-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0; counter-reset: aif; }
+  .aiflow-steps li { position: relative; padding: 14px 14px 0 0; border-top: 3px solid var(--rule); }
+  .aiflow-steps li.is-ai { border-top-color: var(--data-2); }
+  .aiflow-steps li.is-me { border-top-color: var(--accent); }
+  .aiflow-steps li.is-script { border-top-color: var(--ink-3); }
+  .aiflow-who { font: 600 12px/1.3 var(--sans); letter-spacing: 0.02em; color: var(--ink-3); margin-bottom: 6px; }
+  .aiflow-steps li.is-ai .aiflow-who { color: var(--data-2); }
+  .aiflow-steps li.is-me .aiflow-who { color: var(--accent); }
+  .aiflow-step { font-family: var(--serif); font-size: 19px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+  .aiflow-desc { font: 400 13.5px/1.5 var(--sans); color: var(--ink-2); }
+  .aiflow-saved { display: block; margin-top: 8px; font: 500 13.5px/1.3 var(--sans); color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+  .aiflow-key { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 13px/1.4 var(--sans); color: var(--ink-3); }
+  .aiflow-key i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+  @media (max-width: 900px) { .aiflow-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; } }
+  @media (max-width: 480px) { .aiflow { padding: 22px 18px; } .aiflow-steps { grid-template-columns: 1fr; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1391,9 +1450,9 @@
   <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-study">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-study active">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
   </div>
@@ -1401,9 +1460,9 @@
   <summary class="cs-nav-dropdown-btn">Case Studies &#9662;</summary>
   <div class="cs-nav-dropdown-list">
     <a href="casestudy_healthplatform.html" class="cs-nav-dropdown-item">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-dropdown-item">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-dropdown-item">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-dropdown-item active">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-dropdown-item">Research Panel</a>
   </div>
@@ -1417,7 +1476,7 @@
   <div class="masthead-inner">
     <div class="classification">EITaaS &nbsp;&bull;&nbsp; Department of the Air Force &nbsp;&bull;&nbsp; 2022&ndash;2023</div>
     <h1 class="case-title">Redefining What &ldquo;Working IT&rdquo; Means Across the Air Force</h1>
-    <p class="deck">User research and service strategy for EITaaS, the Air Force&rsquo;s move from base-by-base IT to one enterprise service for more than 800,000 personnel</p>
+    <p class="deck">Over 15 months, I led the research that defined what working IT meant for five kinds of Air Force users. Those definitions became Experience Level Agreements in the requirements for a $5.7B contract.</p>
   </div>
 </header>
 
@@ -1426,13 +1485,22 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
+      <div class="tldr-row"><dt>What was at stake</dt><dd>The Air Force was about to commit to one enterprise IT contract. Without a definition of good service that users would recognize, the contract would only pay for uptime.</dd></div>
       <div class="tldr-row"><dt>What changed</dt><dd>My five personas and their Experience Level Agreements went into the Wave 1 and Wave 2 solicitation requirements for a $5.7B contract.</dd></div>
-      <div class="tldr-row"><dt>Result</dt><dd>At the pilot sites, the infrastructure migration my research set user requirements for delivered 84% faster startup, 59% faster data transfer, and 92% less security workload. Benchmarking showed IT satisfaction of 74 out of 100 at the furthest-along pilot base, against 43&ndash;46 at comparable bases that hadn&rsquo;t transitioned, which gave leadership the evidence to scale.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Research lead and advisor to Air Force program leadership, leading a team of about 4</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 15 months</dd></div>
-      <div class="tldr-row"><dt>Why it mattered</dt><dd>The Air Force needed IT that let its personnel do their jobs efficiently, with as little security risk as possible.</dd></div>
       <div class="tldr-row"><dt>Recognition</dt><dd><span class="coin"><img src="images/coin.jpg" alt="Challenge coin from the U.S. Air Force Chief Experience Officer" width="64" height="64" loading="lazy">A challenge coin from the U.S. Air Force Chief Experience Officer, for leading the move to a user-centered service model</span></dd></div>
     </dl>
+  </section>
+
+  <section class="outcome" aria-label="Measurable outcome">
+    <div class="outcome-label">Measurable outcome</div>
+    <div class="outcome-row">
+      <div class="outcome-item"><div class="outcome-fig">74 vs. 43&ndash;46</div><p class="outcome-text"><b>IT satisfaction out of 100</b> at the furthest-along pilot base, against comparable bases that hadn&rsquo;t transitioned. It gave leadership the evidence to scale.</p></div>
+      <div class="outcome-item"><div class="outcome-fig">84%</div><p class="outcome-text"><b>Faster startup</b> at the pilot sites, with 59% faster data transfer and 92% less security workload.</p></div>
+      <div class="outcome-item is-shipped"><div class="outcome-fig">In contract</div><p class="outcome-text">Five personas and their Experience Level Agreements, in the Wave 1 and Wave 2 solicitation requirements for a $5.7B contract.</p></div>
+    </div>
+    <p class="outcome-note">Vendors did the migration. My part was setting the user requirements it was measured against.</p>
   </section>
 
   <section class="section key-visual">
@@ -1442,6 +1510,7 @@
           <div class="slide-label">Recommendation</div>
           <div class="slide-headline">Measure IT by whether people can do their jobs</div>
           <div class="slide-support">Systems could meet every service level and still leave people unable to work.</div>
+          <div class="slide-ev"><div class="slide-ev-label slide-label">Evidence</div><div class="slide-ev-fig">88%</div><div class="slide-ev-bar" aria-hidden="true"><span style="width: 88%"></span></div><div class="slide-ev-text">of users at Buckley still reported at least one issue that hurt their work, even after the network upgrades.</div></div>
         </div>
         <div class="slide-right">
           <div class="slide-col slide-before">
@@ -1463,7 +1532,7 @@
 
   <section class="section aha">
     <div class="aha-label">Aha moment</div>
-    <p class="aha-text">The Air Force had been measuring whether its systems worked. My research made the case for measuring whether Airmen and Guardians could do their jobs.</p>
+    <p class="aha-text">A base could meet every service level and still have Airmen waiting an hour to log in.</p>
   </section>
 
   <details class="full-study">
@@ -1500,6 +1569,11 @@
         <p class="finding-text">Separating the service into specialized commercial pieces keeps the Air Force from being locked into one vendor. Isobar helped shape this strategy, and it drew on the persona-based service design I led.</p>
       </div>
     </div>
+
+    <div class="tension">
+      <div class="tension-label">The tension</div>
+      <p>EITaaS was meant to replace base-by-base IT with one enterprise service. Splitting the front end across vendors cut against that, and it kept the Air Force from being locked into one company.</p>
+    </div>
   </section>
 
   <section class="section">
@@ -1507,14 +1581,13 @@
     <h2 class="section-heading">The program measured whether the systems worked</h2>
     <div class="hyp-list">
       <div class="hyp-row"><div><div class="hyp-k">The program&rsquo;s hypothesis</div><p class="hyp-q">If the systems met their service levels, the IT experience was good.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Not supported</span></div><p class="hyp-a">Even after the network upgrades at Buckley, 88% of users still reported at least one issue that hurt their work.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">One standard setup and support model can&rsquo;t serve people working in very different conditions.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Interviews at all nine installations sorted people into five groups with different needs, from flightline crews working offline to analysts who needed heavy compute.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">One standard setup and support model can&rsquo;t serve people working in very different conditions.</p><p class="hyp-m"><span>What would have changed my mind</span>If people at all nine installations had named the same top problems, one standard setup would have held up.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Interviews at all nine installations sorted people into five groups with different needs, from flightline crews working offline to analysts who needed heavy compute.</p></div></div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-label">The challenge</div>
     <h2 class="section-heading">Every base ran its own IT</h2>
-    <p>The Air Force was about to commit to one enterprise IT contract. Without a definition of good service that users would recognize, the contract would only pay for uptime.</p>
     <p>Things were bad enough that an Air Force officer&rsquo;s open letter, &ldquo;Fix our computers,&rdquo; went viral. Airmen and Guardians recognized the hour-long logins and ten forced restarts in a day he described, and the Air Force&rsquo;s CIO answered him publicly.</p>
     <p>More than 230 organizations could make changes on the network, and more than 80 separate authority-to-operate boundaries split it up. Every base bought its own hardware, ran its own helpdesk, and decided for itself what &ldquo;working IT&rdquo; meant. EITaaS, Enterprise IT as a Service, was meant to replace that with one commercial enterprise service. A pilot at nine installations tested the model before the Air Force committed to a $5.7B contract.</p>
     <p>Isobar wasn&rsquo;t part of the delivery team. We advised Air Force program leadership under the Architecture and Integration Directorate, so any influence had to come from the quality of the work. I joined after the pilot was underway, replacing the previous research lead.</p>
@@ -1561,25 +1634,22 @@
     <p>Satisfaction after a migration is easy to over-read. After the first network migration at Offutt, the share of users satisfied with the network fell from 28% to 15%. Buckley barely moved, and the control base held flat. Without the control and the weighting, that drop could have been blamed on survey timing or on who happened to answer. With them, it pointed at the migration. After the base network and Wi-Fi upgrades, Offutt recovered 14 points and Buckley rose 24.</p>
     <figure class="db-figure">
       <div class="db-head">
-        <div class="db-heading">Share of users reporting network problems, before and after the base network and Wi-Fi upgrades</div>
+        <div class="db-heading">Share of users reporting slow speeds at least daily, before and after the base network and Wi-Fi upgrades</div>
         <div class="db-legend" aria-hidden="true">
           <span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5" fill="#fff" stroke="#2f5f6b" stroke-width="2.5"/></svg>Before</span>
           <span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#9b3a22"/></svg>After (July to August 2022)</span>
         </div>
       </div>
-      <div class="db-panels">
-        <div class="db-panel"><div class="db-title">Slow speeds at least daily</div><svg class="dumbbell" viewBox="0 0 460 160" role="img" aria-labelledby="db1-t"><title id="db1-t">Slow speeds at least daily: Buckley 55% before, 25% after; Offutt 65% before, 38% after</title><line x1="96.0" y1="26" x2="96.0" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="96.0" y="154" text-anchor="middle" class="db-axis">0%</text><line x1="194.3" y1="26" x2="194.3" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="194.3" y="154" text-anchor="middle" class="db-axis">20%</text><line x1="292.6" y1="26" x2="292.6" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="292.6" y="154" text-anchor="middle" class="db-axis">40%</text><line x1="390.9" y1="26" x2="390.9" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="390.9" y="154" text-anchor="middle" class="db-axis">60%</text><text x="0" y="63" class="db-row">Buckley</text><line x1="225.9" y1="58" x2="359.3" y2="58" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Buckley, before: 55%</title><circle cx="366.3" cy="58" r="14" fill="transparent"/><circle cx="366.3" cy="58" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Buckley, after: 25%</title><circle cx="218.9" cy="58" r="14" fill="transparent"/><circle cx="218.9" cy="58" r="6.5" fill="#9b3a22"/></g><text x="366.3" y="44" text-anchor="middle" class="db-val">55%</text><text x="218.9" y="44" text-anchor="middle" class="db-val db-val-after">25%</text><text x="0" y="117" class="db-row">Offutt</text><line x1="289.7" y1="112" x2="408.4" y2="112" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Offutt, before: 65%</title><circle cx="415.4" cy="112" r="14" fill="transparent"/><circle cx="415.4" cy="112" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Offutt, after: 38%</title><circle cx="282.7" cy="112" r="14" fill="transparent"/><circle cx="282.7" cy="112" r="6.5" fill="#9b3a22"/></g><text x="415.4" y="98" text-anchor="middle" class="db-val">65%</text><text x="282.7" y="98" text-anchor="middle" class="db-val db-val-after">38%</text></svg></div>
-        <div class="db-panel"><div class="db-title">Outages at least weekly</div><svg class="dumbbell" viewBox="0 0 460 160" role="img" aria-labelledby="db2-t"><title id="db2-t">Outages at least weekly: Buckley 38% before, 21% after; Offutt 46% before, 39% after</title><line x1="96.0" y1="26" x2="96.0" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="96.0" y="154" text-anchor="middle" class="db-axis">0%</text><line x1="194.3" y1="26" x2="194.3" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="194.3" y="154" text-anchor="middle" class="db-axis">20%</text><line x1="292.6" y1="26" x2="292.6" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="292.6" y="154" text-anchor="middle" class="db-axis">40%</text><line x1="390.9" y1="26" x2="390.9" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="390.9" y="154" text-anchor="middle" class="db-axis">60%</text><text x="0" y="63" class="db-row">Buckley</text><line x1="206.2" y1="58" x2="275.7" y2="58" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Buckley, before: 38%</title><circle cx="282.7" cy="58" r="14" fill="transparent"/><circle cx="282.7" cy="58" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Buckley, after: 21%</title><circle cx="199.2" cy="58" r="14" fill="transparent"/><circle cx="199.2" cy="58" r="6.5" fill="#9b3a22"/></g><text x="282.7" y="44" text-anchor="middle" class="db-val">38%</text><text x="199.2" y="44" text-anchor="middle" class="db-val db-val-after">21%</text><text x="0" y="117" class="db-row">Offutt</text><line x1="294.7" y1="112" x2="315.1" y2="112" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Offutt, before: 46%</title><circle cx="322.1" cy="112" r="14" fill="transparent"/><circle cx="322.1" cy="112" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Offutt, after: 39%</title><circle cx="287.7" cy="112" r="14" fill="transparent"/><circle cx="287.7" cy="112" r="6.5" fill="#9b3a22"/></g><text x="322.1" y="98" text-anchor="middle" class="db-val">46%</text><text x="287.7" y="98" text-anchor="middle" class="db-val db-val-after">39%</text></svg></div>
+      <div class="db-panels" style="grid-template-columns: minmax(0, 1fr); max-width: 560px">
+        <div class="db-panel"><svg class="dumbbell" viewBox="0 0 460 160" role="img" aria-labelledby="db1-t"><title id="db1-t">Slow speeds at least daily: Buckley 55% before, 25% after; Offutt 65% before, 38% after</title><line x1="96.0" y1="26" x2="96.0" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="96.0" y="154" text-anchor="middle" class="db-axis">0%</text><line x1="194.3" y1="26" x2="194.3" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="194.3" y="154" text-anchor="middle" class="db-axis">20%</text><line x1="292.6" y1="26" x2="292.6" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="292.6" y="154" text-anchor="middle" class="db-axis">40%</text><line x1="390.9" y1="26" x2="390.9" y2="136" stroke="#dcd8d2" stroke-width="1"/><text x="390.9" y="154" text-anchor="middle" class="db-axis">60%</text><text x="0" y="63" class="db-row">Buckley</text><line x1="225.9" y1="58" x2="359.3" y2="58" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Buckley, before: 55%</title><circle cx="366.3" cy="58" r="14" fill="transparent"/><circle cx="366.3" cy="58" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Buckley, after: 25%</title><circle cx="218.9" cy="58" r="14" fill="transparent"/><circle cx="218.9" cy="58" r="6.5" fill="#9b3a22"/></g><text x="366.3" y="44" text-anchor="middle" class="db-val">55%</text><text x="218.9" y="44" text-anchor="middle" class="db-val db-val-after">25%</text><text x="0" y="117" class="db-row">Offutt</text><line x1="289.7" y1="112" x2="408.4" y2="112" stroke="#6b665f" stroke-opacity="0.45" stroke-width="2"/><g class="db-pt"><title>Offutt, before: 65%</title><circle cx="415.4" cy="112" r="14" fill="transparent"/><circle cx="415.4" cy="112" r="6" fill="#ffffff" stroke="#2f5f6b" stroke-width="2.5"/></g><g class="db-pt"><title>Offutt, after: 38%</title><circle cx="282.7" cy="112" r="14" fill="transparent"/><circle cx="282.7" cy="112" r="6.5" fill="#9b3a22"/></g><text x="415.4" y="98" text-anchor="middle" class="db-val">65%</text><text x="282.7" y="98" text-anchor="middle" class="db-val db-val-after">38%</text></svg></div>
       </div>
       <div class="sr-only">
       <table>
-        <caption>Share of users reporting network problems, before and after the upgrades</caption>
+        <caption>Share of users reporting slow speeds at least daily, before and after the upgrades</caption>
         <thead><tr><th scope="col">Base and measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
         <tbody>
           <tr><th scope="row">Buckley, slow speeds at least daily</th><td>55%</td><td>25%</td></tr>
           <tr><th scope="row">Offutt, slow speeds at least daily</th><td>65%</td><td>38%</td></tr>
-          <tr><th scope="row">Buckley, outages at least weekly</th><td>38%</td><td>21%</td></tr>
-          <tr><th scope="row">Offutt, outages at least weekly</th><td>46%</td><td>39%</td></tr>
         </tbody>
       </table>
       </div>
@@ -1590,7 +1660,7 @@
       <figure class="pq"><blockquote><p>&ldquo;Outlook spins constantly and it takes 10-15 minutes to logon and load Outlook in the morning.&rdquo;</p></blockquote><figcaption>Survey respondent, Operations</figcaption></figure>
       <figure class="pq"><blockquote><p>&ldquo;There are more websites that are blocked from my work computer, but it&rsquo;s so common and I expect it so I don&rsquo;t memorize the sites. I just email the information to my home email and work from there.&rdquo;</p></blockquote><figcaption>Survey respondent, Force Support</figcaption></figure>
     </div>
-    <p>That second answer is a user experience problem and a security risk at once. When access gets in the way of the job, people route around it.</p>
+    <p>That second answer is a user experience problem and a security risk at once.</p>
   </section>
 
   <section class="section">
@@ -1599,8 +1669,8 @@
     <p>In EITaaS, my findings had to be specific enough to inform contract requirements without losing what people on the ground said. For program leadership and engineering, the personas gave everyone the same picture of who they were building for, so provisioning decisions were based on what people at the bases needed.</p>
     <h3 class="sub-heading">Hindsight</h3>
     <div class="hs-list">
-      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Write down how each XLA was derived</div><p class="hs-text">I&rsquo;d document the chain from specific interview and survey findings to each threshold. That would have made the framework easier to defend and to hand to the next phase of the program.</p></div></div>
-      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Build in a way to revisit the thresholds</div><p class="hs-text">The XLAs came from one point in time. A standing feedback loop would show whether a threshold was still the right thing to measure, and not only whether vendors were meeting it.</p></div></div>
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Write down how each XLA was derived</div><p class="hs-text">I&rsquo;d document the chain from specific interview and survey findings to each threshold. That would have made the framework easier to defend and to hand to the next phase of the program.<span class="hs-then">When vendors pushed back on a threshold, the program could point to the finding behind it instead of re-arguing it.</span></p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Build in a way to revisit the thresholds</div><p class="hs-text">The XLAs came from one point in time. A standing feedback loop would show whether a threshold was still the right thing to measure, and not only whether vendors were meeting it.<span class="hs-then">The XLAs could change as bases transitioned, instead of locking in one year&rsquo;s expectations for a multi-year contract.</span></p></div></div>
       <div class="hs-item"><div class="hs-num">3</div><div><div class="hs-title">Invest in key relationships sooner</div><p class="hs-text">Our influence depended on trust with program leadership and on the Air Force survey office, which controlled when and how surveys went out. Earlier effort on both would have cut weeks of waiting.</p></div></div>
     </div>
   </section>

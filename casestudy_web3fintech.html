@@ -1521,6 +1521,65 @@
   .aha-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin-bottom: 18px; }
   .content p.aha-text { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.3; color: var(--ink); max-width: 34ch; margin: 0; }
   .content h3.sub-heading { font-family: var(--serif); font-weight: 400; font-size: 27px; line-height: 1.2; color: var(--ink); margin: 48px 0 14px; }
+
+  /* Oct 2026 additions: outcome strip, slide evidence, tension, hypothesis check, AI workflow */
+  .outcome { padding-top: 56px; }
+  .outcome-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin: 0 0 4px; }
+  .outcome-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+  .outcome-item { padding: 22px 28px 24px 0; }
+  .outcome-item + .outcome-item { border-left: 1px solid var(--rule); padding-left: 28px; }
+  .outcome-fig { font: 400 clamp(30px, 3.4vw, 42px)/1.05 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 10px; }
+  .outcome-item.is-shipped .outcome-fig { color: var(--ink); font-family: var(--serif); letter-spacing: -0.015em; }
+  .outcome-text { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 0; }
+  .outcome-text b { color: var(--ink); font-weight: 600; }
+  .outcome-note { font: 400 14px/1.5 var(--sans); color: var(--ink-3); margin: 12px 0 0; max-width: 72ch; }
+  @media (max-width: 700px) {
+    .outcome-row { grid-template-columns: 1fr; }
+    .outcome-item { padding: 18px 0; }
+    .outcome-item + .outcome-item { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; }
+  }
+
+  .slide-ev { margin-top: 2.4cqw; padding-top: 1.6cqw; border-top: 1px solid var(--rule); max-width: 34ch; }
+  .slide-ev-fig { font: 400 3.4cqw/1 var(--sans); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; margin-bottom: 0.8cqw; }
+  .slide-ev-text { font: 400 1.3cqw/1.45 var(--sans); color: var(--ink-2); }
+  .slide-ev-bar { display: flex; height: 0.9cqw; min-height: 6px; margin-bottom: 1cqw; background: #eeece8; }
+  .slide-ev-bar span { display: block; height: 100%; background: var(--accent); }
+  @media (max-width: 700px) {
+    .slide-ev { margin-top: 16px; padding-top: 12px; }
+    .slide-ev-fig { font-size: 30px; margin-bottom: 6px; }
+    .slide-ev-text { font-size: 14px; }
+    .slide-ev-bar { height: 8px; margin-bottom: 8px; }
+  }
+
+  .hyp-m { font: 400 15px/1.6 var(--sans); color: var(--ink-2); margin: 12px 0 0; padding-left: 14px; border-left: 2px solid var(--rule); }
+  .hyp-m span { display: block; font-weight: 600; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+
+  .tension { margin-top: 36px; padding: 24px 28px; background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  .tension-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 8px; }
+  .tension p { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--ink); max-width: 60ch; }
+  @media (max-width: 700px) { .tension { padding: 20px 18px; } .tension p { font-size: 19px; } }
+
+  .hs-then { display: block; margin-top: 6px; color: var(--ink); }
+  .hs-then::before { content: "Result: "; font-weight: 600; color: var(--accent); }
+
+  .aiflow { margin: 8px 0 0; border: 1px solid var(--ink); border-radius: 2px; padding: 28px 30px 24px; }
+  .aiflow-tag { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); margin-bottom: 4px; }
+  .aiflow-total { font-family: var(--serif); font-size: 26px; line-height: 1.25; color: var(--ink); margin-bottom: 22px; }
+  .aiflow-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0; counter-reset: aif; }
+  .aiflow-steps li { position: relative; padding: 14px 14px 0 0; border-top: 3px solid var(--rule); }
+  .aiflow-steps li.is-ai { border-top-color: var(--data-2); }
+  .aiflow-steps li.is-me { border-top-color: var(--accent); }
+  .aiflow-steps li.is-script { border-top-color: var(--ink-3); }
+  .aiflow-who { font: 600 12px/1.3 var(--sans); letter-spacing: 0.02em; color: var(--ink-3); margin-bottom: 6px; }
+  .aiflow-steps li.is-ai .aiflow-who { color: var(--data-2); }
+  .aiflow-steps li.is-me .aiflow-who { color: var(--accent); }
+  .aiflow-step { font-family: var(--serif); font-size: 19px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+  .aiflow-desc { font: 400 13.5px/1.5 var(--sans); color: var(--ink-2); }
+  .aiflow-saved { display: block; margin-top: 8px; font: 500 13.5px/1.3 var(--sans); color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+  .aiflow-key { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 13px/1.4 var(--sans); color: var(--ink-3); }
+  .aiflow-key i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+  @media (max-width: 900px) { .aiflow-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; } }
+  @media (max-width: 480px) { .aiflow { padding: 22px 18px; } .aiflow-steps { grid-template-columns: 1fr; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1549,9 +1608,9 @@
   <a href="https://linkedin.com/in/shannonlcoleman" class="cs-nav-linkedin" target="_blank" rel="noopener">LinkedIn&nbsp;&#8599;</a>
   <div class="cs-nav-studies">
     <a href="casestudy_healthplatform.html" class="cs-nav-study">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-study">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-study active">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-study">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-study">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-study">Research Panel</a>
   </div>
@@ -1559,9 +1618,9 @@
   <summary class="cs-nav-dropdown-btn">Case Studies &#9662;</summary>
   <div class="cs-nav-dropdown-list">
     <a href="casestudy_healthplatform.html" class="cs-nav-dropdown-item">AI Health Platform</a>
+    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_advana.html" class="cs-nav-dropdown-item">Advana</a>
     <a href="casestudy_web3fintech.html" class="cs-nav-dropdown-item active">Tokenized Asset Platform</a>
-    <a href="casestudy_resumetool.html" class="cs-nav-dropdown-item">AI Resume Tool</a>
     <a href="casestudy_eitaas.html" class="cs-nav-dropdown-item">EITaaS</a>
     <a href="casestudy_researchpanel.html" class="cs-nav-dropdown-item">Research Panel</a>
   </div>
@@ -1573,7 +1632,7 @@
   <div class="masthead-inner">
     <div class="program-tag">Tokenized Asset Platform (NDA) &nbsp;&bull;&nbsp; Coleman Advisory &nbsp;&bull;&nbsp; 2025</div>
     <h1 class="case-title">&ldquo;Pending&rdquo; Looked Like Lost Money</h1>
-    <p class="deck">A UX and regulatory audit of a platform for investing in real-world assets through blockchain-based tokens, before launch</p>
+    <p class="deck">In six weeks before launch, I audited every transaction state and onboarding step to find what would lose first-time investors. The client relabeled its transaction states, reordered onboarding, and cut compliance approval from 6&ndash;8 weeks to 3&ndash;5.</p>
   </div>
 </header>
 
@@ -1582,13 +1641,21 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
+      <div class="tldr-row"><dt>What was at stake</dt><dd>Users who think their money is gone call support or leave, right when a new financial product most needs their trust.</dd></div>
       <div class="tldr-row"><dt>What changed</dt><dd>The client relabeled its transaction states and moved the product explainer ahead of wallet setup. UX and compliance also became one workstream.</dd></div>
-      <div class="tldr-row"><dt>Result</dt><dd>Compliance approval went from <span style="white-space: nowrap">6&ndash;8 weeks</span> to 3&ndash;5.</dd></div>
-      <div class="tldr-row"><dt>Projected impact</dt><dd>The roadmap projected a 22% lift in 90-day retention and about half as many support tickets.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Research lead and strategic advisor, from the audit through the executive roadmap and implementation support</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>6 weeks: 1 of discovery, 2 of research, 1 of synthesis, 2 of readout and implementation support</dd></div>
-      <div class="tldr-row"><dt>Why it mattered</dt><dd>A successful launch depended on keeping people after their first transaction.</dd></div>
     </dl>
+  </section>
+
+  <section class="outcome" aria-label="Measurable outcome">
+    <div class="outcome-label">Measurable outcome</div>
+    <div class="outcome-row">
+      <div class="outcome-item"><div class="outcome-fig"><span style="white-space: nowrap">6&ndash;8 &rarr; 3&ndash;5</span></div><p class="outcome-text"><b>Weeks to compliance approval</b>, measured. UX and compliance reviewed changes together instead of one after the other.</p></div>
+      <div class="outcome-item"><div class="outcome-fig">17</div><p class="outcome-text"><b>Friction points</b> found and ranked by combined UX and regulatory risk, each with an owner. 11 were in transaction states.</p></div>
+      <div class="outcome-item is-shipped"><div class="outcome-fig">Shipped</div><p class="outcome-text">Relabeled transaction states, and onboarding that explains the investment before asking for a wallet.</p></div>
+    </div>
+    <p class="outcome-note">The roadmap also projected a 22% lift in 90-day retention and about half as many support tickets. Those are projections, not measured results.</p>
   </section>
 
   <section class="section key-visual">
@@ -1598,6 +1665,7 @@
           <div class="slide-label">Recommendation</div>
           <div class="slide-headline">Put UX and compliance fixes on one roadmap</div>
           <div class="slide-support">The same unclear transaction states that confused people also created regulatory risk.</div>
+          <div class="slide-ev"><div class="slide-ev-label slide-label">Evidence</div><div class="slide-ev-fig">11 of 17</div><div class="slide-ev-bar" aria-hidden="true"><span style="width: 65%"></span></div><div class="slide-ev-text">friction points were in transaction states, not onboarding.</div></div>
         </div>
         <div class="slide-right">
           <div class="slide-col slide-before">
@@ -1621,7 +1689,7 @@
 
   <section class="section aha">
     <div class="aha-label">Aha moment</div>
-    <p class="aha-text">The client was focused on onboarding. Most of the friction came after people sent money and couldn&rsquo;t tell whether it was moving.</p>
+    <p class="aha-text">Most of the friction came after people sent money, when they couldn&rsquo;t tell whether it was moving.</p>
   </section>
 
   <section class="section key-visual">
@@ -1688,6 +1756,10 @@
       <div class="w3x-heading">Closing the gap between what users expected and how the product works</div>
       <div class="w3x-mm"><div class="w3x-mh"></div><div class="w3x-mh">What users assumed</div><div class="w3x-mh">How it actually works</div><div class="w3x-mh is-new">What the redesign changed</div><div class="w3x-mn">1</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;Pending for more than a few seconds means something went wrong.&rdquo;</p><p class="w3x-why">Card payments and bank logins feel instant, so a delay reads as a dropped connection or lost funds.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Blockchain validation and compliant custodial clearing take minutes to hours.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>A progress bar showing the three phases (network confirmation, compliance check, minting) with estimated time ranges.</p></div><div class="w3x-mn">2</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;If my balance hasn&rsquo;t updated, the transaction didn&rsquo;t happen.&rdquo;</p><p class="w3x-why">Balances change the moment you click Submit.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Funds sit locked in escrow while the underlying real-world asset rails settle.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>An &ldquo;In settlement&rdquo; balance showing locked and available funds right after the transaction starts.</p></div><div class="w3x-mn">3</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;I need to set up my wallet before I understand the investment.&rdquo;</p><p class="w3x-why">Security setup always comes before the details of what you&rsquo;re buying.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Understanding the investment doesn&rsquo;t require a wallet. The wallet is only needed to transact.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Onboarding re-sequenced to explain yield structure and asset backing before asking for a wallet connection or KYC.</p></div><div class="w3x-mn">4</div><div class="w3x-mc"><span class="w3x-ml">What users assumed</span><p class="w3x-q">&ldquo;The legal fine print is generic boilerplate I can skip.&rdquo;</p><p class="w3x-why">Disclosures are standard FDIC and FINRA language that protects the platform.</p></div><div class="w3x-mc"><span class="w3x-ml">How it actually works</span><p>Smart contract interactions and tokenized holdings carry specific, non-reversible risks.</p></div><div class="w3x-mc is-new"><span class="w3x-ml">What the redesign changed</span><p>Short disclosures placed at the point of decision, such as the lockup period shown right on the submit button.</p></div></div>
     </figure>
+    <div class="tension">
+      <div class="tension-label">The tension</div>
+      <p>Users needed plain-language transaction states. Compliance needed precise regulatory wording. Putting both on one roadmap meant every label had to pass both tests.</p>
+    </div>
   </section>
 
   <section class="section">
@@ -1695,14 +1767,13 @@
     <h2 class="section-heading">The client expected onboarding to be the problem</h2>
     <div class="hyp-list">
       <div class="hyp-row"><div><div class="hyp-k">The client&rsquo;s hypothesis</div><p class="hyp-q">The biggest risk of losing users is in onboarding.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Not supported</span></div><p class="hyp-a">Transaction states held almost three times as many friction points as onboarding.</p></div></div>
-      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People bring a banking mental model, so a normal settlement delay reads as lost money.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Participants expected money to move as soon as they clicked Submit, and a spinner with no time estimate looked like an error.</p></div></div>
+      <div class="hyp-row"><div><div class="hyp-k">My hypothesis</div><p class="hyp-q">People bring a banking mental model, so a normal settlement delay reads as lost money.</p><p class="hyp-m"><span>What would have changed my mind</span>If people had read the pending state correctly and still left, the problem would have been somewhere else, probably onboarding, as the client thought.</p></div><div><div class="hyp-k">What the research showed<span class="hyp-v">Supported</span></div><p class="hyp-a">Participants expected money to move as soon as they clicked Submit, and a spinner with no time estimate looked like an error.</p></div></div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-label">The challenge</div>
     <h2 class="section-heading">Traditional finance on the surface, blockchain underneath</h2>
-    <p>Users who think their money is gone don&rsquo;t wait around. They call support or leave, right when a new financial product most needs their trust.</p>
     <p>The client let people invest in real-world assets through blockchain-based tokens, inside a regulated framework. The interface looked like a familiar banking app. Underneath, settlement happened in stages over minutes to hours, and the screen didn&rsquo;t show those stages.</p>
     <p>I was brought in before launch to audit onboarding and the full transaction flow, find the friction most likely to hurt retention, and deliver a roadmap ranked by both UX and regulatory risk.</p>
   </section>
@@ -1727,6 +1798,7 @@
         <div><div class="tl-track"><span style="left: 66.67%; width: 33.33%"></span></div><div class="tl-lab is-right" style="padding-right: -0.00%"><b>Readout and implementation support</b> <span class="tl-dur">&middot; 2 weeks</span><br>Moved the fixes into the build.</div></div>
       </div>
     </figure>
+    <p class="tl-note">Nine sessions were enough because the walkthrough had already mapped every state. The sessions showed which ones people misread.</p>
   </section>
 
   <section class="section">
@@ -1754,14 +1826,14 @@
           <div class="w3x-dur">2 to 15 minutes</div>
           <div class="w3x-k">Screen showed</div><p class="w3x-v">A loading spinner labeled &ldquo;Processing&hellip;&rdquo; with no timer.</p>
           <div class="w3x-k">Users thought</div><p class="w3x-v w3x-q">&ldquo;The page froze, or my transaction failed and my funds are lost.&rdquo;</p>
-          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-01">#01</a><a class="w3x-chip" href="#fp-02">#02</a><a class="w3x-chip" href="#fp-05">#05</a><a class="w3x-chip" href="#fp-11">#11</a></div>
+          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-01">#01</a><a class="w3x-chip" href="#fp-02">#02</a><a class="w3x-chip" href="#fp-03">#03</a><a class="w3x-chip" href="#fp-05">#05</a><a class="w3x-chip" href="#fp-11">#11</a></div>
         </div>
         <div class="w3x-state">
           <div class="w3x-sname">Settling</div>
           <div class="w3x-dur">1 to 24 hours</div>
           <div class="w3x-k">Screen showed</div><p class="w3x-v">The dashboard, still showing the balance from before the transaction.</p>
           <div class="w3x-k">Users thought</div><p class="w3x-v w3x-q">&ldquo;It didn&rsquo;t go through. My balance hasn&rsquo;t changed.&rdquo;</p>
-          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-04">#04</a><a class="w3x-chip" href="#fp-06">#06</a><a class="w3x-chip" href="#fp-08">#08</a><a class="w3x-chip" href="#fp-10">#10</a></div>
+          <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-04">#04</a><a class="w3x-chip" href="#fp-06">#06</a><a class="w3x-chip" href="#fp-09">#09</a><a class="w3x-chip" href="#fp-10">#10</a></div>
         </div>
         <div class="w3x-state">
           <div class="w3x-sname">Completed</div>
@@ -1771,6 +1843,7 @@
           <div class="w3x-k">Friction points</div><div class="w3x-chips"><a class="w3x-chip" href="#fp-07">#07</a></div>
         </div>
       </div>
+      <p class="w3x-sub" style="margin-top: 16px">Not shown here: the other onboarding and regulatory items, and #08, which is in the withdrawal flow.</p>
     </figure>
     <figure class="w3x-fig w3x-matrix">
       <div class="w3x-tag">The audit matrix</div>
@@ -1827,8 +1900,8 @@
     <p>This project showed me that clear transaction screens and regulatory safety sometimes need the same fix. For the product and engineering teams, the audit settled debates about the experience and turned them into a prioritized list of fixes, each with an owner.</p>
     <h3 class="sub-heading">Hindsight</h3>
     <div class="hs-list">
-      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Run the onboarding and transaction reviews at the same time</div><p class="hs-text">People who skipped the explainer during onboarding were the ones most likely to panic at a pending state. Running both reviews together would have connected those findings sooner.</p></div></div>
-      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Test the disclosure language directly</div><p class="hs-text">The regulatory findings mattered more than their count of two suggests. Comprehension testing on the disclosure language would have given that recommendation stronger evidence. Time and budget didn&rsquo;t allow it, and it&rsquo;s the piece I&rsquo;d add first.</p></div></div>
+      <div class="hs-item"><div class="hs-num">1</div><div><div class="hs-title">Run the onboarding and transaction reviews at the same time</div><p class="hs-text">People who skipped the explainer during onboarding were the ones most likely to panic at a pending state. Running both reviews together would have connected those findings sooner.<span class="hs-then">The explainer fix and the pending-state fix could have been treated as one problem from the start.</span></p></div></div>
+      <div class="hs-item"><div class="hs-num">2</div><div><div class="hs-title">Test the disclosure language directly</div><p class="hs-text">The regulatory findings mattered more than their count of two suggests. Comprehension testing on the disclosure language would have given that recommendation stronger evidence. Time and budget didn&rsquo;t allow it, and it&rsquo;s the piece I&rsquo;d add first.<span class="hs-then">Compliance would have had user evidence, not just my read, for the two items most likely to get argued down.</span></p></div></div>
     </div>
   </section>
 
