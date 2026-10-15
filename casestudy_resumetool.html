@@ -1547,6 +1547,17 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-W97T1GM03N');
+  document.addEventListener('DOMContentLoaded', function () {
+    var d = document.querySelector('details.full-study');
+    if (!d) return;
+    var sent = false;
+    d.addEventListener('toggle', function () {
+      if (d.open && !sent) {
+        sent = true;
+        gtag('event', 'read_full_case_study', { case_study: document.title.replace(/^Case Study: | \| Shannon.*$/g, '') });
+      }
+    });
+  });
 </script>
 </head>
 <body>
@@ -1593,7 +1604,7 @@
       <div class="tldr-row"><dt>Result</dt><dd>Avoided about 2 sprints, or roughly $50,000&ndash;$65,000, of misdirected engineering work. In follow-up testing, task completion confidence rose for 5 of 6 participants.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Solo researcher and strategist, from study design through recommendations</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 2 weeks to recommendations, then a readout and follow-up test</dd></div>
-      <div class="tldr-row"><dt>Why it mattered</dt><dd>The client was betting that AI feedback would make the tool worth using for people searching for jobs.</dd></div>
+      <div class="tldr-row"><dt>Why it mattered</dt><dd>The client was betting that AI feedback would make the tool worth using for job seekers.</dd></div>
     </dl>
   </section>
 

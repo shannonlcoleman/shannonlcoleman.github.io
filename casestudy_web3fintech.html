@@ -1529,6 +1529,17 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-W97T1GM03N');
+  document.addEventListener('DOMContentLoaded', function () {
+    var d = document.querySelector('details.full-study');
+    if (!d) return;
+    var sent = false;
+    d.addEventListener('toggle', function () {
+      if (d.open && !sent) {
+        sent = true;
+        gtag('event', 'read_full_case_study', { case_study: document.title.replace(/^Case Study: | \| Shannon.*$/g, '') });
+      }
+    });
+  });
 </script>
 </head>
 <body>
