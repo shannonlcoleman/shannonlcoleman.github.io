@@ -1323,6 +1323,11 @@
     .slide-goal { font-size: 15px; padding-top: 12px; }
     .slide-foot { font-size: 12px; flex-direction: column; gap: 4px; padding-top: 10px; }
   }
+
+  /* Aha moment */
+  .aha { padding-top: 64px; }
+  .aha-label { font: 600 14px/1.5 var(--sans); letter-spacing: 0.02em; color: var(--accent); border-top: 1px solid var(--ink); padding-top: 14px; margin-bottom: 18px; }
+  .content p.aha-text { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.3; color: var(--ink); max-width: 34ch; margin: 0; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -1376,7 +1381,7 @@
   <section class="tldr" aria-labelledby="tldr-label">
     <h2 class="tldr-label" id="tldr-label">TL;DR</h2>
     <dl class="tldr-list">
-            <div class="tldr-row"><dt>What changed</dt><dd>A redesigned navigation, content model, and clickable prototype, built on statistically validated user archetypes that product teams used for design.</dd></div>
+            <div class="tldr-row"><dt>What changed</dt><dd>Product teams designed against the research&rsquo;s statistically validated user archetypes, and CDAO&rsquo;s platform strategy shifted toward tools built for each persona, a more stable infrastructure, and more guidance in the interface.</dd></div>
       <div class="tldr-row"><dt>Result</dt><dd>DoD paused development in June 2024 to fix its infrastructure, as I recommended, and the $15B recompete that followed centered on a modular, multi-vendor architecture.</dd></div>
       <div class="tldr-row"><dt>My role</dt><dd>Lead researcher and platform strategist, directing a cross-functional team of about 7 from study design through the prototype and roadmap</dd></div>
       <div class="tldr-row"><dt>Timeline</dt><dd>About 14 months</dd></div>
@@ -1409,6 +1414,11 @@
         <div class="slide-foot"><span>Advana &middot; DoD CDAO</span><span>Adapted for this portfolio</span></div>
       </div>
     </figure>
+  </section>
+
+  <section class="section aha">
+    <div class="aha-label">Aha moment</div>
+    <p class="aha-text">Leadership had been treating each problem on its own. The research showed six failures happening at once, all because the platform had grown faster than its architecture, design, and support.</p>
   </section>
 
   <section class="section key-visual">
@@ -1578,6 +1588,7 @@
     <div class="slc-call">People described not knowing where to go and searching across several community spaces.</div>
   </div>
 </div>
+    <p style="margin-top: 32px">In field observations, people routinely overrode the platform&rsquo;s AI recommendations because they didn&rsquo;t trust them enough to rely on them. That trust gap was one of the barriers holding back adoption.</p>
   </section>
 
 
