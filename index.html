@@ -787,7 +787,7 @@
 
   /* Hero calibration plot (desktop only) */
   .hero-inner { position: relative; }
-  .hero-plot { position: absolute; top: 34px; right: 0; width: clamp(220px, 22vw, 270px); height: auto; overflow: visible; }
+  .hero-plot { position: absolute; top: 48px; left: 62%; width: clamp(220px, 22vw, 270px); height: auto; overflow: visible; }
   .hero-plot .ax { stroke: var(--ink-3); stroke-width: 1.25; fill: none; }
   .hero-plot .diag { stroke: var(--ink-3); stroke-width: 1.25; stroke-dasharray: 4 4; fill: none; }
   .hero-plot .gap { fill: var(--accent); fill-opacity: 0.12; stroke: none; }
@@ -833,9 +833,9 @@
   <div class="hero-inner">
     <div class="hero-label">Portfolio</div>
     <svg class="hero-plot" viewBox="0 0 260 230" role="img" aria-label="Calibration plot: confidence versus accuracy">
-      <path class="gap" d="M44 194 L250 12 L250 96 Q156 150 44 194 Z"/>
+      <path class="gap" d="M44 194 L250 12 L250 44 Q176 168 44 194 Z"/>
       <line class="diag" x1="44" y1="194" x2="250" y2="12"/>
-      <path class="curve" d="M44 194 Q156 150 250 96"/>
+      <path class="curve" d="M44 194 Q176 168 250 44"/>
       <path class="ax" d="M44 8 L44 194 L252 194"/>
       <text x="148" y="222" text-anchor="middle">confidence</text>
       <text transform="translate(22 101) rotate(-90)" text-anchor="middle">accuracy</text>
