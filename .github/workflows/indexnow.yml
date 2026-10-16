@@ -1,0 +1,37 @@
+name: IndexNow
+
+on:
+  page_build: # runs after every GitHub Pages build, including ones started by the Update Writing job
+  workflow_dispatch: # "Run workflow" button resubmits every page in sitemap.xml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Submit changed pages
+        if: github.event_name == 'page_build'
+        run: |
+          if [ "${{ github.event.build.status }}" != "built" ]; then
+            echo "Pages build status was '${{ github.event.build.status }}'. Skipping."
+            exit 0
+          fi
+          python scripts/indexnow.py
+
+      - name: Submit all pages
+        if: github.event_name == 'workflow_dispatch'
+        run: python scripts/indexnow.py --all
