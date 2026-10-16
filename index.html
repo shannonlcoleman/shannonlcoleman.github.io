@@ -787,12 +787,12 @@
 
   /* Hero calibration plot (desktop only) */
   .hero-inner { position: relative; }
-  .hero-plot { position: absolute; top: 48px; left: 62%; width: clamp(220px, 22vw, 270px); height: auto; overflow: visible; }
-  .hero-plot .ax { stroke: var(--ink-3); stroke-width: 1.25; fill: none; }
-  .hero-plot .diag { stroke: var(--ink-3); stroke-width: 1.25; stroke-dasharray: 4 4; fill: none; }
-  .hero-plot .gap { fill: var(--accent); fill-opacity: 0.12; stroke: none; }
-  .hero-plot .curve { stroke: var(--accent); stroke-width: 2; fill: none; stroke-linecap: round; }
-  .hero-plot text { font-family: var(--sans); font-size: 13px; fill: var(--ink-3); }
+  .hero-plot { position: absolute; top: 48px; left: 62%; width: clamp(240px, 24vw, 300px); height: auto; overflow: visible; }
+  .hero-plot .ax { stroke: var(--ink-3); stroke-width: 1.5; fill: none; }
+  .hero-plot .diag { stroke: var(--ink-3); stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+  .hero-plot .gap { fill: var(--accent); fill-opacity: 0.1; stroke: none; }
+  .hero-plot .curve { stroke: var(--accent); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+  .hero-plot text { font-family: var(--sans); font-size: 15px; fill: var(--ink-3); }
   @media (max-width: 960px) { .hero-plot { display: none; } }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -833,12 +833,12 @@
   <div class="hero-inner">
     <div class="hero-label">Portfolio</div>
     <svg class="hero-plot" viewBox="0 0 260 230" role="img" aria-label="Calibration plot: confidence versus accuracy">
-      <path class="gap" d="M44 194 L250 12 L250 44 Q176 168 44 194 Z"/>
+      <path class="gap" d="M44 194 L250 12 L250 92 Q130 118 44 194 Z"/>
       <line class="diag" x1="44" y1="194" x2="250" y2="12"/>
-      <path class="curve" d="M44 194 Q176 168 250 44"/>
+      <path class="curve" d="M44 194 Q130 118 250 92"/>
       <path class="ax" d="M44 8 L44 194 L252 194"/>
-      <text x="148" y="222" text-anchor="middle">confidence</text>
-      <text transform="translate(22 101) rotate(-90)" text-anchor="middle">accuracy</text>
+      <text x="148" y="224" text-anchor="middle">confidence</text>
+      <text transform="translate(20 101) rotate(-90)" text-anchor="middle">accuracy</text>
     </svg>
     <h1 class="hero-name">Shannon L.<br><em>Coleman</em></h1>
     <div class="hero-credential">PhD &nbsp;&bull;&nbsp; Secret Clearance (Inactive)</div>
