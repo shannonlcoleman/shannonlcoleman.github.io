@@ -784,6 +784,17 @@
   .case-studies .cs-thumb-stat { display: flex; flex-direction: column; justify-content: center; padding: 0 40px; border-top: 3px solid var(--accent); box-sizing: border-box; }
   .cs-stat-n { font-family: var(--sans); font-size: clamp(44px, 5vw, 64px); font-weight: 400; letter-spacing: -0.02em; font-variant-numeric: lining-nums tabular-nums; color: var(--accent); line-height: 1; }
   .cs-stat-c { font-family: var(--serif); font-size: 19px; color: var(--ink-2); margin-top: 10px; }
+
+  /* Hero calibration plot (desktop only) */
+  .hero-inner { position: relative; }
+  .hero-plot { position: absolute; top: 34px; right: 0; width: clamp(220px, 22vw, 270px); height: auto; overflow: visible; }
+  .hero-plot .ax { stroke: var(--ink-3); stroke-width: 1.25; fill: none; }
+  .hero-plot .diag { stroke: var(--ink-3); stroke-width: 1.25; stroke-dasharray: 4 4; fill: none; }
+  .hero-plot .gap { fill: var(--accent); fill-opacity: 0.12; stroke: none; }
+  .hero-plot .curve { stroke: var(--accent); stroke-width: 2; fill: none; stroke-linecap: round; }
+  .hero-plot text { font-family: var(--sans); font-size: 13px; fill: var(--ink-3); }
+  .hero-plot .gap-label { fill: var(--accent); font-weight: 500; font-size: 11px; }
+  @media (max-width: 960px) { .hero-plot { display: none; } }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W97T1GM03N"></script>
@@ -822,6 +833,15 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-label">Portfolio</div>
+    <svg class="hero-plot" viewBox="0 0 260 230" role="img" aria-label="Calibration plot: confidence versus accuracy">
+      <path class="gap" d="M44 194 L250 12 L250 96 Q156 150 44 194 Z"/>
+      <line class="diag" x1="44" y1="194" x2="250" y2="12"/>
+      <path class="curve" d="M44 194 Q156 150 250 96"/>
+      <path class="ax" d="M44 8 L44 194 L252 194"/>
+      <text x="148" y="222" text-anchor="middle">confidence</text>
+      <text transform="translate(22 101) rotate(-90)" text-anchor="middle">accuracy</text>
+      <text class="gap-label" x="207" y="99" text-anchor="middle">overconfident</text>
+    </svg>
     <h1 class="hero-name">Shannon L.<br><em>Coleman</em></h1>
     <div class="hero-credential">PhD &nbsp;&bull;&nbsp; Secret Clearance (Inactive)</div>
     <p class="hero-title">Principal Mixed Methods Researcher and Strategist with 10+ years of qualitative and quantitative research shaping product roadmaps, go-to-market strategy, and AI platforms.</p>
