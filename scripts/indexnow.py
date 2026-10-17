@@ -18,7 +18,7 @@ from pathlib import Path
 
 HOST = "shannonlcoleman.com"
 KEY = "d5dc05d77f0dc5f91f8ec4d8ea7ae976"  # public by design; must match the .txt file at the site root
-ENDPOINT = "https://api.indexnow.org/indexnow"
+ENDPOINT = "https://www.bing.com/indexnow"
 ROOT = Path(__file__).resolve().parent.parent
 
 
