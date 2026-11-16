@@ -1,0 +1,31 @@
+# Shannon L. Coleman, PhD
+
+> Principal Mixed Methods Researcher and Strategist with 10+ years of qualitative and quantitative research shaping product roadmaps, go-to-market strategy, and AI platforms. PhD in psychology and quantitative methods from the University at Buffalo. Her work focuses on AI trust and evaluation, including the gap between how confident an AI system sounds and how accurate it is.
+
+Shannon has led research for DoD enterprise platforms (Advana and EITaaS), an AI health platform, an AI resume feedback tool, a tokenized asset platform, and pharma and banking clients. She knows when a question needs a regression model and when it needs an hour of sitting with someone and listening.
+
+## Case studies
+
+- [AI Health Platform](https://shannonlcoleman.com/casestudy_healthplatform.html): Research found a trust problem behind stalled sign-ups. The channel strategy it led to took users from fewer than 20 to 16,000+.
+- [AI Resume Feedback Tool](https://shannonlcoleman.com/casestudy_resumetool.html): A usability test with 6 job seekers found an unexplained score made them doubt the tool's advice. The team rebuilt the flow before engineering began.
+- [Advana](https://shannonlcoleman.com/casestudy_advana.html): A 14-month mixed methods program on why DoD's Advana AI platform got harder to use as it grew. Leadership paused development to fix its infrastructure.
+- [Tokenized Asset Platform](https://shannonlcoleman.com/casestudy_web3fintech.html): A six-week audit before launch. The client relabeled transaction states and cut compliance approval from 6 to 8 weeks down to 3 to 5.
+- [EITaaS](https://shannonlcoleman.com/casestudy_eitaas.html): Research across nine Air Force bases that turned five personas into Experience Level Agreements for a $5.7B enterprise IT contract.
+- [Research Panel](https://shannonlcoleman.com/casestudy_researchpanel.html): Building a 1,000-person opt-in research panel from zero for pharma and banking clients, which cut external recruitment spend to $0.
+
+## Tools
+
+- [The Capability Question](https://shannonlcoleman.com/capability-measurement-tool): An AI-powered research design assistant for measuring what AI enablement does to the people using it.
+- [AI Calibration Audit](https://huggingface.co/spaces/shannonlcoleman/calibration-audit): An open-source tool for checking confidence calibration in AI model outputs. Source on [GitHub](https://github.com/shannonlcoleman/calibration-audit).
+
+## Writing
+
+- [Ground Truth on Substack](https://byshannoncoleman.substack.com): Writing on AI research rigor, measurement, and the gap between confident and accurate outputs.
+- [Writing archive](https://shannonlcoleman.com/writing.html)
+
+## More
+
+- [Resume](https://shannonlcoleman.com/resume.html)
+- [Coleman Advisory](https://shannonlcoleman.com/coleman-advisory/): Research consulting and fractional research leadership.
+- [LinkedIn](https://www.linkedin.com/in/shannonlcoleman)
+- [Google Scholar](https://scholar.google.com/citations?user=ArNx8IcAAAAJ)
