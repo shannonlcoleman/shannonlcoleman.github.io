@@ -1,6 +1,6 @@
 # Shannon L. Coleman, PhD
 
-> Principal Mixed Methods Researcher and Strategist with 10+ years of qualitative and quantitative research shaping product roadmaps, go-to-market strategy, and AI platforms. PhD in psychology and quantitative methods from the University at Buffalo. Her work focuses on AI trust and evaluation, including the gap between how confident an AI system sounds and how accurate it is.
+> Principal Mixed Methods Researcher and Strategist with 10+ years of qualitative and quantitative research shaping product roadmaps, go-to-market strategy, and AI platforms. PhD in psychology and quantitative methods from the University at Buffalo. Her work focuses on AI evaluation and how people come to trust, question, or ignore what AI tells them.
 
 Shannon has led research for DoD enterprise platforms (Advana and EITaaS), an AI health platform, an AI resume feedback tool, a tokenized asset platform, and pharma and banking clients. She knows when a question needs a regression model and when it needs an hour of sitting with someone and listening.
 
@@ -20,7 +20,7 @@ Shannon has led research for DoD enterprise platforms (Advana and EITaaS), an AI
 
 ## Writing
 
-- [Ground Truth on Substack](https://byshannoncoleman.substack.com): Writing on AI research rigor, measurement, and the gap between confident and accurate outputs.
+- [Ground Truth on Substack](https://byshannoncoleman.substack.com): Writing on AI evaluation, research, and the calibration of confidence.
 - [Writing archive](https://shannonlcoleman.com/writing.html)
 
 ## More
